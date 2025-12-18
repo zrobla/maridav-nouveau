@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#061948">
+  <title>ChickCare® — Pré-démarrage premium (0–7 jours) | MARIDAV</title>
+  <meta name="description" content="ChickCare® : aliment pré-démarrage 0–7 jours distribué par MARIDAV Côte d’Ivoire. Hyper digestible, riche en vitamines et conçu pour sécuriser la prise d’aliment des poussins dès l’arrivée.">
+  <meta property="og:title" content="ChickCare® — Pré-démarrage premium (0–7 jours)">
+  <meta property="og:description" content="Offrez à vos poussins un démarrage supérieur avec ChickCare®, distribué par MARIDAV CI et supporté par des experts nutrition.">
+  <meta property="og:image" content="https://maridav.ci/maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png">
+  <link rel="icon" type="image/png" sizes="56x56" href="favicon_io/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+  <style>
+    :root { --brand-primary:#0b5ef4; --brand-secondary:#00c7b1; --brand-dark:#0b1f36; --brand-muted:#5b6475; --card-radius:1.25rem; }
+    body.premium-active { background:#f5f7fb; color:var(--brand-dark); font-family:"Inter","Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .navbar-premium { background:rgba(255,255,255,0.96); box-shadow:0 16px 35px rgba(15,31,47,0.12); backdrop-filter:blur(6px); }
+    .navbar-premium .nav-link, .navbar-premium .dropdown-item { font-size:0.9rem; letter-spacing:0.02em; text-transform:uppercase; }
+    main { overflow:hidden; }
+    .premium-hero { background:radial-gradient(circle at top left,#123b94,#051937 70%); color:#fff; padding:4.5rem 0 3.5rem; position:relative; }
+    .premium-hero::after { content:""; position:absolute; inset:0; background:radial-gradient(circle at top,rgba(255,255,255,0.18),transparent 70%); opacity:0.65; pointer-events:none; }
+    .premium-hero .container { position:relative; z-index:2; }
+    .hero-media { border-radius:var(--card-radius); overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,0.45); position:relative; }
+    .hero-media img { width:100%; display:block; }
+    .hero-media .media-badge { position:absolute; bottom:1.25rem; left:1.25rem; background:rgba(11,31,54,0.85); border-radius:0.85rem; padding:1rem 1.25rem; width:calc(100% - 2.5rem); color:#fff; }
+    .badge-stack { display:inline-flex; flex-wrap:wrap; gap:0.5rem; }
+    .badge-stack span, .badge-spec { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; border-radius:999px; padding:0.35rem 0.9rem; font-size:0.75rem; letter-spacing:0.1em; }
+    .stat-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.3); border-radius:1rem; padding:1rem; min-height:130px; color:#f4f8ff; }
+    .stat-pill strong { font-size:1.4rem; display:block; }
+    .trust-strip { background:#fff; padding:1.5rem 0; border-bottom:1px solid rgba(11,31,54,0.08); }
+    .section-spacing { padding:4rem 0; }
+    .section-title span { text-transform:uppercase; letter-spacing:0.18em; font-size:0.78rem; color:var(--brand-secondary); font-weight:600; }
+    .section-title h2 { margin-top:0.5rem; font-weight:700; color:var(--brand-dark); }
+    .card-premium { border-radius:var(--card-radius); border:1px solid rgba(5,25,55,0.08); background:#fff; padding:1.75rem; box-shadow:0 35px 60px rgba(15,25,55,0.08); }
+    .card-premium.dark { background:#0b1f36; color:#fff; border-color:rgba(255,255,255,0.08); }
+    .benefit-icon, .icon-circle { width:52px; height:52px; border-radius:50%; background:rgba(11,94,244,0.15); color:var(--brand-primary); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .timeline-step { display:flex; gap:1rem; padding:1.1rem 0; border-bottom:1px dashed rgba(11,31,54,0.2); }
+    .timeline-step:last-child { border-bottom:0; }
+    .timeline-step span { width:88px; height:88px; background:rgba(11,94,244,0.1); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:var(--brand-primary); flex-shrink:0; }
+    .glossary-chip { border-radius:999px; border:1px solid rgba(91,100,117,0.2); padding:0.45rem 1.1rem; font-size:0.85rem; margin:0.35rem; background:#fff; }
+    .lead-card { background:#fff; color:var(--brand-dark); border:1px solid rgba(5,25,55,0.12); }
+    .lead-form .form-control, .lead-form .form-select { border-radius:0.85rem; border:1px solid rgba(5,25,55,0.15); background:#f7f9fc; color:#0c1524; }
+    .lead-form .form-control::placeholder { color:var(--brand-muted); }
+    .lead-form label { font-weight:600; color:#0c1524; }
+    .lead-form select option { color:#000; }
+    .cta-grid .card-premium { text-align:center; height:100%; }
+    .testimonial-card { border-radius:var(--card-radius); border:1px solid rgba(11,31,54,0.08); padding:1.5rem; background:#fff; height:100%; }
+    .accordion-button:not(.collapsed) { color:var(--brand-primary); background:rgba(11,94,244,0.08); }
+    .partner-chip { border-radius:999px; border:1px solid rgba(0,199,177,0.4); padding:0.4rem 1.2rem; margin:0.35rem; display:inline-flex; align-items:center; gap:0.4rem; background:rgba(0,199,177,0.08); }
+    footer .footer-top { padding:3rem 0; background:#020a1c; color:#fff; }
+    footer .footer-bottom { background:#010512; color:#b2bed5; padding:1rem 0; }
+    footer .brand { display:flex; align-items:center; gap:1rem; }
+    footer .brand img { height:48px; }
+    footer .small-link { color:#d0d7ea; text-decoration:none; font-size:0.95rem; }
+    footer .small-link:hover { color:var(--brand-secondary); }
+    .footer-contact li { display:flex; gap:0.6rem; font-size:0.95rem; margin-bottom:0.85rem; }
+    .footer-social a { color:#fff; margin-right:0.65rem; }
+  </style>
+</head>
+<body class="premium-active">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+  <header class="premium-header sticky-top" role="banner">
+    <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" aria-label="MARIDAV CI">
+          <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="Logo MARIDAV CI">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPremium" aria-controls="navPremium" aria-expanded="false" aria-label="Menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navPremium">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" id="navSolutions" type="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</button>
+              <ul class="dropdown-menu" aria-labelledby="navSolutions">
+                <li><a class="dropdown-item" href="volailles.html">Volailles</a></li>
+                <li><a class="dropdown-item" href="porcins_maridav_ci.html">Porcs</a></li>
+                <li><a class="dropdown-item" href="pisciculture_maridav_ci.html">Poissons</a></li>
+                <li><a class="dropdown-item" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" id="navResources" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ressources</button>
+              <ul class="dropdown-menu" aria-labelledby="navResources">
+                <li><a class="dropdown-item" href="a-propos.html">À propos</a></li>
+                <li><a class="dropdown-item" href="blog_maridav_ci.html">Blog & Guides</a></li>
+                <li><a class="dropdown-item" href="ressources/">Documentations techniques</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="distributeurs_maridav.html">Points de vente</a></li>
+          </ul>
+          <div class="nav-meta d-lg-flex align-items-center gap-2 ms-lg-3">
+            <a class="meta-pill" href="tel:002252721353242"><i class="fa fa-phone"></i><span>(+225) 27 21 35 32 42</span></a>
+            <a class="meta-pill" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>05 74 64 88 88</span></a>
+          </div>
+          <div class="nav-cta d-flex flex-column flex-lg-row gap-2 ms-lg-3">
+            <a class="btn btn-brand btn-sm" href="contact.html">Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="premium-hero">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <nav aria-label="Fil d'Ariane" class="mb-3">
+              <ol class="breadcrumb breadcrumb-premium mb-2">
+                <li class="breadcrumb-item"><a href="poulets_chair_maridav_ci.html">Poulets de chair</a></li>
+                <li class="breadcrumb-item active" aria-current="page">ChickCare®</li>
+              </ol>
+            </nav>
+            <div class="badge-stack">
+              <span>Volailles</span>
+              <span>Pré-démarrage 0–7 j</span>
+              <span>Aliment complet</span>
+            </div>
+            <h1 class="display-5 fw-bold mt-3 text-success">ChickCare® — Pré-démarrage premium</h1>
+            <p class="lead">Aliment complet pré-démarrage distribué par MARIDAV CI en partenariat avec Hendrix Genetics. Conçu pour déclencher l’ingestion dès la première heure, soutenir la viabilité des poussins importés/localisés et préparer la transition vers l’aliment démarrage.</p>
+            <div class="row g-3 mt-4" role="list">
+              <div class="col-6 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>+2 g</strong>
+                  <small>Gain de poids dès H48 (vs ration standard)</small>
+                </div>
+              </div>
+              <div class="col-6 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>98 %</strong>
+                  <small>Viabilité visée sur 0–7 jours</small>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>25 kg</strong>
+                  <small>Sac laminé double barrière</small>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a class="btn btn-light btn-lg text-dark" href="contact.html">Demander un devis</a>
+              <a class="btn btn-outline-light btn-lg" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank">Parler à un technicien</a>
+            </div>
+            <p class="small text-white-50 mt-3">Performance observée sur fermes suivies MARIDAV (Abidjan & Bouaké, 2024). Résultat dépendant des pratiques d’élevage.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-media">
+              <img src="maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png" alt="Sacs ChickCare">
+              <div class="media-badge">
+                <strong>Pack mise en place</strong>
+                <ul class="mb-0 ps-3">
+                  <li>Checklist poussinière & préchauffage</li>
+                  <li>Crop-fill monitoring (H12/H24)</li>
+                  <li>Kit électrolytes & vitamines</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container">
+        <div class="row text-center text-md-start g-3 align-items-center">
+          <div class="col-md-4"><strong>Distribution :</strong> Abidjan, Yamoussoukro, Bouaké, San Pedro, Korhogo.</div>
+          <div class="col-md-4"><strong>Paiements :</strong> XOF, virement, Mobile Money pro.</div>
+          <div class="col-md-4"><strong>Support :</strong> visites terrain, checklists, audits poussin.</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-spacing" id="benefices">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Promesse produit</span>
+                <h2>Bénéfices clés pour vos poussins</h2>
+              </div>
+              <div class="d-flex flex-column gap-4 mt-4">
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-lightning-charge"></i></div>
+                  <div>
+                    <h5>Prise d’aliment immédiate</h5>
+                    <p>Micro-granulés appétents, huile végétale et sucres disponibles pour stimuler l’ingestion dès la sortie de caisses.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-shield-plus"></i></div>
+                  <div>
+                    <h5>Immunité renforcée</h5>
+                    <p>Complexe vitamine E/selenium, β-glucanes et probiotiques pour préparer le système digestif.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-droplet-half"></i></div>
+                  <div>
+                    <h5>Hydratation & électrolytes</h5>
+                    <p>Équilibre sodium/potassium pour compenser la déshydratation du transport.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-thermometer-sun"></i></div>
+                  <div>
+                    <h5>Résilience climatique</h5>
+                    <p>Formule tropicalisée pour supporter les amplitudes thermiques Côte d’Ivoire.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-people"></i></div>
+                  <div>
+                    <h5>Appui Hendrix & MARIDAV</h5>
+                    <p>Guides d’utilisation, formations équipe, hotline technique.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium dark h-100">
+              <div class="section-title">
+                <span>Pour qui ?</span>
+                <h2 class="text-white">Élevages ciblés</h2>
+              </div>
+              <ul class="mt-4 text-white">
+                <li>Élevages industriels et semi-intensifs (500 – 30 000 poussins/lot).</li>
+                <li>Fermes recevant des poussins importés et souhaitant limiter le stress post-transport.</li>
+                <li>Couvoirs partenaires recherchant une solution premium pré-démarrage.</li>
+                <li>Éleveurs travaillant avec Hendrix Genetics / Trouw Nutrition.</li>
+              </ul>
+              <div class="mt-4">
+                <h6 class="text-white-50 text-uppercase">Badges</h6>
+                <div class="d-flex flex-wrap gap-2 mt-2">
+                  <span class="badge bg-light text-dark">Pré-démarrage</span>
+                  <span class="badge bg-light text-dark">0–7 j</span>
+                  <span class="badge bg-light text-dark">Viabilité</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="composition">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="section-title">
+              <span>Garanties nutritionnelles</span>
+              <h2>Tableau de composition indicative</h2>
+            </div>
+            <p>Formulation Hendrix adaptée aux besoins 0–7 jours. Les valeurs peuvent varier légèrement selon les lots.</p>
+          </div>
+          <div class="col-lg-7">
+            <div class="table-responsive">
+              <table class="table table-borderless align-middle">
+                <thead><tr><th>Paramètre</th><th>Valeur cible</th></tr></thead>
+                <tbody>
+                  <tr><td>Énergie métabolisable</td><td>3 050 kcal/kg</td></tr>
+                  <tr><td>Protéines brutes</td><td>22 %</td></tr>
+                  <tr><td>Lysine digestible</td><td>1,45 %</td></tr>
+                  <tr><td>Méthionine + Cystine digestibles</td><td>1,05 %</td></tr>
+                  <tr><td>Thréonine digestible</td><td>0,90 %</td></tr>
+                  <tr><td>Calcium / Phosphore disponible</td><td>1,10 % / 0,55 %</td></tr>
+                  <tr><td>Sodium</td><td>0,20 %</td></tr>
+                  <tr><td>Additifs</td><td>Probiotiques, enzymes, antioxydants naturels, électrolytes</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="usage">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Mode d’emploi</span>
+                <h2>Programme recommandé</h2>
+              </div>
+              <div class="timeline-step">
+                <span>H0-H12</span>
+                <div>
+                  <h5>Distribution sur papiers</h5>
+                  <p>Répartir ChickCare® sur papiers autour des abreuvoirs. Objectif crop-fill &gt; 85 % à H12.</p>
+                </div>
+              </div>
+              <div class="timeline-step">
+                <span>H12-H48</span>
+                <div>
+                  <h5>Stimuler l’ingestion</h5>
+                  <p>Réapprovisionner toutes les 2–3 heures, contrôler l’eau (30 °C puis 24 °C), peser un échantillon à H48.</p>
+                </div>
+              </div>
+              <div class="timeline-step">
+                <span>J3-J7</span>
+                <div>
+                  <h5>Transition vers aliment démarrage</h5>
+                  <p>Mélange 75/25 → 50/50 → 25/75 avec l’aliment démarrage MARIDAV. Retirer progressivement les papiers.</p>
+                </div>
+              </div>
+              <p class="small text-muted mt-3">Stocker les sacs dans un local sec, ventilé, à l’abri des nuisibles. Produit non médicamenteux.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium logistics-card h-100">
+              <div class="section-title">
+                <span>Formats & logistique</span>
+                <h2>Disponibilité Côte d’Ivoire</h2>
+              </div>
+              <div class="d-flex gap-3 mt-3">
+                <div class="icon-circle"><i class="bi bi-bag"></i></div>
+                <div>
+                  <h5>Sacs 25 kg</h5>
+                  <p>Packaging laminé double barrière pour préserver vitamines et huiles.</p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="icon-circle"><i class="bi bi-truck"></i></div>
+                <div>
+                  <h5>Livraison & retrait</h5>
+                  <p>Retrait Abidjan/Bouaké ou livraison palette/camion en régions sous 48–72 h.</p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="icon-circle"><i class="bi bi-wallet2"></i></div>
+                <div>
+                  <h5>Paiements</h5>
+                  <p>XOF, virement, Mobile Money pro. Contrats disponibles pour couvoirs/ intégrateurs.</p>
+                </div>
+              </div>
+              <a class="btn btn-brand w-100 mt-3" href="distributeurs_maridav.html">Trouver un distributeur</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="documents">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Documents & ressources</span>
+                <h2>Kits techniques ChickCare®</h2>
+              </div>
+              <p>Téléchargez les fiches techniques, guides de démarrage et checklists pour vos équipes.</p>
+              <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="ressources/fiche-chickcare.pdf" target="_blank"><i class="bi bi-file-earmark-arrow-down"></i> Fiche technique PDF</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="ressources/etiquette-chickcare.pdf" target="_blank"><i class="bi bi-file-earmark-richtext"></i> Étiquette / MSDS</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="blog_maridav_ci.html"><i class="bi bi-journal-richtext"></i> Guide poussinière tropicale</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="contact.html"><i class="bi bi-clipboard-data"></i> Plan de ration personnalisé</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card-premium lead-card" id="lead">
+              <div class="section-title">
+                <span>Parler à un expert</span>
+                <h2>Briefing express (48 h)</h2>
+              </div>
+              <form class="lead-form mt-3" action="https://formspree.io/f/maridav" method="POST">
+                <div class="mb-3">
+                  <label class="form-label" for="leadName">Nom & Structure d'exploitation</label>
+                  <input class="form-control" id="leadName" name="name" type="text" placeholder="Exemple : Ferme Avicole d'Anyama" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadPhone">Téléphone / WhatsApp</label>
+                  <input class="form-control" id="leadPhone" name="phone" type="tel" placeholder="(+225) 07 00 00 00" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadVolume">Nombre de poussins</label>
+                  <select class="form-select" id="leadVolume" name="volume" required>
+                    <option value="" selected>Choisir</option>
+                    <option value="<5k">moins de 5 000</option>
+                    <option value="5-20k">5 000 – 20 000</option>
+                    <option value=">20k">plus de 20 000</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadObjective">Objectif</label>
+                  <select class="form-select" id="leadObjective" name="objective" required>
+                    <option value="" selected>Choisir</option>
+                    <option value="kit-demarrage">Recevoir un kit démarrage</option>
+                    <option value="transition">Optimiser la transition vers l’aliment démarrage</option>
+                    <option value="crop-fill">Améliorer mes taux de crop-fill</option>
+                    <option value="support-technique">Planifier une visite technique</option>
+                  </select>
+                </div>
+                <button class="btn btn-brand w-100" type="submit">Recevoir un plan</button>
+                <p class="small text-muted mt-2">En soumettant ce formulaire, vous acceptez d’être contacté par MARIDAV CI.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="faq">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="section-title">
+              <span>Questions fréquentes</span>
+              <h2>FAQ ChickCare®</h2>
+            </div>
+            <div class="accordion mt-4" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq1-content" data-target="#faq1-content" aria-expanded="false" aria-controls="faq1-content">Quand commencer la distribution ?</button>
+                </h2>
+                <div id="faq1-content" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Dès la sortie de caisse : répartissez sur papiers à proximité des abreuvoirs pour encourager les poussins à picorer immédiatement.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq2-content" data-target="#faq2-content" aria-expanded="false" aria-controls="#faq2-content">Comment mesurer le crop-fill ?</button>
+                </h2>
+                <div id="faq2-content" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">À H12 et H24, palpez au moins 30 poussins. Objectif : 95 % de jabots pleins. Signalez tout écart à votre technicien MARIDAV.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq3-content" data-target="#faq3-content" aria-expanded="false" aria-controls="#faq3-content">Peut-on mélanger ChickCare® avec un autre aliment ?</button>
+                </h2>
+                <div id="faq3-content" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Non, utilisez-le seul sur 3–4 jours pour bénéficier de la granulométrie et des additifs spécifiques. Transitez ensuite vers l’aliment démarrage.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq4-content" data-target="#faq4-content" aria-expanded="false" aria-controls="#faq4-content">Quelle quantité prévoir par poussin ?</button>
+                </h2>
+                <div id="faq4-content" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Environ 80–100 g de ChickCare® par poussin sur les 4 premiers jours. Ajustez selon densité et température.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq5-content" data-target="#faq5-content" aria-expanded="false" aria-controls="#faq5-content">Qui fournit l’accompagnement technique ?</button>
+                </h2>
+                <div id="faq5-content" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">MARIDAV CI assure les visites, la formation des équipes et l’accès aux outils Hendrix (guides, vidéos, checklists).</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq6">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq6-content" data-target="#faq6-content" aria-expanded="false" aria-controls="#faq6-content">Comment stocker les sacs ?</button>
+                </h2>
+                <div id="faq6-content" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Sur palettes, dans un local ventilé et sec, à l’abri des nuisibles. Utilisez la règle FIFO (premier entré, premier sorti).</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Glossaire express</span>
+                <h2>Termes clés</h2>
+              </div>
+              <div class="d-flex flex-wrap mt-3">
+                <span class="glossary-chip"><strong>Crop-fill</strong> : % de poussins avec jabot plein</span>
+                <span class="glossary-chip"><strong>Viabilité</strong> : 100 – mortalité cumulée</span>
+                <span class="glossary-chip"><strong>Pré-démarrage</strong> : ration 0–7 j avant l’aliment démarrage</span>
+                <span class="glossary-chip"><strong>Electrolytes</strong> : Na/K/Cl pour l’équilibre hydrique</span>
+                <span class="glossary-chip"><strong>Hendrix Genetics</strong> : partenaire ChickCare®</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="testimonials">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Retours d’éleveurs</span>
+          <h2>Témoignages terrain</h2>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« ChickCare® a permis d’atteindre 96 % de crop-fill à H12 et 98 % de viabilité malgré un transport long. »</p>
+              <h6 class="mt-3 mb-0">Ferme Horizon Poulet, Abidjan</h6>
+              <small>18 000 poussins</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« L’appui MARIDAV nous a aidés à calibrer les densités et à assurer une transition douce vers l’aliment démarrage. »</p>
+              <h6 class="mt-3 mb-0">Ferme Oré Poultry, Bouaké</h6>
+              <small>9 000 poussins</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« Les poussins importés reprennent vite, même en saison chaude. Les visites techniques sont très utiles. »</p>
+              <h6 class="mt-3 mb-0">Ferme Centre-Sud, Yamoussoukro</h6>
+              <small>12 500 poussins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="partenaires">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Écosystème premium</span>
+          <h2>Partenaires & solutions associées</h2>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center">
+          <span class="partner-chip"><img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="Maridav" height="20"> MARIDAV CI</span>
+          <span class="partner-chip"><i class="bi bi-diagram-3"></i> Hendrix Genetics</span>
+          <span class="partner-chip"><i class="bi bi-water"></i> Trouw Nutrition</span>
+          <span class="partner-chip"><i class="bi bi-shield-check"></i> CID Lines — Biosécurité</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="cta-grid">
+      <div class="container">
+        <div class="row g-4 cta-grid">
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Demander un devis</h5>
+              <p>Recevez une offre détaillée incluant les quantités et délais.</p>
+              <a class="btn btn-brand w-100" href="contact.html">Je demande un devis</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Appeler un technicien</h5>
+              <p>Planifiez une mise en place avec notre équipe ChickCare®.</p>
+              <a class="btn btn-outline-brand w-100" href="tel:002252721353242">(+225) 27 21 35 32 42</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Points de vente</h5>
+              <p>Localisez les distributeurs MARIDAV CI proches de votre ferme.</p>
+              <a class="btn btn-outline-brand w-100" href="distributeurs_maridav.html">Voir les distributeurs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="produits-relies">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Gammes volailles</span>
+          <h2>Produits complémentaires</h2>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Aliment Démarrage">
+              <h5>Aliment Chair Démarrage</h5>
+              <p>0–14 jours – relais idéal après ChickCare®.</p>
+              <a class="btn btn-link p-0" href="aliment_chair_demarrage_maridav_ci.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Aliment Croissance">
+              <h5>Aliment Chair Croissance</h5>
+              <p>15–28 jours – accélère la vitesse de croissance.</p>
+              <a class="btn btn-link p-0" href="aliments_chair_croissance_maridav_ci.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/logo/logo-trouw-nutrition-doorzichtig.png" alt="Trouw Nutrition">
+              <h5>Solutions Trouw Nutrition</h5>
+              <p>Additifs et programmes d’appui poussin distribués par MARIDAV.</p>
+              <a class="btn btn-link p-0" href="trouwnutrition.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4">
+            <div class="brand">
+              <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV">
+              <span>MARIDAV Côte d'Ivoire<small class="d-block">Nutrition & Santé Animales</small></span>
+            </div>
+            <p class="mt-3 small">Formulations tropicalisées, appui technique terrain et biosécurité pour volailles, porcs et poissons.</p>
+            <a class="btn btn-brand btn-sm mt-3" href="#lead" data-open-lead>Parler à un expert</a>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6>Solutions</h6>
+            <ul class="list-unstyled m-0">
+              <li><a class="small-link" href="volailles.html">Volailles</a></li>
+              <li><a class="small-link" href="porcins_maridav_ci.html">Porcs</a></li>
+              <li><a class="small-link" href="pisciculture_maridav_ci.html">Poissons</a></li>
+              <li><a class="small-link" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h6>Ressources</h6>
+            <ul class="list-unstyled m-0">
+              <li><a class="small-link" href="a-propos.html">À propos</a></li>
+              <li><a class="small-link" href="partenaires-maridav.html">Nos partenaires</a></li>
+              <li><a class="small-link" href="blog_maridav_ci.html">Guides & articles</a></li>
+              <li><a class="small-link" href="ressources/">Fiches techniques & PDF</a></li>
+              <li><a class="small-link" href="distributeurs_maridav.html">Points de vente</a></li>
+              <li><a class="small-link" href="contact.html">Demander un devis</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h6>Contact</h6>
+            <ul class="list-unstyled footer-contact">
+              <li><i class="fas fa-map-marker-alt"></i><span>Marcory Zone 4C Biétry, 34 Rue Alex Flemming – Abidjan</span></li>
+              <li><i class="far fa-clock"></i><span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span></li>
+            </ul>
+            <div class="d-flex flex-column gap-2 mt-3">
+              <a class="small-link" href="mailto:info@maridav.ci"><i class="fas fa-envelope"></i> info@maridav.ci</a>
+              <a class="small-link" href="tel:002252721353242"><i class="fas fa-phone"></i> (+225) 27 21 35 32 42</a>
+            </div>
+            <div class="footer-social mt-3"><i class="fas fa-share-alt"></i><small> Suivez-nous </small>
+              <a href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+              <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+        <p class="mb-0 small">© 2025 MARIDAV Côte d'Ivoire — Nutrition & santé animales.</p>
+        <p class="mb-0 small">Site web conçu par <a href="https://tech-and-web.com" target="_blank" rel="noopener">TECH & WEB</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/Camera-master/scripts/jquery.mobile.customized.min.js"></script>
+  <script src="vendor/Camera-master/scripts/jquery.easing.1.3.js"></script>
+  <script src="vendor/Camera-master/scripts/camera.min.js"></script>
+  <script src="vendor/menu/src/js/jquery.slimmenu.js"></script>
+  <script src="vendor/WOW-master/dist/wow.min.js"></script>
+  <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
+  <script src="vendor/jquery.appear.js"></script>
+  <script src="vendor/jquery.countTo.js"></script>
+  <script src="vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    document.querySelectorAll('[data-open-lead]').forEach(btn => {
+      btn.addEventListener('click', event => {
+        event.preventDefault();
+        const target = document.getElementById('lead');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "ChickCare® — Pré-démarrage premium",
+      "description": "Aliment complet pré-démarrage (0–7 jours) distribué par MARIDAV Côte d’Ivoire pour sécuriser la prise d’aliment et la viabilité des poussins.",
+      "brand": {"@type":"Organization","name":"Hendrix Genetics x MARIDAV"},
+      "image": "https://maridav.ci/maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png",
+      "sku": "CHICKCARE-25KG",
+      "category": "Aliment complet",
+      "audience": {"@type":"Audience","audienceType":"Poulets de chair — Pré-démarrage"},
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "XOF",
+        "price": "Sur devis",
+        "availability": "https://schema.org/InStock",
+        "url": "https://maridav.ci/chickcare.html"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Quand commencer la distribution ?","acceptedAnswer":{"@type":"Answer","text":"Dès l’arrivée des poussins : étalez ChickCare® sur des papiers autour des abreuvoirs pour stimuler la prise d’aliment."}},
+        {"@type":"Question","name":"Comment mesurer le crop-fill ?","acceptedAnswer":{"@type":"Answer","text":"Prélevez 30 poussins à H12/H24. L’objectif est d’obtenir 95 % de jabots pleins."}},
+        {"@type":"Question","name":"Peut-on mélanger ChickCare® avec un autre aliment ?","acceptedAnswer":{"@type":"Answer","text":"Non. Utilisez-le seul durant 3–4 jours puis transitez progressivement vers l’aliment démarrage MARIDAV."}},
+        {"@type":"Question","name":"Quelle quantité prévoir par poussin ?","acceptedAnswer":{"@type":"Answer","text":"Prévoir 80 à 100 g de ChickCare® par poussin sur les 4 premiers jours."}},
+        {"@type":"Question","name":"Qui assure l’accompagnement technique ?","acceptedAnswer":{"@type":"Answer","text":"Les équipes MARIDAV CI (en lien avec Hendrix Genetics) réalisent visites, checklists et recommandations."}},
+        {"@type":"Question","name":"Comment stocker les sacs ?","acceptedAnswer":{"@type":"Answer","text":"Sur palettes, dans un local sec et ventilé, à l’abri des nuisibles et en suivant la règle FIFO."}}
+      ]
+    }
+  </script>
+</body>
+</html>

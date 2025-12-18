@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2025-10-31T12:36:00Z",
+  "summary": {
+    "htmlCount": 94,
+    "cssCount": 16,
+    "jsCount": 22,
+    "imagesRoot": "maridav_ci_image/",
+    "notes": "Inventaire calculé sur le dépôt local actuel."
+  },
+  "pages": [
+    {"path":"index.html","title":"MARIDAV Côte d'Ivoire — Nutrition & Santé Animales","hasMetaDescription":true},
+    {"path":"index.html","title":"MARIDAV Côte d'Ivoire - Nutrition Animale et Santé","hasMetaDescription":true},
+    {"path":"volailles.html","title":"MARIDAV SARL| Nutrition & Santé Animale","hasMetaDescription":false},
+    {"path":"poulets_chair_maridav_ci.html","title":"MARIDAV SARL| Nutrition & Santé Animale","hasMetaDescription":false},
+    {"path":"aliments_chair_croissance_maridav_ci.html","title":"MARIDAV — Aliment Chair Croissance (15–28 jours) | Volailles","hasMetaDescription":true},
+    {"path":"aliment_chair_demarrage_maridav_ci.html","title":"MARIDAV — Aliment Chair Démarrage (0–14 jours) | Volailles","hasMetaDescription":true},
+    {"path":"aliments_chair_finition_maridav_ci.html","title":"MARIDAV SARL| Nutrition et sante animale","hasMetaDescription":false},
+    {"path":"porcins_maridav_ci.html","title":"MARIDAV SARL| Nutrition & Santé Animale","hasMetaDescription":false},
+    {"path":"pisciculture_maridav_ci.html","title":"MARIDAV SARL| Nutrition & Santé Animale","hasMetaDescription":false},
+    {"path":"biosecurite_maridav_ci.html","title":"MARIDAV SARL| Nutrition & Santé Animale","hasMetaDescription":false},
+    {"path":"distributeurs_maridav.html","title":"Nos points de Vente | MARIDAV CI","hasMetaDescription":false},
+    {"path":"blog_maridav_ci.html","title":"Blog | Nutrition & Santé Animale | MARIDAV CÔTE D'IVOIRE","hasMetaDescription":true}
+  ],
+  "quickWins": [
+    "Ajouter meta description sur les pages espèces et fiches produit",
+    "Déclarer des canonicals cohérents (ex: index.html → /)",
+    "Charger /assets/js/main.min.js sur toutes les pages",
+    "Lazy-loading systématique des images + attribut alt",
+    "Injection JSON-LD Organization/Product/FAQ selon le type de page"
+  ]
+}

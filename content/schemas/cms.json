@@ -1,0 +1,31 @@
+{
+  "Product": {
+    "fields": {
+      "title": "string",
+      "slug": "string",
+      "species": "string[]",
+      "stage": "string",
+      "category": "string",
+      "brand": "string",
+      "format": "string",
+      "summary": "text",
+      "cover": "image",
+      "benefits": "text[]",
+      "nutrition": "object[]",
+      "usage": "markdown",
+      "resources": "object[]",
+      "seo": "object",
+      "faq": "ref(FAQ)[]",
+      "partners": "ref(Partner)[]"
+    }
+  },
+  "Species": {"fields": {"name": "string","slug":"string","description":"markdown","cover":"image","stages":"string[]"}},
+  "Partner": {"fields": {"name":"string","slug":"string","logo":"image","site":"url","summary":"text","ranges":"string[]"}},
+  "Resource": {"fields": {"title":"string","type":"enum(pdf,msds,guide)","file":"file","productRef":"ref(Product)"}},
+  "FAQ": {"fields": {"question":"string","answer":"markdown","tags":"string[]"}},
+  "Article": {"fields": {"title":"string","slug":"string","cover":"image","body":"markdown","tags":"string[]","seo":"object"}},
+  "Lead": {"fields": {"name":"string","phone":"string","email":"string","species":"string","product":"string","message":"text","utm":"object"}},
+  "UseCase": {"fields": {"name":"string","slug":"string","species":"string","stage":"string","goal":"string","description":"markdown"}},
+  "Distributor": {"fields": {"name":"string","slug":"string","city":"string","address":"text","phone":"string","hours":"string","geo":"object(lat,lng)"}},
+  "Team": {"fields": {"name":"string","role":"string","photo":"image","bio":"markdown","phone":"string","email":"string"}}
+}

@@ -1,0 +1,13 @@
+{
+  "name": "MARIDAV Côte d'Ivoire",
+  "short_name": "MARIDAV CI",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#061948",
+  "theme_color": "#061948",
+  "icons": [
+    {"src": "/favicon_io/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},
+    {"src": "/favicon_io/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}
+  ]
+}
+

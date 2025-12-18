@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#061948">
+  <title>MARIDAV — Aliment Poulette Croissance (7–18 semaines)</title>
+  <meta name="description" content="Aliment complet pour poulettes futures pondeuses (7–18 semaines) : uniformité, ossature, gestion du poids et accompagnement MARIDAV Côte d’Ivoire.">
+  <meta property="og:title" content="MARIDAV — Aliment Poulette Croissance">
+  <meta property="og:description" content="Préparez vos poulettes pour un transfert homogène en ponte grâce à une ration tropicalisée avec suivi MARIDAV.">
+  <meta property="og:image" content="https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg">
+  <link rel="icon" type="image/png" sizes="56x56" href="favicon_io/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+  <style>
+    :root { --brand-primary:#0b5ef4; --brand-secondary:#00c7b1; --brand-dark:#0b1f36; --brand-muted:#5b6475; --card-radius:1.25rem; }
+    body.premium-active { background:#f5f7fb; color:var(--brand-dark); font-family:"Inter","Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .navbar-premium { background:rgba(255,255,255,0.96); box-shadow:0 16px 35px rgba(15,31,47,0.12); backdrop-filter:blur(6px); }
+    .navbar-premium .nav-link, .navbar-premium .dropdown-item { font-size:0.9rem; letter-spacing:0.02em; text-transform:uppercase; }
+    main { overflow:hidden; }
+    .premium-hero { background:radial-gradient(circle at top left,#123b94,#051937 70%); color:#fff; padding:4.5rem 0 3.5rem; position:relative; }
+    .premium-hero::after { content:""; position:absolute; inset:0; background:radial-gradient(circle at top,rgba(255,255,255,0.18),transparent 70%); opacity:0.65; pointer-events:none; }
+    .premium-hero .container { position:relative; z-index:2; }
+    .hero-media { border-radius:var(--card-radius); overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,0.45); position:relative; }
+    .hero-media img { width:100%; display:block; }
+    .hero-media .media-badge { position:absolute; bottom:1.25rem; left:1.25rem; background:rgba(11,31,54,0.85); border-radius:0.85rem; padding:1rem 1.25rem; width:calc(100% - 2.5rem); color:#fff; }
+    .badge-stack { display:inline-flex; flex-wrap:wrap; gap:0.5rem; }
+    .badge-stack span, .badge-spec { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; border-radius:999px; padding:0.35rem 0.9rem; font-size:0.75rem; letter-spacing:0.1em; }
+    .stat-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.3); border-radius:1rem; padding:1rem; min-height:130px; color:#f4f8ff; }
+    .stat-pill strong { display:block; font-size:1.4rem; }
+    .trust-strip { background:#fff; padding:1.5rem 0; border-bottom:1px solid rgba(11,31,54,0.08); }
+    .section-spacing { padding:4rem 0; }
+    .section-title span { text-transform:uppercase; letter-spacing:0.18em; font-size:0.78rem; color:var(--brand-secondary); font-weight:600; }
+    .section-title h2 { margin-top:0.5rem; font-weight:700; color:var(--brand-dark); }
+    .card-premium { border-radius:var(--card-radius); border:1px solid rgba(5,25,55,0.08); background:#fff; padding:1.75rem; box-shadow:0 35px 60px rgba(15,25,55,0.08); }
+    .card-premium.dark { background:#0b1f36; color:#fff; border-color:rgba(255,255,255,0.08); }
+    .benefit-icon, .icon-circle { width:52px; height:52px; border-radius:50%; background:rgba(11,94,244,0.15); color:var(--brand-primary); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .timeline-step { display:flex; gap:1rem; padding:1.1rem 0; border-bottom:1px dashed rgba(11,31,54,0.2); }
+    .timeline-step:last-child { border-bottom:0; }
+    .timeline-step span { width:88px; height:88px; background:rgba(11,94,244,0.1); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:var(--brand-primary); flex-shrink:0; }
+    .glossary-chip { border-radius:999px; border:1px solid rgba(91,100,117,0.2); padding:0.45rem 1.1rem; font-size:0.85rem; margin:0.35rem; background:#fff; }
+    .lead-card { background:#fff; color:var(--brand-dark); border:1px solid rgba(5,25,55,0.12); }
+    .lead-form .form-control, .lead-form .form-select { border-radius:0.85rem; border:1px solid rgba(5,25,55,0.15); background:#f7f9fc; color:#0c1524; }
+    .lead-form .form-control::placeholder { color:var(--brand-muted); }
+    .lead-form label { font-weight:600; color:#0c1524; }
+    .lead-form select option { color:#000; }
+    .cta-grid .card-premium { text-align:center; height:100%; }
+    .testimonial-card { border-radius:var(--card-radius); border:1px solid rgba(11,31,54,0.08); padding:1.5rem; background:#fff; height:100%; }
+    .accordion-button:not(.collapsed) { color:var(--brand-primary); background:rgba(11,94,244,0.08); }
+    .partner-chip { border-radius:999px; border:1px solid rgba(0,199,177,0.4); padding:0.4rem 1.2rem; margin:0.35rem; display:inline-flex; align-items:center; gap:0.4rem; background:rgba(0,199,177,0.08); }
+    footer .footer-top { padding:3rem 0; background:#020a1c; color:#fff; }
+    footer .footer-bottom { background:#010512; color:#b2bed5; padding:1rem 0; }
+    footer .brand { display:flex; align-items:center; gap:1rem; }
+    footer .brand img { height:48px; }
+    footer .small-link { color:#d0d7ea; text-decoration:none; font-size:0.95rem; }
+    footer .small-link:hover { color:var(--brand-secondary); }
+    .footer-contact li { display:flex; gap:0.6rem; font-size:0.95rem; margin-bottom:0.85rem; }
+    .footer-social a { color:#fff; margin-right:0.65rem; }
+  </style>
+</head>
+<body class="premium-active">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+  <header class="premium-header sticky-top" role="banner">
+    <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" aria-label="MARIDAV CI">
+          <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="Logo MARIDAV CI">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPremium" aria-controls="navPremium" aria-expanded="false" aria-label="Menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navPremium">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" id="navSolutions" type="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</button>
+              <ul class="dropdown-menu" aria-labelledby="navSolutions">
+                <li><a class="dropdown-item" href="volailles.html">Volailles</a></li>
+                <li><a class="dropdown-item" href="porcins_maridav_ci.html">Porcs</a></li>
+                <li><a class="dropdown-item" href="pisciculture_maridav_ci.html">Poissons</a></li>
+                <li><a class="dropdown-item" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" id="navResources" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ressources</button>
+              <ul class="dropdown-menu" aria-labelledby="navResources">
+                <li><a class="dropdown-item" href="a-propos.html">À propos</a></li>
+                <li><a class="dropdown-item" href="blog_maridav_ci.html">Blog & Guides</a></li>
+                <li><a class="dropdown-item" href="ressources/">Documentations techniques</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="distributeurs_maridav.html">Points de vente</a></li>
+          </ul>
+          <div class="nav-meta d-lg-flex align-items-center gap-2 ms-lg-3">
+            <a class="meta-pill" href="tel:002252721353242"><i class="fa fa-phone"></i><span>(+225) 27 21 35 32 42</span></a>
+            <a class="meta-pill" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>05 74 64 88 88</span></a>
+          </div>
+          <div class="nav-cta d-flex flex-column flex-lg-row gap-2 ms-lg-3">
+            <a class="btn btn-brand btn-sm" href="contact.html">Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="premium-hero">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <nav aria-label="Fil d'Ariane" class="mb-3">
+              <ol class="breadcrumb breadcrumb-premium mb-2">
+                <li class="breadcrumb-item"><a href="volailles.html">Volailles</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Aliment Poulette</li>
+              </ol>
+            </nav>
+            <div class="badge-stack">
+              <span>Pondeuses</span>
+              <span>7–18 semaines</span>
+              <span>Aliment complet</span>
+            </div>
+            <h1 class="display-5 fw-bold mt-3 text-success">MARIDAV — Aliment Poulette Croissance</h1>
+            <p class="lead">Ration tropicalisée pour la phase croissance des poulettes (7–18 semaines). Elle construit une ossature robuste, maîtrise le poids corporel et prépare un transfert homogène vers l’aliment ponte.</p>
+            <div class="row g-3 mt-4" role="list">
+              <div class="col-6 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>85 %</strong>
+                  <small>Uniformité cible à 18 semaines</small>
+                </div>
+              </div>
+              <div class="col-6 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>1,30 kg</strong>
+                  <small>Poids visé avant transfert</small>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>120 g</strong>
+                  <small>Consommation moyenne / jour</small>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a class="btn btn-light btn-lg text-dark" href="contact.html">Demander un devis</a>
+              <a class="btn btn-outline-light btn-lg" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank">Parler à un technicien</a>
+            </div>
+            <p class="small text-white-50 mt-3">Suivi MARIDAV CI : pesées hebdomadaires, plan lumière, ajustement densités.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-media">
+              <img src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Aliment Poulette MARIDAV">
+              <div class="media-badge">
+                <strong>Pack poulette</strong>
+                <ul class="mb-0 ps-3">
+                  <li>Courbes poids/uniformité</li>
+                  <li>Plan lumière & ventilation</li>
+                  <li>Assistance transfert</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container">
+        <div class="row text-center text-md-start g-3 align-items-center">
+          <div class="col-md-4"><strong>Distribution :</strong> Abidjan, Bouaké, Yamoussoukro, Daloa.</div>
+          <div class="col-md-4"><strong>Paiements :</strong> XOF, virement, Mobile Money pro.</div>
+          <div class="col-md-4"><strong>Support :</strong> visites poulettes, plan lumière, uniformité.</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-spacing" id="benefices">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Promesse produit</span>
+                <h2>Bénéfices clés pour vos poulettes</h2>
+              </div>
+              <div class="d-flex flex-column gap-4 mt-4">
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-bone"></i></div>
+                  <div>
+                    <h5>Squelette & réserve calcique</h5>
+                    <p>Calcium, phosphore et vitamine D3 calibrés pour construire l’ossature nécessaire au futur pic de ponte.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-people"></i></div>
+                  <div>
+                    <h5>Uniformité</h5>
+                    <p>Ratio énergie/protéines contrôlé pour maintenir les poids dans la plage recommandée par la génétique.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-droplet-half"></i></div>
+                  <div>
+                    <h5>Plumage & immunité</h5>
+                    <p>Oligo-éléments chélatés, biotine et acides gras essentiels pour un plumage sain et des défenses robustes.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-lightbulb"></i></div>
+                  <div>
+                    <h5>Compatibilité plan lumière</h5>
+                    <p>Formulation alignée sur les programmes d’éclairement des généticiens (Hy-Line, ISA, Lohmann, Novogen).</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-clipboard-check"></i></div>
+                  <div>
+                    <h5>Appui MARIDAV</h5>
+                    <p>Suivi hebdomadaire, plan densité, formation équipes et préparation du transfert.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium dark h-100">
+              <div class="section-title">
+                <span>Pour qui ?</span>
+                <h2 class="text-white">Élevages ciblés</h2>
+              </div>
+              <ul class="mt-4 text-white">
+                <li>Producteurs de poulettes destinées aux fermes industrielles ou semi-intensives.</li>
+                <li>Couvoirs partenaires souhaitant sous-traiter la phase croissance.</li>
+                <li>Élevages en climat tropical humide nécessitant une ration stable.</li>
+                <li>Exploitations voulant maîtriser leur plan lumière et l’uniformité.</li>
+              </ul>
+              <div class="mt-4">
+                <h6 class="text-white-50 text-uppercase">Badges</h6>
+                <div class="d-flex flex-wrap gap-2 mt-2">
+                  <span class="badge bg-light text-dark">Poulettes</span>
+                  <span class="badge bg-light text-dark">Croissance</span>
+                  <span class="badge bg-light text-dark">Uniformité</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="composition">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="section-title">
+              <span>Garanties nutritionnelles</span>
+              <h2>Tableau de composition indicative</h2>
+            </div>
+            <p>Valeurs cibles pour optimiser la croissance pondérale sans excès. Ajustements réalisés selon matières premières et génétiques.</p>
+          </div>
+          <div class="col-lg-7">
+            <div class="table-responsive">
+              <table class="table table-borderless align-middle">
+                <thead><tr><th>Paramètre</th><th>Valeur cible</th></tr></thead>
+                <tbody>
+                  <tr><td>Énergie métabolisable</td><td>2 850 kcal/kg</td></tr>
+                  <tr><td>Protéines brutes</td><td>17,5 %</td></tr>
+                  <tr><td>Lysine digestible</td><td>0,94 %</td></tr>
+                  <tr><td>Méthionine + Cystine digestibles</td><td>0,74 %</td></tr>
+                  <tr><td>Thréonine digestible</td><td>0,68 %</td></tr>
+                  <tr><td>Calcium / Phosphore disponible</td><td>1,05 % / 0,50 %</td></tr>
+                  <tr><td>Sodium</td><td>0,18 %</td></tr>
+                  <tr><td>Vitamines & oligo-éléments</td><td>Profil renforcé (A, D3, E, B, Zn, Cu, Mn, Se)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="usage">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Mode d’emploi</span>
+                <h2>Programme conseillé</h2>
+              </div>
+              <div class="timeline-step">
+                <span>Sem 7-10</span>
+                <div>
+                  <h5>Phase croissance 1</h5>
+                  <p>Pesez chaque semaine, ajustez la densité (7–8 poulettes/m²) et suivez la courbe de poids génétique.</p>
+                </div>
+              </div>
+              <div class="timeline-step">
+                <span>Sem 11-14</span>
+                <div>
+                  <h5>Phase croissance 2</h5>
+                  <p>Maintenez une ingestion de 95–105 g, vérifiez l’état corporel, adaptez l’éclairage à 11–12 h.</p>
+                </div>
+              </div>
+              <div class="timeline-step">
+                <span>Sem 15-18</span>
+                <div>
+                  <h5>Préparation transfert</h5>
+                  <p>Atteindre 1,25–1,30 kg. Vérifiez uniformité, plan lumière et densité avant passage à l’aliment ponte.</p>
+                </div>
+              </div>
+              <p class="small text-muted mt-3">Stocker dans un local sec et ventilé. Utiliser la règle FIFO. Produit non médicamenteux.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium logistics-card h-100">
+              <div class="section-title">
+                <span>Formats & logistique</span>
+                <h2>Disponibilité Côte d’Ivoire</h2>
+              </div>
+              <div class="d-flex gap-3 mt-3">
+                <div class="icon-circle"><i class="bi bi-bag"></i></div>
+                <div>
+                  <h5>Sacs 50 kg</h5>
+                  <p>Packaging laminé tropicalisé pour protéger vitamines et minéraux.</p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="icon-circle"><i class="bi bi-truck"></i></div>
+                <div>
+                  <h5>Distribution</h5>
+                  <p>Retrait en agence ou livraison palette/camion dans tout le pays.</p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="icon-circle"><i class="bi bi-wallet2"></i></div>
+                <div>
+                  <h5>Paiements</h5>
+                  <p>XOF, virement, Mobile Money pro. Contrats d’approvisionnement disponibles.</p>
+                </div>
+              </div>
+              <a class="btn btn-brand w-100 mt-3" href="distributeurs_maridav.html">Trouver un distributeur</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="documents">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Documents & ressources</span>
+                <h2>Outils poulettes</h2>
+              </div>
+              <p>Profitez de notre bibliothèque : fiches nutritionnelles, plan lumière, tableaux d’uniformité, fiches transfert.</p>
+              <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="ressources/fiche-aliment-poulette.pdf" target="_blank"><i class="bi bi-file-earmark-arrow-down"></i> Fiche technique PDF</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="ressources/etiquette-aliment-poulette.pdf" target="_blank"><i class="bi bi-file-earmark-richtext"></i> Étiquette / MSDS</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="blog_maridav_ci.html"><i class="bi bi-journal-richtext"></i> Guide uniformité poulettes</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="contact.html"><i class="bi bi-clipboard-data"></i> Plan d’accompagnement</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card-premium lead-card" id="lead">
+              <div class="section-title">
+                <span>Parler à un expert</span>
+                <h2>Briefing poulette</h2>
+              </div>
+              <form class="lead-form mt-3" action="https://formspree.io/f/maridav" method="POST">
+                <div class="mb-3">
+                  <label class="form-label" for="leadName">Nom & Structure d'exploitation</label>
+                  <input class="form-control" id="leadName" name="name" type="text" placeholder="Exemple : Ferme Avicole d'Anyama" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadPhone">Téléphone / WhatsApp</label>
+                  <input class="form-control" id="leadPhone" name="phone" type="tel" placeholder="(+225) 07 00 00 00" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadVolume">Nombre de poulettes</label>
+                  <select class="form-select" id="leadVolume" name="volume" required>
+                    <option value="" selected>Choisir</option>
+                    <option value="<5k">moins de 5 000</option>
+                    <option value="5-20k">5 000 – 20 000</option>
+                    <option value=">20k">plus de 20 000</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadObjective">Objectif</label>
+                  <select class="form-select" id="leadObjective" name="objective" required>
+                    <option value="" selected>Choisir</option>
+                    <option value="uniformite">Atteindre l’uniformité cible</option>
+                    <option value="plan-lumiere">Optimiser mon plan lumière</option>
+                    <option value="preparer-transfert">Préparer le transfert en ponte</option>
+                    <option value="audit-poulettes">Programmer un audit poulettes</option>
+                    <option value="plan-ration">Recevoir un plan de ration</option>
+                  </select>
+                </div>
+                <button class="btn btn-brand w-100" type="submit">Recevoir un plan</button>
+                <p class="small text-muted mt-2">En soumettant ce formulaire, vous acceptez d’être contacté par MARIDAV CI.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="faq">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="section-title">
+              <span>Questions fréquentes</span>
+              <h2>FAQ Aliment Poulette</h2>
+            </div>
+            <div class="accordion mt-4" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq1-content" data-target="#faq1-content" aria-expanded="false" aria-controls="faq1-content">Quelles courbes de poids viser ?</button>
+                </h2>
+                <div id="faq1-content" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">500 g à 6–7 semaines, 850 g à 12 semaines, 1,25–1,30 kg à 18 semaines selon la génétique. Nos fiches de pesées vous accompagnent.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq2-content" data-target="#faq2-content" aria-expanded="false" aria-controls="#faq2-content">Comment gérer une uniformité insuffisante ?</button>
+                </h2>
+                <div id="faq2-content" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Segmentez les lots par poids, ajustez la densité et revoyez les accès mangeoires/abreuvoirs. Nos techniciens adaptent la ration et le plan lumière.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq3-content" data-target="#faq3-content" aria-expanded="false" aria-controls="#faq3-content">Peut-on fabriquer l’aliment sur place ?</button>
+                </h2>
+                <div id="faq3-content" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Oui avec nos prémix pondeuses et l’appui de notre équipe qualité. Sans équipement certifié, privilégiez l’aliment complet MARIDAV.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq4-content" data-target="#faq4-content" aria-expanded="false" aria-controls="#faq4-content">Quand passer à l’aliment ponte ?</button>
+                </h2>
+                <div id="faq4-content" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Lorsque 95 % des poulettes atteignent le poids-cible et que l’entrée en production commence (souvent 16–17 semaines). Transition progressive sur 4 jours.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq5-content" data-target="#faq5-content" aria-expanded="false" aria-controls="#faq5-content">Quel plan lumière suivre ?</button>
+                </h2>
+                <div id="faq5-content" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Nos techniciens fournissent un plan lumière par génétique. Ne pas augmenter la photopériode avant d’avoir atteint le poids-guide.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq6">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq6-content" data-target="#faq6-content" aria-expanded="false" aria-controls="#faq6-content">Quels outils de suivi sont disponibles ?</button>
+                </h2>
+                <div id="faq6-content" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Fiches pesées, plan lumière, tableaux d’uniformité, visites terrain et audits nutritionnels.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Glossaire express</span>
+                <h2>Termes clés</h2>
+              </div>
+              <div class="d-flex flex-wrap mt-3">
+                <span class="glossary-chip"><strong>Uniformité</strong> : % de poulettes dans ±10 % du poids moyen</span>
+                <span class="glossary-chip"><strong>Plan lumière</strong> : programme d’éclairement progressif</span>
+                <span class="glossary-chip"><strong>Transfert</strong> : passage bâtiment poulette → ponte</span>
+                <span class="glossary-chip"><strong>EM</strong> : énergie métabolisable</span>
+                <span class="glossary-chip"><strong>Prémix</strong> : concentré vitamines/minéraux</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="testimonials">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Retours d’éleveurs</span>
+          <h2>Témoignages terrain</h2>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« Grâce à l’aliment poulette MARIDAV, nos lots arrivent à 87 % d’uniformité avant transfert. »</p>
+              <h6 class="mt-3 mb-0">Ferme Pondeuse d’Abobo</h6>
+              <small>14 000 poulettes</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« L’appui technique (pesées, plan lumière) nous a permis d’éviter les surpoids et de réussir le transfert. »</p>
+              <h6 class="mt-3 mb-0">Avicole du Centre</h6>
+              <small>8 500 poulettes</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« Même en saison chaude, la consommation reste stable et les poids sont conformes aux recommandations ISA. »</p>
+              <h6 class="mt-3 mb-0">Ferme Ivoire Layers, Daloa</h6>
+              <small>10 000 poulettes</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="partenaires">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Écosystème premium</span>
+          <h2>Partenaires & solutions</h2>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center">
+          <span class="partner-chip"><img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="Maridav" height="20"> MARIDAV</span>
+          <span class="partner-chip"><i class="bi bi-diagram-3"></i> DSM / Trouw Nutrition</span>
+          <span class="partner-chip"><i class="bi bi-droplet-half"></i> BIOMIN — Mycotoxines</span>
+          <span class="partner-chip"><i class="bi bi-shield-check"></i> CID LINES — Biosécurité</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="cta-grid">
+      <div class="container">
+        <div class="row g-4 cta-grid">
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Demander un devis</h5>
+              <p>Recevez une offre adaptée à votre planning poulette.</p>
+              <a class="btn btn-brand w-100" href="contact.html">Je demande un devis</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Appeler un technicien</h5>
+              <p>Planifiez une pesée ou un audit uniformité.</p>
+              <a class="btn btn-outline-brand w-100" href="tel:002252721353242">(+225) 27 21 35 32 42</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Points de vente</h5>
+              <p>Consultez la carte des distributeurs MARIDAV.</p>
+              <a class="btn btn-outline-brand w-100" href="distributeurs_maridav.html">Voir les distributeurs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="produits-relies">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Gammes pondeuses</span>
+          <h2>Produits complémentaires</h2>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Démarrage pondeuses">
+              <h5>Aliment Démarrage Pondeuses</h5>
+              <p>0–6 semaines – sécurise la viabilité.</p>
+              <a class="btn btn-link p-0" href="aliment_demarrage_ponte.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Ponte Phase 1">
+              <h5>Aliment Ponte Phase 1</h5>
+              <p>18–40 semaines – maximise le pic.</p>
+              <a class="btn btn-link p-0" href="aliment_ponte_1_maridav_ci.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Ponte Phase 2">
+              <h5>Aliment Ponte Phase 2</h5>
+              <p>&gt; 41 semaines – maintien de la persistance.</p>
+              <a class="btn btn-link p-0" href="aliment_ponte_2_maridav_ci.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4">
+            <div class="brand">
+              <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV">
+              <span>MARIDAV Côte d'Ivoire<small class="d-block">Nutrition & Santé Animales</small></span>
+            </div>
+            <p class="mt-3 small">Formulations tropicalisées, appui technique terrain et biosécurité pour volailles, porcs et poissons.</p>
+            <a class="btn btn-brand btn-sm mt-3" href="#lead" data-open-lead>Parler à un expert</a>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6>Solutions</h6>
+            <ul class="list-unstyled m-0">
+              <li><a class="small-link" href="volailles.html">Volailles</a></li>
+              <li><a class="small-link" href="porcins_maridav_ci.html">Porcs</a></li>
+              <li><a class="small-link" href="pisciculture_maridav_ci.html">Poissons</a></li>
+              <li><a class="small-link" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h6>Ressources</h6>
+            <ul class="list-unstyled m-0">
+              <li><a class="small-link" href="a-propos.html">À propos</a></li>
+              <li><a class="small-link" href="partenaires-maridav.html">Nos partenaires</a></li>
+              <li><a class="small-link" href="blog_maridav_ci.html">Guides & articles</a></li>
+              <li><a class="small-link" href="ressources/">Fiches techniques & PDF</a></li>
+              <li><a class="small-link" href="distributeurs_maridav.html">Points de vente</a></li>
+              <li><a class="small-link" href="contact.html">Demander un devis</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h6>Contact</h6>
+            <ul class="list-unstyled footer-contact">
+              <li><i class="fas fa-map-marker-alt"></i><span>Marcory Zone 4C Biétry, 34 Rue Alex Flemming – Abidjan</span></li>
+              <li><i class="far fa-clock"></i><span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span></li>
+            </ul>
+            <div class="d-flex flex-column gap-2 mt-3">
+              <a class="small-link" href="mailto:info@maridav.ci"><i class="fas fa-envelope"></i> info@maridav.ci</a>
+              <a class="small-link" href="tel:002252721353242"><i class="fas fa-phone"></i> (+225) 27 21 35 32 42</a>
+            </div>
+            <div class="footer-social mt-3"><i class="fas fa-share-alt"></i><small> Suivez-nous </small>
+              <a href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+              <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+        <p class="mb-0 small">© 2025 MARIDAV Côte d'Ivoire — Nutrition & santé animales.</p>
+        <p class="mb-0 small">Site web conçu par <a href="https://tech-and-web.com" target="_blank" rel="noopener">TECH & WEB</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/Camera-master/scripts/jquery.mobile.customized.min.js"></script>
+  <script src="vendor/Camera-master/scripts/jquery.easing.1.3.js"></script>
+  <script src="vendor/Camera-master/scripts/camera.min.js"></script>
+  <script src="vendor/menu/src/js/jquery.slimmenu.js"></script>
+  <script src="vendor/WOW-master/dist/wow.min.js"></script>
+  <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
+  <script src="vendor/jquery.appear.js"></script>
+  <script src="vendor/jquery.countTo.js"></script>
+  <script src="vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    document.querySelectorAll('[data-open-lead]').forEach(btn => {
+      btn.addEventListener('click', event => {
+        event.preventDefault();
+        const target = document.getElementById('lead');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "MARIDAV — Aliment Poulette Croissance",
+      "description": "Aliment complet pour poulettes futures pondeuses (7–18 semaines) afin d’assurer uniformité, ossature et préparation du transfert.",
+      "brand": {"@type":"Organization","name":"MARIDAV Côte d'Ivoire"},
+      "image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "sku": "MARIDAV-POULETTE-50KG",
+      "category": "Aliment complet",
+      "audience": {"@type":"Audience","audienceType":"Poulettes — Croissance"},
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "XOF",
+        "price": "Sur devis",
+        "availability": "https://schema.org/InStock",
+        "url": "https://maridav.ci/aliment_poulette.html"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Quelles courbes de poids viser ?","acceptedAnswer":{"@type":"Answer","text":"500 g à 7 semaines, 850 g à 12 semaines, 1,25–1,30 kg à 18 semaines selon la génétique."}},
+        {"@type":"Question","name":"Comment corriger une uniformité insuffisante ?","acceptedAnswer":{"@type":"Answer","text":"Segmentez les lots, ajustez densité et accessibilité aux mangeoires, contactez MARIDAV pour adapter la ration."}},
+        {"@type":"Question","name":"Peut-on fabriquer l’aliment sur place ?","acceptedAnswer":{"@type":"Answer","text":"Oui avec nos prémix et l’appui qualité MARIDAV ; sinon utilisez l’aliment complet pour garantir l’équilibre."}},
+        {"@type":"Question","name":"Quand passer à l’aliment ponte ?","acceptedAnswer":{"@type":"Answer","text":"Lorsque 95 % des poulettes atteignent le poids-cible et que la photopériode passe en programme ponte (16–17 semaines)."}},
+        {"@type":"Question","name":"Quel plan lumière suivre ?","acceptedAnswer":{"@type":"Answer","text":"Suivez le programme recommandé par la génétique (Hy-Line, ISA, etc.). MARIDAV fournit un plan sur mesure."}},
+        {"@type":"Question","name":"Quels outils de suivi sont disponibles ?","acceptedAnswer":{"@type":"Answer","text":"Fiches de pesées, tableurs d’uniformité, plan lumière, visites terrain et audits nutritionnels."}}
+      ]
+    }
+  </script>
+</body>
+</html>

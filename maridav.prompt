@@ -1,0 +1,244 @@
+# PROMPT POUR CODEX — Refonte architecturale + contenus premium du site **MARIDAV Côte d’Ivoire**
+
+## 🎯 Contexte & objectif
+
+Tu es **Codex**, architecte web full‑stack, expert UX/UI, SEO/SEA, performance, accessibilité (WCAG 2.2 AA), et copywriter spécialisé **nutrition & santé animales** en Afrique de l’Ouest.
+Ton rôle : **moderniser** un site web existant en **Bootstrap** et produire des **contenus produits** et **contenus éditoriaux engageants** afin de convertir le trafic (éleveurs, vétérinaires, techniciens, intégrateurs, distributeurs) en **leads et acheteurs**.
+
+**Entreprise :** MARIDAV Côte d’Ivoire — acteur majeur de la nutrition & santé animales en CI.
+**Espèces cibles :** volailles (pondeuses & chair), porcs, poissons.
+**Partenaires/fabricants distribués :** **BIOMIN**, **Trouw Nutrition**, **Nutreco**, **Skretting**, **CID LINES**, **DSM**.
+**Offres propres MARIDAV CI :** aliments complets & de croissance (gammes starter / grower / finisher / pondeuses), additifs, solutions de biosécurité.
+**Public prioritaire :** Côte d’Ivoire (FR), extension bilingue FR/EN facultative.
+
+---
+
+## 🗺️ Livrables attendus (en sortie de ce prompt)
+
+1. **Plan d’architecture technique** détaillé pour moderniser le site en version premium (toujours exploitable même si on reste en Bootstrap) :
+
+   * Pragmatique : **Bootstrap 5.3 + SCSS + HTML/CSS + Javascript**
+   
+   * Arborescence, conventions de nommage, patterns (Atomic Design), gestion des assets, stratégie d’import des données produits.
+
+2. **Modèle de contenu ** : schémas pour *Species*, *Product*, *Brand/Partner*, *UseCase/Stage*, *FAQ*, *Article/Guide*, *Testimonial/Case*, *Distributor*, *Resource (PDF/MSDS)*, *Team*, *Contact/Lead*.
+
+3. **Templates de pages** (wireframe fonctionnel + sections/blocks réutilisables) :
+
+   * Home (proposition de valeur, espèces, partenaires, CTA WhatsApp/appel, contenus éducatifs, preuves sociales).
+   * Listing par **espèce** (Volailles/Poules pondeuses/Poulets de chair, Porcs, Poissons) avec filtres (stade, objectif : croissance, ponte, FCR, biosécurité…).
+   * **Fiche produit** premium (voir structure détaillée plus bas).
+   * Pages **Partenaires** (BIOMIN, Trouw Nutrition, Nutreco, Skretting, CID LINES, DSM) avec gammes distribuées.
+   * **Ressources** : guides, protocoles de biosécurité, fiches techniques, études de cas locales.
+   * **À propos / ** (mettre en avant l'expertise dans le secteur **nutrition et santé animale (volailles, porcs, poissons)**.
+   * **Contact** / **Devenir distributeur** / **Demander un devis** (lead gen avancé).
+
+4. **Système de composants UI** (bibliothèque): Hero, Feature grid, Cards Produit, Tabs, Accordions, Tableaux nutritionnels, Steps, Comparateurs, Badges, CTA flottant **WhatsApp**, Alertes disponibilité, Formulaires multi‑étapes, Toasts, Modales, Pagination/Filtrage, Breadcrumbs.
+
+5. **Spécification SEO/Analytics** :
+
+   * Sémantique HTML5, **schema.org** (Organization, Product, FAQ, Article), balises OG/Twitter.
+   * **Recherche interne** avec index (MiniSearch/Lunr ou Algolia si dispo).
+   * **Core Web Vitals** objectifs : LCP < 2,5 s, CLS < 0,1, INP < 200 ms (mobile‑first).
+   * **Suivi analytics** : GA4, Meta Pixel, TikTok Pixel, conversions (lead, download PDF, clic WhatsApp, appel, formulaire complété), événements server‑side Php.
+
+6. **Contenus** :
+
+   * **Générateur de fiches produits** (FR, ton professionnel & clair, orienté bénéfices, sans promesses thérapeutiques non conformes) + **exemple complet fourni**.
+   * **Guides/capsules** pour éleveurs CI : biosécurité, rations selon stades, qualité de l’eau, biosécurité en climat tropical, bonnes pratiques d’élevage, calendrier sanitaire (non prescriptif).
+   * **Pages Partenaires** : présentation, domaines d’expertise, lignes de produits distribués.
+
+7. **Fonctionnalités clés** :
+
+   * **Formulaire de diagnostic d’élevage** (questionnaire court → recommandations de gammes/produits ; pas de conseils vétérinaires individualisés).
+   * **Calculatrices** : estimation FCR, coût d’aliment/jour, ration journalière par stade (poulet chair/pondeuse/porc/poisson) — résultats indicatifs.
+   * **Téléchargements** : fiches techniques PDF, étiquettes, MSDS quand applicable.
+   * **CTA de conversion** : Devis, Essai produit, Prendre RDV avec un technicien, WhatsApp instantané.
+   * **Localisation** : carte des points de vente/distributeurs (Abidjan + régions).
+
+8. **Critères de qualité & conformité** :
+
+   * **Accessibilité** WCAG 2.2 AA, contrastes, focus visible, navigation clavier.
+   * **Sécurité** (headers, CSRF, reCAPTCHA v3 sur formulaires, RGPD/consent CMP).
+   * **Contenu responsable** : pas d’allégations thérapeutiques ; employer des formulations *“contribue à”*, *“soutient”*, *“optimise”*.
+   * **Localisation CI** : FR (par défaut), devise **XOF**, horaires & numéros locaux, livraisons CI.
+
+---
+
+## 📦 Structure de **fiche produit** (à générer pour chaque produit)
+
+modernise les fiches produits deja existantes en leur appliquant un design premium avec les fonctionnalités requises poyur ce type de site.
+
+**1. Hero**
+
+* Nom du produit, sous‑titre clair (espèce + stade ou objectif), images packshot et/ou visuel d’élevage.
+* Badges: Espèce (Volailles/Porcs/Poissons), Stade (Starter/Grower/Finisher/Pondeuse), Catégorie (Aliment complet / Additif / Désinfectant…), Made by (MARIDAV / Partner).
+
+**2. Promesse & bénéfices clés (3–6 puces)**
+
+* Orienté résultats mesurables (ex: **performance de croissance**, **uniformité**, **vitalité**, **qualité de coquille**, **conversion alimentaire**), sans allégations médicales.
+
+**3. À qui s’adresse ce produit**
+
+* Types d’élevages : industriel, semi‑intensif, fermier ; conditions tropicales CI.
+
+**4. Composition & garanties nutritionnelles**
+
+* Macro (protéines, énergie métabolisable, lipides, fibres), minéraux/vitamines (si disponible). Tableau.
+
+**5. Mode d’utilisation / Posologie indicative**
+
+* **Par espèce/stade** (ex. poulets de chair *starter 0–14 j*, *grower 15–28 j*, *finisher 29–42 j* ; pondeuses par phases ; porcs par poids ; poissons par densité/température).
+* Conseils de transition, eau propre, stockage (sec, à l’abri). **Mentions de prudence**.
+
+**6. Formats & logistique**
+
+* Sacs (ex. 25 kg/50 kg), MOQ, délais, disponibilité CI.
+
+**7. Documents**
+
+* Fiche technique PDF, MSDS/étiquette, notices partenaires.
+
+**8. FAQ**
+
+* 4–8 questions fréquentes (dosage, compatibilité, conservation, signes de carence, contact technicien).
+
+**9. Appels à l’action**
+
+* **Demander un devis**, **Parler à un technicien** (WhatsApp), **Trouver un distributeur**.
+
+**10. Bloc “Partenaire” (si applicable)**
+
+* Logo + résumé (ex. Skretting — aquaculture de pointe), liens vers gammes liées.
+
+**11. Preuves sociales**
+
+* Témoignages d’éleveurs CI, mini‑cas (avant/après, prudence : pas de promesse médicale).
+
+---
+
+## ✍️ Exigences de **rédaction** (FR, CI‑centric)
+
+* Ton : **professionnel, pédagogique, concret**, orienté bénéfices & résultats, sans jargon inutile.
+* Toujours clarifier **espèce + stade + objectif**.
+* Conformité : pas de promesses thérapeutiques ; formules du type *“peut aider à”*, *“contribue à”*, *“optimise”*.
+* Inclure un **glossaire** court au besoin (FCR, EM, premix, mycotoxines…).
+* Ajouter **CTA** clairs dans les 3 premiers scrolls (WhatsApp, devis, appel).
+
+---
+
+## 🧩 Fonctionnalités à **implémenter** (tech)
+
+* **Recherche & filtres** (espèce, stade, objectif, marque, format, disponibilité).
+* **Comparateur** produits (jusqu’à 3).
+* **Formulaires** multi‑étapes (Devis, RDV, Distributeur) → webhook vers email + **CRM** (HubSpot/Pipedrive).
+* **WhatsApp sticky** + liens d’appel téléphonique (tel:).
+* **Tableaux** responsives (sticky headers, tri).
+* **PWA** (icône, offline de base, add‑to‑home).
+* **Sitemap** auto, **robots.txt**, balisage **schema.org**.
+* **Images** optimisées (srcset, WebP/AVIF, lazy‑load), **Vite/Next Image**.
+* **Cache/CDN** (HTTP caching, ETag), compression Brotli.
+
+---
+
+## 🔎 SEO & contenu éditorial
+
+* Pages **pilier** par espèce (ex: “Nutrition des poulets de chair en Côte d’Ivoire : guide complet”).
+* **FAQ** générales avec **FAQPage schema**.
+* Blog/Guides : 2–4/mois (thèmes : biosécurité tropicale, gestion de l’eau, mycotoxines, transition alimentaire, densité d’élevage, programme d’éclairage pour pondeuses, qualité de granulés pour poissons).
+* **Snippets** optimisés (title/meta), **maillage interne** vers fiches produits.
+
+---
+
+## 🧪 Critères d’acceptation (DoD)
+
+* Pages core livrées : Home, 3 pages espèces, listing produits, 1 fiche produit **exemple** complète, Partenaires (x6), Ressources, Contact/Leads.
+* Score **Lighthouse** (mobile) : Performance ≥ 90, Accessibility ≥ 95, SEO ≥ 95, Best Practices ≥ 95.
+* **Core Web Vitals** atteints sur mobile 4G.
+* **Forms** reliés (email + phpmailer avec test de bout en bout.
+* **Schema.org** validé (Rich Results Test) pour Product/FAQ/Organization.
+* **Rédactions** : ≥ 1 200 mots/page pilier espèce, ≥ 500–800 mots/produit, CTA visibles.
+
+---
+
+## 🧰 Tâches à produire **maintenant** (par toi, Codex) — *avec sorties structurées*
+
+1. **Plan d’architecture** + choix recommandé, avec raisons, diagramme simple ASCII, checklist d’implémentation.
+2. **Schémas Bootstrap** pour Product/Species/Partner/Resource/FAQ/Article/Lead.
+3. **Composants UI** (pseudo‑code/React ou HTML Bootstrap) : CardProduit, FicheProduitLayout, TableNutrition, CTAWhatsApp, FormLead multistep.
+4. **Gabarit de fiche produit** (Markdown + front‑matter) + **un exemple rédigé** :
+
+   * *“MARIDAV — Aliment Grower Volailles (15–28 jours)”* (500–800 mots, tableaux inclus, CTA, FAQ).
+5. **Sitemap** proposé (toutes routes), avec slugs.
+6. **Plan SEO** (mots‑clés CI, titles/meta, FAQ schema pour 10 Q/R, interlinking).
+7. **Plan de tracking** (événements GA4/Pixels : lead_submit, whatsapp_click, call_click, pdf_download, filter_use, compare_open).
+
+**Format des sorties** :
+
+* Code (HTML/SCSS Bootstrap) dans des blocs séparés par livrable.
+* Textes en **français**.
+* Possibiité d’images externes et d'utiliser des placeholders.
+
+---
+
+## 🔒 Contraintes & notes légales
+
+* Pas de conseils vétérinaires personnalisés.
+* Mentions légales & Politique de confidentialité (RGPD), cookies/CMP.
+* Crédits marques partenaires (logos, TM), liens officiels.
+
+---
+
+## 🧭 Contexte marché CI (à refléter dans les textes)
+
+* Disponibilité nationale, distribution régionale (Abidjan, Yamoussoukro, Bouaké, San Pedro…).
+* Paiements : XOF, virement, mobile money (MTN, Orange), conditions pro sur devis.
+* Support technique : RDV terrain, ateliers, webinaires ponctuels.
+
+---
+
+## 🗂️ Contexte "repo existant" (à invoquer **dans** le dossier du site)
+
+Tu es exécuté **dans le dossier du site actuel** (HTML/CSS/JS, Bootstrap). Tu dois :
+
+1. **Auditer l’arborescence** (fichiers & liens internes) et produire :
+
+   * Un **inventaire** des pages HTML existantes, CSS/JS, images, PDFs.
+   * Un **sitemap courant** (URLs, titres `<title>`, H1, meta).
+   * Un **rapport de qualité** (SEO technique, accessibilité, perf) avec quick wins.
+
+2. **Préserver les URLs** actives (priorité CI) et préparer un **plan de redirections 301** pour toute modification de slug. Exemples rencontrés :
+
+   * `/volailles.html`, `/porcins_maridav_ci.html`, `/pondeuses_maridav_ci.html`, `/poissons*`, `/distributeurs_maridav.html`, `/blog_maridav_ci*.html`, `/chair_05.html`, `/chair_12_5.html`, `/aliment_chair_demarrage_maridav_ci.html`, `/chickcare.html`. (Vérifiés sur maridav.ci).
+
+3. **Moderniser avec possibilité de casser légèrement** :
+
+   * Monter vers **Bootstrap 5.3** (si Bootstrap conservé). Remplacer jQuery dépendant par **HTMX/Alpine.js** au besoin.
+   * **Consolider CSS** (SCSS, variables design tokens), purger classes orphelines, **lazy‑load** images, formats WebP/AVIF, `<img srcset>`, **Brotli**.
+   * Uniformiser **header/footer/nav** via includes.
+
+4. **Structurer le contenu** :
+
+   * Injecter **données structurées** (`Product`, `Organization`, `FAQPage`, `BreadcrumbList`) en **JSON‑LD**.
+   * Ajouter **blocs de conversion** : CTA WhatsApp sticky, Demander un devis, Prendre RDV.
+   * Pour chaque **fiche produit**, générer les sections exigées (voir gabarit plus bas) et relier aux **espèces** + **stades**.
+
+5. **Tracking & conformité** :
+
+   * GA4 + Pixels (Meta/TikTok) + événements : `lead_submit`, `whatsapp_click`, `call_click`, `pdf_download`, `filter_use`, `compare_open`.
+   * CMP cookies, RGPD, sécurité formulaires (reCAPTCHA v3, CSRF headers).
+
+6. **Sorties à écrire directement dans le repo** :
+
+   * `reports/audit.json` (inventaire + métriques), `reports/redirects.csv`, `reports/seo_issues.csv`.
+   * Nouvelles pages en `/produits/` (ou conserver les noms actuels + 301).
+   * `assets/images/` optimisés, `assets/css/main.min.css`, `assets/js/main.min.js`.
+
+> **Sources consultées (diagnostic rapide)** : pages maridav.ci (home, espèces, blog, produits chair 5% & 12,5%, ChickCare, distributeurs, etc.).
+
+---
+
+## ✅ Instruction finale
+
+**Produis maintenant** l’ensemble des livrables **1→7** ci‑dessus **dans l’ordre**, **en tenant compte** du contexte *repo existant* et du **plan d’audit/migration** ci‑dessus. Fournis du **code prêt à intégrer** et des **textes complets** (rédaction FR adaptée à la Côte d’Ivoire) et procèdes aux modifications dans le repo.
+

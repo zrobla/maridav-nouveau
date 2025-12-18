@@ -1,0 +1,11 @@
+path,issue,severity,notes
+volailles.html,Missing meta description,medium,Add a concise 150–160 char summary
+poulets_chair_maridav_ci.html,Missing meta description,medium,Add product category summary
+porcins_maridav_ci.html,Missing meta description,medium,Add page-level description
+pisciculture_maridav_ci.html,Missing meta description,medium,Add page-level description
+biosecurite_maridav_ci.html,Missing meta description,medium,Add page-level description
+index.html,Duplicate home content with index.html,low,Add 301 to canonical home
+aliments_chair_finition_maridav_ci.html,Missing meta description,medium,Align with grower page structure
+*,Missing canonical,low,Set canonical link on key pages
+*,No Product JSON-LD,low,Injected automatically where possible
+

@@ -1,0 +1,7 @@
+from,to,type,reason
+/index.html,/,301,Canonicaliser la page d'accueil
+/equipe_maridav_c%C3%B4te_d_ivoire.html,/equipe_maridav_cote_d_ivoire.html,301,Normaliser le slug accentué
+/macro-premix/macropremix_chair_2%25.html,/macropremix_chair_2.html,301,Caractère % dans l'URL
+/macro-premix/macropremix_chair_1_7.html,/macropremix_chair_1_7.html,301,Uniformiser arborescence
+/aliments%20complets/aliment_chair_demarrage_maridav_ci.html,/aliment_chair_demarrage_maridav_ci.html,301,Dossier inutile
+

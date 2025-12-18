@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#061948">
+  <title>Points de vente MARIDAV CI — Réseau national</title>
+  <meta name="description" content="Réseau MARIDAV Côte d’Ivoire : localisez nos points de vente, contacts et équipes logistiques pour volailles, porcs, pisciculture et biosécurité.">
+  <link rel="canonical" href="https://maridav.ci/distributeurs_maridav.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+  <link rel="stylesheet" href="assets/css/product-premium.css">
+  <style>
+    .distributor-hero {
+      background: radial-gradient(circle at top left, #123b94 0%, #061948 60%);
+      color: #fff;
+      padding: 4.5rem 0 3rem;
+      position: relative;
+    }
+    .distributor-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.18), transparent 70%);
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .distributor-hero .container { position: relative; z-index: 2; }
+    .hero-map-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 1.25rem;
+      backdrop-filter: blur(6px);
+      padding: 1.25rem;
+      min-height: 100%;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    }
+    .hero-map-card .hero-map {
+      width: 70%;
+      max-width: 360px;
+      height: auto;
+      display: block;
+      margin: 0 auto 1rem;
+      border-radius: 1rem;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      color: #fff;
+    }
+    .stat-card strong { font-size: 1.8rem; display: block; }
+    .feature-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(11, 94, 244, 0.12);
+      color: #0b5ef4;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin: 0.35rem;
+    }
+    .coverage-grid .card-premium {
+      height: 100%;
+      border: 1px solid rgba(6, 25, 72, 0.08);
+    }
+    .nav-distributor .nav-link {
+      border-radius: 999px;
+      padding: 0.65rem 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #0b1f36;
+      border: 1px solid transparent;
+    }
+    .nav-distributor .nav-link.active {
+      background: #0b5ef4;
+      color: #fff;
+      border-color: #0b5ef4;
+      box-shadow: 0 12px 30px rgba(11, 94, 244, 0.3);
+    }
+    .location-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(5, 25, 55, 0.08);
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 60%, #ffffff 100%);
+      padding: 1.5rem;
+      box-shadow: 0 25px 40px rgba(10, 24, 55, 0.08), 0 6px 18px rgba(27, 142, 62, 0.08);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .location-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(27, 142, 62, 0.15);
+      pointer-events: none;
+    }
+    .location-card h3 { font-size: 1.35rem; margin: 0; color: #061948; }
+    .location-card .region-pill {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #0b5ef4;
+    }
+    .location-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .location-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      color: #2a3140;
+      margin-bottom: 0.35rem;
+    }
+    .location-card li i { color: #0b5ef4; margin-top: 0.2rem; }
+    .map-link {
+      margin-top: auto;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, #1b8e3e, #25d366);
+      border: 1px solid rgba(27, 142, 62, 0.3);
+      box-shadow: 0 12px 28px rgba(27, 142, 62, 0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    }
+    .map-link i { margin-left: 0.1rem; transition: transform 0.15s ease; }
+    .map-link:hover { filter: brightness(0.95); box-shadow: 0 16px 32px rgba(27, 142, 62, 0.3); transform: translateY(-1px); }
+    .map-link:hover i { transform: translateY(-2px); }
+    .support-card {
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      height: 100%;
+      background: linear-gradient(135deg, #051937, #0b5ef4);
+      color: #fff;
+      box-shadow: 0 35px 50px rgba(5, 25, 55, 0.25);
+    }
+    .support-card ul { list-style: none; padding: 0; margin: 0; }
+    .support-card li { margin-bottom: 0.8rem; display: flex; gap: 0.5rem; align-items: center; }
+    .support-card li i { color: #00c7b1; }
+    .contact-actions .btn { border-radius: 0.9rem; padding: 0.75rem 1.2rem; font-weight: 600; }
+    .partner-strip {
+      background: #f4f7ff;
+      border-radius: 1.5rem;
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .partner-strip img { height: 42px; width: auto; opacity: 0.85; transition: opacity 0.2s ease; }
+    .partner-strip img:hover { opacity: 1; }
+    @media (max-width: 767px) {
+      .distributor-hero { padding-top: 3.5rem; }
+      .nav-distributor { flex-direction: column; gap: 0.6rem; }
+    }
+  </style>
+</head>
+<body class="premium-active">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu</a>
+  <header class="premium-header sticky-top" role="banner">
+    <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" aria-label="MARIDAV CI">
+          <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV CI">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPremium" aria-controls="navPremium" aria-expanded="false" aria-label="Menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navPremium">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link nav-link-compact" href="index.html">ACCUEIL</a></li>
+            <li class="nav-item dropdown">
+              <button class="nav-link nav-link-compact dropdown-toggle" id="navSolutions" type="button" data-bs-toggle="dropdown" aria-expanded="false">SOLUTIONS</button>
+              <ul class="dropdown-menu" aria-labelledby="navSolutions">
+                <li><a class="dropdown-item" href="volailles.html">VOLAILLES</a></li>
+                <li><a class="dropdown-item" href="porcins_maridav_ci.html">PORCS</a></li>
+                <li><a class="dropdown-item" href="pisciculture_maridav_ci.html">POISSONS</a></li>
+                <li><a class="dropdown-item" href="biosecurite_maridav_ci.html">BIOSECURITE</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link nav-link-compact dropdown-toggle" id="navResources" type="button" data-bs-toggle="dropdown" aria-expanded="false">RESSOURCES</button>
+              <ul class="dropdown-menu" aria-labelledby="navResources">
+                <li><a class="dropdown-item" href="a-propos.html">A PROPOS DE NOUS</a></li>
+                <li><a class="dropdown-item" href="blog_maridav_ci.html">BLOG</a></li>
+                <li><a class="dropdown-item" href="ressources/">DOCUMENTATIONS TECHNIQUES</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link nav-link-compact active" href="distributeurs_maridav.html">POINTS DE VENTE</a></li>
+          </ul>
+          <div class="nav-meta d-lg-flex align-items-center gap-2 ms-lg-3">
+            <a class="meta-pill" href="tel:002252721353242"><i class="fa fa-phone"></i><span>(+225) 27 21 35 32 42</span></a>
+            <a class="meta-pill" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>05 74 64 88 88</span></a>
+          </div>
+          <div class="nav-cta d-flex flex-column flex-lg-row gap-2 ms-lg-3">
+            <a class="btn btn-brand btn-sm" href="contact.html">Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="main-page-wrapper">
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+    </div>
+
+    <main id="main">
+      <section class="distributor-hero">
+        <div class="container">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <p class="text-uppercase fw-bold mb-2 text-white-50">Réseau MARIDAV Côte d’Ivoire</p>
+              <h1 class="display-5 fw-bold">Trouver un point de vente proche de votre exploitation</h1>
+              <p class="lead">Abidjan, Grand-Bassam, San Pedro, Korhogo… notre réseau physique couvre les grandes régions agricoles ivoiriennes avec stock tampon, assistance nutrition & biosécurité.</p>
+              <div class="d-flex flex-wrap gap-3">
+                <a class="btn btn-brand btn-lg" href="#points-vente">Voir les points de vente</a>
+                <a class="btn btn-outline-light btn-lg" href="contact.html">Planifier un enlèvement</a>
+              </div>
+              <div class="d-flex flex-wrap gap-3 mt-4">
+                <div class="stat-card">
+                  <strong>13</strong>
+                  <span>Agences & dépôts actifs</span>
+                </div>
+                <div class="stat-card">
+                  <strong>48 h</strong>
+                  <span>Livraison moyenne sur commande validée</span>
+                </div>
+                <div class="stat-card">
+                  <strong>+50</strong>
+                  <span>Techniciens terrain & partenaires</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <span class="feature-chip"><i class="bi bi-geo-alt"></i> Couverture nationale</span>
+                <span class="feature-chip"><i class="bi bi-box-seam"></i> Stocks volailles / porcs / poissons</span>
+                <span class="feature-chip"><i class="bi bi-headset"></i> Hotline logistique (+225) 05 74 64 88 88</span>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="hero-map-card">
+                <img class="hero-map" src="carte-maridav-ivoire.png" alt="Carte de la Côte d’Ivoire - Réseau MARIDAV">
+                <h3 class="h5 fw-bold">Coordination logistique</h3>
+                <p class="small text-white-50 mb-3">Planifiez vos enlèvements ou livraisons régionales avec l’équipe supply chain MARIDAV CI.</p>
+                <ul class="list-unstyled text-white small mb-3">
+                  <li><i class="bi bi-clock me-2 text-success"></i> Lundi – Vendredi : 08h – 18h &nbsp;•&nbsp; Samedi : 08h – 13h</li>
+                  <li><i class="bi bi-telephone-forward me-2 text-success"></i> (+225) 27 21 35 32 42 / 05 74 64 88 88</li>
+                  <li><i class="bi bi-envelope me-2 text-success"></i> logistique@maridav.ci</li>
+                </ul>
+                <a class="btn btn-light w-100" href="contact.html">Planifier un enlèvement</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-spacing bg-white">
+        <div class="container">
+          <div class="section-title text-center">
+            <span>Service & disponibilité</span>
+            <h2>Ce que vous obtenez dans chaque point de vente</h2>
+          </div>
+          <div class="row g-4 coverage-grid mt-3">
+            <div class="col-lg-4">
+              <div class="card-premium h-100">
+                <div class="benefit-icon"><i class="bi bi-bag-check"></i></div>
+                <h4 class="mt-3">Stocks adaptés aux saisons</h4>
+                <p>Aliments complets, concentrés, additifs, désinfectants et accessoires de biosécurité disponibles par espèce et stade.</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card-premium h-100">
+                <div class="benefit-icon"><i class="bi bi-people-fill"></i></div>
+                <h4 class="mt-3">Conseil terrain MARIDAV</h4>
+                <p>Présence de techniciens en magasin pour vérifier vos rations, conversions et plans d’élevage.</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card-premium h-100">
+                <div class="benefit-icon"><i class="bi bi-truck"></i></div>
+                <h4 class="mt-3">Livraison coordonnée</h4>
+                <p>Camions MARIDAV & partenaires pour livraisons 24–72 h sur demande avec suivi GPS et preuve de dépôt.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-spacing" id="points-vente">
+        <div class="container">
+          <div class="section-title text-center">
+            <span>Points de vente</span>
+            <h2>Choisissez votre région pour voir les coordonnées</h2>
+          </div>
+          <div class="row justify-content-center mt-3">
+            <div class="col-lg-6">
+              <label class="form-label fw-semibold text-uppercase small text-muted" for="searchDistributor">Recherche par ville, contact ou région</label>
+              <input id="searchDistributor" class="form-control form-control-lg" type="search" placeholder="Ex : Abidjan, Korhogo, 05 74..." aria-label="Rechercher un point de vente">
+            </div>
+          </div>
+          <ul class="nav nav-pills justify-content-center gap-2 nav-distributor mt-4" id="networkTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab-abidjan" data-bs-toggle="pill" data-bs-target="#pane-abidjan" type="button" role="tab" aria-controls="pane-abidjan" aria-selected="true">Abidjan & Grand Abidjan</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-centre" data-bs-toggle="pill" data-bs-target="#pane-centre" type="button" role="tab" aria-controls="pane-centre" aria-selected="false">Centre & Nord</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-sud" data-bs-toggle="pill" data-bs-target="#pane-sud" type="button" role="tab" aria-controls="pane-sud" aria-selected="false">Ouest &amp; Haut Sassandra</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-est" data-bs-toggle="pill" data-bs-target="#pane-est" type="button" role="tab" aria-controls="pane-est" aria-selected="false">Sud-Est</button>
+            </li>
+          </ul>
+          <div class="tab-content mt-5" id="networkTabsContent">
+            <div class="tab-pane fade show active" id="pane-abidjan" role="tabpanel" aria-labelledby="tab-abidjan">
+              <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Siège — Marcory</div>
+                    <h3>MARIDAV Abidjan</h3>
+                    <p>Marcory Zone 4C Biétry, 34 Rue Alex Flemming, 09 BP 3643 Abidjan 09.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 05 74 64 88 88</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/place/MARIDAV+CI/@5.2899384,-3.9797426,17z" target="_blank" rel="noopener">Voir sur Google Maps <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Grand Abidjan</div>
+                    <h3>Bingerville</h3>
+                    <p>Derrière la Pharmacie du Marché, centre-ville.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 05 05 22 79 17</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/search/Maridav+Bingerville" target="_blank" rel="noopener">Localiser le dépôt <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Grand Abidjan</div>
+                    <h3>Songon – Bimbresso</h3>
+                    <p>Route de Dabou, face à la cité Bel Horizon.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 05 01 19 08 29</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/place/Maridav+Songon+Bimbresso" target="_blank" rel="noopener">Voir sur Google Maps <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Grand Abidjan</div>
+                    <h3>Grand-Bassam</h3>
+                    <p>Ancienne voie, Carrefour Edoukou.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 05 01 19 08 10</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/place/Maridav+Grand+Bassam" target="_blank" rel="noopener">Itinéraire Google Maps <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="no-result text-center text-muted py-4 d-none">Aucune correspondance pour cette région.</div>
+            </div>
+            <div class="tab-pane fade" id="pane-centre" role="tabpanel" aria-labelledby="tab-centre">
+              <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Centre</div>
+                    <h3>Yamoussoukro</h3>
+                    <p>Quartier Dioulabougou, Carrefour Baby Photo.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 07 08 30 01 94</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/search/Maridav+Yamoussoukro" target="_blank" rel="noopener">Voir sur la carte <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Centre</div>
+                    <h3>Bouaké</h3>
+                    <p>Pont Djibo, en face de la lagune.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 07 57 63 16 54</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/place/Maridav+Bouake" target="_blank" rel="noopener">Itinéraire Google Maps <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Nord</div>
+                    <h3>Korhogo</h3>
+                    <p>Quartier SODEPRA, à 200 m de l’Hôtel Olympe.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 05 74 64 88 88</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/place/Maridav+Korhogo" target="_blank" rel="noopener">Afficher sur la carte <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="no-result text-center text-muted py-4 d-none">Aucune correspondance pour cette région.</div>
+            </div>
+            <div class="tab-pane fade" id="pane-sud" role="tabpanel" aria-labelledby="tab-sud">
+              <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Sud-Ouest</div>
+                    <h3>San Pedro</h3>
+                    <p>Carrefour CMA, zone portuaire.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 05 74 65 33 33</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/place/Maridav+San+Pedro" target="_blank" rel="noopener">Parcours Google Maps <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Haut-Sassandra</div>
+                    <h3>Daloa</h3>
+                    <p>Gare d’Issia, près du marché des moutons.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 07 07 80 25 80</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/search/Maridav+Daloa" target="_blank" rel="noopener">Voir sur la carte <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Nawa</div>
+                    <h3>Soubré</h3>
+                    <p>Quartier Gabon, au cabinet vétérinaire de la Nawa.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 07 57 67 92 91</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/search/Maridav+Soubr%C3%A9" target="_blank" rel="noopener">Consulter le plan <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Montagnes</div>
+                    <h3>Man</h3>
+                    <p>Quartier Commerce, derrière la Cathédrale.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 05 05 78 07 34</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/search/Maridav+Man" target="_blank" rel="noopener">Voir sur Google Maps <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="no-result text-center text-muted py-4 d-none">Aucune correspondance pour cette région.</div>
+            </div>
+            <div class="tab-pane fade" id="pane-est" role="tabpanel" aria-labelledby="tab-est">
+              <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Sud-Comoé</div>
+                    <h3>Aboisso</h3>
+                    <p>Koffikro, route d’Aboisso.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 07 08 72 87 43</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/place/Maridav+Aboisso" target="_blank" rel="noopener">Voir sur Google Maps <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="location-card">
+                    <div class="region-pill">Indénié-Djuablin</div>
+                    <h3>Agnibilékrou</h3>
+                    <p>En face du Commissariat de police.</p>
+                    <ul>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 27 21 35 32 42</span></li>
+                      <li><i class="bi bi-telephone"></i><span>(+225) 05 74 65 77 77</span></li>
+                    </ul>
+                    <a class="map-link" href="https://www.google.com/maps/place/Maridav+Agnibilekrou" target="_blank" rel="noopener">Parcours Google Maps <i class="bi bi-arrow-up-right"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="no-result text-center text-muted py-4 d-none">Aucune correspondance pour cette région.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-spacing bg-white" id="support">
+        <div class="container">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+              <div class="support-card">
+                <p class="text-uppercase text-white-50 mb-2">Appui distributeurs</p>
+                <h3 class="text-white">Vous souhaitez devenir revendeur agréé ?</h3>
+                <p class="mt-3">Nous accompagnons les vétérinaires, coopératives, et centrales d’achat pour mettre à disposition la gamme MARIDAV CI sur l’ensemble du territoire.</p>
+                <ul class="mt-3">
+                  <li><i class="bi bi-check-circle"></i><span>Formation produits & argumentaires nutrition/biosecurité</span></li>
+                  <li><i class="bi bi-check-circle"></i><span>Livraison par camions palettisés & suivi de stock</span></li>
+                  <li><i class="bi bi-check-circle"></i><span>Visibilité marketing locale (PLV, digital, événements)</span></li>
+                </ul>
+                <div class="contact-actions d-flex flex-column flex-md-row gap-3 mt-4">
+                  <a class="btn btn-light w-100" href="contact.html">Parler au responsable réseau</a>
+                  <a class="btn btn-outline-light w-100" href="mailto:info@maridav.ci">info@maridav.ci</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card-premium h-100">
+                <div class="section-title">
+                  <span>Partenaires technologiques</span>
+                  <h3>Des marques internationales distribuées en Côte d’Ivoire</h3>
+                </div>
+                <p>MARIDAV CI est le relais exclusif de marques leaders : nutrition, additifs fonctionnels, biosécurité, pisciculture. Nous garantissons l’intégrité de la chaîne logistique jusqu’à vos fermes.</p>
+                <div class="partner-strip mt-4">
+                  <img src="maridav_ci_image/logo/dsm-logo.png" alt="DSM">
+                  <img src="maridav_ci_image/logo/biomin-logo.png" alt="Biomin">
+                  <img src="maridav_ci_image/logo/logo-trouw-nutrition-partner-maridav-ci.png" alt="Trouw Nutrition">
+                  <img src="maridav_ci_image/logo/cid-logo.png" alt="CID Lines">
+                  <img src="maridav_ci_image/logo/Skretting%20full%20colour%20logo.png" alt="Skretting">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-premium" role="contentinfo">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-12 col-lg-4">
+              <div class="brand">
+                <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV">
+                <span>MARIDAV Côte d'Ivoire<small>Nutrition &amp; Santé Animales</small></span>
+              </div>
+              <p class="mt-3 small">Formulations tropicalisées, appui technique terrain et biosécurité pour volailles, porcs et poissons. Distributeur exclusif de produits mondialement reconnus pour couverture nationale en Côte d'Ivoire.</p>
+              <a class="btn btn-brand btn-sm mt-3" href="contact.html">Parler à un expert</a>
+            </div>
+            <div class="col-6 col-lg-2">
+              <h6>Solutions</h6>
+              <ul class="list-unstyled m-0">
+                <li><a class="small-link" href="volailles.html">Volailles</a></li>
+                <li><a class="small-link" href="porcins_maridav_ci.html">Porcs</a></li>
+                <li><a class="small-link" href="pisciculture_maridav_ci.html">Poissons</a></li>
+                <li><a class="small-link" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-3">
+              <h6>Ressources</h6>
+              <ul class="list-unstyled m-0">
+                <li><a class="small-link" href="a-propos.html">À propos de nous</a></li>
+                <li><a class="small-link" href="partenaires-maridav.html">Nos Partenaires</a></li>
+                <li><a class="small-link" href="blog_maridav_ci.html">Guides &amp; articles</a></li>
+                <li><a class="small-link" href="ressources/">Fiches techniques &amp; PDF</a></li>
+                <li><a class="small-link" href="distributeurs_maridav.html">Points de vente</a></li>
+                <li><a class="small-link" href="contact.html">Demander un devis</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-3">
+              <h6>Contact</h6>
+              <ul class="list-unstyled footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i><span>Marcory Zone 4C Biétry, 34 Rue Alex Flemming – Abidjan</span></li>
+                <li><i class="far fa-clock"></i><span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span></li>
+              </ul>
+              <div class="d-flex flex-column gap-2 mt-3">
+                <a class="small-link" href="mailto:info@maridav.ci"><i class="fas fa-envelope"></i> info@maridav.ci</a>
+                <a class="small-link" href="tel:002252721353242"><i class="fas fa-phone"></i> (+225) 27 21 35 32 42</a>
+              </div>
+              <div class="footer-social"><i class="fas fa-share-alt"></i><small> Suivez-Nous! </small>
+                <a href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+          <p class="mb-0 small">© 2025 MARIDAV Côte d'Ivoire — Nutrition &amp; santé animales.</p>
+          <p class="mb-0 small">Site web conçu par <a href="https://tech-and-web.com" target="_blank" rel="noopener">TECH &amp; WEB</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <a class="floating-whatsapp" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" aria-label="Discuter avec MARIDAV sur WhatsApp">
+    <img src="maridav_ci_image/logo/whatsapp-logo-contact-maridav.png" alt="WhatsApp MARIDAV">
+    <span>WhatsApp</span>
+  </a>
+  <button class="scroll-top tran3s" type="button" aria-label="Revenir en haut">
+    <i class="fa fa-angle-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader-wrapper');
+      if (loader) loader.style.display = 'none';
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollBtn = document.querySelector('.scroll-top');
+      if (scrollBtn) {
+        const toggleBtn = () => {
+          scrollBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+        };
+        toggleBtn();
+        window.addEventListener('scroll', toggleBtn);
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+
+      const searchInput = document.getElementById('searchDistributor');
+      if (searchInput) {
+        const panes = document.querySelectorAll('#networkTabsContent .tab-pane');
+        const tabs = document.querySelectorAll('#networkTabs button[data-bs-toggle="pill"]');
+        const filterCards = () => {
+          const term = searchInput.value.trim().toLowerCase();
+          let firstMatchPaneId = null;
+          let activePaneId = null;
+          const activePane = document.querySelector('#networkTabsContent .tab-pane.active.show');
+          if (activePane) activePaneId = activePane.id;
+
+          panes.forEach(pane => {
+            const cards = pane.querySelectorAll('.location-card');
+            let visibleCount = 0;
+            cards.forEach(col => {
+              const cardWrapper = col.parentElement;
+              const text = col.textContent.toLowerCase();
+              const match = !term || text.includes(term);
+              if (cardWrapper) cardWrapper.classList.toggle('d-none', !match);
+              if (match) visibleCount += 1;
+            });
+            const empty = pane.querySelector('.no-result');
+            if (empty) empty.classList.toggle('d-none', visibleCount > 0);
+            if (visibleCount > 0 && !firstMatchPaneId) {
+              firstMatchPaneId = pane.id;
+            }
+          });
+
+          if (term && firstMatchPaneId && firstMatchPaneId !== activePaneId) {
+            const targetTab = Array.from(tabs).find(btn => btn.getAttribute('data-bs-target') === `#${firstMatchPaneId}`);
+            if (targetTab && window.bootstrap) {
+              const tabInstance = window.bootstrap.Tab.getOrCreateInstance(targetTab);
+              tabInstance.show();
+            }
+          }
+        };
+        searchInput.addEventListener('input', filterCards);
+      }
+    });
+  </script>
+  <script src="assets/js/main.min.js" defer></script>
+</body>
+</html>

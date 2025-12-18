@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#061948">
+  <title>MARIDAV — Aliment Ponte Phase 2 (&gt; 41 semaines)</title>
+  <meta name="description" content="Aliment complet pour maintenir la ponte après 41 semaines : persistance, qualité de coquille, métabolisme du calcium et accompagnement MARIDAV.">
+  <meta property="og:title" content="MARIDAV — Aliment Ponte Phase 2">
+  <meta property="og:description" content="Soutenez vos pondeuses senior avec une formule riche en calcium assimilable et en antioxydants.">
+  <meta property="og:image" content="https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg">
+  <link rel="icon" type="image/png" sizes="56x56" href="favicon_io/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+  <style>
+    :root { --brand-primary:#0b5ef4; --brand-secondary:#00c7b1; --brand-dark:#0b1f36; --brand-muted:#5b6475; --card-radius:1.25rem; }
+    body.premium-active { background:#f5f7fb; color:var(--brand-dark); font-family:"Inter","Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .navbar-premium { background:rgba(255,255,255,0.96); box-shadow:0 16px 35px rgba(15,31,47,0.12); backdrop-filter:blur(6px); }
+    .navbar-premium .nav-link, .navbar-premium .dropdown-item { font-size:0.9rem; letter-spacing:0.02em; text-transform:uppercase; }
+    main { overflow:hidden; }
+    .premium-hero { background:radial-gradient(circle at top left,#123b94,#051937 70%); color:#fff; padding:4.5rem 0 3.5rem; position:relative; }
+    .premium-hero::after { content:""; position:absolute; inset:0; background:radial-gradient(circle at top,rgba(255,255,255,0.18),transparent 70%); opacity:0.65; pointer-events:none; }
+    .premium-hero .container { position:relative; z-index:2; }
+    .hero-media { border-radius:var(--card-radius); overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,0.45); position:relative; }
+    .hero-media img { width:100%; display:block; }
+    .hero-media .media-badge { position:absolute; bottom:1.25rem; left:1.25rem; background:rgba(11,31,54,0.85); border-radius:0.85rem; padding:1rem 1.25rem; width:calc(100% - 2.5rem); color:#fff; }
+    .badge-stack { display:inline-flex; flex-wrap:wrap; gap:0.5rem; }
+    .badge-stack span, .badge-spec { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; border-radius:999px; padding:0.35rem 0.9rem; font-size:0.75rem; letter-spacing:0.1em; }
+    .stat-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.3); border-radius:1rem; padding:1rem; min-height:130px; color:#f4f8ff; }
+    .stat-pill strong { font-size:1.4rem; display:block; }
+    .trust-strip { background:#fff; padding:1.5rem 0; border-bottom:1px solid rgba(11,31,54,0.08); }
+    .section-spacing { padding:4rem 0; }
+    .section-title span { text-transform:uppercase; letter-spacing:0.18em; font-size:0.78rem; color:var(--brand-secondary); font-weight:600; }
+    .section-title h2 { margin-top:0.5rem; font-weight:700; color:var(--brand-dark); }
+    .card-premium { border-radius:var(--card-radius); border:1px solid rgba(5,25,55,0.08); background:#fff; padding:1.75rem; box-shadow:0 35px 60px rgba(15,25,55,0.08); }
+    .card-premium.dark { background:#0b1f36; color:#fff; border-color:rgba(255,255,255,0.08); }
+    .benefit-icon, .icon-circle { width:52px; height:52px; border-radius:50%; background:rgba(11,94,244,0.15); color:var(--brand-primary); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .timeline-step { display:flex; gap:1rem; padding:1.1rem 0; border-bottom:1px dashed rgba(11,31,54,0.2); }
+    .timeline-step:last-child { border-bottom:0; }
+    .timeline-step span { width:88px; height:88px; background:rgba(11,94,244,0.1); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:var(--brand-primary); flex-shrink:0; }
+    .glossary-chip { border-radius:999px; border:1px solid rgba(91,100,117,0.2); padding:0.45rem 1.1rem; font-size:0.85rem; margin:0.35rem; background:#fff; }
+    .lead-card { background:#fff; color:var(--brand-dark); border:1px solid rgba(5,25,55,0.12); }
+    .lead-form .form-control, .lead-form .form-select { border-radius:0.85rem; border:1px solid rgba(5,25,55,0.15); background:#f7f9fc; color:#0c1524; }
+    .lead-form .form-control::placeholder { color:var(--brand-muted); }
+    .lead-form label { font-weight:600; color:#0c1524; }
+    .lead-form select option { color:#000; }
+    .cta-grid .card-premium { text-align:center; height:100%; }
+    .testimonial-card { border-radius:var(--card-radius); border:1px solid rgba(11,31,54,0.08); padding:1.5rem; background:#fff; height:100%; }
+    .accordion-button:not(.collapsed) { color:var(--brand-primary); background:rgba(11,94,244,0.08); }
+    .partner-chip { border-radius:999px; border:1px solid rgba(0,199,177,0.4); padding:0.4rem 1.2rem; margin:0.35rem; display:inline-flex; align-items:center; gap:0.4rem; background:rgba(0,199,177,0.08); }
+    footer .footer-top { padding:3rem 0; background:#020a1c; color:#fff; }
+    footer .footer-bottom { background:#010512; color:#b2bed5; padding:1rem 0; }
+    footer .brand { display:flex; align-items:center; gap:1rem; }
+    footer .brand img { height:48px; }
+    footer .small-link { color:#d0d7ea; text-decoration:none; font-size:0.95rem; }
+    footer .small-link:hover { color:var(--brand-secondary); }
+    .footer-contact li { display:flex; gap:0.6rem; font-size:0.95rem; margin-bottom:0.85rem; }
+    .footer-social a { color:#fff; margin-right:0.65rem; }
+  </style>
+</head>
+<body class="premium-active">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+  <header class="premium-header sticky-top" role="banner">
+    <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" aria-label="MARIDAV CI">
+          <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="Logo MARIDAV CI">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPremium" aria-controls="navPremium" aria-expanded="false" aria-label="Menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navPremium">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" id="navSolutions" type="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</button>
+              <ul class="dropdown-menu" aria-labelledby="navSolutions">
+                <li><a class="dropdown-item" href="volailles.html">Volailles</a></li>
+                <li><a class="dropdown-item" href="porcins_maridav_ci.html">Porcs</a></li>
+                <li><a class="dropdown-item" href="pisciculture_maridav_ci.html">Poissons</a></li>
+                <li><a class="dropdown-item" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="nav-link dropdown-toggle" id="navResources" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ressources</button>
+              <ul class="dropdown-menu" aria-labelledby="navResources">
+                <li><a class="dropdown-item" href="a-propos.html">À propos</a></li>
+                <li><a class="dropdown-item" href="blog_maridav_ci.html">Blog & Guides</a></li>
+                <li><a class="dropdown-item" href="ressources/">Documentations techniques</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="distributeurs_maridav.html">Points de vente</a></li>
+          </ul>
+          <div class="nav-meta d-lg-flex align-items-center gap-2 ms-lg-3">
+            <a class="meta-pill" href="tel:002252721353242"><i class="fa fa-phone"></i><span>(+225) 27 21 35 32 42</span></a>
+            <a class="meta-pill" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>05 74 64 88 88</span></a>
+          </div>
+          <div class="nav-cta d-flex flex-column flex-lg-row gap-2 ms-lg-3">
+            <a class="btn btn-brand btn-sm" href="contact.html">Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="premium-hero">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <nav aria-label="Fil d'Ariane" class="mb-3">
+              <ol class="breadcrumb breadcrumb-premium mb-2">
+                <li class="breadcrumb-item"><a href="volailles.html">Volailles</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Ponte Phase 2</li>
+              </ol>
+            </nav>
+            <div class="badge-stack">
+              <span>Pondeuses</span>
+              <span>&gt; 41 sem</span>
+              <span>Aliment complet</span>
+            </div>
+            <h1 class="display-5 fw-bold mt-3 text-success">MARIDAV — Aliment Ponte Phase 2</h1>
+            <p class="lead">Maintenez la production d’œufs et la qualité de coquille sur la seconde partie de cycle grâce à une formulation renforcée en calcium assimilable, vitamines et antioxydants.</p>
+            <div class="row g-3 mt-4" role="list">
+              <div class="col-6 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>90 %</strong>
+                  <small>Persistance visée après 45 semaines</small>
+                </div>
+              </div>
+              <div class="col-6 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>4,2 g</strong>
+                  <small>Calcium total / poule / jour</small>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="stat-pill" role="listitem">
+                  <strong>120 g</strong>
+                  <small>Consommation moyenne quotidienne</small>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a class="btn btn-light btn-lg text-dark" href="contact.html">Demander un devis</a>
+              <a class="btn btn-outline-light btn-lg" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank">Parler à un technicien</a>
+            </div>
+            <p class="small text-white-50 mt-3">Support inclus : suivi coquille, ajustement lumière, plan nutrition senior.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-media">
+              <img src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Aliment Ponte Phase 2 MARIDAV">
+              <div class="media-badge">
+                <strong>Pack maintien ponte</strong>
+                <ul class="mb-0 ps-3">
+                  <li>Tableau persistance</li>
+                  <li>Audit coquille & masse œuf</li>
+                  <li>Plan additifs antioxydants</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="benefices">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Promesse produit</span>
+                <h2>Bénéfices clés pour la Phase 2</h2>
+              </div>
+              <div class="d-flex flex-column gap-4 mt-4">
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-bar-chart"></i></div>
+                  <div>
+                    <h5>Persistance élevée</h5>
+                    <p>Énergie ajustée pour maintenir un % de ponte supérieur à 90 % malgré l’âge.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-egg"></i></div>
+                  <div>
+                    <h5>Coquille renforcée</h5>
+                    <p>Calcium multi-sources, vitamine D3 et oligo-éléments biodisponibles pour limiter les fêlures.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-heart-pulse"></i></div>
+                  <div>
+                    <h5>Metabolisme soutenu</h5>
+                    <p>Antioxydants naturels, acides gras essentiels et électrolytes pour réduire le stress oxydatif des pondeuses senior.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-droplet"></i></div>
+                  <div>
+                    <h5>Consommation stable</h5>
+                    <p>Granulométrie régulière, appétence renforcée et niveau de fibres pour éviter les baisses d’ingestion.</p>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <div class="benefit-icon"><i class="bi bi-clipboard-check"></i></div>
+                  <div>
+                    <h5>Accompagnement complet</h5>
+                    <p>Suivi MARIDAV : courbes de production, ajustement lumière, diagnostics eau et nutrition.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium dark h-100">
+              <div class="section-title">
+                <span>Pour qui ?</span>
+                <h2 class="text-white">Élevages ciblés</h2>
+              </div>
+              <ul class="mt-4 text-white">
+                <li>Pondeuses > 41 semaines souhaitant prolonger le cycle.</li>
+                <li>Exploitations livrant le marché œuf frais ou industrie.</li>
+                <li>Sites confrontés aux pics de chaleur causant des coquilles fragiles.</li>
+                <li>Producteurs recherchant un accompagnement persistance + coût alimentaire.</li>
+              </ul>
+              <div class="mt-4">
+                <h6 class="text-white-50 text-uppercase">Badges</h6>
+                <div class="d-flex flex-wrap gap-2 mt-2">
+                  <span class="badge bg-light text-dark">Pondeuses</span>
+                  <span class="badge bg-light text-dark">Phase 2</span>
+                  <span class="badge bg-light text-dark">Persistance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="composition">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="section-title">
+              <span>Garanties nutritionnelles</span>
+              <h2>Tableau indicatif</h2>
+            </div>
+            <p>Valeurs formulées pour les pondeuses au-delà de 41 semaines. Ajustables selon vos objectifs et matières premières.</p>
+          </div>
+          <div class="col-lg-7">
+            <div class="table-responsive">
+              <table class="table table-borderless align-middle">
+                <thead><tr><th>Paramètre</th><th>Valeur cible</th></tr></thead>
+                <tbody>
+                  <tr><td>Énergie métabolisable</td><td>2 750 – 2 780 kcal/kg</td></tr>
+                  <tr><td>Protéines brutes</td><td>17 %</td></tr>
+                  <tr><td>Lysine digestible</td><td>0,86 %</td></tr>
+                  <tr><td>Méthionine + Cystine digestibles</td><td>0,70 %</td></tr>
+                  <tr><td>Thréonine digestible</td><td>0,60 %</td></tr>
+                  <tr><td>Calcium / Phosphore disponible</td><td>4,20 % / 0,42 %</td></tr>
+                  <tr><td>Sodium</td><td>0,18 %</td></tr>
+                  <tr><td>Vitamine D3</td><td>3 500 UI/kg</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="usage">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Mode d’emploi</span>
+                <h2>Programme conseillé</h2>
+              </div>
+              <div class="timeline-step">
+                <span>41-45 sem</span>
+                <div>
+                  <h5>Transition Phase 1 → Phase 2</h5>
+                  <p>Transition progressive sur 4 jours, suivi du poids des œufs et ajustement de la photopériode si nécessaire.</p>
+                </div>
+              </div>
+              <div class="timeline-step">
+                <span>46-60 sem</span>
+                <div>
+                  <h5>Maintien de production</h5>
+                  <p>Contrôler la consommation (115–120 g), offrir de l’eau fraîche et surveiller la qualité coquille chaque semaine.</p>
+                </div>
+              </div>
+              <div class="timeline-step">
+                <span>60+ sem</span>
+                <div>
+                  <h5>Prolongation ou renouvellement</h5>
+                  <p>Décidez d’une prolongation de cycle ou préparez le renouvellement avec notre équipe en fonction des coûts et performances.</p>
+                </div>
+              </div>
+              <p class="small text-muted mt-3">Stocker les sacs dans un local sec et ventilé. Produit non médicamenteux.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium logistics-card h-100">
+              <div class="section-title">
+                <span>Formats & logistique</span>
+                <h2>Disponibilité Côte d’Ivoire</h2>
+              </div>
+              <div class="d-flex gap-3 mt-3">
+                <div class="icon-circle"><i class="bi bi-bag"></i></div>
+                <div>
+                  <h5>Sacs 50 kg</h5>
+                  <p>Conditionnement laminé, idéal pour une rotation FIFO.</p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="icon-circle"><i class="bi bi-truck"></i></div>
+                <div>
+                  <h5>Logistique</h5>
+                  <p>Retrait agence ou livraison en région avec planification.</p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="icon-circle"><i class="bi bi-wallet2"></i></div>
+                <div>
+                  <h5>Paiement</h5>
+                  <p>XOF, virement, Mobile Money pro. Suivi de stock disponible.</p>
+                </div>
+              </div>
+              <a class="btn btn-brand w-100 mt-3" href="distributeurs_maridav.html">Trouver un distributeur</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="documents">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Documents & ressources</span>
+                <h2>Kits Phase 2</h2>
+              </div>
+              <p>Fiches techniques, check-lists persistance, tableau coquille et outils de suivi mis à jour.</p>
+              <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="ressources/fiche-aliment-ponte-phase2.pdf" target="_blank"><i class="bi bi-file-earmark-arrow-down"></i> Fiche technique PDF</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="ressources/etiquette-aliment-ponte-phase2.pdf" target="_blank"><i class="bi bi-file-earmark-richtext"></i> Étiquette / MSDS</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="blog_maridav_ci.html"><i class="bi bi-journal-richtext"></i> Guide persistance & coquille</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-outline-brand w-100" href="contact.html"><i class="bi bi-clipboard-data"></i> Plan technico-éco</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card-premium lead-card" id="lead">
+              <div class="section-title">
+                <span>Parler à un expert</span>
+                <h2>Briefing persistance</h2>
+              </div>
+              <form class="lead-form mt-3" action="https://formspree.io/f/maridav" method="POST">
+                <div class="mb-3">
+                  <label class="form-label" for="leadName">Nom & Structure d'exploitation</label>
+                  <input class="form-control" id="leadName" name="name" type="text" placeholder="Exemple : Ferme Avicole d'Anyama" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadPhone">Téléphone / WhatsApp</label>
+                  <input class="form-control" id="leadPhone" name="phone" type="tel" placeholder="(+225) 07 00 00 00" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadVolume">Nombre de pondeuses</label>
+                  <select class="form-select" id="leadVolume" name="volume" required>
+                    <option value="" selected>Choisir</option>
+                    <option value="<5k">moins de 5 000</option>
+                    <option value="5-20k">5 000 – 20 000</option>
+                    <option value=">20k">plus de 20 000</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="leadObjective">Objectif</label>
+                  <select class="form-select" id="leadObjective" name="objective" required>
+                    <option value="" selected>Choisir</option>
+                    <option value="persistance">Maintenir la persistance</option>
+                    <option value="coquille">Renforcer la coquille</option>
+                    <option value="cout-alimentaire">Réduire le coût alimentaire</option>
+                    <option value="plan-lumiere">Ajuster le plan lumière</option>
+                    <option value="audit-senior">Demander un audit senior</option>
+                  </select>
+                </div>
+                <button class="btn btn-brand w-100" type="submit">Recevoir un plan</button>
+                <p class="small text-muted mt-2">En soumettant ce formulaire, vous acceptez d’être contacté par MARIDAV CI.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="faq">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="section-title">
+              <span>Questions fréquentes</span>
+              <h2>FAQ Aliment Ponte Phase 2</h2>
+            </div>
+            <div class="accordion mt-4" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq1-content" data-target="#faq1-content" aria-expanded="false" aria-controls="faq1-content">Comment savoir s’il faut basculer sur la Phase 2 ?</button>
+                </h2>
+                <div id="faq1-content" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Lorsque les pondeuses dépassent 41 semaines ou que la production baisse sous 92 %, nos techniciens recommandent la transition pour soutenir la persistance.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq2-content" data-target="#faq2-content" aria-expanded="false" aria-controls="faq2-content">Comment gérer les coquilles fragiles ?</button>
+                </h2>
+                <div id="faq2-content" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Contrôlez l’eau, ajoutez du gravier de calcium si requis, vérifiez la température nocturne et utilisez notre protocole additifs coquille.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq3-content" data-target="#faq3-content" aria-expanded="false" aria-controls="faq3-content">Comment optimiser le coût alimentaire / œuf ?</button>
+                </h2>
+                <div id="faq3-content" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Suivez la FCR œuf, réduisez les gaspillages, ajustez la densité et travaillez avec nos tableurs pour comparer différents scénarios.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq4-content" data-target="#faq4-content" aria-expanded="false" aria-controls="faq4-content">Faut-il modifier le plan lumière ?</button>
+                </h2>
+                <div id="faq4-content" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Une légère réduction de la photopériode ou de l’intensité peut aider à maintenir l’ingestion. Nos techniciens adaptent le programme selon votre configuration.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq5-content" data-target="#faq5-content" aria-expanded="false" aria-controls="faq5-content">Peut-on prolonger le cycle au-delà de 72 semaines ?</button>
+                </h2>
+                <div id="faq5-content" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Oui si la persistance, la coquille et le coût alimentaire restent acceptables. MARIDAV réalise un diagnostic pour décider d’un prolongement ou d’un renouvellement.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq6">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#faq6-content" data-target="#faq6-content" aria-expanded="false" aria-controls="#faq6-content">Quels audits propose MARIDAV ?</button>
+                </h2>
+                <div id="faq6-content" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">Audits alimentation, eau, éclairage, ventilation et biosécurité, avec rapport et plan d’action sur mesure.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-premium h-100">
+              <div class="section-title">
+                <span>Glossaire express</span>
+                <h2>Termes clés</h2>
+              </div>
+              <div class="d-flex flex-wrap mt-3">
+                <span class="glossary-chip"><strong>Persistance</strong> : maintien du taux de ponte après le pic</span>
+                <span class="glossary-chip"><strong>FCR œuf</strong> : g aliment / g d’œuf produit</span>
+                <span class="glossary-chip"><strong>Calcium gros granulé</strong> : Ca libéré tardivement</span>
+                <span class="glossary-chip"><strong>Antioxydants</strong> : protection contre le stress oxydatif</span>
+                <span class="glossary-chip"><strong>Plan lumière</strong> : programme pour gérer photopériode</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="testimonials">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Retours d’éleveurs</span>
+          <h2>Témoignages terrain</h2>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« Avec l’aliment Phase 2, nos pondeuses ISA sont restées à 90 % jusqu’à 58 semaines avec très peu d’œufs fêlés. »</p>
+              <h6 class="mt-3 mb-0">Ferme Côte d’Ivoire Oeufs</h6>
+              <small>30 000 pondeuses</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« Les techniciens MARIDAV nous aident à ajuster le calcium et le plan lumière, ce qui améliore la coquille. »</p>
+              <h6 class="mt-3 mb-0">Ferme Pondeuse du Centre</h6>
+              <small>15 000 pondeuses</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="icon-circle mb-3"><i class="bi bi-quote"></i></div>
+              <p>« Nous avons prolongé notre cycle jusqu’à 72 semaines avec un coût alimentaire maîtrisé. »</p>
+              <h6 class="mt-3 mb-0">Avicole du Sud, Abidjan</h6>
+              <small>12 500 pondeuses</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="partenaires">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Écosystème premium</span>
+          <h2>Partenaires & solutions</h2>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center">
+          <span class="partner-chip"><img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="Maridav" height="20"> MARIDAV Formulations</span>
+          <span class="partner-chip"><i class="bi bi-droplet-half"></i> BIOMIN — Mycotoxines</span>
+          <span class="partner-chip"><i class="bi bi-shield-check"></i> CID LINES — Biosécurité</span>
+          <span class="partner-chip"><i class="bi bi-diagram-3"></i> DSM / Trouw Nutrition</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing bg-white" id="cta-grid">
+      <div class="container">
+        <div class="row g-4 cta-grid">
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Demander un devis</h5>
+              <p>Recevez une offre personnalisée pour la Phase 2.</p>
+              <a class="btn btn-brand w-100" href="contact.html">Je demande un devis</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Appeler un technicien</h5>
+              <p>Planifiez un diagnostic persistance/coquille.</p>
+              <a class="btn btn-outline-brand w-100" href="tel:002252721353242">(+225) 27 21 35 32 42</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <h5>Points de vente</h5>
+              <p>Trouvez nos distributeurs dans votre région.</p>
+              <a class="btn btn-outline-brand w-100" href="distributeurs_maridav.html">Voir les distributeurs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing" id="produits-relies">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>Gammes pondeuses</span>
+          <h2>Produits complémentaires</h2>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Ponte Phase 1">
+              <h5>Aliment Ponte Phase 1</h5>
+              <p>18–40 semaines – sécurisez le pic de production.</p>
+              <a class="btn btn-link p-0" href="aliment_ponte_1_maridav_ci.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Démarrage pondeuses">
+              <h5>Aliment Démarrage Pondeuses</h5>
+              <p>0–16 semaines – uniformité optimale avant ponte.</p>
+              <a class="btn btn-link p-0" href="aliment_demarrage_ponte.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-premium">
+              <img class="img-fluid rounded mb-3" src="maridav_ci_image/macro_premix/macro-premix.webp" alt="Prémix pondeuses">
+              <h5>Prémix Pondeuses 2 %</h5>
+              <p>Pour vos fabrications internes (DSM/Trouw Nutrition).</p>
+              <a class="btn btn-link p-0" href="macropremix_pondeuses_2%.html">Découvrir &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4">
+            <div class="brand">
+              <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV">
+              <span>MARIDAV Côte d'Ivoire<small class="d-block">Nutrition & Santé Animales</small></span>
+            </div>
+            <p class="mt-3 small">Formulations tropicalisées, appui technique terrain et biosécurité pour volailles, porcs et poissons.</p>
+            <a class="btn btn-brand btn-sm mt-3" href="#lead" data-open-lead>Parler à un expert</a>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6>Solutions</h6>
+            <ul class="list-unstyled m-0">
+              <li><a class="small-link" href="volailles.html">Volailles</a></li>
+              <li><a class="small-link" href="porcins_maridav_ci.html">Porcs</a></li>
+              <li><a class="small-link" href="pisciculture_maridav_ci.html">Poissons</a></li>
+              <li><a class="small-link" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h6>Ressources</h6>
+            <ul class="list-unstyled m-0">
+              <li><a class="small-link" href="a-propos.html">À propos</a></li>
+              <li><a class="small-link" href="partenaires-maridav.html">Nos partenaires</a></li>
+              <li><a class="small-link" href="blog_maridav_ci.html">Guides & articles</a></li>
+              <li><a class="small-link" href="ressources/">Fiches techniques & PDF</a></li>
+              <li><a class="small-link" href="distributeurs_maridav.html">Points de vente</a></li>
+              <li><a class="small-link" href="contact.html">Demander un devis</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h6>Contact</h6>
+            <ul class="list-unstyled footer-contact">
+              <li><i class="fas fa-map-marker-alt"></i><span>Marcory Zone 4C Biétry, 34 Rue Alex Flemming – Abidjan</span></li>
+              <li><i class="far fa-clock"></i><span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span></li>
+            </ul>
+            <div class="d-flex flex-column gap-2 mt-3">
+              <a class="small-link" href="mailto:info@maridav.ci"><i class="fas fa-envelope"></i> info@maridav.ci</a>
+              <a class="small-link" href="tel:002252721353242"><i class="fas fa-phone"></i> (+225) 27 21 35 32 42</a>
+            </div>
+            <div class="footer-social mt-3"><i class="fas fa-share-alt"></i><small> Suivez-nous </small>
+              <a href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+              <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+        <p class="mb-0 small">© 2025 MARIDAV Côte d'Ivoire — Nutrition & santé animales.</p>
+        <p class="mb-0 small">Site web conçu par <a href="https://tech-and-web.com" target="_blank" rel="noopener">TECH & WEB</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/Camera-master/scripts/jquery.mobile.customized.min.js"></script>
+  <script src="vendor/Camera-master/scripts/jquery.easing.1.3.js"></script>
+  <script src="vendor/Camera-master/scripts/camera.min.js"></script>
+  <script src="vendor/menu/src/js/jquery.slimmenu.js"></script>
+  <script src="vendor/WOW-master/dist/wow.min.js"></script>
+  <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
+  <script src="vendor/jquery.appear.js"></script>
+  <script src="vendor/jquery.countTo.js"></script>
+  <script src="vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    const leadButtons = document.querySelectorAll('[data-open-lead]');
+    leadButtons.forEach(btn => {
+      btn.addEventListener('click', event => {
+        event.preventDefault();
+        const target = document.getElementById('lead');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "MARIDAV — Aliment Ponte Phase 2",
+      "description": "Aliment complet pour pondeuses senior (&gt; 41 semaines) visant la persistance et la qualité de coquille.",
+      "brand": {"@type":"Organization","name":"MARIDAV Côte d'Ivoire"},
+      "image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "sku": "MARIDAV-PONTE-PHASE2-50KG",
+      "category": "Aliment complet",
+      "audience": {"@type":"Audience","audienceType":"Pondeuses — Phase 2"},
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "XOF",
+        "price": "Sur devis",
+        "availability": "https://schema.org/InStock",
+        "url": "https://maridav.ci/aliment_ponte_2_maridav_ci.html"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Comment savoir s’il faut basculer sur la Phase 2 ?","acceptedAnswer":{"@type":"Answer","text":"Transitionnez après 41 semaines ou si le taux de ponte baisse sous 92 %, avec accompagnement MARIDAV."}},
+        {"@type":"Question","name":"Comment gérer les coquilles fragiles ?","acceptedAnswer":{"@type":"Answer","text":"Contrôlez l’eau, ajoutez du gravier de calcium selon recommandation et appliquez notre protocole additifs coquille."}},
+        {"@type":"Question","name":"Comment optimiser le coût alimentaire / œuf ?","acceptedAnswer":{"@type":"Answer","text":"Suivez votre FCR œuf, réduisez les gaspillages et utilisez nos tableurs pour arbitrer prolongation vs renouvellement."}},
+        {"@type":"Question","name":"Faut-il modifier le plan lumière ?","acceptedAnswer":{"@type":"Answer","text":"Une légère réduction d’intensité ou de durée peut soutenir l’ingestion ; nos techniciens ajustent le programme."}},
+        {"@type":"Question","name":"Peut-on prolonger le cycle au-delà de 72 semaines ?","acceptedAnswer":{"@type":"Answer","text":"Oui si les performances le permettent. MARIDAV réalise un diagnostic complet avant décision."}},
+        {"@type":"Question","name":"Quels audits MARIDAV propose ?","acceptedAnswer":{"@type":"Answer","text":"Audits alimentation, eau, lumière, ventilation et biosécurité avec plan d’action détaillé."}}
+      ]
+    }
+  </script>
+</body>
+</html>

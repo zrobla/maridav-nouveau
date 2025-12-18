@@ -1,0 +1,48 @@
+:root { --brand-primary:#0b5ef4; --brand-secondary:#00c7b1; --brand-dark:#0b1f36; --brand-muted:#5b6475; --card-radius:1.25rem; }
+    body.premium-active { background:#f5f7fb; color:var(--brand-dark); font-family:"Inter","Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .navbar-premium { background:rgba(255,255,255,0.96); box-shadow:0 16px 35px rgba(15,31,47,0.12); backdrop-filter:blur(6px); }
+    .navbar-premium .nav-link, .navbar-premium .dropdown-item { font-size:0.9rem; letter-spacing:0.02em; text-transform:uppercase; }
+    .premium-header .nav-meta { display:flex; align-items:center; gap:0.5rem; flex-wrap:nowrap; }
+    .premium-header .nav-meta .meta-pill { white-space:nowrap; }
+    @media (max-width: 991px) {
+      .premium-header .nav-meta { flex-wrap:wrap; width:100%; }
+    }
+    main { overflow:hidden; }
+    .premium-hero { background:radial-gradient(circle at top left,#123b94,#051937 70%); color:#fff; padding:4.5rem 0 3.5rem; position:relative; }
+    .premium-hero::after { content:""; position:absolute; inset:0; background:radial-gradient(circle at top,rgba(255,255,255,0.18),transparent 70%); opacity:0.65; pointer-events:none; }
+    .premium-hero .container { position:relative; z-index:2; }
+    .hero-media { border-radius:var(--card-radius); overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,0.45); position:relative; }
+    .hero-media img { width:100%; display:block; }
+    .hero-media .media-badge { position:absolute; bottom:1.25rem; left:1.25rem; background:rgba(11,31,54,0.85); border-radius:0.85rem; padding:1rem 1.25rem; width:calc(100% - 2.5rem); color:#fff; }
+    .badge-stack { display:inline-flex; flex-wrap:wrap; gap:0.5rem; }
+    .badge-stack span, .badge-spec { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; border-radius:999px; padding:0.35rem 0.9rem; font-size:0.75rem; letter-spacing:0.1em; }
+    .stat-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.3); border-radius:1rem; padding:1rem; min-height:130px; color:#f4f8ff; }
+    .stat-pill strong { font-size:1.4rem; display:block; }
+    .trust-strip { background:#fff; padding:1.5rem 0; border-bottom:1px solid rgba(11,31,54,0.08); }
+    .section-spacing { padding:4rem 0; }
+    .section-title span { text-transform:uppercase; letter-spacing:0.18em; font-size:0.78rem; color:var(--brand-secondary); font-weight:600; }
+    .section-title h2 { margin-top:0.5rem; font-weight:700; color:var(--brand-dark); }
+    .card-premium { border-radius:var(--card-radius); border:1px solid rgba(5,25,55,0.08); background:#fff; padding:1.75rem; box-shadow:0 35px 60px rgba(15,25,55,0.08); }
+    .card-premium.dark { background:#0b1f36; color:#fff; border-color:rgba(255,255,255,0.08); }
+    .benefit-icon, .icon-circle { width:52px; height:52px; border-radius:50%; background:rgba(11,94,244,0.15); color:var(--brand-primary); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .timeline-step { display:flex; gap:1rem; padding:1.1rem 0; border-bottom:1px dashed rgba(11,31,54,0.2); }
+    .timeline-step:last-child { border-bottom:0; }
+    .timeline-step span { width:88px; height:88px; background:rgba(11,94,244,0.1); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:var(--brand-primary); flex-shrink:0; }
+    .glossary-chip { border-radius:999px; border:1px solid rgba(91,100,117,0.2); padding:0.45rem 1.1rem; font-size:0.85rem; margin:0.35rem; background:#fff; }
+    .lead-card { background:#fff; color:var(--brand-dark); border:1px solid rgba(5,25,55,0.12); }
+    .lead-form .form-control, .lead-form .form-select { border-radius:0.85rem; border:1px solid rgba(5,25,55,0.15); background:#f7f9fc; color:#0c1524; }
+    .lead-form .form-control::placeholder { color:var(--brand-muted); }
+    .lead-form label { font-weight:600; color:#0c1524; }
+    .lead-form select option { color:#000; }
+    .cta-grid .card-premium { text-align:center; height:100%; }
+    .testimonial-card { border-radius:var(--card-radius); border:1px solid rgba(11,31,54,0.08); padding:1.5rem; background:#fff; height:100%; }
+    .accordion-button:not(.collapsed) { color:var(--brand-primary); background:rgba(11,94,244,0.08); }
+    .partner-chip { border-radius:999px; border:1px solid rgba(0,199,177,0.4); padding:0.4rem 1.2rem; margin:0.35rem; display:inline-flex; align-items:center; gap:0.4rem; background:rgba(0,199,177,0.08); }
+    footer .footer-top { padding:3rem 0; background:#020a1c; color:#fff; }
+    footer .footer-bottom { background:#010512; color:#b2bed5; padding:1rem 0; }
+    footer .brand { display:flex; align-items:center; gap:1rem; }
+    footer .brand img { height:48px; }
+    footer .small-link { color:#d0d7ea; text-decoration:none; font-size:0.95rem; }
+    footer .small-link:hover { color:var(--brand-secondary); }
+    .footer-contact li { display:flex; gap:0.6rem; font-size:0.95rem; margin-bottom:0.85rem; }
+    .footer-social a { color:#fff; margin-right:0.65rem; }

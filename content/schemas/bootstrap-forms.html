@@ -1,0 +1,208 @@
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  <link rel="stylesheet" href="../../assets/css/main.min.css">
+
+<!-- Schémas de formulaires Bootstrap 5 pour le back-office simple -->
+
+<!-- Product -->
+<form class="row g-3" aria-labelledby="schema-product">
+  <h3 id="schema-product" class="h5">Product</h3>
+  <div class="col-md-6">
+    <label class="form-label">Titre</label>
+    <input class="form-control" name="title" required>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Slug</label>
+    <input class="form-control" name="slug" placeholder="ex: aliment-grower-volailles" required>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Espèces</label>
+    <select class="form-select" name="species" multiple>
+      <option>Volailles</option><option>Porcs</option><option>Poissons</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Stade</label>
+    <input class="form-control" name="stage" placeholder="ex: Grower 15–28 jours">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Catégorie</label>
+    <input class="form-control" name="category" placeholder="Aliments complets">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Marque</label>
+    <input class="form-control" name="brand" value="MARIDAV">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Format</label>
+    <input class="form-control" name="format" placeholder="Sac 50 kg">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Résumé</label>
+    <textarea class="form-control" name="summary" rows="2"></textarea>
+  </div>
+  <div class="col-12">
+    <label class="form-label">Image de couverture (URL)</label>
+    <input class="form-control" name="cover">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Bénéfices (un par ligne)</label>
+    <textarea class="form-control" name="benefits" rows="3"></textarea>
+  </div>
+  <div class="col-12">
+    <label class="form-label">Utilisation (Markdown)</label>
+    <textarea class="form-control" name="usage" rows="5"></textarea>
+  </div>
+  <div class="col-12">
+    <label class="form-label">SEO title</label>
+    <input class="form-control" name="seo.title">
+  </div>
+  <div class="col-12">
+    <label class="form-label">SEO description</label>
+    <textarea class="form-control" name="seo.description" rows="2"></textarea>
+  </div>
+</form>
+
+<hr>
+
+<!-- Species -->
+<form class="row g-3" aria-labelledby="schema-species">
+  <h3 id="schema-species" class="h5">Species</h3>
+  <div class="col-md-6"><label class="form-label">Nom</label><input class="form-control" name="name"></div>
+  <div class="col-md-6"><label class="form-label">Slug</label><input class="form-control" name="slug"></div>
+  <div class="col-12"><label class="form-label">Description (Markdown)</label><textarea class="form-control" name="description" rows="4"></textarea></div>
+  <div class="col-12"><label class="form-label">Stades (séparés par des virgules)</label><input class="form-control" name="stages"></div>
+  <div class="col-12"><label class="form-label">Image de couverture</label><input class="form-control" name="cover"></div>
+</form>
+
+<hr>
+
+<!-- Partner -->
+<form class="row g-3" aria-labelledby="schema-partner">
+  <h3 id="schema-partner" class="h5">Partner</h3>
+  <div class="col-md-6"><label class="form-label">Nom</label><input class="form-control" name="name"></div>
+  <div class="col-md-6"><label class="form-label">Slug</label><input class="form-control" name="slug"></div>
+  <div class="col-12"><label class="form-label">Logo</label><input class="form-control" name="logo"></div>
+  <div class="col-12"><label class="form-label">Site officiel</label><input class="form-control" name="site" type="url"></div>
+  <div class="col-12"><label class="form-label">Résumé</label><textarea class="form-control" name="summary" rows="2"></textarea></div>
+  <div class="col-12"><label class="form-label">Gammes distribuées</label><input class="form-control" name="ranges"></div>
+</form>
+
+<hr>
+
+<!-- Resource -->
+<form class="row g-3" aria-labelledby="schema-resource">
+  <h3 id="schema-resource" class="h5">Resource</h3>
+  <div class="col-md-6"><label class="form-label">Titre</label><input class="form-control" name="title"></div>
+  <div class="col-md-6"><label class="form-label">Type</label>
+    <select class="form-select" name="type"><option>pdf</option><option>msds</option><option>guide</option></select>
+  </div>
+  <div class="col-12"><label class="form-label">Fichier (URL)</label><input class="form-control" name="file"></div>
+  <div class="col-12"><label class="form-label">Produit lié</label><input class="form-control" name="productRef"></div>
+</form>
+
+<hr>
+
+<!-- FAQ -->
+<form class="row g-3" aria-labelledby="schema-faq">
+  <h3 id="schema-faq" class="h5">FAQ</h3>
+  <div class="col-12"><label class="form-label">Question</label><input class="form-control" name="question" required></div>
+  <div class="col-12"><label class="form-label">Réponse (Markdown)</label><textarea class="form-control" name="answer" rows="4" required></textarea></div>
+  <div class="col-12"><label class="form-label">Tags</label><input class="form-control" name="tags" placeholder="ex: volailles, biosécurité"></div>
+</form>
+
+<hr>
+
+<!-- Article -->
+<form class="row g-3" aria-labelledby="schema-article">
+  <h3 id="schema-article" class="h5">Article</h3>
+  <div class="col-md-6"><label class="form-label">Titre</label><input class="form-control" name="title"></div>
+  <div class="col-md-6"><label class="form-label">Slug</label><input class="form-control" name="slug"></div>
+  <div class="col-12"><label class="form-label">Image de couverture</label><input class="form-control" name="cover"></div>
+  <div class="col-12"><label class="form-label">Corps (Markdown)</label><textarea class="form-control" name="body" rows="6"></textarea></div>
+  <div class="col-12"><label class="form-label">Tags</label><input class="form-control" name="tags"></div>
+  <div class="col-12"><label class="form-label">SEO title</label><input class="form-control" name="seo.title"></div>
+  <div class="col-12"><label class="form-label">SEO description</label><textarea class="form-control" name="seo.description" rows="2"></textarea></div>
+</form>
+
+<hr>
+
+<!-- Lead -->
+<form class="row g-3" aria-labelledby="schema-lead">
+  <h3 id="schema-lead" class="h5">Lead</h3>
+  <div class="col-md-6"><label class="form-label">Nom</label><input class="form-control" name="name" required></div>
+  <div class="col-md-6"><label class="form-label">Téléphone</label><input class="form-control" name="phone" required></div>
+  <div class="col-md-6"><label class="form-label">Email</label><input class="form-control" name="email" type="email"></div>
+  <div class="col-md-6"><label class="form-label">Espèce</label><select class="form-select" name="species"><option>Volailles</option><option>Porcs</option><option>Poissons</option></select></div>
+  <div class="col-md-6"><label class="form-label">Produit</label><input class="form-control" name="product"></div>
+  <div class="col-12"><label class="form-label">Message</label><textarea class="form-control" name="message" rows="3"></textarea></div>
+</form>
+  <footer class="footer-premium" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4">
+            <div class="brand">
+              <img src="../../maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV">
+              <span>MARIDAV Côte d'Ivoire<small>Nutrition & Santé Animales</small></span>
+            </div>
+            <p class="mt-3 small">Formulations tropicalisées, appui technique terrain et biosécurité pour volailles, porcs et poissons. Distributeur exclusif de produits mondialement reconnus pour couverture nationale en Côte d'Ivoire</p>
+            
+            <a class="btn btn-brand btn-sm mt-3" href="#lead" data-open-lead>Parler à un expert</a>
+            
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6>Solutions</h6>
+            <ul class="list-unstyled m-0">
+              <li><a class="small-link" href="../../volailles.html">Volailles</a></li>
+              <li><a class="small-link" href="../../porcins_maridav_ci.html">Porcs</a></li>
+              <li><a class="small-link" href="../../pisciculture_maridav_ci.html">Poissons</a></li>
+              <li><a class="small-link" href="../../biosecurite_maridav_ci.html">Biosécurité</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h6>Ressources</h6>
+            <ul class="list-unstyled m-0">
+              <li><a class="small-link" href="../../a-propos.html">À propos de nous</a></li>
+              <li><a class="small-link" href="../../partenaires-maridav.html">Nos Partenaires</a></li>
+              <li><a class="small-link" href="../../blog_maridav_ci.html">Guides & articles</a></li>
+              <li><a class="small-link" href="../../ressources/">Fiches techniques & PDF</a></li>
+              <li><a class="small-link" href="../../distributeurs_maridav.html">Points de vente</a></li>
+              <li><a class="small-link" href="../../contact.html">Demander un devis</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h6>Contact</h6>
+            <ul class="list-unstyled footer-contact">
+              <li><i class="fas fa-map-marker-alt"></i><span>Marcory Zone 4C Biétry, 34 Rue Alex Flemming – Abidjan</span></li>
+              <li><i class="far fa-clock"></i><span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span></li>
+            </ul>
+            <div class="d-flex flex-column gap-2 mt-3">
+              <a class="small-link" href="mailto:info@maridav.ci"><i class="fas fa-envelope"></i> info@maridav.ci</a>
+              <a class="small-link" href="tel:002252721353242"><i class="fas fa-phone"></i> (+225) 27 21 35 32 42</a>
+              
+            </div>
+            <div class="footer-social"><i class="fas fa-share-alt"></i><small> Suivez-Nous! </small>
+          <a href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+         <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+        <p class="mb-0 small">© 2025 MARIDAV Côte d'Ivoire — Nutrition & santé animales.</p>
+        <p class="mb-0 small">Site web conçu par <a href="https://tech-and-web.com" target="_blank" rel="noopener">TECH & WEB</a></p>
+        
+      </div>
+    </div>
+  </footer>
