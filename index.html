@@ -595,31 +595,31 @@
     <div class="row g-4">
       <div class="col-12 col-md-4">
         <div class="card card-premium premium-bg h-100 shadow-lg overflow-hidden">
-          <img src="images/biosecurite.jpeg" class="card-img-top" alt="Guide biosécurité MARIDAV">
+          <img src="images/biosecurite.jpeg" class="card-img-top" alt="Biosécurité tropicale pour poulets de chair">
           <div class="card-body d-flex flex-column">
-            <h3 class="h6 text-brand">Biosécurité en climat tropical</h3>
-            <p class="small flex-grow-1">Protocoles pas-à-pas, checklist lavage/désinfection et sélection produits CID LINES.</p>
-            <a href="blog_maridav_ci.html" class="btn btn-outline-brand btn-sm mt-2">Lire le guide</a>
+            <h3 class="h6 text-brand">Biosécurité tropicale : 7 réflexes poulet chair</h3>
+            <p class="small flex-grow-1">Sas, pédiluves, eau, litière et flux maîtrisés pour réduire la pression infectieuse.</p>
+            <a href="article-biosecurite-poulet-chair.html" class="btn btn-outline-brand btn-sm mt-2">Lire l’article</a>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-4">
         <div class="card card-premium premium-bg h-100 shadow-lg overflow-hidden">
-          <img src="images/volailles-maridav-2.jpg" class="card-img-top" alt="Conseils poulets de chair">
+          <img src="blog_maridav_ci/poulets_grands.jpg" class="card-img-top" alt="Stabiliser la ponte en saison chaude">
           <div class="card-body d-flex flex-column">
-            <h3 class="h6 text-brand">Conduite poulets de chair</h3>
-            <p class="small flex-grow-1">Transitions d’aliments grower/finisher, gestion de l’eau, ventilation et suivi FCR.</p>
-            <a href="blog_maridav_ci.html" class="btn btn-outline-brand btn-sm mt-2">Voir les conseils</a>
+            <h3 class="h6 text-brand">Pondeuses : stabiliser la ponte en saison chaude</h3>
+            <p class="small flex-grow-1">Alimentation, eau et ventilation pour préserver la consommation et la coquille.</p>
+            <a href="article-ponte-chaleur-maridav.html" class="btn btn-outline-brand btn-sm mt-2">Voir l’article</a>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-4">
         <div class="card card-premium premium-bg h-100 shadow-lg overflow-hidden">
-          <img src="images/pisciculture.jpg" class="card-img-top" alt="Qualité de l’eau en pisciculture">
+          <img src="blog_maridav_ci/poissons.jpg" class="card-img-top" alt="Qualité de l’eau en pisciculture">
           <div class="card-body d-flex flex-column">
-            <h3 class="h6 text-brand">Qualité de l’eau en pisciculture</h3>
-            <p class="small flex-grow-1">Paramètres clés (O2, pH, nitrites), outils de mesure et solutions Skretting/Nutreco.</p>
-            <a href="blog_maridav_ci.html" class="btn btn-outline-brand btn-sm mt-2">Découvrir</a>
+            <h3 class="h6 text-brand">Tilapia : qualité d’eau et rationnement</h3>
+            <p class="small flex-grow-1">Contrôle O2/pH, ration flottante et densités pour sécuriser vos étangs.</p>
+            <a href="article-tilapia-eau-ration.html" class="btn btn-outline-brand btn-sm mt-2">Découvrir</a>
           </div>
         </div>
       </div>
@@ -862,6 +862,66 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Wizard simple pour #form-pro
+    (function(){
+      var form=document.getElementById('form-pro'); if(!form) return;
+      var steps=[].slice.call(form.querySelectorAll('.step'));
+      var i=0, stepbar=document.getElementById('stepbar'), label=document.getElementById('step-label');
+      var prev=document.getElementById('prevBtn'), next=document.getElementById('nextBtn'), submit=document.getElementById('submitBtn');
+      function update(){
+        steps.forEach(function(s,idx){ s.classList.toggle('d-none', idx!==i); });
+        if(stepbar){ stepbar.style.width = Math.round(((i+1)/steps.length)*100)+'%'; }
+        if(label){ label.textContent = 'Étape '+(i+1)+'/'+steps.length+' — '+(['Élevage','Message','Coordonnées'])[i]; }
+        prev.disabled = (i===0);
+        next.classList.toggle('d-none', i===steps.length-1);
+        submit.classList.toggle('d-none', i!==steps.length-1);
+      }
+      function validateStep(){
+        var valid=true;
+        var scope=steps[i];
+        // Special case: step 2 (index 1), allow empty message when recall is ON
+        if(i===1){
+          var recall=form.querySelector('#recallSwitch');
+          var msg=form.querySelector('#messageField');
+          if(recall && recall.checked){
+            // Temporarily ignore message requirement
+            var reqs=[].slice.call(scope.querySelectorAll('[required]')).filter(function(el){return el!==msg;});
+            reqs.forEach(function(el){ if(!el.value.trim()) valid=false; });
+            return valid;
+          }
+        }
+        [].slice.call(scope.querySelectorAll('[required]')).forEach(function(el){ if(!el.value.trim()) valid=false; });
+        return valid;
+      }
+      // Switch recall: hide/show message & toggle required
+      (function(){
+        var recall=form.querySelector('#recallSwitch');
+        var group=document.getElementById('messageGroup');
+        var msg=document.getElementById('messageField');
+        function sync(){
+          var on = !!(recall && recall.checked);
+          if(group){ group.classList.toggle('d-none', on); }
+          if(msg){ if(on){ msg.removeAttribute('required'); } else { msg.setAttribute('required',''); } }
+        }
+        if(recall){ recall.addEventListener('change', sync); }
+        sync();
+      })();
+      prev.addEventListener('click',function(){ if(i>0){ i--; update(); }});
+      next.addEventListener('click',function(){ if(validateStep()){ i++; update(); } else { alert('Merci de compléter les champs requis.'); }});
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // Collect payload for tracking
+        var data={};
+        [].slice.call(new FormData(form).entries()).forEach(function(kv){ data[kv[0]]=kv[1]; });
+        try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({event:'lead_submit', payload:data}); } catch(err){}
+        document.getElementById('form-success').classList.remove('d-none');
+        form.reset(); i=0; update();
+      });
+      update();
+    })();
+  </script>
 
 </div>
   <!-- /.main-page-wrapper -->

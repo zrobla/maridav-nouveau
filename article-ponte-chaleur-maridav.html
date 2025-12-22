@@ -3,28 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{TITLE}} | MARIDAV CI</title>
-  <meta name="description" content="{{META_DESCRIPTION}}">
-  <link rel="canonical" href="{{CANONICAL}}">
+  <title>Pondeuses : stabiliser la ponte en saison chaude | MARIDAV CI</title>
+  <meta name="description" content="Adapter alimentation, eau et ventilation pour préserver la qualité de coquille et la régularité de ponte en climat chaud en Côte d’Ivoire.">
+  <link rel="canonical" href="https://maridav.ci/article-ponte-chaleur-maridav.html">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   <link rel="stylesheet" href="assets/css/main.min.css">
   <style>
-    .article-hero{background:linear-gradient(135deg,rgba(7,59,51,.82),rgba(12,115,82,.78)),url('{{HERO_IMAGE}}') center/cover no-repeat;color:#fff;padding:18px 0 10px;min-height:350px !important;}
+    .article-hero{background:linear-gradient(135deg,rgba(5,54,46,.82),rgba(12,115,82,.78)),url('blog_maridav_ci/poulets_grands.jpg') center/cover no-repeat;color:#fff;padding:18px 0 10px;min-height:350px !important;}
+    .article-hero h1{margin-bottom:.35rem;}
+    .article-hero .lead{margin-bottom:.6rem;}
     .badge-soft{background:rgba(12,115,82,.1);color:#0c7352;border:1px solid rgba(12,115,82,.2);border-radius:8px;padding:4px 8px;font-size:.8rem;}
     .article-hero .badge-soft{background:#e7f1ff;color:#0d6efd;border-color:rgba(13,110,253,.2);}
     .article-hero .btn{padding:.45rem .85rem;font-size:.9rem;}
     .article-hero + .section-premium{padding-top:22px;}
-    .article-hero h1{margin-bottom:.35rem;}
-    .article-hero .lead{margin-bottom:.6rem;}
     .article-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:.9rem;color:#d8f3ec;}
     .article-meta i{margin-right:6px;}
     .callout{border-left:4px solid #0c7352;background:rgba(12,115,82,.08);border-radius:12px;padding:14px 16px;}
     .article-toc{background:#f4f7f6;border-radius:12px;padding:12px 16px;}
     .article-toc strong{color:#0d6efd;text-transform:uppercase;font-weight:700;}
     .article-body h2,.article-body h3{color:var(--brand-accent);}
+    .article-block{border:1px solid rgba(0,0,0,.04);border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.06);margin-bottom:14px;}
+    .article-block .card-body{padding:16px 18px;}
     .article-toc a{display:block;color:#0c7352;font-weight:600;text-decoration:none;margin:4px 0;}
     .article-body h2{margin-top:1.5rem;}
     .article-body h3{margin-top:1.1rem;}
@@ -39,23 +44,21 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "{{TITLE}}",
-    "description": "{{META_DESCRIPTION}}",
+    "headline": "Pondeuses : stabiliser la ponte en saison chaude",
+    "description": "Adapter alimentation, eau et ventilation pour préserver la qualité de coquille et la régularité de ponte en climat chaud en Côte d’Ivoire.",
     "author": {"@type":"Organization","name":"MARIDAV Côte d’Ivoire"},
     "publisher": {"@type":"Organization","name":"MARIDAV Côte d’Ivoire","logo":{"@type":"ImageObject","url":"https://maridav.ci/maridav_ci_image/logo/logo_maridav_ci.png"}},
-    "datePublished": "{{DATE_PUBLISHED}}",
-    "dateModified": "{{DATE_MODIFIED}}",
-    "image": "{{FULL_HERO_IMAGE_URL}}",
-    "mainEntityOfPage": "{{CANONICAL}}",
-    "articleSection": "{{SECTION}}",
-    "keywords": {{KEYWORDS_ARRAY}}
+    "datePublished": "2025-05-15",
+    "dateModified": "2025-05-15",
+    "image": "https://maridav.ci/blog_maridav_ci/poulets_grands.jpg",
+    "mainEntityOfPage": "https://maridav.ci/article-ponte-chaleur-maridav.html",
+    "articleSection": "Nutrition",
+    "keywords": ["pondeuses","chaleur","qualité de coquille","eau","ventilation"]
   }
   </script>
 </head>
 <body class="premium-active">
   <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu</a>
-  <!-- Navigation identique aux autres pages premium -->
-  <!-- Remplacer si besoin en réutilisant la nav commune -->
   <header class="premium-header sticky-top" role="banner">
     <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navigation principale">
       <div class="container">
@@ -104,18 +107,19 @@
       <div class="container">
         <div class="hero-content">
           <div class="d-inline-flex gap-2 flex-wrap mb-2">
-            <!-- Exemple : <span class="badge-soft">Biosécurité</span> -->
-            {{BADGES}}
+            <span class="badge-soft">Pondeuses</span>
+            <span class="badge-soft">Nutrition</span>
+            <span class="badge-soft">Climat chaud</span>
           </div>
-          <h1>{{TITLE}}</h1>
-          <p class="lead mb-3">{{LEAD}}</p>
+          <h1>Pondeuses : stabiliser la ponte en saison chaude</h1>
+          <p class="lead mb-3">Adapter l’alimentation, l’eau et la ventilation pour préserver la qualité de coquille, la consommation et la régularité des lots en Côte d’Ivoire.</p>
           <div class="article-meta mb-3">
-            <span><i class="bi bi-calendar-event"></i>{{DATE_FR}}</span>
-            <span><i class="bi bi-clock"></i>{{READ_TIME}}</span>
-            <span><i class="bi bi-person-circle"></i>{{AUTHOR}}</span>
+            <span><i class="bi bi-calendar-event"></i>15/05/2025</span>
+            <span><i class="bi bi-clock"></i>Lecture 6 min</span>
+            <span><i class="bi bi-person-circle"></i>Équipe technique MARIDAV CI</span>
           </div>
           <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-brand" href="contact.html">Parler à un technicien</a>
+            <a class="btn btn-brand" href="contact.html">Demander un conseil</a>
             <a class="btn btn-outline-light" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             <button class="share-btn" type="button" data-copy-link>Copier le lien</button>
           </div>
@@ -130,38 +134,75 @@
             <div class="callout mb-3">
               <strong>En bref :</strong>
               <ul class="mb-0">
-                <li>{{POINT_1}}</li>
-                <li>{{POINT_2}}</li>
-                <li>{{POINT_3}}</li>
+                <li>Adapter l’énergie, le calcium digestible et la distribution (cool feeding) pour limiter la baisse de consommation.</li>
+                <li>Assurer un débit et une température d’eau maîtrisés, avec rinçage quotidien et contrôle du pH.</li>
+                <li>Ventilation ciblée, brumisation légère et densité adaptée pour diminuer le stress thermique.</li>
               </ul>
             </div>
 
             <div class="article-toc mb-3">
               <strong>Plan de lecture</strong>
-              <!-- Remplacer par vos ancres -->
-              <a href="#section1">{{TOC_1}}</a>
-              <a href="#section2">{{TOC_2}}</a>
-              <a href="#section3">{{TOC_3}}</a>
+              <a href="#contexte">1. Contexte chaleur & impacts</a>
+              <a href="#alimentation">2. Alimentation : formulation & distribution</a>
+              <a href="#eau">3. Eau & confort</a>
+              <a href="#suivi">4. Suivi des indicateurs clés</a>
             </div>
 
-            <!-- Sections éditoriales : remplacer le texte par votre contenu -->
-            <h2 id="section1">{{H2_1}}</h2>
-            <p>{{PARAGRAPH_1}}</p>
-            <ul><li>{{BULLET_1A}}</li><li>{{BULLET_1B}}</li></ul>
+            <div class="card card-premium article-block">
+              <div class="card-body">
+                <h2 id="contexte">1. Contexte chaleur & impacts</h2>
+                <p class="mb-0">Les vagues de chaleur réduisent la consommation, augmentent le stress oxydatif et pénalisent la qualité de coquille. Objectif : maintenir l’ingestion, soutenir le métabolisme du calcium et limiter les coups de chaleur.</p>
+              </div>
+            </div>
 
-            <h2 id="section2">{{H2_2}}</h2>
-            <p>{{PARAGRAPH_2}}</p>
-            <ul><li>{{BULLET_2A}}</li><li>{{BULLET_2B}}</li></ul>
+            <div class="card card-premium article-block">
+              <div class="card-body">
+                <h2 id="alimentation">2. Alimentation : formulation & distribution</h2>
+                <h3>Formulation</h3>
+                <ul>
+                  <li>Énergie contrôlée, apport en acides gras équilibré pour limiter l’excès de chaleur métabolique.</li>
+                  <li>Calcium et phosphore digestibles, vitamine D3, oligo-éléments chélatés pour la coquille.</li>
+                  <li>Additifs de confort digestif (ex. phytogéniques, acidifiants) selon la stratégie.</li>
+                </ul>
+                <h3>Distribution</h3>
+                <ul class="mb-0">
+                  <li><strong>Cool feeding :</strong> distribuer tôt le matin et en fin d’après-midi.</li>
+                  <li>Veiller à la granulométrie (mash ou crumble régulier) pour éviter le trillage.</li>
+                  <li>Surveiller les refus et ajuster les volumes pour éviter l’échauffement de l’aliment.</li>
+                </ul>
+              </div>
+            </div>
 
-            <h2 id="section3">{{H2_3}}</h2>
-            <p>{{PARAGRAPH_3}}</p>
-            <p class="small text-muted">Recommandations indicatives. Adapter à votre contexte et aux exigences réglementaires.</p>
+            <div class="card card-premium article-block">
+              <div class="card-body">
+                <h2 id="eau">3. Eau & confort</h2>
+                <ul class="mb-0">
+                  <li>Eau fraîche : rincer les lignes, protéger les citernes du soleil, isoler si possible.</li>
+                  <li>Qualité : pH 6,5–7,5, chloration 2–3 ppm en distribution. Purges en bout de ligne.</li>
+                  <li>Ventilation : ajuster vitesse d’air, vérifier les zones mortes et l’hygrométrie.</li>
+                  <li>Brumisation légère si le bâtiment est adapté ; éviter l’excès d’humidité résiduelle.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card card-premium article-block">
+              <div class="card-body">
+                <h2 id="suivi">4. Suivi des indicateurs clés</h2>
+                <ul>
+                  <li><strong>Consommation/jour :</strong> comparer au plan d’alimentation, agir dès -3 à -5 %.</li>
+                  <li><strong>Qualité coquille :</strong> casse, couleur, poids moyen des œufs.</li>
+                  <li><strong>Courbe de ponte :</strong> surveiller les écarts et la variabilité par bande.</li>
+                  <li><strong>Thermo-hygromètre :</strong> relevés matin/après-midi pour ajuster la ventilation.</li>
+                </ul>
+                <p class="small text-muted mb-0">Ces recommandations sont indicatives et doivent être adaptées à votre contexte et aux exigences réglementaires. Pas de conseil vétérinaire individualisé.</p>
+              </div>
+            </div>
 
             <div class="card card-premium p-3 mt-4">
               <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
                 <div>
-                  <h3 class="h6 text-brand mb-1">CTA personnalisable</h3>
-                  <p class="small mb-0">{{CTA_TEXT}}</p>
+                  <h3 class="h6 text-brand mb-1">Envie d’un audit éclair ?</h3>
+                  <p class="small mb-0">Nous pouvons passer en revue consommation, courbe de ponte et confort du bâtiment.</p>
                 </div>
                 <div class="d-flex flex-wrap gap-2">
                   <a class="btn btn-brand btn-sm" href="contact.html">Demander un devis</a>
@@ -176,9 +217,10 @@
               <div class="card-body">
                 <h3 class="h6 text-brand">Fiche rapide</h3>
                 <ul class="small mb-0">
-                  <li>Espèce : {{FICHE_ESPECE}}</li>
-                  <li>Thème : {{FICHE_THEME}}</li>
-                  <li>Objectif : {{FICHE_OBJECTIF}}</li>
+                  <li>Espèce : Pondeuses</li>
+                  <li>Thème : Nutrition & confort chaleur</li>
+                  <li>Objectif : régularité de ponte, qualité de coquille</li>
+                  <li>Outils : cool feeding, contrôle eau, ventilation</li>
                 </ul>
               </div>
             </div>
@@ -187,8 +229,8 @@
                 <h3 class="h6 text-brand">Articles liés</h3>
                 <ul class="small mb-0">
                   <li><a class="small-link" href="article-biosecurite-poulet-chair.html"><i class="bi bi-chevron-right"></i> Biosécurité poulet chair</a></li>
-                  <li><a class="small-link" href="article-ponte-chaleur-maridav.html"><i class="bi bi-chevron-right"></i> Pondeuses : stabiliser la ponte</a></li>
-                  <li><a class="small-link" href="article-tilapia-eau-ration.html"><i class="bi bi-chevron-right"></i> Tilapia : eau & rationnement</a></li>
+                  <li><a class="small-link" href="article-demarrage-poussins.html"><i class="bi bi-chevron-right"></i> Démarrage poussins 0–14 jours</a></li>
+                  <li><a class="small-link" href="article-porcs-fcr-chaleur.html"><i class="bi bi-chevron-right"></i> Porcs : FCR en période chaude</a></li>
                 </ul>
               </div>
             </div>
@@ -196,11 +238,22 @@
               <div class="card-body">
                 <h3 class="h6 text-brand">Ressources utiles</h3>
                 <ul class="small mb-3">
-                  <li>{{RESOURCE_1}}</li>
-                  <li>{{RESOURCE_2}}</li>
-                  <li>{{RESOURCE_3}}</li>
+                  <li>Plan d’alimentation pondeuses (starter → fin de ponte)</li>
+                  <li>Check-list ventilation & confort chaleur</li>
+                  <li>Guide qualité d’eau pondeuses</li>
                 </ul>
                 <a class="btn btn-outline-brand btn-sm" href="ressources/">Voir les documents</a>
+              </div>
+            </div>
+            <div class="card aside-card mt-3">
+              <div class="card-body">
+                <h3 class="h6 text-brand">Autres articles</h3>
+                <ul class="small mb-0">
+                  <li><a class="small-link" href="article-biosecurite-poulet-chair.html"><i class="bi bi-chevron-right"></i> Biosécurité poulet chair</a></li>
+                  <li><a class="small-link" href="article-porcs-fcr-chaleur.html"><i class="bi bi-chevron-right"></i> Porcs : FCR chaleur</a></li>
+                  <li><a class="small-link" href="article-tilapia-eau-ration.html"><i class="bi bi-chevron-right"></i> Tilapia : eau & ration</a></li>
+                  <li><a class="small-link" href="article-mycotoxines-biomix-maridav.html"><i class="bi bi-chevron-right"></i> Mycotoxines & MP</a></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -209,7 +262,6 @@
     </section>
   </main>
 
-  <!-- Footer premium standard -->
   <footer class="footer-premium" role="contentinfo">
     <div class="footer-top">
       <div class="container">
