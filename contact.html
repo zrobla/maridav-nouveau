@@ -19,10 +19,10 @@
   <style>
     .hero-article-height{min-height:450px;padding:18px 0 10px;position:relative;}
     .hero-article-height .active.hero-cards-bg{max-height:450px;height:450px;overflow:hidden;display:grid;align-items:stretch;}
-    .product-hero-cards{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:10px;height:100%;justify-items:center;width:min(1100px,100%);margin:0 auto;}
-    .product-hero-cards .card{background:rgba(255,255,255,.9);border:0;border-radius:12px;box-shadow:0 10px 26px rgba(0,0,0,.1);overflow:hidden;display:flex;flex-direction:column;width:100%;max-width:360px;}
-    .product-hero-cards img{height:100%;object-fit:cover;flex:1;}
-    .product-hero-cards .card-body{padding:10px 12px;}
+    .product-hero-cards{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:0;height:100%;width:100%;max-width:100%;margin:0;}
+    .product-hero-cards .card{background:transparent;border:0;border-radius:0;box-shadow:none;overflow:hidden;display:flex;flex-direction:column;width:100%;height:100%;}
+    .product-hero-cards img{width:100%;height:100%;object-fit:cover;display:block;flex:1;}
+    .product-hero-cards .card-body{display:none;}
     @media (max-width: 768px){
       .product-hero-cards{grid-template-columns:1fr;justify-items:center;}
     }
