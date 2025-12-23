@@ -53,6 +53,11 @@
     .hero-premium .hero-content .chips{justify-content:center;}
     .hero-premium .hero-content .cta-row .btn{display:flex;align-items:center;justify-content:center;text-align:center;}
     @media (max-width: 768px){
+      .hero-premium.home-hero{min-height:auto;}
+      .hero-premium.home-hero .active{position:relative;height:auto;}
+      .hero-premium.home-hero .active video{object-fit:contain!important;clip-path:none!important;height:auto;max-height:440px;width:100%;}
+    }
+    @media (max-width: 768px){
       .hero-premium .container{display:flex;justify-content:center;}
       .hero-premium .hero-content .cta-row{flex-wrap:wrap;gap:10px;}
       .hero-premium .hero-content .cta-row .btn{white-space:normal;line-height:1.25;padding:10px 14px;}
@@ -121,7 +126,7 @@
 
       <main id="main" tabindex="-1">
 
-        <div class="hero-premium">
+        <div class="hero-premium home-hero">
           <div class="active">
             <video src="maridav_ci_image/body/maridav_ci_eleveurs_banner.webm" class="d-block w-100" autoplay loop muted playsinline></video>
           </div>
