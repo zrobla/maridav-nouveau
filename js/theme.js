@@ -12,6 +12,61 @@
     
     
     $(document).on ('ready', function (){
+        // Ensure mobile navbar toggles open/close even with Bootstrap 4 JS (data-bs attributes fallback)
+        (function(){
+          var nav = document.getElementById('navPremium');
+          var togglers = [].slice.call(document.querySelectorAll('.navbar-toggler'));
+          var dropdownToggles = nav ? [].slice.call(nav.querySelectorAll('.dropdown-toggle')) : [];
+          if(!nav || !togglers.length) return;
+          function closeNav(){
+            nav.classList.remove('show');
+            togglers.forEach(function(btn){ btn.setAttribute('aria-expanded','false'); });
+            closeDropdowns();
+          }
+          function closeDropdowns(){
+            dropdownToggles.forEach(function(t){ t.setAttribute('aria-expanded','false'); });
+            [].slice.call(nav.querySelectorAll('.dropdown')).forEach(function(dd){
+              dd.classList.remove('show');
+              var menu = dd.querySelector('.dropdown-menu');
+              if(menu){ menu.classList.remove('show'); }
+            });
+          }
+          togglers.forEach(function(btn){
+            btn.addEventListener('click', function(e){
+              e.preventDefault();
+              var isOpen = nav.classList.contains('show');
+              if(isOpen){
+                closeNav();
+              } else {
+                nav.classList.add('show');
+                btn.setAttribute('aria-expanded','true');
+              }
+            });
+          });
+          dropdownToggles.forEach(function(toggle){
+            toggle.addEventListener('click', function(e){
+              e.preventDefault();
+              var parent = toggle.closest('.dropdown');
+              var menu = parent ? parent.querySelector('.dropdown-menu') : null;
+              var isOpen = parent && parent.classList.contains('show');
+              closeDropdowns();
+              if(parent && !isOpen){
+                parent.classList.add('show');
+                if(menu){ menu.classList.add('show'); }
+                toggle.setAttribute('aria-expanded','true');
+              }
+            });
+          });
+          nav.querySelectorAll('a').forEach(function(link){
+            link.addEventListener('click', function(){
+              if(window.innerWidth < 992){ closeNav(); }
+            });
+          });
+          window.addEventListener('resize', function(){
+            if(window.innerWidth >= 992){ closeNav(); }
+          });
+        })();
+
         // Inject premium overrides CSS/JS once (path-aware to work from any directory)
         try {
           var ver = 'v=20251101';

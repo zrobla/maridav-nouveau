@@ -30,6 +30,10 @@
     .article-body h2,.article-body h3{color:var(--brand-accent);}
     .article-block{border:1px solid rgba(0,0,0,.04);border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.06);margin-bottom:14px;}
     .article-block .card-body{padding:16px 18px;}
+    .mini-article{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.9);color:#0c7352;border-radius:10px;padding:8px;text-decoration:none;margin-bottom:8px;}
+    .mini-article:hover{background:#e7f1ff;color:#0d6efd;}
+    .mini-article img{width:56px;height:56px;object-fit:cover;border-radius:8px;}
+    .mini-article strong{display:block;font-size:.92rem;}
     .article-toc a{display:block;color:#0c7352;font-weight:600;text-decoration:none;margin:4px 0;}
     .article-body h2{margin-top:1.5rem;}
     .article-body h3{margin-top:1.1rem;}
@@ -142,7 +146,7 @@
 
             <div class="article-toc mb-3">
               <strong>Plan de lecture</strong>
-              <a href="#eau">1. Qualité d’eau : O2, pH, turbidité</a>
+              <a href="#eau">1. Qualité d’eau : O<sub>2</sub>, pH, turbidité</a>
               <a href="#ration">2. Ration flottante & nourrissage</a>
               <a href="#densite">3. Densité & gestion des bassins</a>
               <a href="#suivi">4. Suivi et points de vigilance</a>
@@ -245,12 +249,24 @@
             <div class="card aside-card mt-3">
               <div class="card-body">
                 <h3 class="h6 text-brand">Autres articles</h3>
-                <ul class="small mb-0">
-                  <li><a class="small-link" href="article-biosecurite-poulet-chair.html"><i class="bi bi-chevron-right"></i> Biosécurité poulet chair</a></li>
-                  <li><a class="small-link" href="article-ponte-chaleur-maridav.html"><i class="bi bi-chevron-right"></i> Stabiliser la ponte</a></li>
-                  <li><a class="small-link" href="article-porcs-fcr-chaleur.html"><i class="bi bi-chevron-right"></i> Porcs : FCR chaleur</a></li>
-                  <li><a class="small-link" href="article-mycotoxines-biomix-maridav.html"><i class="bi bi-chevron-right"></i> Mycotoxines & MP</a></li>
-                </ul>
+                <div class="d-flex flex-column">
+                  <a class="mini-article" href="article-biosecurite-poulet-chair.html">
+                    <img src="blog_maridav_ci/biosecurity2.webp" alt="Biosécurité poulet chair">
+                    <div><strong>Biosécurité poulet chair</strong><small class="text-muted d-block">Check-list</small></div>
+                  </a>
+                  <a class="mini-article" href="article-ponte-chaleur-maridav.html">
+                    <img src="blog_maridav_ci/poulets_grands.jpg" alt="Pondeuses chaleur">
+                    <div><strong>Stabiliser la ponte</strong><small class="text-muted d-block">Pondeuses</small></div>
+                  </a>
+                  <a class="mini-article" href="article-porcs-fcr-chaleur.html">
+                    <img src="blog_maridav_ci/pig.jpg" alt="Porcs FCR chaleur">
+                    <div><strong>Porcs : FCR chaleur</strong><small class="text-muted d-block">Engraissement</small></div>
+                  </a>
+                  <a class="mini-article" href="article-mycotoxines-biomix-maridav.html">
+                    <img src="blog_maridav_ci/poussins2.jpg" alt="Mycotoxines">
+                    <div><strong>Mycotoxines & MP</strong><small class="text-muted d-block">Qualité MP</small></div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

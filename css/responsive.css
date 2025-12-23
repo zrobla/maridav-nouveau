@@ -357,3 +357,30 @@
     height: 160px;
   }
 }
+
+/* Navbar mobile: ensure collapsed menu is visible and centered */
+@media (max-width: 992px) {
+  .navbar-premium {position: relative;}
+  .navbar-premium .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 12px 16px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.12);
+    z-index: 999;
+  }
+  .navbar-premium .navbar-collapse.collapsing,
+  .navbar-premium .navbar-collapse.show{
+    display:block!important;
+  }
+  .navbar-premium .navbar-nav {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .navbar-premium .nav-meta,
+  .navbar-premium .nav-cta {
+    padding-top: 8px;
+  }
+}

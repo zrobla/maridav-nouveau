@@ -16,6 +16,13 @@
   <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   <link rel="stylesheet" href="assets/css/main.min.css">
+  <style>
+    .hero-article-height{min-height:450px;padding:18px 0 10px;}
+    .hero-article-height .active{max-height:450px;overflow:hidden;}
+    .hero-article-height img{height:450px;max-height:450px;object-fit:cover;width:100%;display:block;}
+    #form-pro .form-label{color:#7fe3ad;font-weight:700;}
+    #form-pro .form-check-label{color:#7fe3ad;font-weight:700;}
+  </style>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,9 +93,9 @@
     </header>
 
 <!-- Hero -->
-  <header class="hero-premium" role="banner">
+  <header class="hero-premium hero-article-height" role="banner">
     <div class="active">
-      <img src="maridav_ci_image/body/maridav_ci_banniere_blanche.webp" alt="MARIDAV Côte d’Ivoire" class="d-block w-100" loading="eager" style="max-height:420px;object-fit:cover">
+      <img src="maridav_ci_image/body/maridav_ci_banniere_blanche.webp" alt="MARIDAV Côte d’Ivoire" class="d-block w-100" loading="eager">
     </div>
     <div class="hero-overlay" role="region" aria-label="Présentation">
       <div class="container">
@@ -391,12 +398,16 @@
             <div class="card card-premium h-100">
               <div class="card-body">
                 <h3 class="h6 text-brand">Pourquoi nous contacter ?</h3>
-                <ul class="small mb-2">
-                  <li>Diagnostic rapide — orientation vers les bonnes gammes</li>
-                  <li>Points de vente — trouver le distributeur le plus proche</li>
-                  <li>Support technique — réglages, suivi de performances</li>
+                <ul class="small mb-3">
+                  <li><strong>Diagnostic express :</strong> filtre espèce/stade/objectif en 48h ouvrées max.</li>
+                  <li><strong>Réseau national :</strong> on vous oriente vers le point de vente le plus proche.</li>
+                  <li><strong>Support technique :</strong> réglages, photos/vidéos, suivi de performances.</li>
+                  <li><strong>Docs & protocoles :</strong> fiches produits, biosécurité, qualité d’eau.</li>
                 </ul>
-                <a target="_blank" href="https://api.whatsapp.com/send?phone=+2250574648888" class="btn btn-outline-brand w-100">WhatsApp direct</a>
+                <div class="d-flex flex-column gap-2">
+                  <a target="_blank" href="https://api.whatsapp.com/send?phone=+2250574648888" class="btn btn-brand w-100">WhatsApp direct</a>
+                  <a class="btn btn-outline-brand w-100" href="distributeurs_maridav.html">Trouver un point de vente</a>
+                </div>
               </div>
             </div>
           </div>

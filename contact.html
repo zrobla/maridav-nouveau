@@ -16,6 +16,21 @@
   <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   <link rel="stylesheet" href="assets/css/main.min.css">
+  <style>
+    .hero-article-height{min-height:450px;padding:18px 0 10px;position:relative;}
+    .hero-article-height .active.hero-cards-bg{max-height:450px;height:450px;overflow:hidden;display:grid;align-items:stretch;}
+    .product-hero-cards{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:10px;height:100%;justify-items:center;width:min(1100px,100%);margin:0 auto;}
+    .product-hero-cards .card{background:rgba(255,255,255,.9);border:0;border-radius:12px;box-shadow:0 10px 26px rgba(0,0,0,.1);overflow:hidden;display:flex;flex-direction:column;width:100%;max-width:360px;}
+    .product-hero-cards img{height:100%;object-fit:cover;flex:1;}
+    .product-hero-cards .card-body{padding:10px 12px;}
+    @media (max-width: 768px){
+      .product-hero-cards{grid-template-columns:1fr;justify-items:center;}
+    }
+    #c-form .form-label{color:#7fe3ad;font-weight:700;}
+    .hero-article-height .hero-overlay .hero-content,
+    .hero-article-height .hero-overlay .hero-content h1,
+    .hero-article-height .hero-overlay .hero-content p{color:#fff;}
+  </style>
 <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ContactPage","name":"Contact — MARIDAV Côte d'Ivoire","url":"https://maridav.ci/contact.html"}
   </script>
@@ -67,9 +82,22 @@
     </header>
 
 <!-- Hero -->
-  <header class="hero-premium" role="banner">
-    <div class="active">
-      <img src="maridav_ci_image/body/maridav_ci_banniere_blanche_responsive.webp" alt="Contact MARIDAV CI" class="d-block w-100" loading="eager" style="max-height:420px;object-fit:cover">
+  <header class="hero-premium hero-article-height" role="banner">
+    <div class="active hero-cards-bg">
+      <div class="product-hero-cards">
+        <div class="card">
+          <img src="images/oeufs-maridav.jpg" alt="Solutions Volailles MARIDAV">
+          
+        </div>
+        <div class="card">
+          <img src="images/porcelet-maridav-2.jpg" alt="Solutions Porcs MARIDAV">
+          
+        </div>
+        <div class="card">
+          <img src="images/pisciculture.jpg" alt="Poissons Tilapia MARIDAV">
+          
+        </div>
+      </div>
     </div>
     <div class="hero-overlay" role="region" aria-label="Contact">
       <div class="container">
@@ -109,7 +137,7 @@
           <div class="col-12 col-md-4">
             <div class="card card-premium h-100">
               <div class="card-body">
-                <h3 class="h6 text-brand">Réseaux</h3>
+                <h3 class="h6 text-brand">Réseaux Sociaux</h3>
                 <p class="small mb-0"><a href="https://www.facebook.com/MaridavCI/" target="_blank">Facebook</a> · <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank">LinkedIn</a></p>
               </div>
             </div>
@@ -196,12 +224,16 @@
             <div class="card card-premium h-100">
               <div class="card-body">
                 <h3 class="h6 text-brand">Aide rapide</h3>
-                <ul class="small mb-2">
-                  <li>Produits & devis — réponse sous 24–48h ouvrées</li>
-                  <li>Support technique — WhatsApp prioritaire</li>
-                  <li>Réseau — trouvez votre point de vente</li>
+                <ul class="small mb-3">
+                  <li><strong>Réponse express :</strong> devis ou orientation en 24–48h ouvrées.</li>
+                  <li><strong>WhatsApp prioritaire :</strong> réglages techniques, photos/vidéos terrain.</li>
+                  <li><strong>Réseau national :</strong> localisation du point de vente le plus proche.</li>
+                  <li><strong>Docs utiles :</strong> fiches produits & protocoles biosécurité.</li>
                 </ul>
-                <a class="btn btn-outline-brand w-100" href="distributeurs_maridav.html">Points de vente</a>
+                <div class="d-flex flex-column gap-2">
+                  <a class="btn btn-brand w-100" href="distributeurs_maridav.html">Trouver un point de vente</a>
+                  <a class="btn btn-outline-brand w-100" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener">WhatsApp direct</a>
+                </div>
               </div>
             </div>
           </div>
