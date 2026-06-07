@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Carrières{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Candidatures carrières</h1>
+        <p class="text-muted small mb-0">Suivi des candidatures reçues via le site public.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'careers-create' %}"><i class="bi bi-plus"></i> Nouvelle candidature</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-6">
+        <label class="form-label">Recherche</label>
+        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Nom, email, téléphone, poste">
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Statut</label>
+        <select name="status" class="form-select">
+            <option value="">Tous</option>
+            {% for value, label in status_choices %}
+                <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle">
+            <thead><tr><th>Candidat</th><th>Poste</th><th>Ville</th><th>Statut</th><th>CV</th><th></th></tr></thead>
+            <tbody>
+                {% for app in applications %}
+                    <tr>
+                        <td>
+                            <div class="fw-semibold">{{ app.full_name }}</div>
+                            <small class="text-muted">{{ app.email }}{% if app.phone %} · {{ app.phone }}{% endif %}</small>
+                        </td>
+                        <td>{{ app.role|default:"-" }}</td>
+                        <td>{{ app.location|default:"-" }}</td>
+                        <td>{{ app.get_status_display }}</td>
+                        <td>
+                            {% if app.cv %}
+                                <a href="{{ app.cv.url }}" target="_blank" rel="noopener">Voir CV</a>
+                            {% else %}
+                                <span class="text-muted">-</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="{% url 'careers-update' app.pk %}">Mettre à jour</a></td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6" class="text-center text-muted py-3">Aucune candidature.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

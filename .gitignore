@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.sqlite3-journal
+db.sqlite3*
+*.sqlite3.bak-*
+.venv/
+.maridav/
+CRM/.maridav/
+*.egg-info/
+.pytest_cache/
+
+# Django
+staticfiles/
+CRM/staticfiles/
+media/
+CRM/media/
+
+# Node
+node_modules/
+.pnpm-store/
+.next/
+.turbo/
+
+# Env & credentials
+.env
+*.env
+.env.local
+.env.*.local
+*credentials*
+acces-credentials.txt
+*.pem
+*.key
+*.p12
+
+# Dossiers exclus (demande explicite)
+NOUVEAU SITE/
+markdown/
+
+# Logs / OS / éditeurs / temp
+*.log
+.DS_Store
+Thumbs.db
+__cap_tmp.html
+*.swp
+.idea/
+.vscode/

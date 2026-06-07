@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Opportunités{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Opportunités commerciales</h1>
+        <p class="text-muted small mb-0">Conversion de leads en ventes d'aliments, additifs et biosécurité.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'opportunities-create' %}"><i class="bi bi-plus"></i> Nouvelle opportunité</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-4">
+        <label class="form-label">Étape</label>
+        <select name="stage" class="form-select">
+            <option value="">Toutes</option>
+            {% for value, label in stage_choices %}
+                <option value="{{ value }}" {% if request.GET.stage == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Commercial assigné</label>
+        <select name="assigned" class="form-select">
+            <option value="">Tous</option>
+            {% for user in users %}
+                <option value="{{ user.id }}" {% if request.GET.assigned == user.id|stringformat:'s' %}selected{% endif %}>{{ user.get_full_name|default:user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table mb-0 align-middle">
+            <thead><tr><th>Titre</th><th>Client</th><th>Étape</th><th>Valeur</th><th>Prob.</th><th>Clôture</th><th></th></tr></thead>
+            <tbody>
+                {% for opportunity in opportunities %}
+                    <tr>
+                        <td>{{ opportunity.title }}</td>
+                        <td>{{ opportunity.customer.name }}</td>
+                        <td>{{ opportunity.get_stage_display }}</td>
+                        <td>{{ opportunity.expected_value|floatformat:0 }} FCFA</td>
+                        <td>{{ opportunity.probability }}%</td>
+                        <td>{{ opportunity.expected_close_date|date:"d/m/Y" }}</td>
+                        <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="{% url 'opportunities-update' opportunity.pk %}">Mettre à jour</a></td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="7" class="text-center text-muted py-3">Aucune opportunité enregistrée.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

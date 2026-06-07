@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Visites{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Visites techniques</h1>
+        <p class="text-muted small mb-0">Diagnostics, suivis de performances, biosécurité et formations terrain.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'visits-create' %}"><i class="bi bi-plus"></i> Nouvelle visite</a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table mb-0 align-middle">
+            <thead><tr><th>Date</th><th>Client</th><th>PDV</th><th>Objet</th><th>Espèce</th><th>Suivi</th></tr></thead>
+            <tbody>
+                {% for visit in visits %}
+                    <tr>
+                        <td>{{ visit.visit_date|date:"d/m/Y" }}</td>
+                        <td>{{ visit.customer.name }}</td>
+                        <td>{{ visit.outlet.name|default:"-" }}</td>
+                        <td>{{ visit.get_purpose_display }}</td>
+                        <td>{{ visit.get_species_display }}</td>
+                        <td>{{ visit.follow_up_date|date:"d/m/Y" }}</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6" class="text-center text-muted py-3">Aucune visite enregistrée.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

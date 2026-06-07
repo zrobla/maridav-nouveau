@@ -356,10 +356,10 @@
                   <h3 class="h6 text-brand mb-1">Recevoir les prochains guides</h3>
                   <p class="small mb-0">Nouveaux articles, protocoles biosécurité, fiches pratiques volaille/porc/poisson (1 à 2 emails/mois).</p>
                 </div>
-                <form class="d-flex gap-2 flex-wrap">
+                <form id="newsletter-form" class="d-flex gap-2 flex-wrap">
                   <label class="visually-hidden" for="newsletterEmail">Email</label>
-                  <input id="newsletterEmail" type="email" class="form-control" placeholder="Votre email pro">
-                  <button class="btn btn-brand" type="button" disabled title="Simulation uniquement">S’inscrire</button>
+                  <input id="newsletterEmail" name="email" type="email" class="form-control" placeholder="Votre email pro" required>
+                  <button class="btn btn-brand" type="submit">S’inscrire</button>
                 </form>
               </div>
             </div>
@@ -491,5 +491,6 @@
     })();
   </script>
   <script src="assets/js/main.min.js" defer></script>
+  <script src="assets/js/site-crm-bridge.js" defer></script>
 </body>
 </html>

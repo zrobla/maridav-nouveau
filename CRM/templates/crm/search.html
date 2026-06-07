@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% block title %}Recherche{% endblock %}
+{% block content %}
+<div class="card shadow-sm mb-3">
+    <div class="card-body">
+        <h1 class="h5 mb-3">Recherche globale</h1>
+        <form class="row g-2" method="get">
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="q" value="{{ query }}" placeholder="Client, lead, inbox, candidature, promotion, ticket...">
+            </div>
+            <div class="col-md-2 d-grid">
+                <button class="btn btn-brand" type="submit"><i class="bi bi-search"></i> Chercher</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if query %}
+<div class="row g-3">
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Clients</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for customer in customers %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ customer.name }}</div>
+                            <div class="text-muted small">{{ customer.city }} • {{ customer.get_segment_display }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'customers-detail' customer.pk %}">Ouvrir</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Leads</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for lead in leads %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ lead.name }}</div>
+                            <div class="text-muted small">{{ lead.company }} • {{ lead.get_status_display }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'leads-update' lead.pk %}">Mettre à jour</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-1">
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Opportunités</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for opp in opportunities %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ opp.title }}</div>
+                            <div class="text-muted small">{{ opp.customer.name }} • {{ opp.get_stage_display }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'opportunities-update' opp.pk %}">Mettre à jour</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Tickets support</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for case in support_cases %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ case.reference }}</div>
+                            <div class="text-muted small">{{ case.customer.name }} • {{ case.get_case_type_display }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'support-update' case.pk %}">Mettre à jour</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-1">
+    <div class="col-lg-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Inbox</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for item in inbound_requests %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ item.name|default:item.email|default:item.phone }}</div>
+                            <div class="text-muted small">{{ item.get_kind_display }} • {{ item.get_status_display }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'inbox-update' item.pk %}">Ouvrir</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Carrières</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for app in career_applications %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ app.full_name }}</div>
+                            <div class="text-muted small">{{ app.role|default:"-" }} • {{ app.get_status_display }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'careers-update' app.pk %}">Ouvrir</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Newsletter</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for sub in newsletter_subscriptions %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ sub.email }}</div>
+                            <div class="text-muted small">{{ sub.get_status_display }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'newsletter-update' sub.pk %}">Ouvrir</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-1">
+    <div class="col-lg-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Territoires</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for territory in territories %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ territory.name }}</div>
+                            <div class="text-muted small">{{ territory.region|default:"-" }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'territories-update' territory.pk %}">Ouvrir</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Points de vente</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for outlet in outlets %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ outlet.name }}</div>
+                            <div class="text-muted small">{{ outlet.city|default:"-" }} • {{ outlet.get_channel_display }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'outlets-update' outlet.pk %}">Ouvrir</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header"><strong>Promotions</strong></div>
+            <ul class="list-group list-group-flush">
+                {% for promo in promotions %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-semibold">{{ promo.name }}</div>
+                            <div class="text-muted small">{{ promo.get_status_display }} • {{ promo.start_date|date:"d/m/Y" }}</div>
+                        </div>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'promotions-update' promo.pk %}">Ouvrir</a>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">Aucun résultat.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

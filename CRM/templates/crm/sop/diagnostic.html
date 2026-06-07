@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Diagnostic SOP{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+    .diagnostic-markdown h1,
+    .diagnostic-markdown h2,
+    .diagnostic-markdown h3 {
+        margin-top: 1.2rem;
+        margin-bottom: 0.6rem;
+    }
+    .diagnostic-markdown h1 { font-size: 1.5rem; }
+    .diagnostic-markdown h2 { font-size: 1.2rem; }
+    .diagnostic-markdown h3 { font-size: 1.05rem; }
+    .diagnostic-markdown ul,
+    .diagnostic-markdown ol {
+        padding-left: 1.2rem;
+    }
+    .diagnostic-markdown code {
+        background: #f1f3f5;
+        border-radius: 4px;
+        padding: 0.1rem 0.25rem;
+    }
+    .diagnostic-markdown pre {
+        background: #0f172a;
+        color: #f8fafc;
+        border-radius: 8px;
+        padding: 0.8rem;
+        overflow: auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Diagnostic Site + CRM</h1>
+        <p class="text-muted small mb-0">Analyse structuree des flux, risques et optimisations prioritaires.</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary" href="{% url 'sop-studio' %}"><i class="bi bi-diagram-3"></i> SOP Studio</a>
+        <a class="btn btn-outline-success" href="{% url 'dashboard' %}"><i class="bi bi-arrow-left"></i> Dashboard</a>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Rapport de diagnostic</strong>
+        <code>{{ diagnostic_source_file }}</code>
+    </div>
+    <div class="card-body">
+        <article id="diagnosticMarkdownContent" class="diagnostic-markdown"></article>
+    </div>
+</div>
+
+{{ diagnostic_markdown|json_script:"diagnosticMarkdownRaw" }}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    (function () {
+        const sourceNode = document.getElementById("diagnosticMarkdownRaw");
+        const contentNode = document.getElementById("diagnosticMarkdownContent");
+        if (!sourceNode || !contentNode) {
+            return;
+        }
+
+        let markdown = "";
+        try {
+            markdown = JSON.parse(sourceNode.textContent || "\"\"");
+        } catch (error) {
+            markdown = sourceNode.textContent || "";
+        }
+
+        if (window.marked && typeof window.marked.parse === "function") {
+            contentNode.innerHTML = window.marked.parse(markdown, { gfm: true });
+            return;
+        }
+
+        contentNode.textContent = markdown;
+        contentNode.classList.add("font-monospace", "small");
+        contentNode.style.whiteSpace = "pre-wrap";
+    })();
+</script>
+{% endblock %}

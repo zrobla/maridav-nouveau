@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Tâches{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Plan d'actions</h1>
+        <p class="text-muted small mb-0">Appels, visites, relances devis, livraisons et formations.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'tasks-create' %}"><i class="bi bi-plus"></i> Nouvelle tâche</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-4">
+        <label class="form-label">Statut</label>
+        <select name="status" class="form-select">
+            <option value="">Tous</option>
+            {% for value, label in status_choices %}
+                <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Commercial assigné</label>
+        <select name="assigned" class="form-select">
+            <option value="">Tous</option>
+            {% for user in users %}
+                <option value="{{ user.id }}" {% if request.GET.assigned == user.id|stringformat:'s' %}selected{% endif %}>{{ user.get_full_name|default:user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table mb-0 align-middle">
+            <thead><tr><th>Titre</th><th>Échéance</th><th>Statut</th><th>Type</th><th>Assigné</th><th></th></tr></thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr class="{% if task.due_date and task.due_date < today and task.status != 'termine' %}table-danger{% endif %}">
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.due_date|date:"d/m/Y" }}</td>
+                        <td>
+                            <span class="badge {% if task.due_date and task.due_date < today and task.status != 'termine' %}bg-danger text-white{% else %}bg-light text-dark{% endif %}">
+                                {% if task.due_date and task.due_date < today and task.status != 'termine' %}En retard{% else %}{{ task.get_status_display }}{% endif %}
+                            </span>
+                        </td>
+                        <td>{{ task.get_activity_type_display }}</td>
+                        <td>{{ task.assigned_to }}</td>
+                        <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="{% url 'tasks-update' task.pk %}">Mettre à jour</a></td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6" class="text-center text-muted py-3">Aucune tâche.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

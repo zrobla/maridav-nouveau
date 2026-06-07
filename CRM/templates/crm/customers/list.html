@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Clients{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Clients & prospects</h1>
+        <p class="text-muted small mb-0">Réseau distributeurs, éleveurs, intégrateurs et partenaires MARIDAV CI.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'customers-create' %}"><i class="bi bi-plus"></i> Nouveau client</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-4">
+        <label class="form-label">Recherche</label>
+        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Nom, code, ville...">
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Espèce</label>
+        <select name="segment" class="form-select">
+            <option value="">Toutes</option>
+            {% for value, label in segment_choices %}
+                <option value="{{ value }}" {% if request.GET.segment == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Statut</label>
+        <select name="status" class="form-select">
+            <option value="">Tous</option>
+            {% for value, label in status_choices %}
+                <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Type</th>
+                    <th>Espèce</th>
+                    <th>Localisation</th>
+                    <th>Contacts</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                    <tr>
+                        <td>{{ customer.name }}</td>
+                        <td>{{ customer.get_customer_type_display }}</td>
+                        <td>{{ customer.get_segment_display }}</td>
+                        <td>{{ customer.city }} {% if customer.region %}({{ customer.region }}){% endif %}</td>
+                        <td>
+                            {% if customer.phone %}<div><i class="bi bi-telephone"></i> {{ customer.phone }}</div>{% endif %}
+                            {% if customer.whatsapp %}<div><i class="bi bi-whatsapp"></i> {{ customer.whatsapp }}</div>{% endif %}
+                        </td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-secondary" href="{% url 'customers-detail' customer.pk %}">Ouvrir</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6" class="text-center py-3 text-muted">Aucun client trouvé.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

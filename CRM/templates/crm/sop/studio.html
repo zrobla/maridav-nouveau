@@ -1,0 +1,636 @@
+{% extends "base.html" %}
+{% block title %}SOP Studio{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">SOP Studio - CRM Premium 10/10</h1>
+        <p class="text-muted small mb-0">Scanning, choix de gouvernance et validation du blueprint d'integration avant implementation.</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary" href="{% url 'sop-diagnostic' %}"><i class="bi bi-clipboard2-data"></i> Voir diagnostic</a>
+        <a class="btn btn-outline-success" href="{% url 'dashboard' %}"><i class="bi bi-arrow-left"></i> Retour dashboard</a>
+    </div>
+</div>
+
+<div class="row g-3 mb-3">
+    <div class="col-md-4">
+        <div class="metric-card">
+            <div class="metric-icon bg-secondary"><i class="bi bi-bar-chart"></i></div>
+            <div>
+                <p class="metric-title">Maturite actuelle</p>
+                <p class="metric-value">{{ baseline_score }}/100</p>
+                <small class="text-muted">Base scan CRM actuelle</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="metric-card">
+            <div class="metric-icon bg-success"><i class="bi bi-bullseye"></i></div>
+            <div>
+                <p class="metric-title">Score projete</p>
+                <p class="metric-value" id="projectedScore">{{ baseline_score }}/100</p>
+                <small class="text-muted" id="projectedLabel">A completer via les choix</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="metric-card">
+            <div class="metric-icon bg-primary"><i class="bi bi-diagram-3"></i></div>
+            <div>
+                <p class="metric-title">Flux cible</p>
+                <p class="metric-value">12 etapes</p>
+                <small class="text-muted">Intake -> conversion -> service -> closure -> improvement</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Resultat du scanning CRM</strong>
+        <span class="small text-muted">Etat reel des flux operationnels et des integrations</span>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle">
+            <thead>
+                <tr>
+                    <th>Domaine</th>
+                    <th>Maturite</th>
+                    <th>Etat</th>
+                    <th>Constat</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in scan_items %}
+                    <tr>
+                        <td class="fw-semibold">{{ item.domain }}</td>
+                        <td>{{ item.current }}</td>
+                        <td>
+                            {% if item.status == "Fort" %}
+                                <span class="badge text-bg-success">Fort</span>
+                            {% elif item.status == "Partiel" %}
+                                <span class="badge text-bg-warning">Partiel</span>
+                            {% else %}
+                                <span class="badge text-bg-danger">Gap</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.details }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card shadow-sm mb-3">
+    <div class="card-header">
+        <strong>SOP cible (workflow executable corporate)</strong>
+    </div>
+    <div class="card-body p-0">
+        <table class="table mb-0 align-middle" id="sopWorkflowTable">
+            <thead>
+                <tr>
+                    <th>Etape</th>
+                    <th>Owner principal</th>
+                    <th>SLA cible</th>
+                    <th>Livrable controle</th>
+                    <th class="text-end">Contexte & use case</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for step in sop_steps %}
+                    <tr>
+                        <td class="fw-semibold">{{ step.step }}</td>
+                        <td>{{ step.owner }}</td>
+                        <td>{{ step.sla }}</td>
+                        <td>{{ step.deliverable }}</td>
+                        <td class="text-end">
+                            <button
+                                class="btn btn-sm btn-outline-primary"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#sopDetail-{{ step.id }}"
+                                aria-expanded="false"
+                                aria-controls="sopDetail-{{ step.id }}"
+                            >
+                                <i class="bi bi-chevron-down"></i> Voir details
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="p-0 border-0">
+                            <div class="collapse" id="sopDetail-{{ step.id }}" data-bs-parent="#sopWorkflowTable">
+                                <div class="border-start border-end border-bottom bg-light-subtle p-3">
+                                    <div class="row g-3">
+                                        <div class="col-lg-6">
+                                            <div class="small text-uppercase text-muted fw-semibold mb-1">Contexte Maridav + CRM</div>
+                                            <p class="mb-0">{{ step.context }}</p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="small text-uppercase text-muted fw-semibold mb-1">Use case concret</div>
+                                            <p class="mb-0">{{ step.use_case }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card shadow-sm mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Matrice roles -> dashboard (pilotage no-code)</strong>
+        <span class="small text-muted">Definit la vue KPI, charts, actions et gouvernance par acteur CRM</span>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle" id="roleMatrixTable">
+            <thead>
+                <tr>
+                    <th>Role / groupe</th>
+                    <th>Perimetre data</th>
+                    <th>Widgets & charts</th>
+                    <th>Actions & approbations</th>
+                    <th>Priorite implementation</th>
+                    <th class="text-end">Contexte</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in role_dashboard_matrix %}
+                    <tr>
+                        <td class="fw-semibold">{{ item.role }}</td>
+                        <td>{{ item.scope }}</td>
+                        <td>
+                            <div class="small"><strong>Widgets:</strong> {{ item.widgets }}</div>
+                            <div class="small text-muted"><strong>Charts:</strong> {{ item.charts }}</div>
+                        </td>
+                        <td>
+                            <div class="small"><strong>Actions:</strong> {{ item.actions }}</div>
+                            <div class="small text-muted"><strong>Approvals:</strong> {{ item.approvals }}</div>
+                        </td>
+                        <td>
+                            <select class="form-select form-select-sm role-phase-select" data-role="{{ item.slug }}">
+                                {% for opt in role_phase_options %}
+                                    <option value="{{ opt.value }}" {% if opt.value == item.default_phase %}selected{% endif %}>{{ opt.label }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="small text-muted mt-1">{{ item.assignment }}</div>
+                        </td>
+                        <td class="text-end">
+                            <button
+                                class="btn btn-sm btn-outline-primary"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#roleMatrixDetail-{{ item.slug }}"
+                                aria-expanded="false"
+                                aria-controls="roleMatrixDetail-{{ item.slug }}"
+                            >
+                                <i class="bi bi-chevron-down"></i> Voir
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="p-0 border-0">
+                            <div class="collapse" id="roleMatrixDetail-{{ item.slug }}" data-bs-parent="#roleMatrixTable">
+                                <div class="border-start border-end border-bottom bg-light-subtle p-3">
+                                    <div class="row g-3">
+                                        <div class="col-lg-6">
+                                            <div class="small text-uppercase text-muted fw-semibold mb-1">Contexte Maridav + CRM</div>
+                                            <p class="mb-0">{{ item.context }}</p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="small text-uppercase text-muted fw-semibold mb-1">Use case concret</div>
+                                            <p class="mb-0">{{ item.use_case }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<form id="sopStudioForm" class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Choix de configuration a valider</strong>
+        <span class="small text-muted">Ces choix pilotent le plan d'integration a implementer</span>
+    </div>
+    <div class="card-body">
+        {% csrf_token %}
+        <div class="row g-4">
+            {% for decision in decision_blueprint %}
+                <div class="col-lg-6">
+                    <div class="border rounded p-3 h-100">
+                        <h2 class="h6 mb-1">{{ decision.label }}</h2>
+                        <p class="small text-muted mb-2">{{ decision.help }}</p>
+                        {% for opt in decision.options %}
+                            <div class="form-check mb-2">
+                                <input
+                                    class="form-check-input decision-input"
+                                    type="radio"
+                                    name="{{ decision.key }}"
+                                    id="{{ decision.key }}-{{ opt.value }}"
+                                    value="{{ opt.value }}"
+                                    data-score="{{ opt.score }}"
+                                    {% if forloop.first %}checked{% endif %}
+                                >
+                                <label class="form-check-label" for="{{ decision.key }}-{{ opt.value }}">
+                                    {{ opt.label }}
+                                    <span class="text-muted small">(+{{ opt.score }} pts)</span>
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <hr class="my-4">
+
+        <h2 class="h6 mb-2">Features premium a activer</h2>
+        <p class="small text-muted">Selectionnez les accelerateurs operationnels a implémenter dans le backlog.</p>
+        <div class="row g-3 mb-3">
+            {% for feature in feature_flags %}
+                <div class="col-md-6">
+                    <div class="form-check border rounded p-3 h-100">
+                        <input class="form-check-input feature-input" type="checkbox" id="{{ feature.key }}" value="{{ feature.key }}" data-score="{{ feature.score }}" checked>
+                        <label class="form-check-label fw-semibold" for="{{ feature.key }}">{{ feature.label }}</label>
+                        <div class="small text-muted">{{ feature.impact }} (+{{ feature.score }} pts)</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <hr class="my-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h2 class="h6 mb-0">Checklist enterprise (JSON executable)</h2>
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-sm btn-outline-primary" id="loadEnterpriseChecklistBtn">Charger checklist enterprise</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="evaluateEnterpriseChecklistBtn">Evaluer readiness</button>
+                <button type="button" class="btn btn-sm btn-outline-danger" id="resetEnterpriseChecklistBtn">Reinitialiser</button>
+            </div>
+        </div>
+        <p class="small text-muted mb-2">
+            Cette section relie le SOP Studio a la checklist enterprise. Completez les scores (0-5) dans
+            <code>scorecard</code> pour obtenir un readiness enterprise.
+        </p>
+        <textarea
+            class="form-control font-monospace"
+            id="enterpriseChecklistJson"
+            rows="12"
+            placeholder='Cliquez "Charger checklist enterprise" pour pre-remplir le JSON.'
+        ></textarea>
+        <div class="small mt-2" id="enterpriseReadinessLabel">Readiness enterprise: non evalue</div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Priorite d'implementation</label>
+                <select class="form-select" name="delivery_mode" id="deliveryMode">
+                    <option value="balanced" selected>Balanced (qualite + vitesse)</option>
+                    <option value="fast_track">Fast-track (impact rapide)</option>
+                    <option value="governance_first">Governance-first (controle maximal)</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Focus metier principal</label>
+                <select class="form-select" name="business_focus" id="businessFocus">
+                    <option value="multi_species" selected>Multi-especes (global MARIDAV)</option>
+                    <option value="volailles">Volailles</option>
+                    <option value="porcins">Porcins</option>
+                    <option value="poissons">Poissons</option>
+                    <option value="biosecurite">Biosecurite</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Contraintes / instructions de direction (optionnel)</label>
+                <textarea class="form-control" id="executiveNotes" rows="3" placeholder="Ex: validation DG obligatoire pour remises > 8%, SLA urgent < 1h, priorite couverture zones Abidjan/Bouake"></textarea>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <button type="button" class="btn btn-outline-secondary" id="recalculateBtn">Recalculer score</button>
+            <button type="submit" class="btn btn-success">Valider mes choix SOP</button>
+        </div>
+
+        <div class="alert d-none mt-3" id="saveFeedback" role="alert"></div>
+    </div>
+</form>
+{{ enterprise_onboarding_template|json_script:"enterpriseChecklistTemplate" }}
+{{ saved_sop_choices|json_script:"sopSavedChoices" }}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    (function () {
+        const baseline = Number("{{ baseline_score }}") || 0;
+        const projectedEl = document.getElementById("projectedScore");
+        const projectedLabelEl = document.getElementById("projectedLabel");
+        const form = document.getElementById("sopStudioForm");
+        const feedback = document.getElementById("saveFeedback");
+        const enterpriseTemplateNode = document.getElementById("enterpriseChecklistTemplate");
+        const savedChoicesNode = document.getElementById("sopSavedChoices");
+        const enterpriseTextarea = document.getElementById("enterpriseChecklistJson");
+        const enterpriseReadinessLabel = document.getElementById("enterpriseReadinessLabel");
+
+        function getSelectedDecisionScore() {
+            return Array.from(document.querySelectorAll(".decision-input:checked"))
+                .reduce((sum, input) => sum + Number(input.dataset.score || 0), 0);
+        }
+
+        function getMaxDecisionScore() {
+            const byName = {};
+            document.querySelectorAll(".decision-input").forEach((input) => {
+                const key = input.name;
+                const score = Number(input.dataset.score || 0);
+                byName[key] = Math.max(byName[key] || 0, score);
+            });
+            return Object.values(byName).reduce((sum, value) => sum + value, 0);
+        }
+
+        function getSelectedFeatureScore() {
+            return Array.from(document.querySelectorAll(".feature-input:checked"))
+                .reduce((sum, input) => sum + Number(input.dataset.score || 0), 0);
+        }
+
+        function getMaxFeatureScore() {
+            return Array.from(document.querySelectorAll(".feature-input"))
+                .reduce((sum, input) => sum + Number(input.dataset.score || 0), 0);
+        }
+
+        function getSelectedRolePhaseScore() {
+            const mapping = { phase_1: 3, phase_2: 2, phase_3: 1 };
+            return Array.from(document.querySelectorAll(".role-phase-select"))
+                .reduce((sum, select) => sum + (mapping[select.value] || 0), 0);
+        }
+
+        function getMaxRolePhaseScore() {
+            return Array.from(document.querySelectorAll(".role-phase-select")).length * 3;
+        }
+
+        function defaultEnterpriseTemplate() {
+            if (!enterpriseTemplateNode) return {};
+            try {
+                return JSON.parse(enterpriseTemplateNode.textContent || "{}");
+            } catch (error) {
+                return {};
+            }
+        }
+
+        function readSavedChoices() {
+            if (!savedChoicesNode) return {};
+            try {
+                return JSON.parse(savedChoicesNode.textContent || "{}");
+            } catch (error) {
+                return {};
+            }
+        }
+
+        function applySavedChoices(saved) {
+            if (!saved || typeof saved !== "object") return;
+
+            const decisions = saved.decisions || {};
+            Object.entries(decisions).forEach(([key, choice]) => {
+                const value = choice && typeof choice === "object" ? choice.value : choice;
+                if (!value) return;
+                const target = document.querySelector(`.decision-input[name="${key}"][value="${value}"]`);
+                if (target) target.checked = true;
+            });
+
+            if (Array.isArray(saved.features) && saved.features.length) {
+                const selected = new Set(
+                    saved.features
+                        .map((item) => (item && typeof item === "object" ? item.key : item))
+                        .filter(Boolean)
+                );
+                document.querySelectorAll(".feature-input").forEach((checkbox) => {
+                    checkbox.checked = selected.has(checkbox.value);
+                });
+            }
+
+            if (saved.delivery_mode) {
+                const mode = document.getElementById("deliveryMode");
+                if (mode) mode.value = saved.delivery_mode;
+            }
+            if (saved.business_focus) {
+                const focus = document.getElementById("businessFocus");
+                if (focus) focus.value = saved.business_focus;
+            }
+            if (typeof saved.executive_notes === "string") {
+                const notes = document.getElementById("executiveNotes");
+                if (notes) notes.value = saved.executive_notes;
+            }
+
+            const rolePlan = saved.role_dashboard_plan || {};
+            document.querySelectorAll(".role-phase-select").forEach((select) => {
+                const value = rolePlan[select.dataset.role];
+                if (value) select.value = value;
+            });
+
+            if (saved.enterprise_checklist && typeof saved.enterprise_checklist === "object") {
+                enterpriseTextarea.value = JSON.stringify(saved.enterprise_checklist, null, 2);
+            }
+        }
+
+        function computeEnterpriseReadiness(checklist) {
+            if (!checklist || typeof checklist !== "object") return null;
+            const scorecard = checklist.scorecard || {};
+            const keys = ["governance", "contracts", "security", "build", "tests", "ops"];
+            const values = keys.map((key) => Number(scorecard[key]));
+            if (values.some((value) => Number.isNaN(value))) {
+                return null;
+            }
+            const bounded = values.map((value) => Math.max(0, Math.min(5, value)));
+            const total = bounded.reduce((sum, value) => sum + value, 0);
+            const score = Math.round((total / 30) * 100);
+            let decision = "GO enterprise";
+            if (score < 70) decision = "NO GO";
+            else if (score < 85) decision = "GO conditionnel";
+            return { score, decision };
+        }
+
+        function getEnterpriseReadinessFromTextarea() {
+            const raw = (enterpriseTextarea.value || "").trim();
+            if (!raw) return null;
+            try {
+                const parsed = JSON.parse(raw);
+                return computeEnterpriseReadiness(parsed);
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function renderEnterpriseReadiness() {
+            const raw = (enterpriseTextarea.value || "").trim();
+            if (!raw) {
+                enterpriseReadinessLabel.textContent = "Readiness enterprise: non evalue";
+                enterpriseReadinessLabel.className = "small mt-2 text-muted";
+                return null;
+            }
+            try {
+                const parsed = JSON.parse(raw);
+                const readiness = computeEnterpriseReadiness(parsed);
+                if (!readiness) {
+                    enterpriseReadinessLabel.textContent = "Readiness enterprise: renseignez scorecard (0-5) pour governance/contracts/security/build/tests/ops.";
+                    enterpriseReadinessLabel.className = "small mt-2 text-warning";
+                    return null;
+                }
+                enterpriseReadinessLabel.textContent = `Readiness enterprise: ${readiness.score}/100 (${readiness.decision})`;
+                enterpriseReadinessLabel.className = readiness.score >= 85 ? "small mt-2 text-success" : readiness.score >= 70 ? "small mt-2 text-warning" : "small mt-2 text-danger";
+                return readiness;
+            } catch (error) {
+                enterpriseReadinessLabel.textContent = "Readiness enterprise: JSON invalide.";
+                enterpriseReadinessLabel.className = "small mt-2 text-danger";
+                return null;
+            }
+        }
+
+        function loadEnterpriseTemplate() {
+            enterpriseTextarea.value = JSON.stringify(defaultEnterpriseTemplate(), null, 2);
+            renderEnterpriseReadiness();
+        }
+
+        function readEnterpriseChecklistOrThrow() {
+            const raw = (enterpriseTextarea.value || "").trim();
+            if (!raw) return null;
+            return JSON.parse(raw);
+        }
+
+        function computeProjectedScore() {
+            const decisionScore = getSelectedDecisionScore();
+            const decisionMax = getMaxDecisionScore() || 1;
+            const featureScore = getSelectedFeatureScore();
+            const featureMax = getMaxFeatureScore() || 1;
+            const roleScore = getSelectedRolePhaseScore();
+            const roleMax = getMaxRolePhaseScore() || 1;
+
+            // Recalibrated for updated baseline (post latest integrations).
+            const weightedDecisionGain = (decisionScore / decisionMax) * 12;
+            const weightedFeatureGain = (featureScore / featureMax) * 7;
+            const weightedRoleGain = (roleScore / roleMax) * 5;
+            const sopScore = Math.min(100, Math.round(baseline + weightedDecisionGain + weightedFeatureGain + weightedRoleGain));
+            const enterpriseReadiness = getEnterpriseReadinessFromTextarea();
+            const total = enterpriseReadiness ? Math.min(sopScore, enterpriseReadiness.score) : sopScore;
+
+            let label = "Niveau intermediaire";
+            if (total >= 90) label = "Niveau premium corporate";
+            else if (total >= 80) label = "Niveau enterprise solide";
+            else if (total >= 70) label = "Niveau evolue";
+
+            if (enterpriseReadiness) {
+                label += ` (cap readiness enterprise: ${enterpriseReadiness.score}/100)`;
+            } else {
+                label += " (sans cap readiness enterprise)";
+            }
+
+            projectedEl.textContent = `${total}/100`;
+            projectedLabelEl.textContent = label;
+            return total;
+        }
+
+        function readChoices() {
+            const decisions = {};
+            document.querySelectorAll(".decision-input:checked").forEach((input) => {
+                decisions[input.name] = {
+                    value: input.value,
+                    score: Number(input.dataset.score || 0),
+                };
+            });
+
+            const features = Array.from(document.querySelectorAll(".feature-input:checked")).map((input) => ({
+                key: input.value,
+                score: Number(input.dataset.score || 0),
+            }));
+
+            const roleDashboardPlan = {};
+            document.querySelectorAll(".role-phase-select").forEach((select) => {
+                roleDashboardPlan[select.dataset.role] = select.value;
+            });
+
+            const enterpriseChecklist = readEnterpriseChecklistOrThrow();
+            const readiness = computeEnterpriseReadiness(enterpriseChecklist);
+
+            return {
+                projected_score: computeProjectedScore(),
+                delivery_mode: document.getElementById("deliveryMode").value,
+                business_focus: document.getElementById("businessFocus").value,
+                executive_notes: document.getElementById("executiveNotes").value.trim(),
+                decisions,
+                features,
+                role_dashboard_plan: roleDashboardPlan,
+                enterprise_checklist: enterpriseChecklist,
+                enterprise_readiness: readiness,
+            };
+        }
+
+        function showFeedback(type, message) {
+            feedback.classList.remove("d-none", "alert-success", "alert-danger");
+            feedback.classList.add(type === "success" ? "alert-success" : "alert-danger");
+            feedback.textContent = message;
+        }
+
+        document.querySelectorAll(".decision-input, .feature-input").forEach((el) => {
+            el.addEventListener("change", computeProjectedScore);
+        });
+        document.querySelectorAll(".role-phase-select").forEach((el) => {
+            el.addEventListener("change", computeProjectedScore);
+        });
+
+        document.getElementById("recalculateBtn").addEventListener("click", computeProjectedScore);
+        document.getElementById("loadEnterpriseChecklistBtn").addEventListener("click", loadEnterpriseTemplate);
+        document.getElementById("evaluateEnterpriseChecklistBtn").addEventListener("click", () => {
+            renderEnterpriseReadiness();
+            computeProjectedScore();
+        });
+        document.getElementById("resetEnterpriseChecklistBtn").addEventListener("click", () => {
+            enterpriseTextarea.value = "";
+            renderEnterpriseReadiness();
+            computeProjectedScore();
+        });
+        enterpriseTextarea.addEventListener("input", () => {
+            renderEnterpriseReadiness();
+            computeProjectedScore();
+        });
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const csrfToken = form.querySelector("input[name='csrfmiddlewaretoken']").value;
+            let payload;
+            try {
+                payload = readChoices();
+            } catch (error) {
+                showFeedback("error", "JSON checklist enterprise invalide. Corrigez avant validation.");
+                return;
+            }
+
+            try {
+                const response = await fetch("{% url 'sop-studio-save' %}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": csrfToken,
+                    },
+                    body: JSON.stringify(payload),
+                });
+                const data = await response.json();
+                if (!response.ok || !data.ok) {
+                    throw new Error(data.error || "Enregistrement impossible.");
+                }
+                showFeedback("success", `Validation enregistree (${data.saved_to}). Tu peux maintenant confirmer l'integration.`);
+            } catch (error) {
+                showFeedback("error", error.message || "Erreur inconnue.");
+            }
+        });
+
+        applySavedChoices(readSavedChoices());
+        computeProjectedScore();
+        renderEnterpriseReadiness();
+    })();
+</script>
+{% endblock %}

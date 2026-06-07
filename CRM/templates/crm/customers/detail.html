@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block title %}{{ customer.name }}{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">{{ customer.name }}</h1>
+        <p class="text-muted small mb-0">{{ customer.get_customer_type_display }} — {{ customer.get_segment_display }}</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary" href="{% url 'customers-update' customer.pk %}">Modifier</a>
+        <a class="btn btn-success" href="{% url 'contacts-create' customer.pk %}">Ajouter un contact</a>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h2 class="h6">Coordonnées</h2>
+                <p class="mb-1"><strong>Code:</strong> {{ customer.code }}</p>
+                <p class="mb-1"><strong>Téléphone:</strong> {{ customer.phone|default:'-' }}</p>
+                <p class="mb-1"><strong>WhatsApp:</strong> {{ customer.whatsapp|default:'-' }}</p>
+                <p class="mb-1"><strong>Email:</strong> {{ customer.email|default:'-' }}</p>
+                <p class="mb-1"><strong>Localisation:</strong> {{ customer.city }} {{ customer.region }}</p>
+                <p class="mb-1"><strong>NCC:</strong> {{ customer.tax_ncc|default:'-' }}</p>
+                <p class="mb-1"><strong>NTD:</strong> {{ customer.tax_ntd|default:'-' }}</p>
+                <p class="mb-1"><strong>RCCM:</strong> {{ customer.tax_rccm|default:'-' }}</p>
+                <p class="mb-1"><strong>Régime fiscal:</strong> {{ customer.tax_regime|default:'-' }}</p>
+                <p class="mb-1"><strong>Statut:</strong> {{ customer.get_status_display }}</p>
+                <p class="mb-0"><strong>Notes:</strong> {{ customer.notes|default:'-' }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="h6">Contacts</h2>
+                <table class="table mb-0 align-middle">
+                    <thead><tr><th>Nom</th><th>Rôle</th><th>Coordonnées</th></tr></thead>
+                    <tbody>
+                        {% for contact in contacts %}
+                            <tr>
+                                <td>{{ contact.first_name }} {{ contact.last_name }}</td>
+                                <td>{{ contact.role }}</td>
+                                <td>
+                                    {% if contact.phone %}<div><i class="bi bi-telephone"></i> {{ contact.phone }}</div>{% endif %}
+                                    {% if contact.whatsapp %}<div><i class="bi bi-whatsapp"></i> {{ contact.whatsapp }}</div>{% endif %}
+                                    {% if contact.email %}<div><i class="bi bi-envelope"></i> {{ contact.email }}</div>{% endif %}
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="3" class="text-center text-muted py-3">Aucun contact enregistré.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-1">
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h2 class="h6 mb-0">Commandes récentes</h2>
+                    <a href="{% url 'orders-create' %}" class="btn btn-sm btn-outline-success">Nouvelle</a>
+                </div>
+                <table class="table mb-0 align-middle">
+                    <thead><tr><th>Réf</th><th>Statut</th><th>Total</th></tr></thead>
+                    <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>{{ order.order_number }}</td>
+                                <td>{{ order.get_status_display }}</td>
+                                <td>{{ order.total_amount|floatformat:0 }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="3" class="text-center text-muted py-3">Pas encore de commande.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h2 class="h6 mb-0">Factures récentes</h2>
+                    <a href="{% url 'sales-create' %}" class="btn btn-sm btn-outline-success">Nouvelle vente</a>
+                </div>
+                <table class="table mb-0 align-middle">
+                    <thead><tr><th>Facture</th><th>Statut</th><th>FNE</th><th>Total</th></tr></thead>
+                    <tbody>
+                        {% for invoice in invoices %}
+                            <tr>
+                                <td>{{ invoice.invoice_number }}</td>
+                                <td>{{ invoice.get_status_display }}</td>
+                                <td>{{ invoice.get_fne_status_display }}</td>
+                                <td>{{ invoice.total_amount|floatformat:0 }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="4" class="text-center text-muted py-3">Aucune facture enregistrée.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm mt-3">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h2 class="h6 mb-0">Opportunités</h2>
+            <a class="btn btn-sm btn-outline-success" href="{% url 'opportunities-create' %}">Nouvelle opportunité</a>
+        </div>
+        <table class="table mb-0 align-middle">
+            <thead><tr><th>Titre</th><th>Étape</th><th>Valeur</th><th>Prob.</th></tr></thead>
+            <tbody>
+                {% for opp in opportunities %}
+                    <tr>
+                        <td>{{ opp.title }}</td>
+                        <td>{{ opp.get_stage_display }}</td>
+                        <td>{{ opp.expected_value|floatformat:0 }}</td>
+                        <td>{{ opp.probability }}%</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="4" class="text-center text-muted py-3">Aucune opportunité associée.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

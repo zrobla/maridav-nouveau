@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Utilisateurs & Rôles{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Gestion des accès</h1>
+        <p class="text-muted small mb-0">Rôles permanents, sécurité utilisateur et gouvernance IAM.</p>
+    </div>
+    <a class="btn btn-outline-success" href="{% url 'access-assignments-list' %}">Assignations temporaires/scopées</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-4">
+        <label class="form-label">Recherche utilisateur</label>
+        <input class="form-control" type="text" name="q" value="{{ request.GET.q }}" placeholder="username, nom, email">
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm mb-3">
+    <div class="card-header"><strong>Architecture des rôles (référence premium)</strong></div>
+    <div class="card-body">
+        <div class="row g-2">
+            {% for role in role_catalog %}
+                <div class="col-md-6">
+                    <div class="border rounded p-2 h-100">
+                        <div class="fw-semibold">{{ role.name }}</div>
+                        <div class="small text-muted">{{ role.focus }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>UUID</th>
+                    <th>Rôles permanents</th>
+                    <th>Sécurité</th>
+                    <th>Dernière connexion</th>
+                    <th class="text-end">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>
+                            <div class="fw-semibold">{{ user.get_full_name|default:user.username }}</div>
+                            <div class="small text-muted">{{ user.email|default:"-" }}</div>
+                        </td>
+                        <td class="small">
+                            {% if user.security_profile %}
+                                {% if perms.crm.view_usersecurityprofile %}
+                                    <code>{{ user.security_profile.public_uuid }}</code>
+                                {% else %}
+                                    <code>{{ user.security_profile.short_uuid }}</code>
+                                {% endif %}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% for group in user.groups.all %}
+                                <span class="badge text-bg-light">{{ group.name }}</span>
+                            {% empty %}
+                                <span class="text-muted small">Aucun rôle</span>
+                            {% endfor %}
+                        </td>
+                        <td class="small">
+                            {% if user.security_profile and user.security_profile.is_locked %}
+                                <span class="badge text-bg-danger">Verrouillé</span>
+                            {% else %}
+                                <span class="badge text-bg-success">Actif</span>
+                            {% endif %}
+                            {% if user.security_profile and user.security_profile.mfa_required %}
+                                <span class="badge text-bg-primary">MFA requis</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ user.last_login|date:"d/m/Y H:i"|default:"Jamais" }}</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-secondary" href="{% url 'access-user-update' user.pk %}">Configurer</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6" class="text-center text-muted py-3">Aucun utilisateur.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% if is_paginated %}
+    <div class="mt-3">
+        <nav>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Précédent</a></li>
+                {% endif %}
+                <li class="page-item active"><span class="page-link">{{ page_obj.number }}</span></li>
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Suivant</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Enregistrer Paiement{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h1 class="h5 mb-2">Enregistrer un paiement</h1>
+                <p class="text-muted mb-0">
+                    Facture <strong>{{ invoice.invoice_number }}</strong> - {{ invoice.customer.name }}
+                </p>
+                <p class="text-muted mb-0">
+                    Total: {{ invoice.total_amount|floatformat:0 }} FCFA |
+                    Payé: {{ invoice.paid_amount|floatformat:0 }} FCFA |
+                    Reste: {{ invoice.balance_due|floatformat:0 }} FCFA
+                </p>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="row g-3">
+                        <div class="col-md-3">{{ form.amount.label_tag }}{{ form.amount }}</div>
+                        <div class="col-md-3">{{ form.payment_method.label_tag }}{{ form.payment_method }}</div>
+                        <div class="col-md-3">{{ form.payment_reference.label_tag }}{{ form.payment_reference }}</div>
+                        <div class="col-md-3">{{ form.paid_at.label_tag }}{{ form.paid_at }}</div>
+                        <div class="col-12">{{ form.notes.label_tag }}{{ form.notes }}</div>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a class="btn btn-outline-secondary" href="{% url 'sales-update' invoice.pk %}">Retour facture</a>
+                        <button class="btn btn-success" type="submit">Valider le paiement</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mt-3">
+            <div class="card-body">
+                <h2 class="h6 mb-3">Historique des paiements</h2>
+                <div class="table-responsive">
+                    <table class="table table-sm align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Montant</th>
+                                <th>Mode</th>
+                                <th>Référence</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for payment in payments %}
+                                <tr>
+                                    <td>{{ payment.paid_at|date:"d/m/Y H:i" }}</td>
+                                    <td>{{ payment.amount|floatformat:0 }} FCFA</td>
+                                    <td>{{ payment.get_payment_method_display }}</td>
+                                    <td>{{ payment.payment_reference|default:"-" }}</td>
+                                    <td>{{ payment.get_source_display }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr><td colspan="5" class="text-muted text-center py-2">Aucun paiement enregistré.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

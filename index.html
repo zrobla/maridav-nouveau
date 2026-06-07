@@ -67,6 +67,60 @@
 <!-- Existing theme CSS -->
     <!-- Premium overrides -->
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://maridav.ci/#organization",
+    "name": "MARIDAV Côte d'Ivoire",
+    "alternateName": "MARIDAV CI",
+    "description": "Nutrition et santé animales en Côte d'Ivoire : aliments complets, additifs, biosécurité et appui technique pour volailles, porcs et poissons.",
+    "url": "https://maridav.ci/",
+    "logo": "https://maridav.ci/maridav_ci_image/logo/logo_maridav_ci.png",
+    "image": "https://maridav.ci/maridav_ci_image/logo/logo_maridav_ci.png",
+    "telephone": "+2252721353242",
+    "email": "contact@maridav.ci",
+    "priceRange": "XOF",
+    "currenciesAccepted": "XOF",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Côte d'Ivoire"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Zone 4C Biétry, 34 Rue Alex Flemming",
+      "addressLocality": "Abidjan",
+      "addressCountry": "CI"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 5.2790,
+      "longitude": -3.9760
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://api.whatsapp.com/send?phone=+2250574648888"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://maridav.ci/#website",
+    "url": "https://maridav.ci/",
+    "name": "MARIDAV Côte d'Ivoire",
+    "inLanguage": "fr",
+    "publisher": { "@id": "https://maridav.ci/#organization" }
+  }
+  </script>
 
   </head>
 
@@ -129,7 +183,11 @@
 
         <div class="hero-premium home-hero">
           <div class="active">
-            <video src="maridav_ci_image/body/maridav_ci_eleveurs_banner.webm" class="d-block w-100" autoplay loop muted playsinline></video>
+            <video class="d-block w-100" autoplay loop muted playsinline preload="metadata" poster="maridav_ci_image/body/maridav_ci_banniere_blanche.webp">
+              <source src="maridav_ci_image/body/maridav_ci_eleveurs_banner.webm" type="video/webm">
+              <source src="maridav_ci_image/body/maridav_ci_eleveurs_banner.mp4" type="video/mp4">
+              <img src="maridav_ci_image/body/maridav_ci_banniere_blanche.webp" alt="Éleveurs MARIDAV CI">
+            </video>
           </div>
           <div class="hero-overlay" role="region" aria-label="Proposition de valeur">
             <div class="container">
@@ -293,10 +351,11 @@
 <section id="a_propos" class="section-premium" aria-label="À propos de MARIDAV CI">
   <div class="container">
     <div class="maridav-ci-title-one">
+      <span class="about-eyebrow">À propos</span>
       <h2>Qui sommes‑nous ?</h2>
     </div>
-    <div class="row">
-      <div class="col-lg-7">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-6">
         <p class="about-lead">Acteur ivoirien de référence en <strong>nutrition</strong> et <strong>santé animales</strong>, MARIDAV Côte d’Ivoire accompagne éleveurs, vétérinaires et techniciens sur les filières <strong>Volailles</strong>, <strong>Porcs</strong> et <strong>Poissons</strong>.</p> En plus de produire, nous sommes réprésentant exclusif de leaders mondiaux du secteur et nous engageons à rendre disponible le meilleur pour l'élévage en Côte d'Ivoire.
         <p class="about-lead">Notre approche allie <em>formulations adaptées au climat tropical</em>, <em>biosécurité pragmatique</em> et <em>appui technique de terrain</em>.</p>
         <ul class="about-list">
@@ -304,9 +363,9 @@
           <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Programmes par espèce et par stade, orientés résultats</li>
           <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Distribution nationale et service client réactif</li>
         </ul>
-        <a href="a-propos.html" class="btn btn-outline-brand mt-2" aria-label="En savoir plus sur MARIDAV CI">En savoir plus</a>
+        <a href="a-propos.html" class="about-cta" aria-label="En savoir plus sur MARIDAV CI">En savoir plus <span class="arrow" aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-6">
         <div class="card card-premium about-card h-100">
           <div class="card-body">
             <ul class="nav nav-pills" id="aboutTabs" role="tablist">
@@ -349,140 +408,26 @@
 </section>
 <!--fin insertion a propos -->
 
-<!--
-			=============================================
-				Our Solution
-			==============================================
-			-->
-
-
-            <!--insertion section animal et produits-->
-            <section>
-            <div class="related-product shop-page section-premium alt" id="maridav_services">
-              <div class="maridav-ci-title-one text-center text-white">
-                <h2>Nos solutions par espèce</h2>
-
-              </div>
-              <p class="text-center text-muted mb-4">Selectionnez une espèce pour découvrir les produits et programmes</p>
-              <div class="container">
-                <div class="row">
-                  <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <div class="card card-premium card-accent species-card species-volailles hover-lift h-100">
-                      <div class="species-media">
-                        <span class="species-badge volailles"><i class="bi bi-egg" aria-hidden="true"></i><span>Aviculture</span></span>
-                        <img class="species-img" src="images/volailles-maridav.jpg" alt="Solutions Volailles — MARIDAV CI" loading="lazy">
-                      </div>
-                      <div class="card-body">
-                        <h3 class="h5 text-brand mb-2">Volailles</h3>
-                        <div class="species-features">
-                          <ul class="list-unstyled small mb-3">
-                            <li>• Programmes démarrage → croissance → finition / ponte</li>
-                            <li>• FCR et homogénéité de lot optimisées</li>
-                            <li>• Additifs: intestin, mycotoxines, qualité d’eau</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="card-footer species-cta">
-                        <a href="volailles.html" class="btn btn-brand" aria-label="Voir les produits Volailles">Voir les solutions</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <div class="card card-premium card-accent species-card species-porcs hover-lift h-100">
-                      <div class="species-media">
-                        <span class="species-badge porcs"><i class="bi bi-piggy-bank" aria-hidden="true"></i><span>Porciculture</span></span>
-                        <img class="species-img" src="images/porcins-maridav.jpg" alt="Solutions Porcs — MARIDAV CI" loading="lazy">
-                      </div>
-                      <div class="card-body">
-                        <h3 class="h5 text-brand mb-2">Porcs</h3>
-                        <div class="species-features">
-                          <ul class="list-unstyled small mb-3">
-                            <li>• Gammes porcelets, engraissement, truies</li>
-                            <li>• Efficience alimentaire et confort digestif</li>
-                            <li>• Plan de biosécurité bâtiments</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="card-footer species-cta">
-                        <a href="porcins_maridav_ci.html" class="btn btn-brand" aria-label="Voir les produits Porcs">Voir les solutions</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <div class="card card-premium card-accent species-card species-pisciculture hover-lift h-100">
-                      <div class="species-media">
-                        <span class="species-badge pisciculture" aria-label="Pisciculture">
-                          <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                            <!-- Fish body -->
-                            <path d="M2 12c3-3 8-3 12-1l4-2-2 3 2 3-4-2c-4 2-9 2-12-1z" fill="currentColor"></path>
-                            <circle cx="6" cy="12" r="1" fill="#fff"></circle>
-                            <!-- Waves -->
-                            <path d="M4 17c1.6-1.2 3.2-1.2 4.8 0 1.6 1.2 3.2 1.2 4.8 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-                          </svg>
-                          <span>Pisciculture</span>
-                        </span>
-                        <img class="species-img" src="images/poissons.jpg" alt="Solutions Pisciculture — MARIDAV CI" loading="lazy">
-                      </div>
-                      <div class="card-body">
-                        <h3 class="h5 text-brand mb-2">Poissons</h3>
-                        <div class="species-features">
-                          <ul class="list-unstyled small mb-3">
-                            <li>• Granulés flottants tilapia (tropical)</li>
-                            <li>• Probiotiques & qualité d’eau</li>
-                            <li>• Conduite par densité & objectifs</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="card-footer species-cta">
-                        <a href="pisciculture_maridav_ci.html" class="btn btn-brand" aria-label="Voir les produits Pisciculture">Voir les solutions</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <div class="card card-premium card-accent species-card species-biosecurite hover-lift h-100">
-                      <div class="species-media">
-                        <span class="species-badge biosecurite"><i class="bi bi-shield-check" aria-hidden="true"></i><span>Biosécurité</span></span>
-                        <img class="species-img" src="images/biosecurite.jpeg" alt="Biosécurité élevage — MARIDAV CI" loading="lazy">
-                      </div>
-                      <div class="card-body">
-                        <h3 class="h5 text-brand mb-2">Biosécurité</h3>
-                        <div class="species-features">
-                          <ul class="list-unstyled small mb-3">
-                            <li>• Désinfection, hygiène, plan de nettoyage</li>
-                            <li>• Protocoles adaptés aux élevages CI</li>
-                            <li>• Formation des équipes et audit</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="card-footer species-cta">
-                        <a href="biosecurite_maridav_ci.html" class="btn btn-brand" aria-label="Voir les produits Biosécurité">Voir les solutions</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
             <!-- Stats -->
-            <section class="stats-section" aria-label="Chiffres clés">
+            <section class="stats-section stats-band" aria-label="Chiffres clés">
               <div class="container">
                 <div class="row g-3 text-center">
                   <div class="col-6 col-md-3">
                     <div class="stat-pill">
-                      <div class="stat-value timer" data-from="0" data-to="20" data-speed="1200">20</div>
-                      <p class="stat-label">+ ans d’expertise</p>
+                      <div class="stat-figure"><span class="stat-plus">+</span><div class="stat-value timer" data-from="0" data-to="20" data-speed="1200">20</div></div>
+                      <p class="stat-label">ans d’expertise</p>
                     </div>
                   </div>
                   <div class="col-6 col-md-3">
                     <div class="stat-pill">
-                      <div class="stat-value timer" data-from="0" data-to="50" data-speed="1200">50</div>
-                      <p class="stat-label">+ points de vente</p>
+                      <div class="stat-figure"><span class="stat-plus">+</span><div class="stat-value timer" data-from="0" data-to="50" data-speed="1200">50</div></div>
+                      <p class="stat-label">points de vente</p>
                     </div>
                   </div>
                   <div class="col-6 col-md-3">
                     <div class="stat-pill">
-                      <div class="stat-value timer" data-from="0" data-to="5000" data-speed="1200">5000</div>
-                      <p class="stat-label">+ éleveurs accompagnés</p>
+                      <div class="stat-figure"><span class="stat-plus">+</span><div class="stat-value timer" data-from="0" data-to="5000" data-speed="1200">5000</div></div>
+                      <p class="stat-label">éleveurs accompagnés</p>
                     </div>
                   </div>
                   <div class="col-6 col-md-3">
@@ -495,108 +440,181 @@
               </div>
             </section>
 
+<!--
+			=============================================
+				Our Solution
+			==============================================
+			-->
 
 
-
-      <section class="section-premium" aria-label="Appels à l'action">
-        <div class="container text-center">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <div class="card card-premium card-accent hover-lift">
-                <div class="card-body d-flex flex-wrap justify-content-center" style="gap:10px">
-                  <a href="#lead" class="btn btn-brand" data-open-lead>Demander un devis</a>
-                  <a href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" class="btn btn-outline-brand">Parler à un technicien</a>
-                  <a href="distributeurs_maridav.html" target="_blank" class="btn btn-outline-brand">Voir nos points de vente</a>
-                  <a href="contact.html" class="btn btn-outline-brand">Contact</a>
+            <!--insertion section animal et produits-->
+            <section class="section-premium services-grid-section" id="maridav_services" aria-label="Nos solutions par espèce">
+              <div class="container">
+                <div class="maridav-ci-title-one text-center"><h2>Nos solutions par espèce</h2></div>
+                <p class="text-center text-muted mb-4">Sélectionnez une espèce pour découvrir les produits et programmes</p>
+                <div class="row g-4">
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <article class="svc-card svc-volailles h-100">
+                      <div class="svc-media">
+                        <span class="species-badge volailles"><i class="bi bi-egg" aria-hidden="true"></i><span>Aviculture</span></span>
+                        <img src="images/volailles-maridav.jpg" alt="Solutions Volailles — MARIDAV CI" loading="lazy">
+                      </div>
+                      <div class="svc-body">
+                        <h3 class="svc-title">Volailles</h3>
+                        <div class="svc-proof">
+                          <p class="svc-proof-title">Au programme</p>
+                          <ul class="svc-proof-list">
+                            <li>Démarrage → croissance → finition / ponte</li>
+                            <li>FCR et homogénéité de lot optimisées</li>
+                            <li>Additifs : intestin, mycotoxines, qualité d’eau</li>
+                          </ul>
+                        </div>
+                        <div class="svc-footer">
+                          <a class="svc-cta" href="volailles.html" aria-label="Voir les solutions Volailles">Voir les solutions <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <article class="svc-card svc-porcs h-100">
+                      <div class="svc-media">
+                        <span class="species-badge porcs"><i class="bi bi-piggy-bank" aria-hidden="true"></i><span>Porciculture</span></span>
+                        <img src="images/porcins-maridav.jpg" alt="Solutions Porcs — MARIDAV CI" loading="lazy">
+                      </div>
+                      <div class="svc-body">
+                        <h3 class="svc-title">Porcs</h3>
+                        <div class="svc-proof">
+                          <p class="svc-proof-title">Au programme</p>
+                          <ul class="svc-proof-list">
+                            <li>Gammes porcelets, engraissement, truies</li>
+                            <li>Efficience alimentaire et confort digestif</li>
+                            <li>Plan de biosécurité bâtiments</li>
+                          </ul>
+                        </div>
+                        <div class="svc-footer">
+                          <a class="svc-cta" href="porcins_maridav_ci.html" aria-label="Voir les solutions Porcs">Voir les solutions <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <article class="svc-card svc-pisciculture h-100">
+                      <div class="svc-media">
+                        <span class="species-badge pisciculture" aria-label="Pisciculture"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M2 12c3-3 8-3 12-1l4-2-2 3 2 3-4-2c-4 2-9 2-12-1z" fill="currentColor"></path><circle cx="6" cy="12" r="1" fill="#fff"></circle><path d="M4 17c1.6-1.2 3.2-1.2 4.8 0 1.6 1.2 3.2 1.2 4.8 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg><span>Pisciculture</span></span>
+                        <img src="images/poissons.jpg" alt="Solutions Pisciculture — MARIDAV CI" loading="lazy">
+                      </div>
+                      <div class="svc-body">
+                        <h3 class="svc-title">Poissons</h3>
+                        <div class="svc-proof">
+                          <p class="svc-proof-title">Au programme</p>
+                          <ul class="svc-proof-list">
+                            <li>Granulés flottants tilapia (tropical)</li>
+                            <li>Probiotiques & qualité d’eau</li>
+                            <li>Conduite par densité & objectifs</li>
+                          </ul>
+                        </div>
+                        <div class="svc-footer">
+                          <a class="svc-cta" href="pisciculture_maridav_ci.html" aria-label="Voir les solutions Poissons">Voir les solutions <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-3">
+                    <article class="svc-card svc-biosecurite h-100">
+                      <div class="svc-media">
+                        <span class="species-badge biosecurite"><i class="bi bi-shield-check" aria-hidden="true"></i><span>Biosécurité</span></span>
+                        <img src="images/biosecurite.jpeg" alt="Biosécurité élevage — MARIDAV CI" loading="lazy">
+                      </div>
+                      <div class="svc-body">
+                        <h3 class="svc-title">Biosécurité</h3>
+                        <div class="svc-proof">
+                          <p class="svc-proof-title">Au programme</p>
+                          <ul class="svc-proof-list">
+                            <li>Désinfection, hygiène, plan de nettoyage</li>
+                            <li>Protocoles adaptés aux élevages CI</li>
+                            <li>Formation des équipes et audit</li>
+                          </ul>
+                        </div>
+                        <div class="svc-footer">
+                          <a class="svc-cta" href="biosecurite_maridav_ci.html" aria-label="Voir les solutions Biosécurité">Voir les solutions <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
             <!--fin section animal et produits-->
 
+<!-- ===== Partenaires — carrousel fluide ===== -->
+<section class="partner-section premium-partners partners-fluid" aria-label="Partenaires MARIDAV">
+  <div class="container">
+    <div class="maridav-ci-title-one text-center"><h2>Nous distribuons pour :</h2></div>
+    <p class="partners-sub">Nos partenaires sont des leaders mondiaux en nutrition animale et biosécurité</p>
+    <div class="partners-carousel" data-carousel="partners">
+      <button class="partners-nav prev" type="button" aria-label="Logo précédent">&#8249;</button>
+      <div class="partners-track">
+        <a class="partner-slide" href="http://www.biomin.net/" target="_blank" rel="noopener" aria-label="BIOMIN"><span class="partner-logo"><img src="maridav_ci_image/logo/biomin-logo.png" alt="BIOMIN" loading="lazy"></span></a>
+        <a class="partner-slide" href="http://www.dsm.com/corporate/home.html" target="_blank" rel="noopener" aria-label="DSM"><span class="partner-logo"><img src="maridav_ci_image/logo/dsm-logo.png" alt="DSM" loading="lazy"></span></a>
+        <a class="partner-slide" href="https://www.trouwnutrition.com/" target="_blank" rel="noopener" aria-label="Trouw Nutrition"><span class="partner-logo"><img src="maridav_ci_image/logo/logo-trouw-nutrition-partner-maridav-ci.png" alt="Trouw Nutrition" loading="lazy"></span></a>
+        <a class="partner-slide" href="https://www.skretting.com/" target="_blank" rel="noopener" aria-label="Skretting"><span class="partner-logo"><img src="maridav_ci_image/logo/Skretting%20full%20colour%20logo.png" alt="Skretting" loading="lazy"></span></a>
+        <a class="partner-slide" href="https://www.cidlines.com/" target="_blank" rel="noopener" aria-label="CID LINES"><span class="partner-logo"><img src="maridav_ci_image/logo/cid-logo.png" alt="CID LINES" loading="lazy"></span></a>
+      </div>
+      <button class="partners-nav next" type="button" aria-label="Logo suivant">&#8250;</button>
+    </div>
+    <div class="partners-progress" aria-hidden="true"><span class="partners-progress-bar"></span></div>
+  </div>
+</section>
+
 <!--insertion section partenaires fournisseurs-->
-<section class="testimonials testimonials-premium" aria-label="Témoignages d’éleveurs">
+<section class="testimonials testi-editorial" aria-label="Témoignages d’éleveurs">
   <div class="container">
-    <div class="maridav-ci-title-one text-center text-white"><h2>Ils nous font confiance</h2></div>
-    <p class="text-center text-muted mb-4">Éleveurs, intégrateurs et partenaires partagent comment MARIDAV CI les accompagne au quotidien.</p>
-    <div class="testimonial-slider owl-carousel">
-      <div class="testimonial">
-        <div class="testimonial-card">
-          <div class="quote-icon"><i class="bi bi-chat-quote-fill" aria-hidden="true"></i></div>
-          <p class="quote">“Avec les programmes démarrage → finition et le suivi MARIDAV, nos lots sont plus homogènes et les performances régulières.”</p>
-          <div class="author"><span class="testimonial-portrait"><img src="images/volailles-maridav-3.jpg" alt="Éleveur de volailles Bouaké"></span>Éleveur de volailles — Bouaké</div>
-          <p class="context">Accompagnement sur la gestion de transitions et analyse des FCR par bande.</p>
-        </div>
-      </div>
-      <div class="testimonial">
-        <div class="testimonial-card">
-          <div class="quote-icon"><i class="bi bi-chat-quote-fill" aria-hidden="true"></i></div>
-          <p class="quote">“Le support technique sur la biosécurité nous a aidés à standardiser le nettoyage et sécuriser les bandes.”</p>
-          <div class="author"><span class="testimonial-portrait"><img src="images/porcins-maridav.jpg" alt="Exploitant porcin Yamoussoukro"></span>Exploitant porcin — Yamoussoukro</div>
-          <p class="context">Mise en place des protocoles Kenosan/Virocid et checklist hebdomadaire.</p>
-        </div>
-      </div>
-      <div class="testimonial">
-        <div class="testimonial-card">
-          <div class="quote-icon"><i class="bi bi-chat-quote-fill" aria-hidden="true"></i></div>
-          <p class="quote">“Les granulés flottants et le plan d’alimentation tilapia ont amélioré la croissance et la conversion.”</p>
-          <div class="author"><span class="testimonial-portrait"><img src="images/pisciculture.jpg" alt="Pisciculteur San Pedro"></span>Pisciculteur — San Pedro</div>
-          <p class="context">Adoption des gammes Skretting + suivi qualité d’eau (O₂, pH) avec les techniciens.</p>
-        </div>
-      </div>
+    <div class="testi-head">
+      <div class="maridav-ci-title-one text-center"><h2>Ils nous font confiance</h2></div>
+      <p class="testi-sub">Éleveurs, intégrateurs et partenaires partagent comment MARIDAV CI les accompagne au quotidien.</p>
+    </div>
+
+    <div class="testi-grid" role="list">
+      <figure class="testi-card" role="listitem" style="--i:0">
+        <span class="testi-mark" aria-hidden="true">&rdquo;</span>
+        <div class="testi-stars" role="img" aria-label="Note 5 sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote class="testi-quote">Avec les programmes démarrage&nbsp;&rarr;&nbsp;finition et le suivi MARIDAV, nos lots sont plus homogènes et les performances régulières.</blockquote>
+        <p class="testi-context">Accompagnement sur la gestion des transitions et l’analyse des FCR par bande.</p>
+        <figcaption class="testi-author">
+          <span class="testi-portrait"><img src="images/volailles-maridav-3.jpg" alt="Éleveur de volailles à Bouaké" loading="lazy"></span>
+          <span class="testi-id"><span class="testi-name">Éleveur de volailles</span><span class="testi-role">Bouaké</span></span>
+        </figcaption>
+        <span class="testi-benefit"><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Lots homogènes</span>
+      </figure>
+
+      <figure class="testi-card" role="listitem" style="--i:1">
+        <span class="testi-mark" aria-hidden="true">&rdquo;</span>
+        <div class="testi-stars" role="img" aria-label="Note 5 sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote class="testi-quote">Le support technique sur la biosécurité nous a aidés à standardiser le nettoyage et sécuriser les bandes.</blockquote>
+        <p class="testi-context">Mise en place des protocoles Kenosan/Virocid et d’une checklist hebdomadaire.</p>
+        <figcaption class="testi-author">
+          <span class="testi-portrait"><img src="images/porcins-maridav.jpg" alt="Exploitant porcin à Yamoussoukro" loading="lazy"></span>
+          <span class="testi-id"><span class="testi-name">Exploitant porcin</span><span class="testi-role">Yamoussoukro</span></span>
+        </figcaption>
+        <span class="testi-benefit"><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Bandes sécurisées</span>
+      </figure>
+
+      <figure class="testi-card" role="listitem" style="--i:2">
+        <span class="testi-mark" aria-hidden="true">&rdquo;</span>
+        <div class="testi-stars" role="img" aria-label="Note 5 sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote class="testi-quote">Les granulés flottants et le plan d’alimentation tilapia ont amélioré la croissance et la conversion.</blockquote>
+        <p class="testi-context">Adoption des gammes Skretting et suivi de la qualité d’eau (O₂, pH) avec les techniciens.</p>
+        <figcaption class="testi-author">
+          <span class="testi-portrait"><img src="images/pisciculture.jpg" alt="Pisciculteur à San Pedro" loading="lazy"></span>
+          <span class="testi-id"><span class="testi-name">Pisciculteur</span><span class="testi-role">San Pedro</span></span>
+        </figcaption>
+        <span class="testi-benefit"><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Meilleure conversion</span>
+      </figure>
     </div>
   </div>
 </section>
 
-<section class="partner-section premium-partners" aria-label="Partenaires MARIDAV">
-  <div class="container">
-    <div class="maridav-ci-title-one text-center">
-      <h2>Nous distribuons pour :</h2>
-
-    </div>
-    <p class="text-center text-muted mb-4">Nos partenaires sont des leaders mondiaux en nutrition animale et biosécurité</p>
-    <div class="partner-grid row g-4">
-      <div class="col-12 col-sm-6 col-lg-4">
-        <a class="partner-card" href="http://www.biomin.net/" target="_blank" rel="noopener">
-          <img src="maridav_ci_image/logo/biomin-logo.png" alt="biomin-logo">
-          <span>BIOMIN</span>
-        </a>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <a class="partner-card" href="http://www.dsm.com/corporate/home.html" target="_blank" rel="noopener">
-          <img src="maridav_ci_image/logo/dsm-logo.png" alt="dsm-logo">
-          <span>DSM</span>
-        </a>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <a class="partner-card" href="https://www.trouwnutrition.com/" target="_blank" rel="noopener">
-          <img src="maridav_ci_image/logo/logo-trouw-nutrition-partner-maridav-ci.png" alt="trouwnutrition-logo">
-          <span>Trouw Nutrition</span>
-        </a>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <a class="partner-card" href="https://www.skretting.com/" target="_blank" rel="noopener">
-          <img src="maridav_ci_image/logo/Skretting%20full%20colour%20logo.png" alt="skretting-logo">
-          <span>Skretting</span>
-        </a>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <a class="partner-card" href="https://www.cidlines.com/" target="_blank" rel="noopener">
-          <img src="maridav_ci_image/logo/cid-logo.png" alt="cidlines-logo">
-          <span>CID LINES</span>
-        </a>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <a class="partner-card" href="https://www.maridav.ci" target="_blank" rel="noopener">
-          <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="maridav-logo">
-          <span>Solutions MARIDAV</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- section partenaires déplacée sous « Nos solutions par espèce » -->
 
 
 <!--insertion apercu blog-->
@@ -615,9 +633,10 @@
         <div class="card card-premium premium-bg h-100 shadow-lg overflow-hidden">
           <img src="images/biosecurite.jpeg" class="card-img-top" alt="Biosécurité tropicale pour poulets de chair">
           <div class="card-body d-flex flex-column">
-            <h3 class="h6 text-brand">Biosécurité tropicale : 7 réflexes poulet chair</h3>
-            <p class="small flex-grow-1">Sas, pédiluves, eau, litière et flux maîtrisés pour réduire la pression infectieuse.</p>
-            <a href="article-biosecurite-poulet-chair.html" class="btn btn-outline-brand btn-sm mt-2">Lire l’article</a>
+            <span class="blog-eyebrow">Biosécurité</span>
+            <h3 class="blog-title">Biosécurité tropicale : 7 réflexes poulet chair</h3>
+            <p class="blog-excerpt">Sas, pédiluves, eau, litière et flux maîtrisés pour réduire la pression infectieuse.</p>
+            <a href="article-biosecurite-poulet-chair.html" class="blog-readmore">Lire l’article <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -625,9 +644,10 @@
         <div class="card card-premium premium-bg h-100 shadow-lg overflow-hidden">
           <img src="blog_maridav_ci/poulets_grands.jpg" class="card-img-top" alt="Stabiliser la ponte en saison chaude">
           <div class="card-body d-flex flex-column">
-            <h3 class="h6 text-brand">Pondeuses : stabiliser la ponte en saison chaude</h3>
-            <p class="small flex-grow-1">Alimentation, eau et ventilation pour préserver la consommation et la coquille.</p>
-            <a href="article-ponte-chaleur-maridav.html" class="btn btn-outline-brand btn-sm mt-2">Voir l’article</a>
+            <span class="blog-eyebrow">Pondeuses</span>
+            <h3 class="blog-title">Pondeuses : stabiliser la ponte en saison chaude</h3>
+            <p class="blog-excerpt">Alimentation, eau et ventilation pour préserver la consommation et la coquille.</p>
+            <a href="article-ponte-chaleur-maridav.html" class="blog-readmore">Voir l’article <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -635,9 +655,10 @@
         <div class="card card-premium premium-bg h-100 shadow-lg overflow-hidden">
           <img src="blog_maridav_ci/poissons.jpg" class="card-img-top" alt="Qualité de l’eau en pisciculture">
           <div class="card-body d-flex flex-column">
-            <h3 class="h6 text-brand">Tilapia : qualité d’eau et rationnement</h3>
-            <p class="small flex-grow-1">Contrôle O2/pH, ration flottante et densités pour sécuriser vos étangs.</p>
-            <a href="article-tilapia-eau-ration.html" class="btn btn-outline-brand btn-sm mt-2">Découvrir</a>
+            <span class="blog-eyebrow">Pisciculture</span>
+            <h3 class="blog-title">Tilapia : qualité d’eau et rationnement</h3>
+            <p class="blog-excerpt">Contrôle O2/pH, ration flottante et densités pour sécuriser vos étangs.</p>
+            <a href="article-tilapia-eau-ration.html" class="blog-readmore">Découvrir <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -690,10 +711,10 @@
                   <div class="col-md-6"><label class="form-label">Effectif / Volume</label><input name="volume" class="form-control" placeholder="Ex: 2 000 sujets / 500 kg"></div>
                   <div class="col-md-6"><label class="form-label">Intérêt</label>
                     <div class="row g-1">
-                      <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" value="Aliments" id="int1"><label class="form-check-label" for="int1">Aliments</label></div></div>
-                      <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" value="Additifs" id="int2"><label class="form-check-label" for="int2">Additifs</label></div></div>
-                      <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" value="Biosécurité" id="int3"><label class="form-check-label" for="int3">Biosécurité</label></div></div>
-                      <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" value="Conseil" id="int4"><label class="form-check-label" for="int4">Conseil</label></div></div>
+                      <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Aliments" id="int1"><label class="form-check-label" for="int1">Aliments</label></div></div>
+                      <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Additifs" id="int2"><label class="form-check-label" for="int2">Additifs</label></div></div>
+                      <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Biosécurité" id="int3"><label class="form-check-label" for="int3">Biosécurité</label></div></div>
+                      <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="interests" value="Conseil" id="int4"><label class="form-check-label" for="int4">Conseil</label></div></div>
                     </div>
                   </div>
                 </div>
@@ -1037,6 +1058,92 @@
 <!-- Enhancements & tracking -->
 <script src="assets/js/main.min.js" defer></script>
 
+  <script src="assets/js/site-crm-bridge.js" defer></script>
+
+  <!-- Carrousel partenaires fluide -->
+  <script>
+  (function(){
+    function initPartners(){
+      document.querySelectorAll('[data-carousel="partners"]').forEach(function(carousel){
+        var track=carousel.querySelector('.partners-track');
+        if(!track) return;
+        var base=Array.prototype.slice.call(track.children);
+        if(!base.length) return;
+        var prevBtn=carousel.querySelector('.partners-nav.prev');
+        var nextBtn=carousel.querySelector('.partners-nav.next');
+        var section=carousel.closest('section');
+        var progressBar=section?section.querySelector('.partners-progress-bar'):null;
+        var prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var baseN=base.length, unitWidth=0, paused=false, dragging=false, moved=0, carry=0;
+        var speed=prefersReduced?0:0.65;
+
+        function gap(){var s=getComputedStyle(track);return parseFloat(s.columnGap||s.gap||0)||0;}
+        function cardStep(){return base[0].getBoundingClientRect().width+gap();}
+
+        function build(){
+          Array.prototype.slice.call(track.querySelectorAll('[data-clone]')).forEach(function(c){track.removeChild(c);});
+          var setW=baseN*cardStep();
+          var viewport=track.clientWidth||carousel.clientWidth||setW;
+          var unitCopies=Math.max(1,Math.ceil(viewport/setW));
+          unitWidth=unitCopies*setW;
+          var addSets=3*unitCopies-1; // total = 3 unités (bande centrale pour boucle sans bord)
+          for(var s=0;s<addSets;s++){
+            base.forEach(function(c){var cl=c.cloneNode(true);cl.setAttribute('aria-hidden','true');cl.setAttribute('tabindex','-1');cl.setAttribute('data-clone','1');track.appendChild(cl);});
+          }
+          track.scrollLeft=unitWidth; // démarre au milieu
+        }
+        function normalize(){ // garde le scroll dans [unitWidth, 2*unitWidth) — saut invisible (contenu identique)
+          if(!unitWidth) return;
+          if(track.scrollLeft>=unitWidth*2) track.scrollLeft-=unitWidth;
+          else if(track.scrollLeft<unitWidth) track.scrollLeft+=unitWidth;
+        }
+        function progress(){ if(progressBar&&unitWidth) progressBar.style.width=((track.scrollLeft%unitWidth)/unitWidth*100)+'%'; }
+        function loop(){
+          if(speed&&!paused&&!dragging){ carry+=speed; var w=Math.floor(carry); if(w>=1){ track.scrollLeft+=w; carry-=w; } }
+          if(!dragging) normalize();
+          progress();
+          requestAnimationFrame(loop);
+        }
+
+        build();
+        if(document.readyState!=='complete') window.addEventListener('load',build);
+        requestAnimationFrame(loop);
+
+        // Glisser à la main (souris / tactile / stylet) — défilement libre
+        var startX=0,startScroll=0;
+        track.addEventListener('pointerdown',function(e){
+          dragging=true;moved=0;startX=e.clientX;startScroll=track.scrollLeft;
+          track.classList.add('is-dragging');
+          try{track.setPointerCapture(e.pointerId);}catch(_){}
+        });
+        track.addEventListener('pointermove',function(e){
+          if(!dragging)return;
+          var dx=e.clientX-startX; if(Math.abs(dx)>moved) moved=Math.abs(dx);
+          track.scrollLeft=startScroll-dx;
+        });
+        function endDrag(e){ if(!dragging)return; dragging=false; track.classList.remove('is-dragging'); try{track.releasePointerCapture(e.pointerId);}catch(_){}}
+        track.addEventListener('pointerup',endDrag);
+        track.addEventListener('pointercancel',endDrag);
+        // ne pas ouvrir le lien après un vrai glissé
+        track.addEventListener('click',function(e){ if(moved>6){ e.preventDefault(); e.stopPropagation(); } },true);
+
+        // Flèches : défilement fluide d'un bloc (pas pas-à-pas rigide)
+        function nudge(dir){ track.scrollBy({left:dir*cardStep()*1.8,behavior:'smooth'}); }
+        if(prevBtn)prevBtn.addEventListener('click',function(){nudge(-1);});
+        if(nextBtn)nextBtn.addEventListener('click',function(){nudge(1);});
+
+        // Pause de l'auto-défilement au survol / focus
+        carousel.addEventListener('mouseenter',function(){paused=true;});
+        carousel.addEventListener('mouseleave',function(){paused=false;});
+        carousel.addEventListener('focusin',function(){paused=true;});
+        carousel.addEventListener('focusout',function(){paused=false;});
+
+        var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(build,200); });
+      });
+    }
+    if(document.readyState!=='loading')initPartners();else document.addEventListener('DOMContentLoaded',initPartners);
+  })();
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Ventes Express{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Ventes Express & factures</h1>
+        <p class="text-muted small mb-0">Facturation opérationnelle avec suivi FNE intégré.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'sales-create' %}"><i class="bi bi-plus"></i> Nouvelle vente</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-3">
+        <label class="form-label">Type</label>
+        <select class="form-select" name="nature">
+            <option value="">Tous</option>
+            {% for value, label in nature_choices %}
+                <option value="{{ value }}" {% if request.GET.nature == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Statut facture</label>
+        <select class="form-select" name="status">
+            <option value="">Tous</option>
+            {% for value, label in status_choices %}
+                <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Statut FNE</label>
+        <select class="form-select" name="fne_status">
+            <option value="">Tous</option>
+            {% for value, label in fne_status_choices %}
+                <option value="{{ value }}" {% if request.GET.fne_status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table mb-0 align-middle">
+            <thead>
+                <tr>
+                    <th>Facture</th>
+                    <th>Type</th>
+                    <th>Client</th>
+                    <th>Commercial</th>
+                    <th>Statut</th>
+                    <th>FNE</th>
+                    <th>Total</th>
+                    <th>Solde</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for invoice in invoices %}
+                    <tr>
+                        <td>{{ invoice.invoice_number }}</td>
+                        <td>{{ invoice.get_nature_display }}</td>
+                        <td>{{ invoice.customer.name }}</td>
+                        <td>
+                            {% if invoice.sales_owner %}
+                                {{ invoice.sales_owner.get_full_name|default:invoice.sales_owner.username }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>{{ invoice.get_status_display }}</td>
+                        <td>{{ invoice.get_fne_status_display }}</td>
+                        <td>{{ invoice.total_amount|floatformat:0 }} FCFA</td>
+                        <td>{{ invoice.balance_due|floatformat:0 }} FCFA</td>
+                        <td class="text-end">
+                            <div class="btn-group btn-group-sm">
+                                <a class="btn btn-outline-secondary" href="{% url 'sales-update' invoice.pk %}">Éditer</a>
+                                {% if perms.crm.add_invoicepayment and invoice.nature == "standard" and invoice.status != "brouillon" and invoice.status != "annulee" %}
+                                    <a class="btn btn-outline-primary" href="{% url 'sales-payment-create' invoice.pk %}">Paiement</a>
+                                {% endif %}
+                                {% if invoice.nature == "standard" %}
+                                    <a class="btn btn-outline-warning" href="{% url 'sales-create' %}?credit_from={{ invoice.pk }}">Créer avoir</a>
+                                {% endif %}
+                                <a class="btn btn-outline-success" href="{% url 'sales-print' invoice.pk %}" target="_blank">Imprimer</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="9" class="text-center text-muted py-3">Aucune facture enregistrée.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

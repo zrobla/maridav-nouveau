@@ -309,7 +309,13 @@
                     </div>
                     <div class="col-md-6">
                       <label class="form-label" for="availability">Disponibilité</label>
-                      <input type="text" class="form-control" id="availability" name="availability" lang="fr" placeholder="JJ/MM/AAAA" inputmode="numeric" pattern="\\d{2}/\\d{2}/\\d{4}" aria-label="Disponibilité au format JJ/MM/AAAA">
+                      <select class="form-select" id="availability" name="availability" required>
+                        <option value="">Choisir…</option>
+                        <option value="Immédiate">Immédiate</option>
+                        <option value="Dans un (1) mois">Dans un (1) mois</option>
+                        <option value="Dans moins de 3 mois">Dans moins de 3 mois</option>
+                        <option value="Dans plus de 3 mois">Dans plus de 3 mois</option>
+                      </select>
                     </div>
                     <div class="col-md-6">
                       <label class="form-label" for="mobility">Mobilité</label>
@@ -333,7 +339,7 @@
                     </div>
                     <div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="consent" required>
+                        <input class="form-check-input" type="checkbox" name="consent" value="1" id="consent" required>
                         <label class="form-check-label" for="consent">J’accepte que mes données soient utilisées pour le traitement de ma candidature.</label>
                       </div>
                     </div>
@@ -435,7 +441,6 @@
 <script>
   (function(){
     var form=document.getElementById('careerForm');
-    var success=document.getElementById('career-success');
     var cvInput=document.getElementById('cv');
     var cvName=document.getElementById('cvName');
     if(!form) return;
@@ -448,17 +453,8 @@
         }
       });
     }
-    form.addEventListener('submit',function(e){
-      e.preventDefault();
-      if(!form.checkValidity()){
-        form.classList.add('was-validated');
-        return;
-      }
-      success.classList.remove('d-none');
-      form.reset();
-      form.classList.remove('was-validated');
-    });
   })();
 </script>
+<script src="assets/js/site-crm-bridge.js" defer></script>
 </body>
 </html>

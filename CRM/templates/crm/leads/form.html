@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Lead{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="h5 mb-3">{{ form.instance.pk|yesno:"Mettre à jour,Créer" }} un lead</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">{{ form.name.label_tag }}{{ form.name }}</div>
+                        <div class="col-md-6">{{ form.company.label_tag }}{{ form.company }}</div>
+                        <div class="col-md-3">{{ form.phone.label_tag }}{{ form.phone }}</div>
+                        <div class="col-md-3">{{ form.email.label_tag }}{{ form.email }}</div>
+                        <div class="col-md-3">{{ form.channel.label_tag }}{{ form.channel }}</div>
+                        <div class="col-md-3">{{ form.preferred_channel.label_tag }}{{ form.preferred_channel }}</div>
+                        <div class="col-md-3">{{ form.segment.label_tag }}{{ form.segment }}</div>
+                        <div class="col-md-3">{{ form.stage.label_tag }}{{ form.stage }}</div>
+                        <div class="col-md-3">{{ form.need_type.label_tag }}{{ form.need_type }}</div>
+                        <div class="col-md-3">{{ form.expected_volume.label_tag }}{{ form.expected_volume }}</div>
+                        <div class="col-md-4">{{ form.product_interest.label_tag }}{{ form.product_interest }}</div>
+                        <div class="col-md-4">{{ form.objective.label_tag }}{{ form.objective }}</div>
+                        <div class="col-md-4">{{ form.region.label_tag }}{{ form.region }}</div>
+                        <div class="col-md-3">{{ form.lead_score.label_tag }}{{ form.lead_score }}</div>
+                        <div class="col-md-3">{{ form.status.label_tag }}{{ form.status }}</div>
+                        <div class="col-md-3">{{ form.assigned_to.label_tag }}{{ form.assigned_to }}</div>
+                        <div class="col-md-3">{{ form.next_step_date.label_tag }}{{ form.next_step_date }}</div>
+                        <div class="col-12">{{ form.notes.label_tag }}{{ form.notes }}</div>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-3">
+                        <a class="btn btn-outline-secondary" href="{% url 'leads-list' %}">Annuler</a>
+                        <button class="btn btn-success" type="submit">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

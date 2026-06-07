@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Visite{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="h5 mb-3">Nouvelle visite terrain</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-4">{{ form.customer.label_tag }}{{ form.customer }}</div>
+                        <div class="col-md-4">{{ form.outlet.label_tag }}{{ form.outlet }}</div>
+                        <div class="col-md-4">{{ form.contact.label_tag }}{{ form.contact }}</div>
+                        <div class="col-md-4">{{ form.visit_date.label_tag }}{{ form.visit_date }}</div>
+                        <div class="col-md-4">{{ form.purpose.label_tag }}{{ form.purpose }}</div>
+                        <div class="col-md-4">{{ form.species.label_tag }}{{ form.species }}</div>
+                        <div class="col-12">{{ form.observations.label_tag }}{{ form.observations }}</div>
+                        <div class="col-12">{{ form.actions.label_tag }}{{ form.actions }}</div>
+                        <div class="col-md-4">{{ form.follow_up_date.label_tag }}{{ form.follow_up_date }}</div>
+                        <div class="col-md-4">{{ form.biosecurity_score.label_tag }}{{ form.biosecurity_score }}</div>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-3">
+                        <a href="{% url 'visits-list' %}" class="btn btn-outline-secondary">Annuler</a>
+                        <button class="btn btn-success" type="submit">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

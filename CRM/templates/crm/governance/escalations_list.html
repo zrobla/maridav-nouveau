@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Escalades SLA{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Escalades SLA</h1>
+        <p class="text-muted small mb-0">Gestion des dépassements SLA Inbox/Support.</p>
+    </div>
+    <a class="btn btn-outline-success" href="{% url 'dashboard' %}">Retour dashboard</a>
+</div>
+
+<div class="card shadow-sm mb-3">
+    <div class="card-body">
+        <form method="get" class="row g-2 align-items-end">
+            <div class="col-md-3">
+                <label class="form-label">Statut</label>
+                <select class="form-select" name="status">
+                    <option value="">Tous</option>
+                    {% for value, label in status_choices %}
+                        <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Source</label>
+                <select class="form-select" name="source_type">
+                    <option value="">Toutes</option>
+                    {% for value, label in source_choices %}
+                        <option value="{{ value }}" {% if request.GET.source_type == value %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success w-100" type="submit">Filtrer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>Escaladé le</th>
+                    <th>Source</th>
+                    <th>Niveau</th>
+                    <th>Échéance</th>
+                    <th>Statut</th>
+                    <th>Assigné</th>
+                    <th>Motif</th>
+                    <th class="text-end">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in escalations %}
+                    <tr>
+                        <td>{{ item.escalated_at|date:"d/m/Y H:i" }}</td>
+                        <td>{{ item.get_source_type_display }} #{{ item.object_id }}</td>
+                        <td><span class="badge text-bg-warning">{{ item.get_escalation_level_display }}</span></td>
+                        <td>{{ item.due_at|date:"d/m/Y H:i" }}</td>
+                        <td>
+                            {% if item.status == "resolved" %}
+                                <span class="badge text-bg-success">{{ item.get_status_display }}</span>
+                            {% elif item.status == "ack" %}
+                                <span class="badge text-bg-primary">{{ item.get_status_display }}</span>
+                            {% else %}
+                                <span class="badge text-bg-danger">{{ item.get_status_display }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if item.assigned_to %}
+                                {{ item.assigned_to.get_full_name|default:item.assigned_to.username }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>{{ item.reason }}</td>
+                        <td class="text-end">
+                            {% if item.status != "resolved" %}
+                                <form method="post" action="{% url 'governance-escalations-action' item.pk %}" class="d-inline-flex gap-1">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm btn-outline-primary" name="action" value="ack" type="submit">Prendre</button>
+                                    <button class="btn btn-sm btn-outline-success" name="action" value="resolve" type="submit">Clôturer</button>
+                                </form>
+                            {% else %}
+                                <span class="text-muted small">Traité</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="8" class="text-center py-4 text-muted">Aucune escalade active.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% if is_paginated %}
+    <div class="mt-3">
+        <nav>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Précédent</a></li>
+                {% endif %}
+                <li class="page-item active"><span class="page-link">{{ page_obj.number }}</span></li>
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Suivant</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
+{% endblock %}

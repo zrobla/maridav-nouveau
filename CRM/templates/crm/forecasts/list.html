@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Forecasts{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Prévisions commerciales</h1>
+        <p class="text-muted small mb-0">Quantités prévues par client, point de vente et période.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'forecasts-create' %}"><i class="bi bi-plus"></i> Nouvelle prévision</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-10">
+        <label class="form-label">Statut</label>
+        <select name="status" class="form-select">
+            <option value="">Tous</option>
+            {% for value, label in status_choices %}
+                <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle">
+            <thead><tr><th>Période</th><th>Client</th><th>PDV</th><th>Produit</th><th>Quantité</th><th>Statut</th><th></th></tr></thead>
+            <tbody>
+                {% for item in forecasts %}
+                    <tr>
+                        <td>{{ item.period|date:"d/m/Y" }}</td>
+                        <td>{{ item.customer.name }}</td>
+                        <td>{{ item.outlet.name|default:"-" }}</td>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.expected_quantity }}</td>
+                        <td>{{ item.get_status_display }}</td>
+                        <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="{% url 'forecasts-update' item.pk %}">Mettre à jour</a></td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="7" class="text-center text-muted py-3">Aucune prévision.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

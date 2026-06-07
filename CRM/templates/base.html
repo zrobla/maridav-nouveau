@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ crm_branding.crm_name|default:"CRM" }}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/crm.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="crm-body">
+    <div class="crm-shell">
+        <aside class="crm-sidebar d-flex flex-column">
+            <div class="brand px-3 py-3">
+                <div class="brand-logo-box">
+                    <img src="{{ crm_branding.logo_url|default:'' }}" alt="{{ crm_branding.logo_alt|default:'CRM' }}" class="brand-logo">
+                    <div class="brand-subtitle">{{ crm_branding.sidebar_subtitle|default:"CRM" }}</div>
+                </div>
+            </div>
+            <nav class="flex-grow-1">
+                {% if perms.crm.view_dashboard %}
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'dashboard' %}"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
+                {% endif %}
+                {% if perms.crm.view_inboundrequest %}
+                    <a class="nav-link {% if '/inbox/' in request.path %}active{% endif %}" href="{% url 'inbox-list' %}"><i class="bi bi-inbox"></i> Inbox</a>
+                {% endif %}
+                {% if perms.crm.view_customer %}
+                    <a class="nav-link {% if '/customers/' in request.path %}active{% endif %}" href="{% url 'customers-list' %}"><i class="bi bi-people"></i> Clients</a>
+                {% endif %}
+                {% if perms.crm.view_lead %}
+                    <a class="nav-link {% if '/leads/' in request.path %}active{% endif %}" href="{% url 'leads-list' %}"><i class="bi bi-magnet"></i> Leads</a>
+                {% endif %}
+                {% if perms.crm.view_opportunity %}
+                    <a class="nav-link {% if '/opportunities/' in request.path %}active{% endif %}" href="{% url 'opportunities-list' %}"><i class="bi bi-kanban"></i> Opportunités</a>
+                {% endif %}
+                {% if perms.crm.view_order %}
+                    <a class="nav-link {% if '/orders/' in request.path %}active{% endif %}" href="{% url 'orders-list' %}"><i class="bi bi-bag-check"></i> Commandes</a>
+                {% endif %}
+                {% if perms.crm.view_invoice %}
+                    <a class="nav-link {% if '/sales/' in request.path %}active{% endif %}" href="{% url 'sales-list' %}"><i class="bi bi-receipt"></i> Ventes Express</a>
+                {% endif %}
+                {% if perms.crm.view_supportcase %}
+                    <a class="nav-link {% if '/support/' in request.path %}active{% endif %}" href="{% url 'support-list' %}"><i class="bi bi-life-preserver"></i> Support</a>
+                {% endif %}
+                {% if perms.crm.view_visitreport %}
+                    <a class="nav-link {% if '/visits/' in request.path %}active{% endif %}" href="{% url 'visits-list' %}"><i class="bi bi-geo-alt"></i> Visites</a>
+                {% endif %}
+                {% if perms.crm.view_task %}
+                    <a class="nav-link {% if '/tasks/' in request.path %}active{% endif %}" href="{% url 'tasks-list' %}"><i class="bi bi-list-task"></i> Tâches</a>
+                {% endif %}
+                {% if perms.crm.view_product %}
+                    <a class="nav-link {% if '/products/' in request.path %}active{% endif %}" href="{% url 'products-list' %}"><i class="bi bi-box-seam"></i> Produits</a>
+                {% endif %}
+                {% if perms.crm.view_territory %}
+                    <a class="nav-link {% if '/territories/' in request.path %}active{% endif %}" href="{% url 'territories-list' %}"><i class="bi bi-map"></i> Territoires</a>
+                {% endif %}
+                {% if perms.crm.view_outlet %}
+                    <a class="nav-link {% if '/outlets/' in request.path %}active{% endif %}" href="{% url 'outlets-list' %}"><i class="bi bi-shop"></i> Points de vente</a>
+                {% endif %}
+                {% if perms.crm.view_promotion %}
+                    <a class="nav-link {% if '/promotions/' in request.path %}active{% endif %}" href="{% url 'promotions-list' %}"><i class="bi bi-megaphone"></i> Promotions</a>
+                {% endif %}
+                {% if perms.crm.view_forecast %}
+                    <a class="nav-link {% if '/forecasts/' in request.path %}active{% endif %}" href="{% url 'forecasts-list' %}"><i class="bi bi-graph-up-arrow"></i> Forecasts</a>
+                {% endif %}
+                {% if perms.crm.view_routingrule %}
+                    <a class="nav-link {% if '/routing-rules/' in request.path %}active{% endif %}" href="{% url 'routing-rules-list' %}"><i class="bi bi-sign-turn-right"></i> Routage</a>
+                {% endif %}
+                {% if perms.crm.view_dataqualityissue %}
+                    <a class="nav-link {% if '/governance/data-quality/' in request.path %}active{% endif %}" href="{% url 'governance-data-quality-list' %}"><i class="bi bi-shield-check"></i> Data Quality</a>
+                {% endif %}
+                {% if perms.crm.view_slaescalation %}
+                    <a class="nav-link {% if '/governance/escalations/' in request.path %}active{% endif %}" href="{% url 'governance-escalations-list' %}"><i class="bi bi-hourglass-split"></i> Escalades SLA</a>
+                {% endif %}
+                {% if perms.crm.view_approvalrequest %}
+                    <a class="nav-link {% if '/governance/approvals/' in request.path %}active{% endif %}" href="{% url 'governance-approvals-list' %}"><i class="bi bi-check2-square"></i> Approbations</a>
+                {% endif %}
+                {% if perms.crm.view_audittrail %}
+                    <a class="nav-link {% if '/governance/audit/' in request.path %}active{% endif %}" href="{% url 'governance-audit-list' %}"><i class="bi bi-journal-check"></i> Audit Trail</a>
+                {% endif %}
+                {% if perms.auth.view_user %}
+                    <a class="nav-link {% if '/access/users/' in request.path %}active{% endif %}" href="{% url 'access-users-list' %}"><i class="bi bi-person-lock"></i> Utilisateurs & rôles</a>
+                {% endif %}
+                {% if perms.crm.view_roleassignment %}
+                    <a class="nav-link {% if '/access/assignments/' in request.path %}active{% endif %}" href="{% url 'access-assignments-list' %}"><i class="bi bi-diagram-2"></i> Assignations</a>
+                {% endif %}
+                {% if perms.crm.view_careerapplication %}
+                    <a class="nav-link {% if '/careers/' in request.path %}active{% endif %}" href="{% url 'careers-list' %}"><i class="bi bi-briefcase"></i> Carrières</a>
+                {% endif %}
+                {% if perms.crm.view_newslettersubscription %}
+                    <a class="nav-link {% if '/newsletter/' in request.path %}active{% endif %}" href="{% url 'newsletter-list' %}"><i class="bi bi-envelope-open"></i> Newsletter</a>
+                {% endif %}
+                {% if perms.crm.view_dashboard %}
+                    <a class="nav-link {% if '/sop/studio/' in request.path %}active{% endif %}" href="{% url 'sop-studio' %}"><i class="bi bi-diagram-3"></i> SOP Studio</a>
+                {% endif %}
+                {% if perms.crm.view_dashboard %}
+                    <a class="nav-link {% if '/sop/diagnostic/' in request.path %}active{% endif %}" href="{% url 'sop-diagnostic' %}"><i class="bi bi-clipboard2-data"></i> Diagnostic SOP</a>
+                {% endif %}
+                {% if perms.crm.view_customer %}
+                    <a class="nav-link {% if '/search/' in request.path %}active{% endif %}" href="{% url 'global-search' %}"><i class="bi bi-search"></i> Recherche globale</a>
+                {% endif %}
+            </nav>
+            <div class="px-3 pb-3 mt-auto">
+                <div class="card card-compact">
+                    <div class="card-body py-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="avatar bg-white text-success"><i class="bi bi-person"></i></div>
+                            <div class="flex-grow-1">
+                                <div class="small text-white-50">Connecté</div>
+                                <div class="text-white">{{ request.user.get_full_name|default:request.user.username }}</div>
+                                {% if current_user_security_profile %}
+                                    <div class="small text-white-50"><code class="text-white-50">{{ current_user_security_profile.short_uuid }}</code></div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <a class="btn btn-sm btn-outline-light" href="{% url 'logout' %}">Quitter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="crm-main">
+            <header class="crm-topbar d-flex align-items-center justify-content-between px-4">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-outline-light btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div>
+                        <div class="text-white-50 small">{{ crm_branding.crm_name|default:"CRM" }}</div>
+                        <div class="fw-semibold text-white">{{ crm_branding.tagline|default:"Performance & Excellence operationnelle" }}</div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    {% if perms.crm.add_inboundrequest %}
+                        <a class="btn btn-outline-light btn-sm" href="{% url 'inbox-create' %}"><i class="bi bi-inbox"></i> Inbox</a>
+                    {% endif %}
+                    {% if perms.crm.add_customer %}
+                        <a class="btn btn-outline-light btn-sm" href="{% url 'customers-create' %}"><i class="bi bi-person-plus"></i> Client</a>
+                    {% endif %}
+                    {% if perms.crm.add_lead %}
+                        <a class="btn btn-outline-light btn-sm" href="{% url 'leads-create' %}"><i class="bi bi-lightning"></i> Lead</a>
+                    {% endif %}
+                    {% if perms.crm.add_order %}
+                        <a class="btn btn-light btn-sm text-success" href="{% url 'orders-create' %}"><i class="bi bi-bag"></i> Commande</a>
+                    {% endif %}
+                    {% if perms.crm.add_invoice %}
+                        <a class="btn btn-light btn-sm text-success" href="{% url 'sales-create' %}"><i class="bi bi-receipt-cutoff"></i> Vente</a>
+                    {% endif %}
+                </div>
+            </header>
+
+            <main class="crm-content">
+                {% if messages %}
+                    <div class="container-fluid px-0 mb-3">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Navigation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <div class="list-group list-group-flush">
+                {% if perms.crm.view_dashboard %}<a class="list-group-item list-group-item-action" href="{% url 'dashboard' %}">Tableau de bord</a>{% endif %}
+                {% if perms.crm.view_inboundrequest %}<a class="list-group-item list-group-item-action" href="{% url 'inbox-list' %}">Inbox</a>{% endif %}
+                {% if perms.crm.view_customer %}<a class="list-group-item list-group-item-action" href="{% url 'customers-list' %}">Clients</a>{% endif %}
+                {% if perms.crm.view_lead %}<a class="list-group-item list-group-item-action" href="{% url 'leads-list' %}">Leads</a>{% endif %}
+                {% if perms.crm.view_opportunity %}<a class="list-group-item list-group-item-action" href="{% url 'opportunities-list' %}">Opportunités</a>{% endif %}
+                {% if perms.crm.view_order %}<a class="list-group-item list-group-item-action" href="{% url 'orders-list' %}">Commandes</a>{% endif %}
+                {% if perms.crm.view_invoice %}<a class="list-group-item list-group-item-action" href="{% url 'sales-list' %}">Ventes Express</a>{% endif %}
+                {% if perms.crm.view_supportcase %}<a class="list-group-item list-group-item-action" href="{% url 'support-list' %}">Support</a>{% endif %}
+                {% if perms.crm.view_visitreport %}<a class="list-group-item list-group-item-action" href="{% url 'visits-list' %}">Visites</a>{% endif %}
+                {% if perms.crm.view_task %}<a class="list-group-item list-group-item-action" href="{% url 'tasks-list' %}">Tâches</a>{% endif %}
+                {% if perms.crm.view_product %}<a class="list-group-item list-group-item-action" href="{% url 'products-list' %}">Produits</a>{% endif %}
+                {% if perms.crm.view_territory %}<a class="list-group-item list-group-item-action" href="{% url 'territories-list' %}">Territoires</a>{% endif %}
+                {% if perms.crm.view_outlet %}<a class="list-group-item list-group-item-action" href="{% url 'outlets-list' %}">Points de vente</a>{% endif %}
+                {% if perms.crm.view_promotion %}<a class="list-group-item list-group-item-action" href="{% url 'promotions-list' %}">Promotions</a>{% endif %}
+                {% if perms.crm.view_forecast %}<a class="list-group-item list-group-item-action" href="{% url 'forecasts-list' %}">Forecasts</a>{% endif %}
+                {% if perms.crm.view_routingrule %}<a class="list-group-item list-group-item-action" href="{% url 'routing-rules-list' %}">Routage</a>{% endif %}
+                {% if perms.crm.view_dataqualityissue %}<a class="list-group-item list-group-item-action" href="{% url 'governance-data-quality-list' %}">Data Quality</a>{% endif %}
+                {% if perms.crm.view_slaescalation %}<a class="list-group-item list-group-item-action" href="{% url 'governance-escalations-list' %}">Escalades SLA</a>{% endif %}
+                {% if perms.crm.view_approvalrequest %}<a class="list-group-item list-group-item-action" href="{% url 'governance-approvals-list' %}">Approbations</a>{% endif %}
+                {% if perms.crm.view_audittrail %}<a class="list-group-item list-group-item-action" href="{% url 'governance-audit-list' %}">Audit Trail</a>{% endif %}
+                {% if perms.auth.view_user %}<a class="list-group-item list-group-item-action" href="{% url 'access-users-list' %}">Utilisateurs & rôles</a>{% endif %}
+                {% if perms.crm.view_roleassignment %}<a class="list-group-item list-group-item-action" href="{% url 'access-assignments-list' %}">Assignations</a>{% endif %}
+                {% if perms.crm.view_careerapplication %}<a class="list-group-item list-group-item-action" href="{% url 'careers-list' %}">Carrières</a>{% endif %}
+                {% if perms.crm.view_newslettersubscription %}<a class="list-group-item list-group-item-action" href="{% url 'newsletter-list' %}">Newsletter</a>{% endif %}
+                {% if perms.crm.view_dashboard %}<a class="list-group-item list-group-item-action" href="{% url 'sop-studio' %}">SOP Studio</a>{% endif %}
+                {% if perms.crm.view_dashboard %}<a class="list-group-item list-group-item-action" href="{% url 'sop-diagnostic' %}">Diagnostic SOP</a>{% endif %}
+                {% if perms.crm.view_customer %}<a class="list-group-item list-group-item-action" href="{% url 'global-search' %}">Recherche globale</a>{% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

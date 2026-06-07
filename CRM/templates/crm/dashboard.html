@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% block title %}Tableau de bord{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+    <span class="badge text-bg-dark">{{ request.user.get_full_name|default:request.user.username }}</span>
+    {% for role in dashboard_role_labels %}
+        <span class="badge text-bg-light">{{ role }}</span>
+    {% endfor %}
+    {% for scope in dashboard_scope_badges %}
+        <span class="badge text-bg-info-subtle text-dark">{{ scope }}</span>
+    {% endfor %}
+</div>
+
+{% if metric_cards_primary %}
+<div class="row g-3 mb-3">
+    {% for card in metric_cards_primary %}
+        <div class="col-md-3">
+            <div class="metric-card">
+                <div class="metric-icon {{ card.icon_class }}"><i class="{{ card.icon }}"></i></div>
+                <div>
+                    <p class="metric-title">{{ card.title }}</p>
+                    <p class="metric-value">{{ card.value }}</p>
+                    <small class="text-muted">{{ card.subtitle }}</small>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if metric_cards_governance %}
+<div class="row g-3 mb-3">
+    {% for card in metric_cards_governance %}
+        <div class="col-md-4">
+            <div class="metric-card">
+                <div class="metric-icon {{ card.icon_class }}"><i class="{{ card.icon }}"></i></div>
+                <div>
+                    <p class="metric-title">{{ card.title }}</p>
+                    <p class="metric-value">{{ card.value }}</p>
+                    <small class="text-muted"><a href="{{ card.url }}">{{ card.subtitle }}</a></small>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if metric_cards_secondary %}
+<div class="row g-3 mb-3">
+    {% for card in metric_cards_secondary %}
+        <div class="col-md-3">
+            <div class="metric-card">
+                <div class="metric-icon {{ card.icon_class }}"><i class="{{ card.icon }}"></i></div>
+                <div>
+                    <p class="metric-title">{{ card.title }}</p>
+                    <p class="metric-value">{{ card.value }}</p>
+                    <small class="text-muted">{{ card.subtitle }}</small>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="row g-4">
+    {% if show_charts_panel %}
+    <div class="col-lg-8">
+        <div class="card shadow-sm h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <strong>Distribution des statuts</strong>
+                <div class="text-muted small">Pilotage par rôle et périmètre d'affectation</div>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    {% if show_lead_chart %}
+                    <div class="col-md-4">
+                        <canvas id="chartLeads"></canvas>
+                    </div>
+                    {% endif %}
+                    {% if show_opportunity_chart %}
+                    <div class="col-md-4">
+                        <canvas id="chartOpportunities"></canvas>
+                    </div>
+                    {% endif %}
+                    {% if show_order_chart %}
+                    <div class="col-md-4">
+                        <canvas id="chartOrders"></canvas>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="{% if show_charts_panel %}col-lg-4{% else %}col-lg-12{% endif %}">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white">
+                <strong>Actions rapides</strong>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    {% for action in dashboard_actions %}
+                        <a class="btn {{ action.class }}" href="{{ action.url }}"><i class="{{ action.icon }}"></i> {{ action.label }}</a>
+                    {% empty %}
+                        <div class="text-muted small">Aucune action disponible sur votre rôle.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-1">
+    {% if show_tasks_panel %}
+    <div class="{% if show_inbound_sla_panel %}col-lg-6{% else %}col-lg-12{% endif %}">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white">
+                <strong>Tâches à suivre</strong>
+            </div>
+            <div class="card-body p-0">
+                <table class="table mb-0 align-middle">
+                    <thead>
+                        <tr><th>Titre</th><th>Échéance</th><th>Statut</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for task in tasks_next %}
+                            <tr>
+                                <td>{{ task.title }}</td>
+                                <td>{{ task.due_date|date:"d/m/Y" }}</td>
+                                <td><span class="badge bg-light text-dark">{{ task.get_status_display }}</span></td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="3" class="text-center py-3 text-muted">Aucune tâche en attente.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if show_inbound_sla_panel %}
+    <div class="{% if show_tasks_panel %}col-lg-6{% else %}col-lg-12{% endif %}">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white">
+                <strong>Inbox en retard SLA</strong>
+            </div>
+            <div class="card-body p-0">
+                <table class="table mb-0 align-middle">
+                    <thead>
+                        <tr><th>Contact</th><th>Échéance</th><th>Assigné</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for item in inbound_overdue_items %}
+                            <tr>
+                                <td>{{ item.name|default:item.email|default:item.phone }}</td>
+                                <td>{{ item.first_response_due_at|date:"d/m/Y H:i" }}</td>
+                                <td>
+                                    {% if item.assigned_to %}
+                                        {{ item.assigned_to.get_full_name|default:item.assigned_to.username }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="3" class="text-center py-3 text-muted">Aucune alerte SLA.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% if show_visits_panel %}
+<div class="row g-4 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white">
+                <strong>Dernières visites terrain</strong>
+            </div>
+            <div class="card-body p-0">
+                <table class="table mb-0 align-middle">
+                    <thead>
+                        <tr><th>Client</th><th>Date</th><th>Point de vente</th><th>Objet</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for visit in recent_visits %}
+                            <tr>
+                                <td>{{ visit.customer.name }}</td>
+                                <td>{{ visit.visit_date|date:"d/m/Y" }}</td>
+                                <td>{{ visit.outlet.name|default:"-" }}</td>
+                                <td>{{ visit.get_purpose_display }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="4" class="text-center py-3 text-muted">Aucune visite enregistrée.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const leadStatusLabels = {{ lead_status_labels|safe }};
+    const leadStatusData = {{ lead_status_data|safe }};
+    const opportunityStageLabels = {{ opportunity_stage_labels|safe }};
+    const opportunityStageData = {{ opportunity_stage_data|safe }};
+    const orderStatusLabels = {{ order_status_labels|safe }};
+    const orderStatusData = {{ order_status_data|safe }};
+
+    const chartOptions = { plugins: { legend: { position: 'bottom' } } };
+
+    const chartLeads = document.getElementById('chartLeads');
+    if (chartLeads) {
+        new Chart(chartLeads, {
+            type: 'doughnut',
+            data: { labels: leadStatusLabels, datasets: [{ data: leadStatusData, backgroundColor: ['#14c07b','#ffc107','#0dcaf0','#fd7e14','#adb5bd','#20c997'] }] },
+            options: chartOptions
+        });
+    }
+
+    const chartOpportunities = document.getElementById('chartOpportunities');
+    if (chartOpportunities) {
+        new Chart(chartOpportunities, {
+            type: 'doughnut',
+            data: { labels: opportunityStageLabels, datasets: [{ data: opportunityStageData, backgroundColor: ['#0d6efd','#20c997','#ffc107','#198754','#dc3545'] }] },
+            options: chartOptions
+        });
+    }
+
+    const chartOrders = document.getElementById('chartOrders');
+    if (chartOrders) {
+        new Chart(chartOrders, {
+            type: 'doughnut',
+            data: { labels: orderStatusLabels, datasets: [{ data: orderStatusData, backgroundColor: ['#adb5bd','#0d6efd','#20c997','#6610f2','#dc3545'] }] },
+            options: chartOptions
+        });
+    }
+</script>
+{% endblock %}

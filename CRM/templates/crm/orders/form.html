@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Commande{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="h5 mb-3">{{ form.instance.pk|yesno:"Mettre à jour,Créer" }} une commande</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="row g-3">
+                        <div class="col-md-3">{{ form.order_number.label_tag }}{{ form.order_number }}</div>
+                        <div class="col-md-3">{{ form.customer.label_tag }}{{ form.customer }}</div>
+                        <div class="col-md-3">{{ form.outlet.label_tag }}{{ form.outlet }}</div>
+                        <div class="col-md-3">{{ form.status.label_tag }}{{ form.status }}</div>
+                        <div class="col-md-4">{{ form.delivery_date.label_tag }}{{ form.delivery_date }}</div>
+                        <div class="col-md-4">{{ form.billing_contact.label_tag }}{{ form.billing_contact }}</div>
+                        <div class="col-md-2">{{ form.discount_pct.label_tag }}{{ form.discount_pct }}</div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <div class="form-check">
+                                {{ form.credit_exception_requested }} {{ form.credit_exception_requested.label_tag }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">{{ form.notes.label_tag }}{{ form.notes }}</div>
+                    </div>
+
+                    <hr class="my-4">
+                    <h2 class="h6 mb-3">Lignes de commande</h2>
+                    {{ items_formset.management_form }}
+                    {{ items_formset.non_form_errors }}
+                    <div id="order-items" class="row g-3">
+                        {% for item_form in items_formset.forms %}
+                            <div class="order-item row g-3 mb-0">
+                                {% for hidden in item_form.hidden_fields %}
+                                    {{ hidden }}
+                                {% endfor %}
+                                <div class="col-md-5">{{ item_form.product.label_tag }}{{ item_form.product }}</div>
+                                <div class="col-md-2">{{ item_form.quantity.label_tag }}{{ item_form.quantity }}</div>
+                                <div class="col-md-3">{{ item_form.unit_price.label_tag }}{{ item_form.unit_price }}</div>
+                                <div class="col-md-2 d-flex align-items-end">
+                                    {% if item_form.instance.pk %}
+                                        <div class="form-check">
+                                            {{ item_form.DELETE }} {{ item_form.DELETE.label_tag }}
+                                        </div>
+                                    {% else %}
+                                        <button type="button" class="btn btn-outline-danger btn-sm remove-line">Supprimer</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-3">
+                        <button type="button" id="add-line" class="btn btn-outline-success btn-sm"><i class="bi bi-plus"></i> Ajouter une ligne</button>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a class="btn btn-outline-secondary" href="{% url 'orders-list' %}">Annuler</a>
+                        <button class="btn btn-success" type="submit">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const container = document.getElementById('order-items');
+    const addBtn = document.getElementById('add-line');
+    const totalForms = document.querySelector('input[name="{{ items_formset.prefix }}-TOTAL_FORMS"]');
+    const emptyTemplate = `{{ items_formset.empty_form.as_p|escapejs }}`;
+
+    function renumber() {
+        const rows = container.querySelectorAll('.order-item');
+        rows.forEach((row, index) => {
+            row.querySelectorAll('input, select, label').forEach(el => {
+                ['name','id','for'].forEach(attr => {
+                    const val = el.getAttribute(attr);
+                    if (val) {
+                        el.setAttribute(attr, val.replace(/{{ items_formset.prefix }}-(\d+)-/g, '{{ items_formset.prefix }}-' + index + '-'));
+                    }
+                });
+            });
+        });
+        totalForms.value = rows.length;
+    }
+
+    function addLine() {
+        const formIndex = parseInt(totalForms.value, 10);
+        const wrapper = document.createElement('div');
+        wrapper.className = 'order-item row g-3 mb-0 pt-2';
+        wrapper.innerHTML = emptyTemplate.replace(/__prefix__/g, formIndex);
+        // reorganiser les <p> en grille bootstrap
+        const fields = Array.from(wrapper.querySelectorAll('p'));
+        wrapper.innerHTML = '';
+        const colClasses = ['col-md-5','col-md-2','col-md-3'];
+        fields.forEach((p, idx) => {
+            const col = document.createElement('div');
+            col.className = colClasses[idx] || 'col-md-3';
+            col.innerHTML = p.innerHTML;
+            wrapper.appendChild(col);
+        });
+        const actions = document.createElement('div');
+        actions.className = 'col-md-2 d-flex align-items-end';
+        actions.innerHTML = '<button type="button" class="btn btn-outline-danger btn-sm remove-line">Supprimer</button>';
+        wrapper.appendChild(actions);
+        container.appendChild(wrapper);
+        totalForms.value = formIndex + 1;
+    }
+
+    container.addEventListener('click', (e) => {
+        if (e.target.classList.contains('remove-line')) {
+            const row = e.target.closest('.order-item');
+            row?.remove();
+            renumber();
+        }
+    });
+    addBtn.addEventListener('click', () => { addLine(); renumber(); });
+</script>
+{% endblock %}

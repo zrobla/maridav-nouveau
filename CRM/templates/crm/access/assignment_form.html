@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Assignation de rôle{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="alert alert-info shadow-sm">
+            <strong>Bon usage (Experts / Technico-commerciaux)</strong><br>
+            Utilisez la portee <code>Segment</code>, <code>Stade</code>, <code>Objectif</code> ou <code>Region</code> avec
+            <code>scope_reference</code> (ex: <code>segment=volailles</code>, <code>stage=demarrage</code>, <code>objective=conversion</code>, <code>region=lagunes</code>).
+            Pour un dossier precis, renseignez aussi l'entite (type + id).
+        </div>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="h5 mb-3">{{ form.instance.pk|yesno:"Mettre à jour,Créer" }} une assignation de rôle</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="row g-3">
+                        <div class="col-md-4">{{ form.user.label_tag }}{{ form.user }}</div>
+                        <div class="col-md-4">{{ form.group.label_tag }}{{ form.group }}</div>
+                        <div class="col-md-4">{{ form.assignment_type.label_tag }}{{ form.assignment_type }}</div>
+                        <div class="col-md-4">{{ form.scope.label_tag }}{{ form.scope }}</div>
+                        <div class="col-md-8">{{ form.scope_reference.label_tag }}{{ form.scope_reference }}</div>
+                        <div class="col-md-4">{{ form.content_type.label_tag }}{{ form.content_type }}</div>
+                        <div class="col-md-4">{{ form.object_id.label_tag }}{{ form.object_id }}</div>
+                        <div class="col-md-4">{{ form.valid_from.label_tag }}{{ form.valid_from }}</div>
+                        <div class="col-md-4">{{ form.valid_to.label_tag }}{{ form.valid_to }}</div>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <div class="form-check">{{ form.is_active }} {{ form.is_active.label_tag }}</div>
+                        </div>
+                        <div class="col-md-12">{{ form.reason.label_tag }}{{ form.reason }}</div>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a class="btn btn-outline-secondary" href="{% url 'access-assignments-list' %}">Annuler</a>
+                        <button class="btn btn-success" type="submit">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Configurer un utilisateur{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Profil d'accès - {{ user_target.username }}</h1>
+        <p class="text-muted small mb-0">Rôles permanents, sécurité et traçabilité utilisateur.</p>
+    </div>
+    <a class="btn btn-outline-secondary" href="{% url 'access-users-list' %}">Retour utilisateurs</a>
+</div>
+
+<div class="card shadow-sm mb-3">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="small text-muted">UUID public</div>
+                {% if perms.crm.view_usersecurityprofile %}
+                    <code>{{ profile.public_uuid }}</code>
+                {% else %}
+                    <code>{{ profile.short_uuid }}</code>
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div class="small text-muted">Dernière rotation mot de passe</div>
+                <div>{{ profile.last_password_rotation_at|date:"d/m/Y H:i" }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form method="post" class="card shadow-sm mb-3">
+    <div class="card-header"><strong>Rôles permanents + sécurité</strong></div>
+    <div class="card-body">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-3">{{ user_form.username.label_tag }}{{ user_form.username }}</div>
+            <div class="col-md-3">{{ user_form.first_name.label_tag }}{{ user_form.first_name }}</div>
+            <div class="col-md-3">{{ user_form.last_name.label_tag }}{{ user_form.last_name }}</div>
+            <div class="col-md-3">{{ user_form.email.label_tag }}{{ user_form.email }}</div>
+            <div class="col-md-6">{{ user_form.groups.label_tag }}{{ user_form.groups }}</div>
+            <div class="col-md-6">
+                <div class="form-check mb-2">{{ user_form.is_active }} {{ user_form.is_active.label_tag }}</div>
+                <div class="form-check mb-2">{{ user_form.is_staff }} {{ user_form.is_staff.label_tag }}</div>
+                <div class="form-check mb-2">{{ profile_form.mfa_required }} {{ profile_form.mfa_required.label_tag }}</div>
+                <div class="form-check mb-2">{{ profile_form.force_password_reset }} {{ profile_form.force_password_reset.label_tag }}</div>
+                <div class="form-check mb-2">{{ profile_form.is_locked }} {{ profile_form.is_locked.label_tag }}</div>
+            </div>
+            <div class="col-md-3">{{ profile_form.failed_login_count.label_tag }}{{ profile_form.failed_login_count }}</div>
+            <div class="col-md-3">{{ profile_form.last_password_rotation_at.label_tag }}{{ profile_form.last_password_rotation_at }}</div>
+            <div class="col-md-3">{{ profile_form.last_login_ip.label_tag }}{{ profile_form.last_login_ip }}</div>
+            <div class="col-md-12">{{ profile_form.notes.label_tag }}{{ profile_form.notes }}</div>
+        </div>
+        <div class="d-flex justify-content-end gap-2 mt-3">
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </div>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Assignations temporaires/scopées récentes</strong>
+        <a class="btn btn-sm btn-outline-success" href="{% url 'access-assignment-create' %}">Nouvelle assignation</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table mb-0 align-middle">
+            <thead>
+                <tr><th>Date</th><th>Rôle</th><th>Type</th><th>Portée</th><th>Période</th><th>Statut</th></tr>
+            </thead>
+            <tbody>
+                {% for item in assignments %}
+                    <tr>
+                        <td>{{ item.created_at|date:"d/m/Y H:i" }}</td>
+                        <td>{{ item.group.name }}</td>
+                        <td>{{ item.get_assignment_type_display }}</td>
+                        <td>
+                            {{ item.get_scope_display }}
+                            {% if item.scope_reference %}
+                                <div class="small text-muted">{{ item.scope_reference }}</div>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.valid_from|date:"d/m/Y H:i" }}{% if item.valid_to %} -> {{ item.valid_to|date:"d/m/Y H:i" }}{% endif %}</td>
+                        <td>{% if item.is_current %}<span class="badge text-bg-success">Actif</span>{% else %}<span class="badge text-bg-secondary">Inactif</span>{% endif %}</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6" class="text-center text-muted py-3">Aucune assignation.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

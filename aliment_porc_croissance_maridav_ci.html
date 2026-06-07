@@ -334,7 +334,7 @@
                 <h2>Obtenir un plan croissance</h2>
               </div>
               <p class="text-muted mt-2">Renseignez vos effectifs et vos objectifs : nous vous aidons à calibrer la ration.</p>
-              <form class="lead-form mt-3" action="https://formspree.io/f/maridav" method="POST">
+              <form class="lead-form mt-3" method="POST">
                 <div class="mb-3">
                   <label class="form-label" for="leadName">Nom &amp; structure d'exploitation</label>
                   <input class="form-control" id="leadName" name="name" type="text" placeholder="Ex : Ferme porcine de Korhogo" required>
@@ -541,7 +541,6 @@
   "offers": {
     "@type": "Offer",
     "priceCurrency": "XOF",
-    "price": "Sur devis",
     "availability": "https://schema.org/InStock",
     "url": "https://maridav.ci/aliment_porc_croissance_maridav_ci.html"
   }
@@ -579,5 +578,6 @@
   ]
 }
   </script>
+  <script src="assets/js/site-crm-bridge.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Inbox{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Inbox formulaires site</h1>
+        <p class="text-muted small mb-0">Demandes entrantes, priorisation SLA et affectation commerciale.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'inbox-create' %}"><i class="bi bi-plus"></i> Nouvelle demande</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-3">
+        <label class="form-label">Recherche</label>
+        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Nom, email, produit">
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Statut</label>
+        <select name="status" class="form-select">
+            <option value="">Tous</option>
+            {% for value, label in status_choices %}
+                <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Priorité</label>
+        <select name="priority" class="form-select">
+            <option value="">Toutes</option>
+            {% for value, label in priority_choices %}
+                <option value="{{ value }}" {% if request.GET.priority == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Type</label>
+        <select name="kind" class="form-select">
+            <option value="">Tous</option>
+            {% for value, label in kind_choices %}
+                <option value="{{ value }}" {% if request.GET.kind == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Espèce</label>
+        <select name="segment" class="form-select">
+            <option value="">Toutes</option>
+            {% for value, label in segment_choices %}
+                <option value="{{ value }}" {% if request.GET.segment == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle">
+            <thead>
+                <tr>
+                    <th>Demande</th>
+                    <th>Type</th>
+                    <th>Espèce</th>
+                    <th>Priorité</th>
+                    <th>Statut</th>
+                    <th>SLA</th>
+                    <th>Assigné</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in inbound_requests %}
+                    <tr>
+                        <td>
+                            <div class="fw-semibold">{{ item.name|default:item.email|default:item.phone|default:"-" }}</div>
+                            <small class="text-muted">
+                                {{ item.company|default:"" }}
+                                {% if item.product %} · {{ item.product }}{% endif %}
+                            </small>
+                        </td>
+                        <td>{{ item.get_kind_display }}</td>
+                        <td>{{ item.get_segment_display|default:"-" }}</td>
+                        <td>
+                            {% if item.priority == "urgent" %}
+                                <span class="badge text-bg-danger">Urgent</span>
+                            {% elif item.priority == "eleve" %}
+                                <span class="badge text-bg-warning">Élevé</span>
+                            {% elif item.priority == "normal" %}
+                                <span class="badge text-bg-info">Normal</span>
+                            {% else %}
+                                <span class="badge text-bg-secondary">Faible</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.get_status_display }}</td>
+                        <td>
+                            {% if item.first_response_due_at %}
+                                <small>{{ item.first_response_due_at|date:"d/m/Y H:i" }}</small>
+                            {% else %}
+                                <small class="text-muted">-</small>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if item.assigned_to %}
+                                {{ item.assigned_to.get_full_name|default:item.assigned_to.username }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-secondary" href="{% url 'inbox-update' item.pk %}">Mettre à jour</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="8" class="text-center text-muted py-3">Aucune demande entrante.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

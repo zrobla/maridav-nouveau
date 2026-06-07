@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Commandes{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Commandes & devis</h1>
+        <p class="text-muted small mb-0">Suivi des flux aliments, additifs et livraisons.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'orders-create' %}"><i class="bi bi-plus"></i> Nouvelle commande</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-4">
+        <label class="form-label">Statut</label>
+        <select class="form-select" name="status">
+            <option value="">Tous</option>
+            <option value="brouillon" {% if request.GET.status == 'brouillon' %}selected{% endif %}>Brouillon</option>
+            <option value="devis" {% if request.GET.status == 'devis' %}selected{% endif %}>Devis</option>
+            <option value="confirme" {% if request.GET.status == 'confirme' %}selected{% endif %}>Confirmé</option>
+            <option value="livre" {% if request.GET.status == 'livre' %}selected{% endif %}>Livré</option>
+            <option value="annule" {% if request.GET.status == 'annule' %}selected{% endif %}>Annulé</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table mb-0 align-middle">
+            <thead><tr><th>Référence</th><th>Client</th><th>PDV</th><th>Statut</th><th>Livraison</th><th>Lignes</th><th>Total</th><th></th></tr></thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.order_number }}</td>
+                        <td>{{ order.customer.name }}</td>
+                        <td>{{ order.outlet.name|default:"-" }}</td>
+                        <td>{{ order.get_status_display }}</td>
+                        <td>{{ order.delivery_date|date:"d/m/Y" }}</td>
+                        <td>{{ order.items.count }}</td>
+                        <td>{{ order.total_amount|floatformat:0 }} FCFA</td>
+                        <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="{% url 'orders-update' order.pk %}">Mettre à jour</a></td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="8" class="text-center text-muted py-3">Aucune commande enregistrée.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

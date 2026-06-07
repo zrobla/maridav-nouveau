@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Facture {{ invoice.invoice_number }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; color: #1f2937; margin: 32px; }
+        .row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .muted { color: #6b7280; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th, td { border: 1px solid #d1d5db; padding: 8px; font-size: 13px; }
+        th { background: #f3f4f6; text-align: left; }
+        .totals { margin-top: 16px; width: 340px; margin-left: auto; }
+        .totals td { border: none; padding: 4px 0; }
+        .totals .strong { font-weight: 700; font-size: 15px; }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div>
+            <h2 style="margin:0;">MARIDAV CI</h2>
+            <div class="muted">{{ invoice.get_nature_display }} de vente</div>
+        </div>
+        <div style="text-align:right;">
+            <div><strong>{{ invoice.invoice_number }}</strong></div>
+            <div class="muted">Statut: {{ invoice.get_status_display }}</div>
+            <div class="muted">FNE: {{ invoice.get_fne_status_display }}</div>
+        </div>
+    </div>
+
+    {% if invoice.original_invoice %}
+        <div class="muted" style="margin-top:4px;">
+            Document d'origine: {{ invoice.original_invoice.invoice_number }}
+        </div>
+    {% endif %}
+
+    <div class="row" style="margin-top:16px;">
+        <div>
+            <div><strong>Client:</strong> {{ invoice.customer.name }}</div>
+            <div class="muted">NCC: {{ invoice.customer.tax_ncc|default:"-" }} | NTD: {{ invoice.customer.tax_ntd|default:"-" }}</div>
+            <div class="muted">RCCM: {{ invoice.customer.tax_rccm|default:"-" }} | Régime: {{ invoice.customer.tax_regime|default:"-" }}</div>
+        </div>
+        <div style="text-align:right;">
+            <div><strong>Émise le:</strong> {{ invoice.issued_at|date:"d/m/Y H:i"|default:"-" }}</div>
+            <div><strong>Échéance:</strong> {{ invoice.due_date|date:"d/m/Y"|default:"-" }}</div>
+            <div><strong>Commercial:</strong> {{ invoice.sales_owner.get_full_name|default:invoice.sales_owner.username|default:"-" }}</div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Description</th>
+                <th>Qté</th>
+                <th>P.U</th>
+                <th>Remise %</th>
+                <th>Taxe %</th>
+                <th>Total ligne</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in invoice.items.all %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.description|default:"-" }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.unit_price|floatformat:0 }}</td>
+                    <td>{{ item.discount_pct }}</td>
+                    <td>{{ item.tax_rate_pct }}</td>
+                    <td>{{ item.total_amount|floatformat:0 }}</td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="7" class="muted">Aucune ligne.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="totals">
+        <tr><td>Sous-total</td><td style="text-align:right;">{{ invoice.subtotal_amount|floatformat:0 }} FCFA</td></tr>
+        <tr><td>Remise</td><td style="text-align:right;">{{ invoice.discount_amount|floatformat:0 }} FCFA</td></tr>
+        <tr><td>Taxes</td><td style="text-align:right;">{{ invoice.tax_amount|floatformat:0 }} FCFA</td></tr>
+        <tr><td class="strong">Total TTC</td><td class="strong" style="text-align:right;">{{ invoice.total_amount|floatformat:0 }} FCFA</td></tr>
+        <tr><td>Payé</td><td style="text-align:right;">{{ invoice.paid_amount|floatformat:0 }} FCFA</td></tr>
+        <tr><td>Reste à payer</td><td style="text-align:right;">{{ invoice.balance_due|floatformat:0 }} FCFA</td></tr>
+    </table>
+
+    <h4 style="margin-top:24px;">Historique des paiements</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Montant</th>
+                <th>Mode</th>
+                <th>Référence</th>
+                <th>Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payment in payments %}
+                <tr>
+                    <td>{{ payment.paid_at|date:"d/m/Y H:i" }}</td>
+                    <td>{{ payment.amount|floatformat:0 }} FCFA</td>
+                    <td>{{ payment.get_payment_method_display }}</td>
+                    <td>{{ payment.payment_reference|default:"-" }}</td>
+                    <td>{{ payment.get_source_display }}</td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="5" class="muted">Aucun paiement enregistré.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="muted" style="margin-top:24px;">
+        Référence FNE: {{ invoice.fne_reference|default:"-" }}
+    </div>
+    {% if invoice.cancellation_reason %}
+        <div class="muted" style="margin-top:8px;">
+            Motif: {{ invoice.cancellation_reason }}
+        </div>
+    {% endif %}
+    <script>
+        window.print();
+    </script>
+</body>
+</html>

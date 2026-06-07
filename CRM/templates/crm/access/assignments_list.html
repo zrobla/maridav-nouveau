@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Assignations de rôles{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Assignations temporaires/scopées</h1>
+        <p class="text-muted small mb-0">Gestion des rôles par projet, dossier ou période.</p>
+    </div>
+    <a class="btn btn-success" href="{% url 'access-assignment-create' %}"><i class="bi bi-plus"></i> Nouvelle assignation</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-3">
+        <label class="form-label">Utilisateur</label>
+        <select class="form-select" name="user">
+            <option value="">Tous</option>
+            {% for user in users %}
+                <option value="{{ user.pk }}" {% if request.GET.user == user.pk|stringformat:'s' %}selected{% endif %}>{{ user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Portée</label>
+        <select class="form-select" name="scope">
+            <option value="">Toutes</option>
+            {% for value, label in scope_choices %}
+                <option value="{{ value }}" {% if request.GET.scope == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Actif</label>
+        <select class="form-select" name="active">
+            <option value="">Tous</option>
+            <option value="1" {% if request.GET.active == "1" %}selected{% endif %}>Oui</option>
+            <option value="0" {% if request.GET.active == "0" %}selected{% endif %}>Non</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-success w-100" type="submit">Filtrer</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>Rôle</th>
+                    <th>Type</th>
+                    <th>Portée</th>
+                    <th>Période</th>
+                    <th>Accordé par</th>
+                    <th>Statut</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in assignments %}
+                    <tr>
+                        <td>
+                            <div>{{ item.user.username }}</div>
+                            {% if item.user.security_profile %}
+                                <div class="small text-muted"><code>{{ item.user.security_profile.short_uuid }}</code></div>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.group.name }}</td>
+                        <td>{{ item.get_assignment_type_display }}</td>
+                        <td>
+                            {{ item.get_scope_display }}
+                            {% if item.scope_reference %}
+                                <div class="small text-muted">{{ item.scope_reference }}</div>
+                            {% endif %}
+                            {% if item.content_type and item.object_id %}
+                                <div class="small text-muted">{{ item.content_type.model }} #{{ item.object_id }}</div>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.valid_from|date:"d/m/Y H:i" }}{% if item.valid_to %} -> {{ item.valid_to|date:"d/m/Y H:i" }}{% endif %}</td>
+                        <td>{{ item.granted_by.username|default:"-" }}</td>
+                        <td>
+                            {% if item.is_current %}
+                                <span class="badge text-bg-success">Actif</span>
+                            {% else %}
+                                <span class="badge text-bg-secondary">Inactif</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-secondary" href="{% url 'access-assignment-update' item.pk %}">Éditer</a>
+                            {% if item.is_active %}
+                                <form method="post" action="{% url 'access-assignment-revoke' item.pk %}" class="d-inline">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm btn-outline-danger" type="submit">Révoquer</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="8" class="text-center text-muted py-3">Aucune assignation.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% if is_paginated %}
+    <div class="mt-3">
+        <nav>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Précédent</a></li>
+                {% endif %}
+                <li class="page-item active"><span class="page-link">{{ page_obj.number }}</span></li>
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Suivant</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
+{% endblock %}
