@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "description": "Catalogue produits VOLAILLES (chair + ponte) MARIDAV CI — données RÉCUPÉRÉES depuis les pages produits du site (conditionnement, specs, filières via liens des pages d'espèces). Base de la refonte (cf. PLAN-REFONTE-VOLAILLES.md).",
+    "source": "Extraction automatique des pages *.html (specs/conditionnement) + carte produit→filière via liens des pages d'espèces.",
+    "a_verifier": [
+      "nutricool_maridav_ci: conditionnement non trouvé sur la page (à compléter)",
+      "profish_maridav_ci: protéine 91% (concentré protéique) — conditionnement à compléter",
+      "kg exact de quelques aliments complets dont le snippet ne montrait pas la valeur (laminé) — à confirmer page par page",
+      "transversalité réelle: les liens actuels sous-référencent la page CHAIR (concentrés/prémix chair présents seulement via la page ponte). Maridav a confirmé concentrés/prémix TRANSVERSAUX -> filieres à compléter en [volailles-chair, volailles-ponte]"
+    ],
+    "taxonomie": {
+      "filiere": ["volailles-chair", "volailles-ponte"],
+      "type": ["aliment-complet", "concentre", "macro-premix", "premix", "additif"],
+      "phase_chair": ["demarrage 0-14j", "croissance 15-28j", "finition 29j+"],
+      "phase_ponte": ["pre-demarrage 0-5j", "demarrage 0-6sem", "poulette 7-18sem", "ponte-1", "ponte-2"]
+    }
+  },
+
+  "aliments_complets": [
+    {"slug":"aliment_chair_demarrage_maridav_ci","nom":"Aliment Chair Démarrage","filieres":["volailles-chair"],"transversal":false,"type":"aliment-complet","phase":"demarrage","age_cible":"0–14 jours","proteine":"21–22 %","energie":"3 000–3 050 kcal/kg","conditionnement":"Sac 50 kg (laminé tropicalisé)"},
+    {"slug":"aliments_chair_croissance_maridav_ci","nom":"Aliment Chair Croissance","filieres":["volailles-chair"],"transversal":false,"type":"aliment-complet","phase":"croissance","age_cible":"15–28 jours","proteine":"19–20 %","energie":"3 050–3 150 kcal/kg","conditionnement":"Sac 50 kg (laminé anti-humidité)"},
+    {"slug":"aliments_chair_finition_maridav_ci","nom":"Aliment Chair Finition","filieres":["volailles-chair"],"transversal":false,"type":"aliment-complet","phase":"finition","age_cible":"29 jours et +","proteine":"18–18,5 %","energie":"3 200–3 250 kcal/kg","conditionnement":"Sac 50 kg (laminé soudure renforcée)"},
+
+    {"slug":"chickcare","nom":"ChickCare Pré-démarrage","filieres":["volailles-ponte"],"transversal":false,"type":"aliment-complet","phase":"pre-demarrage","age_cible":"0–5 jours","proteine":"22 %","energie":"3 050 kcal/kg","presentation":"granulés","conditionnement":"Sac 25 kg (laminé double barrière)"},
+    {"slug":"aliment_demarrage_ponte","nom":"Aliment Démarrage Pondeuses","filieres":["volailles-ponte"],"transversal":false,"type":"aliment-complet","phase":"demarrage","age_cible":"0–6 semaines","proteine":"19–19,5 %","energie":"2 900–2 950 kcal/kg","conditionnement":"Sac 50 kg (laminé tropicalisé)"},
+    {"slug":"aliment_poulette","nom":"Aliment Poulette","filieres":["volailles-ponte"],"transversal":false,"type":"aliment-complet","phase":"poulette","age_cible":"7–18 semaines","proteine":"17,5 %","energie":"2 850 kcal/kg","conditionnement":"Sac 50 kg (laminé tropicalisé)"},
+    {"slug":"aliment_ponte_1_maridav_ci","nom":"Aliment Ponte Phase 1","filieres":["volailles-ponte"],"transversal":false,"type":"aliment-complet","phase":"ponte-1","age_cible":"entrée en ponte → pic","proteine":"17,5–18 %","energie":"2 780–2 820 kcal/kg","conditionnement":"Sac 50 kg (laminé)"},
+    {"slug":"aliment_ponte_2_maridav_ci","nom":"Aliment Ponte Phase 2","filieres":["volailles-ponte"],"transversal":false,"type":"aliment-complet","phase":"ponte-2","age_cible":"persistance de ponte","proteine":"17 %","energie":"2 750–2 780 kcal/kg","presentation":"granulé","conditionnement":"Sac 50 kg (laminé, rotation FIFO)"}
+  ],
+
+  "concentres": [
+    {"slug":"concentre_chair_31","nom":"Concentré 31 %","filieres":["volailles-chair","volailles-ponte"],"transversal":true,"type":"concentre","taux_inclusion":"31 %","conditionnement":"Sac 50 kg"},
+    {"slug":"chair_12_5","nom":"Concentré 12,5 %","filieres":["volailles-chair","volailles-ponte"],"transversal":true,"type":"concentre","taux_inclusion":"12,5 %","conditionnement":"Sac 50 kg"},
+    {"slug":"chair_05","nom":"Concentré 5 %","filieres":["volailles-chair","volailles-ponte"],"transversal":true,"type":"concentre","taux_inclusion":"5 %","conditionnement":"Sac 50 kg"},
+    {"slug":"maxiponte_5","nom":"Maxi Ponte 5 %","filieres":["volailles-ponte"],"transversal":false,"type":"concentre","taux_inclusion":"5 %","conditionnement":"Sac 50 kg"}
+  ],
+
+  "macro_premix": [
+    {"slug":"macropremix_chair_1_7","nom":"Macro-Prémix 1,7 %","filieres":["volailles-chair","volailles-ponte"],"transversal":true,"type":"macro-premix","taux_inclusion":"1,7 %","conditionnement":"Sac 17 kg"},
+    {"slug":"macropremix_chair_2%","nom":"Macro-Prémix 2 %","filieres":["volailles-chair","volailles-ponte"],"transversal":true,"type":"macro-premix","taux_inclusion":"2 %","conditionnement":"Sac ~17 kg (à confirmer)"},
+    {"slug":"macropremix_pondeuses_1_7","nom":"Macro-Prémix Pondeuses 1,7 %","filieres":["volailles-ponte"],"transversal":false,"type":"macro-premix","taux_inclusion":"1,7 %","conditionnement":"Sac 17 kg"},
+    {"slug":"macropremix_pondeuse_2%","nom":"Macro-Prémix Pondeuses 2 %","filieres":["volailles-ponte"],"transversal":false,"type":"macro-premix","taux_inclusion":"2 %","conditionnement":"Sac ~17 kg (à confirmer)"}
+  ],
+
+  "premix": [
+    {"slug":"premix_chair_0_25_maridav_ci","nom":"Prémix 0,25 %","filieres":["volailles-chair","volailles-ponte"],"transversal":true,"type":"premix","taux_inclusion":"0,25 %","conditionnement":"Sac 25 kg"},
+    {"slug":"premix_ponte_0_25_maridav_ci","nom":"Prémix Ponte 0,25 %","filieres":["volailles-ponte"],"transversal":false,"type":"premix","taux_inclusion":"0,25 %","conditionnement":"Sac 25 kg"}
+  ],
+
+  "additifs": [
+    {"slug":"biotronic_top3_maridav_ci","nom":"Biotronic Top 3","filieres":["volailles-ponte","porcs"],"transversal":true,"type":"additif","fonction":"santé intestinale / acidifiant","conditionnement":"Sac 25 kg ou 5 kg"},
+    {"slug":"biotronic_top_liquide_maridav_ci","nom":"Biotronic Top Liquide","filieres":["volailles-ponte","porcs"],"transversal":true,"type":"additif","fonction":"acidifiant eau de boisson","presentation":"liquide"},
+    {"slug":"digestarom_maridav_ci","nom":"Digestarom","filieres":["volailles-ponte","porcs"],"transversal":true,"type":"additif","fonction":"appétence / digestion (phytogénique)","conditionnement":"Sac 20 kg ou seau 5 kg"},
+    {"slug":"mycofix_select_3.0","nom":"Mycofix Select 3.0","filieres":["volailles-ponte","porcs"],"transversal":true,"type":"additif","fonction":"anti-mycotoxines","conditionnement":"Sac 25 kg ou 5 kg"},
+    {"slug":"nutricool_maridav_ci","nom":"Nutricool","filieres":["volailles-ponte","porcs"],"transversal":true,"type":"additif","fonction":"anti-stress thermique","conditionnement":"à compléter (page)"},
+    {"slug":"profish_maridav_ci","nom":"Profish","filieres":["volailles-ponte","porcs"],"transversal":true,"type":"additif","fonction":"concentré protéique (PB ~91 %)","conditionnement":"à compléter (page)"}
+  ]
+}
