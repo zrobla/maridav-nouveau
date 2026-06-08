@@ -1,0 +1,275 @@
+{
+ "_meta": {
+  "description": "Catalogue + contenu éditorial des pages produits PORCS MARIDAV CI. Source UNIQUE du générateur build_maridav.py (registre multi-espèce). Ne pas éditer les .html à la main. Gamme = aliments complets + concentrés (pas de prémix/macro-prémix porcs).",
+  "marque": "MARIDAV Côte d'Ivoire",
+  "espece": "porcs",
+  "piliers": [
+   {
+    "id": "expertise",
+    "icon": "bi-people",
+    "titre": "Expertise & accompagnement",
+    "phrase": "Techniciens MARIDAV sur le terrain : conduite d'engraissement et de maternité, plans de rationnement et suivi des performances."
+   },
+   {
+    "id": "resultats",
+    "icon": "bi-graph-up-arrow",
+    "titre": "Résultats prouvés",
+    "phrase": "Des formulations pensées pour la performance : GMQ, indice de consommation et productivité des truies (chiffres terrain à compléter)."
+   },
+   {
+    "id": "proximite",
+    "icon": "bi-geo-alt",
+    "titre": "Proximité & disponibilité",
+    "phrase": "Réseau de points de vente en Côte d'Ivoire, stock disponible et devis en FCFA sous 24 h."
+   },
+   {
+    "id": "faf",
+    "icon": "bi-sliders",
+    "titre": "Fabrication assistée",
+    "phrase": "Concentrés porcs pour fabriquer votre aliment à partir de vos céréales et maîtriser le coût de la ration."
+   }
+  ],
+  "a_verifier": [
+   "Chiffres résultats (GMQ, indice de consommation, nés-vivants, sevrés/truie/an, ISSF) + témoignages : à fournir par Maridav. NE PAS inventer. Les anciennes pages affichaient '+840 g GMQ / FCR 2,35 / suivis Korhogo 2024' et '10 kg gain porté' — à reconfirmer avant réaffichage.",
+   "Noms de fournisseurs/marques de prémix (DSM/Trouw) retirés des pages (recon §5.6).",
+   "Gamme porcs = aliments complets + concentrés uniquement (pas de prémix/macro-prémix) — confirmé."
+  ]
+ },
+ "aliments_complets": [
+  {
+   "url": "aliment_porc_croissance_maridav_ci.html",
+   "espece": "porcs",
+   "filieres": ["porcs-engraissement"],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "croissance",
+   "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+   "title": "Aliment Porc Croissance — porcs 25–70 kg | MARIDAV Côte d'Ivoire",
+   "description": "Aliment complet croissance pour porcs de 25 à 70 kg, distribué par MARIDAV Côte d'Ivoire : ration tropicalisée pour soutenir le gain de poids et maîtriser l'indice de consommation. Sac 50 kg, appui technique terrain.",
+   "og_title": "Aliment Porc Croissance — porcs 25–70 kg",
+   "og_description": "Aliment complet croissance prêt à l'emploi pour l'engraissement de vos porcs, distribué par MARIDAV CI.",
+   "breadcrumb": [
+    {"name": "Porcs", "url": "porcins_maridav_ci.html"},
+    {"name": "Engraissement", "url": "porcins_maridav_ci.html"},
+    {"name": "Aliment Croissance"}
+   ],
+   "breadcrumb_jsonld": [
+    {"name": "Accueil", "item": "https://maridav.ci/"},
+    {"name": "Porcs", "item": "https://maridav.ci/porcins_maridav_ci.html"},
+    {"name": "Aliment Porc Croissance", "item": "https://maridav.ci/aliment_porc_croissance_maridav_ci.html"}
+   ],
+   "hero": {
+    "eyebrow": "Porcs — Engraissement",
+    "h1": "Aliment Porc <span class=\"accent\">Croissance</span>",
+    "pill": {"icon": "bi-flag", "text": "Croissance — 25 à 70 kg"},
+    "lead": "Formulation <strong>tropicalisée</strong> pour la phase de croissance : convertir efficacement les matières premières locales tout en <em>soutenant le gain de poids</em> et l'homogénéité des bandes. Distribué et accompagné par MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {"b": "16 %", "span": "Protéines brutes"},
+     {"b": "3 200", "span": "kcal/kg (EM)"},
+     {"b": "50 kg", "span": "Sac laminé"},
+     {"b": "25–70 kg", "span": "Croissance"}
+    ],
+    "image_alt": "Aliment Porc Croissance MARIDAV — sacs",
+    "figchip": {"small": "Prêt à l'emploi", "label": "Aliment complet croissance"}
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Bénéfices en phase croissance",
+    "intro": "Une ration de croissance conçue pour le climat ivoirien : soutenir le gain de poids quotidien tout en maîtrisant l'indice de consommation et le confort digestif des porcs.",
+    "cards": [
+     {"icon": "bi-graph-up-arrow", "title": "Gain de poids soutenu", "text": "Profil énergétique et acides aminés optimisés pour un gain de poids régulier en climat chaud."},
+     {"icon": "bi-sliders", "title": "Ration équilibrée", "text": "Apport en lysine, thréonine et valine digestibles pour développer le muscle en limitant le gras dorsal."},
+     {"icon": "bi-droplet", "title": "Confort digestif", "text": "Acidifiants et fibres sélectionnées pour limiter les troubles digestifs et maintenir la consommation."},
+     {"icon": "bi-bullseye", "title": "Homogénéité des bandes", "text": "Granulométrie régulière et formulation stable pour uniformiser les performances de lot."}
+    ]
+   },
+   "usage": {
+    "h2": "Programme conseillé",
+    "steps": [
+     {"title": "≈ 25 kg · Transition", "text": "Transition démarrage → croissance sur 3 jours (mélange progressif), puis bascule à 100 % croissance."},
+     {"title": "25–60 kg · Distribution ad libitum", "text": "Consommation indicative 1,8 – 2,4 kg/porc/jour selon la température ; assurez un abreuvement continu."},
+     {"title": "60–70 kg · Préparation finition", "text": "Introduisez progressivement l'aliment finition pour aligner les carcasses sur l'objectif de vente."}
+    ],
+    "note": "Vérifiez la hauteur des auges et la densité (≈ 0,65 m²/porc minimum). Stocker à l'abri de l'humidité, en suivant la règle FIFO."
+   },
+   "spec": {
+    "kicker": "Garanties nutritionnelles",
+    "h2": "Composition indicative",
+    "rows": [
+     {"k": "Énergie métabolisable (EM)", "v": "3 200 – 3 250 kcal/kg"},
+     {"k": "Protéines brutes", "v": "16 %"},
+     {"k": "Lysine digestible", "v": "0,95 %"},
+     {"k": "Thréonine digestible", "v": "0,62 %"},
+     {"k": "Calcium / Phosphore dispo.", "v": "0,75 % / 0,38 %"},
+     {"k": "Conditionnement", "v": "Sac 50 kg (laminé)"}
+    ]
+   },
+   "crosssell": {
+    "title": "Vous fabriquez votre aliment ?",
+    "text": "Optez pour le <strong>Concentré Porc Croissance 5 %</strong> à mélanger avec vos céréales, plutôt que l'aliment complet prêt à l'emploi.",
+    "link_text": "Voir le concentré",
+    "url": "porc_croissance_05.html"
+   },
+   "faq_intro": "Une question sur la conduite d'engraissement ? ",
+   "faq": [
+    {
+     "q": "Quelle densité d'auge recommandez-vous ?",
+     "a": "Prévoir au minimum 3 cm d'auge par porc, avec environ 12 porcs par point d'alimentation automatique.",
+     "a_short": "Au minimum 3 cm d'auge par porc, ≈ 12 porcs par point d'alimentation automatique."
+    },
+    {
+     "q": "Peut-on ajuster l'énergie de la ration ?",
+     "a": "Oui : nous pouvons adapter l'énergie selon vos objectifs de carcasse. Contactez nos techniciens pour une formulation spécifique.",
+     "a_short": "Oui, l'énergie peut être adaptée selon vos objectifs de carcasse, sur étude technique."
+    },
+    {
+     "q": "Comment suivre la consommation ?",
+     "a": "Utilisez le tableau de consommation fourni par MARIDAV CI et pesez les restes régulièrement afin d'anticiper les dérives de l'indice de consommation.",
+     "a_short": "Avec le tableau MARIDAV et la pesée régulière des restes pour suivre l'indice de consommation."
+    },
+    {
+     "q": "Conditionnement & stockage ?",
+     "a": "Sac de 50 kg laminé. À stocker sur palettes dans un local sec et ventilé, à l'abri des nuisibles, en suivant la règle FIFO.",
+     "a_short": "Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."
+    }
+   ],
+   "related": {
+    "kicker": "Gamme porcs",
+    "cards": [
+     {"tag": "Phase précédente", "title": "Aliment Porc Démarrage", "text": "7–25 kg : sécuriser le post-sevrage et le départ en engraissement.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Porc Démarrage", "url": "aliment_porc_demarrage_maridav_ci.html"},
+     {"tag": "Phase suivante", "title": "Aliment Porc Finition", "text": ">70 kg : préparer les carcasses à l'objectif de vente.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Porc Finition", "url": "aliment_porc_finition_maridav_ci.html"},
+     {"tag": "Je fabrique", "title": "Concentré Porc Croissance 5 %", "text": "Pour fabriquer votre aliment croissance avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré Porc Croissance 5 %", "url": "porc_croissance_05.html"}
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "Parlons de votre élevage",
+    "h2": "Accélérez vos bandes en toute maîtrise",
+    "text": "Nos techniciens cadrent votre engraissement : rationnement, indice de consommation et conduite des bandes. Devis en FCFA sous 24 h."
+   },
+   "jsonld": {
+    "name": "Aliment Porc Croissance",
+    "description": "Aliment complet porcin 25–70 kg distribué par MARIDAV Côte d'Ivoire pour la phase de croissance.",
+    "brand": "MARIDAV Côte d'Ivoire",
+    "sku": "MARIDAV-PORC-CROISSANCE-50KG",
+    "category": "Aliment complet",
+    "audience": "Porcs — Croissance"
+   }
+  },
+  {
+   "url": "aliment_truie_allaitante_maridav_ci.html",
+   "espece": "porcs",
+   "filieres": ["porcs-reproduction"],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "lactation",
+   "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+   "title": "Aliment Truie Allaitante — lactation | MARIDAV Côte d'Ivoire",
+   "description": "Aliment complet pour truie en lactation, distribué par MARIDAV Côte d'Ivoire : ration haute énergie et acides aminés digestibles pour soutenir la production laitière et protéger la condition de la truie. Sac 50 kg.",
+   "og_title": "Aliment Truie Allaitante — lactation",
+   "og_description": "Aliment complet lactation prêt à l'emploi pour soutenir la production laitière de vos truies, distribué par MARIDAV CI.",
+   "breadcrumb": [
+    {"name": "Porcs", "url": "porcins_maridav_ci.html"},
+    {"name": "Reproduction", "url": "porcins_maridav_ci.html"},
+    {"name": "Truie Allaitante"}
+   ],
+   "breadcrumb_jsonld": [
+    {"name": "Accueil", "item": "https://maridav.ci/"},
+    {"name": "Porcs", "item": "https://maridav.ci/porcins_maridav_ci.html"},
+    {"name": "Aliment Truie Allaitante", "item": "https://maridav.ci/aliment_truie_allaitante_maridav_ci.html"}
+   ],
+   "hero": {
+    "eyebrow": "Porcs — Reproduction",
+    "h1": "Aliment Truie <span class=\"accent\">Allaitante</span>",
+    "pill": {"icon": "bi-droplet-half", "text": "Truie allaitante — lactation"},
+    "lead": "Ration <strong>haute énergie</strong> et acides aminés digestibles pour <em>soutenir la production laitière</em> de la truie et protéger sa condition corporelle pendant la lactation. Distribué et accompagné par MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {"b": "18 %", "span": "Protéines brutes"},
+     {"b": "3 300", "span": "kcal/kg (EM)"},
+     {"b": "1,10 %", "span": "Lysine digestible"},
+     {"b": "50 kg", "span": "Sac laminé"}
+    ],
+    "image_alt": "Aliment Truie Allaitante MARIDAV — sacs",
+    "figchip": {"small": "Prêt à l'emploi", "label": "Aliment complet lactation"}
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Bénéfices en lactation",
+    "intro": "Une ration de maternité conçue pour les portées nombreuses : soutenir la production laitière et limiter l'amaigrissement de la truie pour préparer le retour en chaleur.",
+    "cards": [
+     {"icon": "bi-lightning-charge", "title": "Énergie disponible", "text": "Densité énergétique élevée pour soutenir les portées nombreuses sans amaigrir la truie."},
+     {"icon": "bi-droplet-half", "title": "Production laitière", "text": "Acides aminés digestibles (lysine, valine) pour soutenir la quantité et la qualité du lait."},
+     {"icon": "bi-shield-plus", "title": "Soutien immunitaire", "text": "Vitamines, oligo-éléments et antioxydants pour limiter les troubles métaboliques et les mammites."},
+     {"icon": "bi-heart-pulse", "title": "Condition corporelle", "text": "Préserver l'état de la truie pendant la lactation pour faciliter le retour en chaleur après sevrage."}
+    ]
+   },
+   "usage": {
+    "h2": "Programme conseillé",
+    "steps": [
+     {"title": "Pré-mise bas · Montée progressive", "text": "Commencez environ 10 jours avant la mise bas à ≈ 2,5 kg/jour, puis augmentez après la mise bas."},
+     {"title": "J0–J7 · Début de lactation", "text": "Augmentez de ≈ 0,5 kg/jour pour atteindre 6–7 kg/jour selon la taille de la portée."},
+     {"title": "J8 → sevrage · Pic de lait", "text": "Distribuez à volonté (jusqu'à ≈ 9 kg/jour) en fractionnant les repas. Assurez une eau fraîche et abondante (> 15 L/jour)."}
+    ],
+    "note": "Adaptez la ration à l'état corporel et à la taille de portée. Stocker à l'abri de l'humidité, en suivant la règle FIFO."
+   },
+   "spec": {
+    "kicker": "Garanties nutritionnelles",
+    "h2": "Composition indicative",
+    "rows": [
+     {"k": "Énergie métabolisable (EM)", "v": "3 250 – 3 300 kcal/kg"},
+     {"k": "Protéines brutes", "v": "18 %"},
+     {"k": "Lysine digestible", "v": "1,10 %"},
+     {"k": "Valine digestible", "v": "0,90 %"},
+     {"k": "Calcium / Phosphore dispo.", "v": "0,85 % / 0,45 %"},
+     {"k": "Conditionnement", "v": "Sac 50 kg (laminé)"}
+    ]
+   },
+   "crosssell": {
+    "title": "Vous fabriquez votre aliment ?",
+    "text": "Optez pour le <strong>Concentré Truie 5 %</strong> à mélanger avec vos céréales, plutôt que l'aliment complet prêt à l'emploi.",
+    "link_text": "Voir le concentré",
+    "url": "truie_porcs_05.html"
+   },
+   "faq_intro": "Une question sur la conduite de maternité ? ",
+   "faq": [
+    {
+     "q": "Comment ajuster la ration selon la portée ?",
+     "a": "Comptez environ +0,5 kg d'aliment par porcelet au-delà de 10, en surveillant l'état corporel de la truie.",
+     "a_short": "Environ +0,5 kg d'aliment par porcelet au-delà de 10, en surveillant l'état corporel."
+    },
+    {
+     "q": "Peut-on distribuer en plusieurs repas ?",
+     "a": "Oui : nous recommandons 3 à 4 apports par jour pour limiter les refus et soutenir la digestion en pic de lactation.",
+     "a_short": "Oui, 3 à 4 apports par jour pour limiter les refus et soutenir la digestion."
+    },
+    {
+     "q": "Comment préparer le retour en saillie ?",
+     "a": "Réduisez progressivement la ration après le sevrage, puis passez sur un aliment de flushing. Contactez nos techniciens pour le protocole.",
+     "a_short": "Réduire la ration après sevrage, puis passer sur un aliment de flushing (protocole sur demande)."
+    }
+   ],
+   "related": {
+    "kicker": "Gamme porcs",
+    "cards": [
+     {"tag": "Phase précédente", "title": "Aliment Truie Gestante", "text": "Gestation : préparer la truie et la portée à la mise bas.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Truie Gestante", "url": "aliment_truie_gestante.html"},
+     {"tag": "Porcelets", "title": "Milkiwean Eco", "text": "Pré-démarrage : sécuriser le porcelet au sevrage.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Milkiwean Eco", "url": "milkeawean.html"},
+     {"tag": "Je fabrique", "title": "Concentré Truie 5 %", "text": "Pour fabriquer votre aliment truie avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré Truie 5 %", "url": "truie_porcs_05.html"}
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "Parlons de votre élevage",
+    "h2": "Sécurisez vos maternités et vos portées",
+    "text": "Nos techniciens cadrent votre conduite de lactation : rationnement, état corporel et retour en chaleur. Devis en FCFA sous 24 h."
+   },
+   "jsonld": {
+    "name": "Aliment Truie Allaitante",
+    "description": "Aliment complet pour truie en lactation distribué par MARIDAV Côte d'Ivoire pour soutenir la production laitière.",
+    "brand": "MARIDAV Côte d'Ivoire",
+    "sku": "MARIDAV-TRUIE-ALLAITANTE-50KG",
+    "category": "Aliment complet",
+    "audience": "Truies — Lactation"
+   }
+  }
+ ]
+}

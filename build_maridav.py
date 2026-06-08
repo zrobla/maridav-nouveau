@@ -20,7 +20,12 @@ import html
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-DATA = ROOT / "products.json"
+DATA = ROOT / "products.json"            # volailles (source historique)
+PORC_DATA = ROOT / "products-porcs.json"  # porcs
+
+# Registre des sources produits (même schéma). Les pages produits sont générées
+# pour chaque source ; render_page est espèce-agnostique.
+PRODUCT_SOURCES = [DATA, PORC_DATA]
 
 # --------------------------------------------------------------------------- #
 #  Constantes de marque (source unique)                                        #
@@ -1630,8 +1635,11 @@ def seo_gate(pages):
         if name in on_disk and not is_indexable(ROOT / name):
             ok = False
             msgs.append(f"  ✗ sitemap → page non indexable listée : {name}")
-    # 3) toute page volailles (produits + filières + hub) est dans le sitemap
-    vol = [p["url"] for p in iter_products(json.loads(DATA.read_text(encoding="utf-8")))]
+    # 3) toute page générée (produits toutes espèces + filières + hub) est dans le sitemap
+    vol = []
+    for src in PRODUCT_SOURCES:
+        if src.exists():
+            vol += [p["url"] for p in iter_products(json.loads(src.read_text(encoding="utf-8")))]
     vol += [fl["url"] for fl in FILIERES.values()] + [HUB["url"]]
     smnames = {loc.replace(f'{SITE["base"]}/', "") or "index.html" for loc in locs}
     for u in vol:
@@ -1672,18 +1680,21 @@ def main():
     check = "--check" in sys.argv
     data = json.loads(DATA.read_text(encoding="utf-8"))
 
-    # 1) Pages produits
-    products = list(iter_products(data))
+    # 1) Pages produits (toutes espèces)
     written = 0
-    for p in products:
-        html_out = render_page(p)
-        target = ROOT / p["url"]
-        if check:
-            print(f"  [check] {p['url']:48s} {len(html_out):6d} o")
-        else:
-            target.write_text(html_out, encoding="utf-8")
-            print(f"  écrit  {p['url']:48s} {len(html_out):6d} o")
-        written += 1
+    for src in PRODUCT_SOURCES:
+        if not src.exists():
+            continue
+        sdata = json.loads(src.read_text(encoding="utf-8"))
+        for p in iter_products(sdata):
+            html_out = render_page(p)
+            target = ROOT / p["url"]
+            if check:
+                print(f"  [check] {p['url']:48s} {len(html_out):6d} o")
+            else:
+                target.write_text(html_out, encoding="utf-8")
+                print(f"  écrit  {p['url']:48s} {len(html_out):6d} o")
+            written += 1
     print(f"\n{written} page(s) produit générée(s).")
 
     # 2) Pages filière (matrice dérivée de products.json)

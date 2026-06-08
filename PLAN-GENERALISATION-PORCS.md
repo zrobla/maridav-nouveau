@@ -106,6 +106,27 @@
 - **Découpage filière** : ✅ **DÉCIDÉ (2026-06-08)** = **1 page hub porcs à 2 pistes**
   (`porcins_maridav_ci.html` avec track-switch Engraissement / Reproduction).
 
+## ➡️ Avancement
+
+- **Étape 0/1 — fondation + de-risking gate : ✅ FAITE (2026-06-08, non committée).**
+  - `products-porcs.json` créé (schéma identique, `_meta.piliers` décliné porc) avec les
+    **2 produits de référence** : `aliment_porc_croissance` (engraissement) +
+    `aliment_truie_allaitante` (reproduction), contenu **fidèle aux pages existantes**.
+  - `build_maridav.py` généralisé en **registre multi-source** (`PRODUCT_SOURCES`) ;
+    `render_page` réutilisé tel quel ; release-gate SEO étendu à toutes les espèces.
+  - **Gate franchi** : 2 pages porc générées au gabarit `pdp` (1 h1, 3/3 JSON-LD, og=article,
+    0 lien cassé, GPU-safe, rendu desktop OK). **Aucune régression volailles** (diff = 2 pages
+    porc + script + json).
+  - **Décisions d'honnêteté/recon appliquées (à confirmer)** :
+    - **Composition nutritionnelle conservée** (EM, PB, lysine… = specs factuelles).
+    - **Chiffres de performance retirés** (« +840 g GMQ », « FCR 2,35 », « 10 kg gain porté »,
+      « suivis Korhogo 2024 ») → non revérifiables ⇒ en attente données Maridav (slots).
+    - **Noms fournisseurs retirés** (« DSM/Trouw » §5.6) ; **formulaire de capture retiré**
+      (funnel WhatsApp) ; mentions « Mobile Money/RGPD » retirées.
+- **Reste** : 8 autres produits porc (démarrage, finition, truie gestante, Milkiwean,
+  concentrés démarrage/croissance/truie) ; composant `cycle-timeline` 2 pistes ; refonte hub
+  `porcins_maridav_ci.html` ; archivage des premium-old dans `_archive/premium-old-porcs/`.
+
 ## 6) Ensuite — POISSONS (même méthode)
 
 `pisciculture_maridav_ci.html` + gamme `nutra_tilapia_*`, `aquacare`, `profish`… ; cycle =
