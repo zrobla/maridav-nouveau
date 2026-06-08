@@ -205,15 +205,14 @@ cycle »** (mini-frise avec la phase en surbrillance) · **produits de la phase 
 pauvre (« Nous distribuons ce produit pour… », « Autres produits relatifs ») **et liens
 cassés** (`about.php.html`, `contact.php.html`, `anh.php.html`, `macropremix_chair_2%25.html`…).
 
-**Gabarit de référence = `chickcare.html`** — toute page produit doit suivre cette ossature :
-1. Hero produit (nom + badges filière/phase ou taux) · 2. **Bénéfices clés** · 3. **Élevages /
-stades ciblés** · 4. **Tableau de composition indicative** (specs : énergie, protéine, Ca/P…) ·
-5. **Programme / mode d'emploi** (phase ou taux d'inclusion) · 6. **Disponibilité Côte d'Ivoire**
-+ conditionnement · 7. **Briefing express (48 h)** / CTA devis · 8. **FAQ** · 9. **Termes clés**
-· 10. **Produits liés** (phase suivante / même filière) · JSON-LD `Product` valide · 1 `<h1>`.
+> ⚠️ **MISE À JOUR (gabarit) :** le standard n'est plus `chickcare` mais le **nouveau gabarit
+> premium marque Maridav**, documenté dans **`GABARIT-PAGE-PRODUIT.md`**, avec 2 pages de
+> référence livrées : **`concentre_chair_31.html`** (transversal) et
+> **`aliments_chair_finition_maridav_ci.html`** (aliment complet, specs complètes). Blocs
+> obligatoires/optionnels/variables détaillés dans ce fichier. C'est lui qu'on suit désormais.
 
-**8 pages à convertir** (= toute la gamme « Je fabrique » — concentrés/macro-prémix/prémix) :
-`concentre_chair_31` · `chair_12_5` · `chair_05` · `maxiponte_5` · `macropremix_chair_1_7` ·
+**Reste 7 pages à convertir** (= gamme « Je fabrique » ; `concentre_chair_31` ✅ **fait**) :
+`chair_12_5` · `chair_05` · `maxiponte_5` · `macropremix_chair_1_7` ·
 `macropremix_pondeuses_1_7` · `premix_chair_0_25_maridav_ci` · `premix_ponte_0_25_maridav_ci`.
 
 **À traiter dans la même passe :**
@@ -281,12 +280,16 @@ puces ▹, CTA pilule à flèche, sûr GPU mobile : pas de `backdrop-filter`/`:h
 
 0. *(Prérequis — fait cette session)* `products-volailles.json` extrait + modèle de données (§3).
    Reste à compléter `_meta.a_verifier` et homogénéiser la transversalité (§8-8).
-1. 🔴 **PREMIÈRE TÂCHE — Pages produits au standard unique.** Extraire le gabarit
-   `chickcare` en **template réutilisable**, puis **CONVERTIR les 8 pages legacy** (§4.4),
-   **réparer TOUS les liens cassés**, **compléter les 2 stubs**, **renommer**
-   `macropremix_chair_2%.html`. Remplir specs/conditionnement depuis `products-volailles.json`
-   + **enrichir chaque fiche** (mini-frise phase, produits liés, badge transversal).
-   → *Aucune page produit ne reste sur l'ancienne archi ; toutes prêtes à être maillées.*
+1. 🔴 **PREMIÈRE TÂCHE — Pages produits au standard unique.**
+   - ✅ **Gabarit défini** : `GABARIT-PAGE-PRODUIT.md` + 2 pages de référence livrées
+     (`concentre_chair_31`, `aliments_chair_finition`) — committées.
+   - ⏭️ **Convertir les 7 pages legacy restantes** (§4.4) au gabarit + **réparer tous les
+     liens cassés** + **compléter les 2 stubs** + **renommer** `macropremix_chair_2%.html`.
+     Remplir specs/conditionnement depuis `products-volailles.json` ; retirer les blocs
+     optionnels non pertinents (sticker transversalité si mono-filière).
+   - ⏭️ **Mettre à niveau** les pages déjà en chickcare‑template (`aliment_*`, `chickcare`…)
+     vers le nouveau gabarit, pour homogénéité totale.
+   → *Aucune page produit ne reste sur un ancien gabarit ; toutes prêtes à être maillées.*
 2. **Construire les composants IA** (§5) — frise du cycle, mode-switch, tableau filtrable —
    sur la filière pilote (chair).
 3. **Refondre `poulets_chair`** : frise du cycle + mode-switch + tableau « je fabrique » +
