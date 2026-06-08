@@ -381,6 +381,57 @@ PROOF_POINTS = [
 ]
 
 # --------------------------------------------------------------------------- #
+#  Configuration du HUB volailles (volailles.html) — aiguillage + pourquoi      #
+#  + comment ça marche. Pas de témoignage inventé (slot vide tant que Maridav   #
+#  n'a pas fourni de référence réelle).                                          #
+# --------------------------------------------------------------------------- #
+HUB = {
+    "url": "volailles.html",
+    "title": "Volailles — aliments & programmes | MARIDAV Côte d'Ivoire",
+    "description": "Nutrition volailles en Côte d'Ivoire : programmes complets poulets de chair et pondeuses, aliments prêts à l'emploi ou fabrication assistée (FAF), additifs, appui technicien et devis en FCFA sous 24 h.",
+    "eyebrow": "Solutions volailles",
+    "h1": 'Nutrition volailles : <span class="accent">chair & pondeuses</span>, du poussin à la performance',
+    "lead": "Un programme nutritionnel complet pour chaque filière, adapté au climat ivoirien — <strong>prêt à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong>, avec l'appui de nos techniciens sur le terrain.",
+    "image": "maridav_ci_image/especes_maridav_ci/poulets_de_chair_maridav_ci.webp",
+    "image_alt": "Élevage de volailles accompagné par MARIDAV Côte d'Ivoire",
+    "facts": [
+        {"b": "2 filières", "span": "Chair & pondeuses"},
+        {"b": "Prêt ou FAF", "span": "Deux modes de production"},
+        {"b": "24 h", "span": "Devis en FCFA"},
+        {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
+    ],
+    "choices": [
+        {
+            "title": "Poulets de chair",
+            "sub": "Croissance homogène, FCR maîtrisé, carcasses conformes.",
+            "image": "maridav_ci_image/especes_maridav_ci/poulets_de_chair_maridav_ci.webp",
+            "bullets": [
+                "Programme démarrage → croissance → finition",
+                "Concentrés & prémix pour fabriquer votre aliment",
+                "Additifs performance & biosécurité",
+            ],
+            "url": "poulets_chair_maridav_ci.html",
+        },
+        {
+            "title": "Pondeuses",
+            "sub": "Entrée en ponte sécurisée, pic et persistance soutenus.",
+            "image": "maridav_ci_image/especes_maridav_ci/pondeuses_maridav_ci.webp",
+            "bullets": [
+                "Programme poussinière → poulette → ponte",
+                "Concentrés & prémix pour fabriquer votre aliment",
+                "Additifs performance & biosécurité",
+            ],
+            "url": "pondeuses_maridav_ci.html",
+        },
+    ],
+    "steps": [
+        {"title": "Dites-nous votre élevage", "text": "Filière, effectif, âge des bandes et mode de production (prêt à l'emploi ou FAF)."},
+        {"title": "On cadre le programme", "text": "Nos techniciens proposent l'aliment ou la formulation adaptée à chaque phase, et un devis en FCFA."},
+        {"title": "Devis sous 24 h + appui terrain", "text": "Réponse chiffrée sous 24 h, retrait au point de vente le plus proche et suivi de vos performances."},
+    ],
+}
+
+# --------------------------------------------------------------------------- #
 #  CSS des composants de persuasion FILIÈRE (.fl-*) — s'ajoute à HEAD_CSS.      #
 #  Sécurité GPU mobile ≤991px : pas de backdrop-filter, pas de :has(),          #
 #  filtrage par classes JS (.is-hidden/.is-active), ombres/animations allégées. #
@@ -438,7 +489,29 @@ FILIERE_CSS = r"""  <style>
     .fl-tech .tx p{margin:0;color:rgba(255,255,255,.74);font-size:.93rem}
     .fl-tech .ax{display:flex;flex-wrap:wrap;gap:.7rem}
 
+    /* ---- hub: aiguillage filières ---- */
+    .hub-choices{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+    .hub-choice{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+    .hub-choice:hover{transform:translateY(-6px);box-shadow:0 36px 64px -30px rgba(2,12,46,.5)}
+    .hub-choice .vis{height:210px;background-size:cover;background-position:center}
+    .hub-choice .bd{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+    .hub-choice h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.4rem;color:var(--navy);margin:0 0 .35rem}
+    .hub-choice .sub{color:var(--muted);font-size:.92rem;margin:0 0 .9rem}
+    .hub-choice ul{list-style:none;padding:0;margin:0 0 1.1rem}
+    .hub-choice li{display:flex;gap:.55rem;align-items:flex-start;color:var(--ink);font-size:.9rem;margin-bottom:.5rem}
+    .hub-choice li i{color:var(--green);margin-top:.15rem}
+    .hub-choice .ax{margin-top:auto;display:flex;flex-wrap:wrap;gap:.6rem}
+
+    /* ---- hub: comment ça marche (3 étapes) ---- */
+    .hub-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+    .hub-step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);position:relative}
+    .hub-step .num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;font-family:"Fraunces",serif;font-weight:600;display:inline-flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:.8rem}
+    .hub-step h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.1rem;color:var(--navy);margin:0 0 .35rem}
+    .hub-step p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.55}
+
     @media (max-width:991px){
+      .hub-choices,.hub-steps{grid-template-columns:1fr}
+      .hub-choice:hover{transform:none}
       .fl-pillars{grid-template-columns:repeat(2,1fr)}
       .fl-timeline{grid-auto-flow:row;grid-auto-columns:auto}
       .fl-tstep:not(:last-child)::after{content:"\F282";right:auto;left:1.2rem;top:auto;bottom:-.95rem;transform:none}
@@ -1210,6 +1283,162 @@ def render_filiere_page(fl, data):
 """
 
 
+# --------------------------------------------------------------------------- #
+#  Renderer du HUB volailles                                                    #
+# --------------------------------------------------------------------------- #
+def render_hub_hero(h):
+    crumb = (
+        '<a href="index.html">Accueil</a>'
+        ' <span class="mx-1 text-white-50">/</span>\n          '
+        '<span class="text-white-50">Volailles</span>'
+    )
+    return f"""    <!-- HERO HUB -->
+    <section class="pdp-hero">
+      <div class="container">
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          {crumb}
+        </nav>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="pdp-eyebrow pdp-reveal d1">{h["eyebrow"]}</span>
+            <h1 class="pdp-reveal d1">{h["h1"]}</h1>
+            <p class="pdp-lead pdp-reveal d2">{h["lead"]}</p>
+            <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
+              <a class="btn-pill btn-green" href="#filieres">Choisir ma filière <i class="bi bi-arrow-down"></i></a>
+              <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
+            </div>
+            <div class="pdp-facts pdp-reveal d4">
+              {render_facts(h["facts"])}
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="pdp-figure pdp-reveal d2 mb-0">
+              <img src="{h["image"]}" alt="{h["image_alt"]}">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_hub_choices(h):
+    cards = []
+    for c in h["choices"]:
+        bullets = "\n              ".join(
+            f'<li><i class="bi bi-check-circle-fill"></i><span>{b}</span></li>' for b in c["bullets"]
+        )
+        cards.append(f"""<article class="hub-choice">
+            <div class="vis" style="background-image:url('{c["image"]}')" role="img" aria-label="{c["title"]}"></div>
+            <div class="bd">
+              <h3>{c["title"]}</h3>
+              <p class="sub">{c["sub"]}</p>
+              <ul>
+              {bullets}
+              </ul>
+              <div class="ax">
+                <a class="btn-pill btn-green" href="{c["url"]}">Voir la gamme <i class="bi bi-arrow-right"></i></a>
+                <a class="btn-line" href="contact.html">Demander un devis</a>
+              </div>
+            </div>
+          </article>""")
+    cards_html = "\n          ".join(cards)
+    return f"""    <!-- AIGUILLAGE FILIÈRES -->
+    <section class="pdp-sec" id="filieres">
+      <div class="container">
+        <div class="text-center mb-4">
+          <span class="pdp-kicker">Choisissez votre filière</span>
+          <h2 class="pdp-h2">Deux programmes, une même exigence</h2>
+        </div>
+        <div class="hub-choices">
+          {cards_html}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_hub_steps(h):
+    steps = []
+    for i, s in enumerate(h["steps"], 1):
+        steps.append(
+            f'<div class="hub-step"><span class="num">{i}</span>'
+            f'<h3>{s["title"]}</h3><p>{s["text"]}</p></div>'
+        )
+    steps_html = "\n          ".join(steps)
+    return f"""    <!-- COMMENT ÇA MARCHE -->
+    <section class="pdp-sec pt-0" id="comment">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">Comment ça marche</span>
+          <h2 class="pdp-h2">De votre élevage au devis, en 3 étapes</h2>
+        </div>
+        <div class="hub-steps">
+          {steps_html}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_hub_jsonld(h):
+    url = f'{SITE["base"]}/{h["url"]}'
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f'{SITE["base"]}/'},
+            {"@type": "ListItem", "position": 2, "name": "Volailles", "item": url},
+        ],
+    }
+    itemlist = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": h["title"],
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": c["title"], "url": f'{SITE["base"]}/{c["url"]}'}
+            for i, c in enumerate(h["choices"], 1)
+        ],
+    }
+    dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+    return f"""  <script type="application/ld+json">
+  {dump(breadcrumb)}
+  </script>
+  <script type="application/ld+json">
+  {dump(itemlist)}
+  </script>"""
+
+
+def render_hub_page(h, data):
+    piliers = data["_meta"]["piliers"]
+    sections = [
+        render_hub_hero(h),
+        render_hub_choices(h),
+        render_pillars(piliers),
+        render_hub_steps(h),
+        render_proofbar(),
+        render_techcta(),
+    ]
+    main = "\n\n".join(s for s in sections if s)
+    return f"""{render_filiere_head(h)}
+<body class="pdp">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+{NAVBAR}
+
+  <main id="main">
+{main}
+  </main>
+
+{FOOTER}
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.min.js" defer></script>
+{render_hub_jsonld(h)}
+  <script src="assets/js/site-crm-bridge.js" defer></script>
+</body>
+</html>
+"""
+
+
 def main():
     check = "--check" in sys.argv
     data = json.loads(DATA.read_text(encoding="utf-8"))
@@ -1242,6 +1471,15 @@ def main():
             print(f"  écrit  {fl['url']:48s} {len(html_out):6d} o ({n} produits)")
         fwritten += 1
     print(f"{fwritten} page(s) filière générée(s).")
+
+    # 3) Hub volailles
+    hub_out = render_hub_page(HUB, data)
+    if check:
+        print(f"  [check] {HUB['url']:48s} {len(hub_out):6d} o (hub)")
+    else:
+        (ROOT / HUB["url"]).write_text(hub_out, encoding="utf-8")
+        print(f"  écrit  {HUB['url']:48s} {len(hub_out):6d} o (hub)")
+    print("1 hub généré.")
 
 
 if __name__ == "__main__":
