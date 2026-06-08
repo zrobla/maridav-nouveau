@@ -964,6 +964,947 @@
         "category": "Concentré protéique",
         "audience": "Volailles — poulets de chair & pondeuses"
       }
+    },
+    {
+      "url": "chair_12_5.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair", "volailles-ponte"],
+      "transversal": true,
+      "type": "concentre",
+      "taux_inclusion": "12,5 %",
+      "image": "maridav_ci_image/concentres/hendrix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/concentres/hendrix.webp",
+      "title": "Concentré protéique 12,5 % — chair & pondeuses | MARIDAV",
+      "description": "Concentré protéique 12,5 % distribué par MARIDAV Côte d’Ivoire : base de fabrication d’aliment pour poulets de chair et pondeuses, à incorporer avec vos céréales. Transversal, sac 50 kg, appui technique terrain.",
+      "og_title": "Concentré protéique 12,5 % — chair & pondeuses",
+      "og_description": "Concentré protéique pour fabriquer vos aliments chair et pondeuses en valorisant vos céréales, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Concentré 12,5 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Concentré 12,5 %", "item": "https://maridav.ci/chair_12_5.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Concentré protéique",
+        "h1": "Concentré protéique <span class=\"accent\">12,5 %</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — poulets de chair &amp; pondeuses"},
+        "lead": "Concentré à <strong>taux d’incorporation intermédiaire</strong> : vous valorisez davantage vos céréales locales tout en gardant une formulation rigoureuse. La voie idéale pour <em>maîtriser le coût</em> de ration sans renoncer à la qualité. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "12,5 %", "span": "Taux d’incorporation"},
+          {"b": "50 kg", "span": "Sac standard"},
+          {"b": "Chair &amp; Ponte", "span": "Deux filières"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Concentré protéique 12,5 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Concentré protéique"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce concentré",
+        "intro": "Un taux intermédiaire qui laisse plus de place à vos matières premières : plus d’autonomie sur le coût, sans renoncer à la rigueur de formulation.",
+        "cards": [
+          {"icon": "bi-coin", "title": "Coût de ration maîtrisé", "text": "Vous incorporez davantage de céréales locales : vous gardez la main sur le prix de revient."},
+          {"icon": "bi-patch-check", "title": "Qualité protéique", "text": "Une base formulée avec rigueur pour sécuriser l’apport en acides aminés malgré un taux plus bas."},
+          {"icon": "bi-arrow-left-right", "title": "Transversal chair &amp; ponte", "text": "Une même base pour vos poulets de chair et vos pondeuses, selon le programme."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plans de formulation et suivi des performances par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Définir la formule cible", "text": "Choisissez la filière et la phase visée ; nos techniciens cadrent la formule selon vos matières premières."},
+          {"title": "Incorporer le concentré", "text": "Mélangez le concentré 12,5 % avec vos céréales et sources d’énergie, au taux du programme MARIDAV."},
+          {"title": "Contrôler &amp; ajuster", "text": "Vérifiez l’homogénéité du mélange, suivez les performances et ajustez avec votre technicien."}
+        ],
+        "note": "Stocker au sec, ventilé, à l’abri des nuisibles (règle FIFO). Produit non médicamenteux."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Concentré protéique"},
+          {"k": "Filières", "v": "Chair &amp; pondeuses"},
+          {"k": "Mode d’emploi", "v": "À mélanger avec céréales (FAF)"},
+          {"k": "Taux d’incorporation", "v": "12,5 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 50 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets</strong> prêts à l’emploi, par phase de croissance.",
+        "link_text": "Voir les aliments complets",
+        "url": "poulets_chair_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur le taux d’incorporation ? ",
+      "faq": [
+        {"q": "Quelle différence avec le concentré 31 % ?", "a": "Le 12,5 % s’incorpore à plus faible taux : vous mettez plus de vos propres céréales, donc plus d’autonomie sur le coût, mais une formulation plus exigeante. Nos techniciens vous guident.", "a_short": "Le 12,5 % s’incorpore à plus faible taux : plus de céréales propres, formulation plus exigeante."},
+        {"q": "Pour quelles filières ?", "a": "Il est <strong>transversal</strong> : utilisable pour les poulets de chair et pour les pondeuses, selon le programme de formulation.", "a_short": "Transversal : poulets de chair et pondeuses."},
+        {"q": "À quel taux l’incorporer ?", "a": "Autour de 12,5 % selon la filière, la phase et vos matières premières ; un plan de formulation est fourni par nos techniciens.", "a_short": "Autour de 12,5 % selon filière, phase et matières premières."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Taux d’incorporation plus élevé, moins de céréales à ajouter.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Concentré", "title": "Concentré 5 %", "text": "Taux minimal pour les fabricants les plus autonomes.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 5 %", "url": "chair_05.html"},
+          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Un plan de formulation adapté à vos matières premières",
+        "text": "Nos techniciens cadrent votre formule et le bon taux d’incorporation. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Concentré protéique 12,5 %",
+        "description": "Concentré protéique distribué par MARIDAV Côte d’Ivoire pour la fabrication d’aliments destinés aux poulets de chair et aux pondeuses (taux d’incorporation 12,5 %).",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-CONCENTRE-12-5-50KG",
+        "category": "Concentré protéique",
+        "audience": "Volailles — poulets de chair & pondeuses"
+      }
+    },
+    {
+      "url": "chair_05.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair", "volailles-ponte"],
+      "transversal": true,
+      "type": "concentre",
+      "taux_inclusion": "5 %",
+      "image": "maridav_ci_image/concentres/hendrix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/concentres/hendrix.webp",
+      "title": "Concentré protéique 5 % — chair & pondeuses | MARIDAV",
+      "description": "Concentré protéique 5 % distribué par MARIDAV Côte d’Ivoire : taux d’incorporation minimal pour les fabricants autonomes, chair et pondeuses. Transversal, sac 50 kg, appui technique terrain.",
+      "og_title": "Concentré protéique 5 % — chair & pondeuses",
+      "og_description": "Concentré à taux minimal pour les éleveurs les plus autonomes en fabrication d’aliment, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Concentré 5 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Concentré 5 %", "item": "https://maridav.ci/chair_05.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Concentré protéique",
+        "h1": "Concentré protéique <span class=\"accent\">5 %</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — poulets de chair &amp; pondeuses"},
+        "lead": "Le concentré à <strong>taux minimal</strong> pour les éleveurs les plus autonomes : vous valorisez au maximum vos matières premières et pilotez finement votre coût de ration. Une voie exigeante, sécurisée par l’appui formulation MARIDAV. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "5 %", "span": "Taux d’incorporation"},
+          {"b": "50 kg", "span": "Sac standard"},
+          {"b": "Chair &amp; Ponte", "span": "Deux filières"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Concentré protéique 5 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Concentré protéique"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce concentré",
+        "intro": "Le taux le plus bas de la gamme : l’autonomie maximale pour qui maîtrise déjà sa fabrication d’aliment, avec la sécurité d’une formulation suivie.",
+        "cards": [
+          {"icon": "bi-coin", "title": "Coût optimisé", "text": "Vous incorporez un maximum de vos propres matières premières pour piloter finement le prix de revient."},
+          {"icon": "bi-sliders", "title": "Autonomie de fabrication", "text": "Pensé pour les éleveurs équipés et expérimentés en fabrication à la ferme."},
+          {"icon": "bi-arrow-left-right", "title": "Transversal chair &amp; ponte", "text": "Une même base pour vos poulets de chair et vos pondeuses, selon le programme."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plans de formulation et contrôle des performances par nos techniciens, indispensables à ce taux."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Cadrer la formule", "text": "À ce taux, la précision est clé : nos techniciens calibrent la formule selon vos matières premières et la phase."},
+          {"title": "Incorporer le concentré", "text": "Mélangez le concentré 5 % à vos céréales et compléments, au taux exact du programme MARIDAV."},
+          {"title": "Contrôler &amp; ajuster", "text": "Surveillez l’homogénéité et les performances ; ajustez avec votre technicien à chaque lot."}
+        ],
+        "note": "Formulation exigeante à ce taux : appui technicien recommandé. Stocker au sec (FIFO)."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Concentré protéique"},
+          {"k": "Filières", "v": "Chair &amp; pondeuses"},
+          {"k": "Mode d’emploi", "v": "À mélanger avec céréales (FAF)"},
+          {"k": "Taux d’incorporation", "v": "5 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 50 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets</strong> prêts à l’emploi, par phase de croissance.",
+        "link_text": "Voir les aliments complets",
+        "url": "poulets_chair_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur ce concentré ? ",
+      "faq": [
+        {"q": "À qui s’adresse le concentré 5 % ?", "a": "Aux éleveurs autonomes et équipés en fabrication d’aliment, qui veulent valoriser au maximum leurs matières premières. L’appui d’un technicien est recommandé.", "a_short": "Aux éleveurs autonomes et équipés en fabrication d’aliment."},
+        {"q": "Pour quelles filières ?", "a": "Il est <strong>transversal</strong> : utilisable pour les poulets de chair et pour les pondeuses, selon le programme.", "a_short": "Transversal : poulets de chair et pondeuses."},
+        {"q": "Pourquoi l’appui technique est-il important ?", "a": "À 5 %, la marge d’erreur sur la formule est faible : un plan de formulation précis et un suivi sécurisent les performances.", "a_short": "À 5 %, la marge d’erreur est faible : plan de formulation et suivi sécurisent les performances."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Concentré", "title": "Concentré 12,5 %", "text": "Taux intermédiaire, formulation plus accessible.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 12,5 %", "url": "chair_12_5.html"},
+          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Taux élevé, moins de céréales à ajouter.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Prémix", "title": "Prémix 0,25 %", "text": "Prémix vitamino-minéral pour formulations avancées.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Prémix", "url": "premix_chair_0_25_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Maîtrisez votre fabrication d’aliment",
+        "text": "Nos techniciens calibrent votre formule à 5 % et suivent vos performances. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Concentré protéique 5 %",
+        "description": "Concentré protéique distribué par MARIDAV Côte d’Ivoire pour la fabrication d’aliments destinés aux poulets de chair et aux pondeuses (taux d’incorporation 5 %).",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-CONCENTRE-5-50KG",
+        "category": "Concentré protéique",
+        "audience": "Volailles — poulets de chair & pondeuses"
+      }
+    },
+    {
+      "url": "maxiponte_5.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "concentre",
+      "taux_inclusion": "5 %",
+      "image": "maridav_ci_image/concentres/hendrix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/concentres/hendrix.webp",
+      "title": "Maxi Ponte 5 % — concentré pondeuses | MARIDAV",
+      "description": "Maxi Ponte, concentré 5 % spécifique pondeuses distribué par MARIDAV Côte d’Ivoire : fabriquer son aliment de ponte avec un apport calcique adapté à la coquille. Sac 50 kg, appui technique terrain.",
+      "og_title": "Maxi Ponte 5 % — concentré pondeuses",
+      "og_description": "Concentré 5 % dédié aux pondeuses pour fabriquer votre aliment de ponte, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "Maxi Ponte 5 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "Maxi Ponte 5 %", "item": "https://maridav.ci/maxiponte_5.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Concentré pondeuses",
+        "h1": "Maxi Ponte <span class=\"accent\">5 %</span>",
+        "pill": {"icon": "bi-percent", "text": "Taux d’incorporation 5 %"},
+        "lead": "Concentré <strong>spécifique pondeuses</strong> à incorporer à 5 % : fabriquez votre aliment de ponte en valorisant vos céréales, avec un <em>apport adapté à la coquille</em> et au maintien du taux de ponte. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "5 %", "span": "Taux d’incorporation"},
+          {"b": "50 kg", "span": "Sac standard"},
+          {"b": "Ponte", "span": "Filière dédiée"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Maxi Ponte 5 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Concentré pondeuses"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi Maxi Ponte",
+        "intro": "Un concentré pensé pour la pondeuse en fabrication maison : valoriser ses céréales tout en couvrant les besoins spécifiques de la ponte.",
+        "cards": [
+          {"icon": "bi-egg", "title": "Spécifique ponte", "text": "Profil adapté aux besoins de la poule pondeuse, notamment pour la qualité de coquille."},
+          {"icon": "bi-coin", "title": "Coût de ration maîtrisé", "text": "Vous incorporez vos céréales locales pour piloter le prix de revient de l’aliment de ponte."},
+          {"icon": "bi-gem", "title": "Qualité de coquille", "text": "Apport minéral pensé pour soutenir la solidité de coquille tout au long du cycle."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plan de formulation ponte et suivi du taux de ponte par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Cadrer la formule ponte", "text": "Nos techniciens calibrent la formule selon la phase de ponte et vos matières premières."},
+          {"title": "Incorporer à 5 %", "text": "Mélangez Maxi Ponte à 5 % avec vos céréales et le calcium, au taux du programme MARIDAV."},
+          {"title": "Suivre la ponte", "text": "Surveillez le taux de ponte, le poids d’œuf et la qualité de coquille ; ajustez avec votre technicien."}
+        ],
+        "note": "Apport en calcium déterminant en ponte. Stocker au sec, ventilé (règle FIFO)."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Concentré pondeuses"},
+          {"k": "Filière", "v": "Pondeuses"},
+          {"k": "Mode d’emploi", "v": "À mélanger avec céréales (FAF)"},
+          {"k": "Taux d’incorporation", "v": "5 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 50 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets pondeuses</strong> prêts à l’emploi, par phase du cycle.",
+        "link_text": "Voir les aliments pondeuses",
+        "url": "pondeuses_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur Maxi Ponte ? ",
+      "faq": [
+        {"q": "Qu’est-ce que Maxi Ponte 5 % ?", "a": "Un concentré spécifique pondeuses à incorporer à 5 % pour fabriquer votre aliment de ponte en valorisant vos céréales.", "a_short": "Un concentré pondeuses à incorporer à 5 % pour fabriquer son aliment de ponte."},
+        {"q": "En quoi diffère-t-il d’un concentré transversal ?", "a": "Il est dédié à la pondeuse : son profil couvre les besoins spécifiques de la ponte, notamment pour la qualité de coquille.", "a_short": "Dédié pondeuses : profil adapté aux besoins de la ponte et à la coquille."},
+        {"q": "Faut-il ajouter du calcium ?", "a": "La conduite en ponte demande un apport calcique maîtrisé ; nos techniciens calibrent la formule complète avec vous.", "a_short": "Oui, l’apport calcique est maîtrisé dans la formule, calibrée avec nos techniciens."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Concentré transversal chair & ponte, taux élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Macro-prémix", "title": "Macro-Prémix Pondeuses 1,7 %", "text": "Complément vitamines & minéraux pour la ponte.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix Pondeuses", "url": "macropremix_pondeuses_1_7.html"},
+          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Fabriquez votre aliment de ponte",
+        "text": "Nos techniciens cadrent votre formule ponte et suivent vos performances. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Maxi Ponte 5 %",
+        "description": "Concentré 5 % spécifique pondeuses distribué par MARIDAV Côte d’Ivoire pour la fabrication d’aliment de ponte à la ferme.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-MAXIPONTE-5-50KG",
+        "category": "Concentré protéique",
+        "audience": "Pondeuses — fabrication d’aliment"
+      }
+    }
+  ],
+
+  "macro_premix": [
+    {
+      "url": "macropremix_chair_1_7.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair", "volailles-ponte"],
+      "transversal": true,
+      "type": "macro-premix",
+      "taux_inclusion": "1,7 %",
+      "image": "maridav_ci_image/macro_premix/broiler-premix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/macro_premix/broiler-premix.webp",
+      "title": "Macro-Prémix 1,7 % — chair & pondeuses | MARIDAV",
+      "description": "Macro-prémix 1,7 % distribué par MARIDAV Côte d’Ivoire : complément vitamines, minéraux et acides aminés pour fabriquer votre aliment chair ou pondeuse. Transversal, sac 17 kg, appui technique terrain.",
+      "og_title": "Macro-Prémix 1,7 % — chair & pondeuses",
+      "og_description": "Macro-prémix pour compléter vos formules chair et pondeuse, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Macro-Prémix 1,7 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Macro-Prémix 1,7 %", "item": "https://maridav.ci/macropremix_chair_1_7.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Macro-prémix",
+        "h1": "Macro-Prémix <span class=\"accent\">1,7 %</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — poulets de chair &amp; pondeuses"},
+        "lead": "Complément <strong>vitamines, minéraux et acides aminés</strong> à incorporer à 1,7 % : pour les éleveurs qui apportent déjà leurs sources de protéines et veulent <em>sécuriser l’équilibre</em> de leur formule. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "1,7 %", "span": "Taux d’incorporation"},
+          {"b": "17 kg", "span": "Sac standard"},
+          {"b": "Chair &amp; Ponte", "span": "Deux filières"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Macro-Prémix 1,7 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Macro-prémix"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce macro-prémix",
+        "intro": "Le complément qui sécurise l’équilibre vitamino-minéral et en acides aminés de votre formule, pour qui maîtrise déjà l’apport protéique.",
+        "cards": [
+          {"icon": "bi-capsule", "title": "Équilibre sécurisé", "text": "Vitamines, minéraux et acides aminés calibrés pour compléter votre formule maison."},
+          {"icon": "bi-coin", "title": "Coût maîtrisé", "text": "À faible taux d’incorporation, pour les éleveurs qui apportent déjà leurs sources de protéines."},
+          {"icon": "bi-arrow-left-right", "title": "Transversal chair &amp; ponte", "text": "Un même complément pour vos formules chair et pondeuse, selon le programme."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plan de formulation complet et suivi des performances par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Construire la formule", "text": "Avec votre technicien, intégrez vos sources d’énergie et de protéines, puis le macro-prémix au taux cible."},
+          {"title": "Incorporer à 1,7 %", "text": "Mélangez le macro-prémix à 1,7 % à l’ensemble pour un mélange homogène."},
+          {"title": "Contrôler &amp; ajuster", "text": "Vérifiez l’homogénéité, suivez les performances et ajustez avec votre technicien."}
+        ],
+        "note": "Mélange homogène indispensable à faible taux. Stocker au sec, ventilé (règle FIFO)."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Macro-prémix (vitamines, minéraux, AA)"},
+          {"k": "Filières", "v": "Chair &amp; pondeuses"},
+          {"k": "Mode d’emploi", "v": "À mélanger avec céréales + protéines (FAF)"},
+          {"k": "Taux d’incorporation", "v": "1,7 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 17 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets</strong> prêts à l’emploi, par phase de croissance.",
+        "link_text": "Voir les aliments complets",
+        "url": "poulets_chair_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur le macro-prémix ? ",
+      "faq": [
+        {"q": "Quelle différence entre concentré et macro-prémix ?", "a": "Le concentré apporte aussi de la protéine ; le macro-prémix complète surtout en vitamines, minéraux et acides aminés, à plus faible taux. Le choix dépend de vos matières premières.", "a_short": "Le concentré apporte de la protéine ; le macro-prémix complète surtout vitamines, minéraux et AA."},
+        {"q": "Pour quelles filières ?", "a": "Il est <strong>transversal</strong> : utilisable pour les poulets de chair et pour les pondeuses, selon le programme.", "a_short": "Transversal : poulets de chair et pondeuses."},
+        {"q": "À quel taux l’incorporer ?", "a": "Autour de 1,7 % selon la filière, la phase et le reste de votre formule ; un plan est fourni par nos techniciens.", "a_short": "Autour de 1,7 % selon filière, phase et formule."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 17 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 17 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Macro-prémix", "title": "Macro-Prémix 2 %", "text": "Variante à 2 % d’incorporation.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix 2 %", "url": "macropremix_chair_2pct.html"},
+          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Apporte aussi la protéine, taux plus élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Prémix", "title": "Prémix 0,25 %", "text": "Prémix vitamino-minéral, taux très bas.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Prémix", "url": "premix_chair_0_25_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Complétez votre formule en toute sécurité",
+        "text": "Nos techniciens construisent votre formule complète autour du macro-prémix. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Macro-Prémix 1,7 %",
+        "description": "Macro-prémix (vitamines, minéraux, acides aminés) distribué par MARIDAV Côte d’Ivoire pour compléter les formules d’aliment chair et pondeuse (taux 1,7 %).",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-MACROPREMIX-1-7-17KG",
+        "category": "Macro-prémix",
+        "audience": "Volailles — poulets de chair & pondeuses"
+      }
+    },
+    {
+      "url": "macropremix_chair_2pct.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair", "volailles-ponte"],
+      "transversal": true,
+      "type": "macro-premix",
+      "taux_inclusion": "2 %",
+      "image": "maridav_ci_image/macro_premix/macro-premix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/macro_premix/macro-premix.webp",
+      "title": "Macro-Prémix 2 % — chair & pondeuses | MARIDAV",
+      "description": "Macro-prémix 2 % distribué par MARIDAV Côte d’Ivoire : complément vitamines, minéraux et acides aminés à incorporer à 2 % pour vos formules chair et pondeuse. Transversal, sac 17 kg, appui technique terrain.",
+      "og_title": "Macro-Prémix 2 % — chair & pondeuses",
+      "og_description": "Macro-prémix à 2 % pour compléter vos formules chair et pondeuse, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Macro-Prémix 2 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Macro-Prémix 2 %", "item": "https://maridav.ci/macropremix_chair_2pct.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Macro-prémix",
+        "h1": "Macro-Prémix <span class=\"accent\">2 %</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — poulets de chair &amp; pondeuses"},
+        "lead": "Complément <strong>vitamines, minéraux et acides aminés</strong> à incorporer à 2 % : une couverture renforcée pour sécuriser l’équilibre de votre formule maison, chair ou pondeuse. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "2 %", "span": "Taux d’incorporation"},
+          {"b": "17 kg", "span": "Sac standard"},
+          {"b": "Chair &amp; Ponte", "span": "Deux filières"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Macro-Prémix 2 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Macro-prémix"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce macro-prémix",
+        "intro": "La variante à 2 % : une couverture vitamino-minérale et en acides aminés renforcée pour votre formule maison.",
+        "cards": [
+          {"icon": "bi-capsule", "title": "Couverture renforcée", "text": "Vitamines, minéraux et acides aminés à 2 % pour sécuriser l’équilibre de la formule."},
+          {"icon": "bi-coin", "title": "Coût maîtrisé", "text": "Pour les éleveurs qui apportent déjà leurs sources de protéines et d’énergie."},
+          {"icon": "bi-arrow-left-right", "title": "Transversal chair &amp; ponte", "text": "Un même complément pour vos formules chair et pondeuse, selon le programme."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plan de formulation complet et suivi des performances par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Construire la formule", "text": "Avec votre technicien, intégrez vos sources d’énergie et de protéines, puis le macro-prémix au taux cible."},
+          {"title": "Incorporer à 2 %", "text": "Mélangez le macro-prémix à 2 % à l’ensemble pour un mélange homogène."},
+          {"title": "Contrôler &amp; ajuster", "text": "Vérifiez l’homogénéité, suivez les performances et ajustez avec votre technicien."}
+        ],
+        "note": "Mélange homogène indispensable à faible taux. Stocker au sec, ventilé (règle FIFO)."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Macro-prémix (vitamines, minéraux, AA)"},
+          {"k": "Filières", "v": "Chair &amp; pondeuses"},
+          {"k": "Mode d’emploi", "v": "À mélanger avec céréales + protéines (FAF)"},
+          {"k": "Taux d’incorporation", "v": "2 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 17 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets</strong> prêts à l’emploi, par phase de croissance.",
+        "link_text": "Voir les aliments complets",
+        "url": "poulets_chair_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur le macro-prémix 2 % ? ",
+      "faq": [
+        {"q": "Quelle différence avec le macro-prémix 1,7 % ?", "a": "Le 2 % offre une couverture un peu plus large à l’incorporation ; le choix entre 1,7 % et 2 % dépend de votre formule et de vos matières premières. Nos techniciens vous orientent.", "a_short": "Le 2 % offre une couverture un peu plus large ; le choix dépend de la formule."},
+        {"q": "Pour quelles filières ?", "a": "Il est <strong>transversal</strong> : utilisable pour les poulets de chair et pour les pondeuses, selon le programme.", "a_short": "Transversal : poulets de chair et pondeuses."},
+        {"q": "À quel taux l’incorporer ?", "a": "À 2 % selon la filière, la phase et le reste de votre formule ; un plan est fourni par nos techniciens.", "a_short": "À 2 % selon filière, phase et formule."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 17 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 17 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Macro-prémix", "title": "Macro-Prémix 1,7 %", "text": "Variante à 1,7 % d’incorporation.", "img": "maridav_ci_image/macro_premix/broiler-premix.webp", "alt": "Macro-Prémix 1,7 %", "url": "macropremix_chair_1_7.html"},
+          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Apporte aussi la protéine, taux plus élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Prémix", "title": "Prémix 0,25 %", "text": "Prémix vitamino-minéral, taux très bas.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Prémix", "url": "premix_chair_0_25_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Complétez votre formule en toute sécurité",
+        "text": "Nos techniciens construisent votre formule complète autour du macro-prémix. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Macro-Prémix 2 %",
+        "description": "Macro-prémix (vitamines, minéraux, acides aminés) distribué par MARIDAV Côte d’Ivoire pour compléter les formules d’aliment chair et pondeuse (taux 2 %).",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-MACROPREMIX-2-17KG",
+        "category": "Macro-prémix",
+        "audience": "Volailles — poulets de chair & pondeuses"
+      }
+    },
+    {
+      "url": "macropremix_pondeuses_1_7.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "macro-premix",
+      "taux_inclusion": "1,7 %",
+      "image": "maridav_ci_image/macro_premix/macro-premix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/macro_premix/macro-premix.webp",
+      "title": "Macro-Prémix Pondeuses 1,7 % | MARIDAV",
+      "description": "Macro-prémix pondeuses 1,7 % distribué par MARIDAV Côte d’Ivoire : complément vitamines, minéraux et acides aminés dédié à la ponte, à incorporer dans votre formule maison. Sac 17 kg, appui technique terrain.",
+      "og_title": "Macro-Prémix Pondeuses 1,7 %",
+      "og_description": "Macro-prémix dédié pondeuses pour compléter votre formule de ponte, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "Macro-Prémix Pondeuses 1,7 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "Macro-Prémix Pondeuses 1,7 %", "item": "https://maridav.ci/macropremix_pondeuses_1_7.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Macro-prémix pondeuses",
+        "h1": "Macro-Prémix Pondeuses <span class=\"accent\">1,7 %</span>",
+        "pill": {"icon": "bi-percent", "text": "Taux d’incorporation 1,7 %"},
+        "lead": "Complément <strong>dédié à la pondeuse</strong> à incorporer à 1,7 % : vitamines, minéraux et acides aminés adaptés à la ponte, pour <em>compléter votre formule maison</em> et soutenir la qualité de coquille. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "1,7 %", "span": "Taux d’incorporation"},
+          {"b": "17 kg", "span": "Sac standard"},
+          {"b": "Ponte", "span": "Filière dédiée"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Macro-Prémix Pondeuses 1,7 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Macro-prémix ponte"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce macro-prémix ponte",
+        "intro": "Le complément vitamino-minéral pensé pour la pondeuse, à intégrer dans votre formule maison de ponte.",
+        "cards": [
+          {"icon": "bi-egg", "title": "Spécifique ponte", "text": "Profil vitamino-minéral et acides aminés adapté aux besoins de la poule pondeuse."},
+          {"icon": "bi-gem", "title": "Qualité de coquille", "text": "Apport minéral pensé pour soutenir la solidité de coquille tout au long du cycle."},
+          {"icon": "bi-coin", "title": "Coût maîtrisé", "text": "Faible taux d’incorporation, pour les éleveurs qui apportent déjà énergie et protéines."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plan de formulation ponte et suivi du taux de ponte par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Construire la formule ponte", "text": "Avec votre technicien, intégrez énergie, protéines et calcium, puis le macro-prémix au taux cible."},
+          {"title": "Incorporer à 1,7 %", "text": "Mélangez le macro-prémix à 1,7 % à l’ensemble pour un mélange homogène."},
+          {"title": "Suivre la ponte", "text": "Surveillez taux de ponte, poids d’œuf et qualité de coquille ; ajustez avec votre technicien."}
+        ],
+        "note": "Mélange homogène et calcium maîtrisé indispensables. Stocker au sec (FIFO)."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Macro-prémix pondeuses"},
+          {"k": "Filière", "v": "Pondeuses"},
+          {"k": "Mode d’emploi", "v": "À mélanger avec céréales + protéines (FAF)"},
+          {"k": "Taux d’incorporation", "v": "1,7 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 17 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets pondeuses</strong> prêts à l’emploi, par phase du cycle.",
+        "link_text": "Voir les aliments pondeuses",
+        "url": "pondeuses_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur ce macro-prémix ponte ? ",
+      "faq": [
+        {"q": "En quoi est-il spécifique aux pondeuses ?", "a": "Son profil vitamino-minéral et en acides aminés est adapté aux besoins de la ponte, notamment pour la qualité de coquille.", "a_short": "Profil adapté aux besoins de la ponte, notamment la qualité de coquille."},
+        {"q": "Quelle différence avec un concentré ?", "a": "Le macro-prémix complète surtout en vitamines, minéraux et acides aminés ; vous apportez vous-même l’énergie et la protéine. Le concentré apporte aussi la protéine.", "a_short": "Le macro-prémix complète vitamines/minéraux/AA ; vous apportez énergie et protéine."},
+        {"q": "À quel taux l’incorporer ?", "a": "Autour de 1,7 % selon la phase de ponte et le reste de votre formule ; un plan est fourni par nos techniciens.", "a_short": "Autour de 1,7 % selon la phase et la formule."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 17 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 17 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Macro-prémix", "title": "Macro-Prémix Pondeuses 2 %", "text": "Variante à 2 % d’incorporation.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix Pondeuses 2 %", "url": "macropremix_pondeuse_2pct.html"},
+          {"tag": "Concentré", "title": "Maxi Ponte 5 %", "text": "Concentré 5 % spécifique pondeuses.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Maxi Ponte 5 %", "url": "maxiponte_5.html"},
+          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Complétez votre formule de ponte",
+        "text": "Nos techniciens construisent votre formule ponte autour du macro-prémix. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Macro-Prémix Pondeuses 1,7 %",
+        "description": "Macro-prémix pondeuses (vitamines, minéraux, acides aminés) distribué par MARIDAV Côte d’Ivoire pour compléter les formules d’aliment de ponte (taux 1,7 %).",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-MACROPREMIX-PONTE-1-7-17KG",
+        "category": "Macro-prémix",
+        "audience": "Pondeuses — fabrication d’aliment"
+      }
+    },
+    {
+      "url": "macropremix_pondeuse_2pct.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "macro-premix",
+      "taux_inclusion": "2 %",
+      "image": "maridav_ci_image/macro_premix/macro-premix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/macro_premix/macro-premix.webp",
+      "title": "Macro-Prémix Pondeuses 2 % | MARIDAV",
+      "description": "Macro-prémix pondeuses 2 % distribué par MARIDAV Côte d’Ivoire : complément vitamines, minéraux et acides aminés dédié à la ponte, à incorporer à 2 % dans votre formule maison. Sac 17 kg, appui technique terrain.",
+      "og_title": "Macro-Prémix Pondeuses 2 %",
+      "og_description": "Macro-prémix pondeuses à 2 % pour compléter votre formule de ponte, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "Macro-Prémix Pondeuses 2 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "Macro-Prémix Pondeuses 2 %", "item": "https://maridav.ci/macropremix_pondeuse_2pct.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Macro-prémix pondeuses",
+        "h1": "Macro-Prémix Pondeuses <span class=\"accent\">2 %</span>",
+        "pill": {"icon": "bi-percent", "text": "Taux d’incorporation 2 %"},
+        "lead": "Complément <strong>dédié à la pondeuse</strong> à incorporer à 2 % : une couverture renforcée en vitamines, minéraux et acides aminés pour <em>compléter votre formule de ponte</em> et soutenir la qualité de coquille. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "2 %", "span": "Taux d’incorporation"},
+          {"b": "17 kg", "span": "Sac standard"},
+          {"b": "Ponte", "span": "Filière dédiée"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Macro-Prémix Pondeuses 2 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Macro-prémix ponte"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce macro-prémix ponte",
+        "intro": "La variante à 2 % : une couverture vitamino-minérale renforcée pour votre formule maison de ponte.",
+        "cards": [
+          {"icon": "bi-egg", "title": "Spécifique ponte", "text": "Profil vitamino-minéral et acides aminés adapté aux besoins de la poule pondeuse."},
+          {"icon": "bi-gem", "title": "Qualité de coquille", "text": "Apport minéral pensé pour soutenir la solidité de coquille tout au long du cycle."},
+          {"icon": "bi-capsule", "title": "Couverture renforcée", "text": "À 2 % d’incorporation pour sécuriser l’équilibre de la formule de ponte."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plan de formulation ponte et suivi du taux de ponte par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Construire la formule ponte", "text": "Avec votre technicien, intégrez énergie, protéines et calcium, puis le macro-prémix au taux cible."},
+          {"title": "Incorporer à 2 %", "text": "Mélangez le macro-prémix à 2 % à l’ensemble pour un mélange homogène."},
+          {"title": "Suivre la ponte", "text": "Surveillez taux de ponte, poids d’œuf et qualité de coquille ; ajustez avec votre technicien."}
+        ],
+        "note": "Mélange homogène et calcium maîtrisé indispensables. Stocker au sec (FIFO)."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Macro-prémix pondeuses"},
+          {"k": "Filière", "v": "Pondeuses"},
+          {"k": "Mode d’emploi", "v": "À mélanger avec céréales + protéines (FAF)"},
+          {"k": "Taux d’incorporation", "v": "2 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 17 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets pondeuses</strong> prêts à l’emploi, par phase du cycle.",
+        "link_text": "Voir les aliments pondeuses",
+        "url": "pondeuses_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur ce macro-prémix ponte ? ",
+      "faq": [
+        {"q": "Quelle différence avec la version 1,7 % ?", "a": "Le 2 % offre une couverture un peu plus large à l’incorporation ; le choix entre 1,7 % et 2 % dépend de votre formule de ponte. Nos techniciens vous orientent.", "a_short": "Le 2 % offre une couverture un peu plus large ; le choix dépend de la formule."},
+        {"q": "En quoi est-il spécifique aux pondeuses ?", "a": "Son profil vitamino-minéral et en acides aminés est adapté aux besoins de la ponte, notamment pour la qualité de coquille.", "a_short": "Profil adapté aux besoins de la ponte, notamment la qualité de coquille."},
+        {"q": "À quel taux l’incorporer ?", "a": "À 2 % selon la phase de ponte et le reste de votre formule ; un plan est fourni par nos techniciens.", "a_short": "À 2 % selon la phase et la formule."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 17 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 17 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Macro-prémix", "title": "Macro-Prémix Pondeuses 1,7 %", "text": "Variante à 1,7 % d’incorporation.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix Pondeuses 1,7 %", "url": "macropremix_pondeuses_1_7.html"},
+          {"tag": "Concentré", "title": "Maxi Ponte 5 %", "text": "Concentré 5 % spécifique pondeuses.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Maxi Ponte 5 %", "url": "maxiponte_5.html"},
+          {"tag": "Prémix", "title": "Prémix Ponte 0,25 %", "text": "Prémix vitamino-minéral ponte, taux très bas.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Prémix Ponte", "url": "premix_ponte_0_25_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Complétez votre formule de ponte",
+        "text": "Nos techniciens construisent votre formule ponte autour du macro-prémix. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Macro-Prémix Pondeuses 2 %",
+        "description": "Macro-prémix pondeuses (vitamines, minéraux, acides aminés) distribué par MARIDAV Côte d’Ivoire pour compléter les formules d’aliment de ponte (taux 2 %).",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-MACROPREMIX-PONTE-2-17KG",
+        "category": "Macro-prémix",
+        "audience": "Pondeuses — fabrication d’aliment"
+      }
+    }
+  ],
+
+  "premix": [
+    {
+      "url": "premix_chair_0_25_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair", "volailles-ponte"],
+      "transversal": true,
+      "type": "premix",
+      "taux_inclusion": "0,25 %",
+      "image": "maridav_ci_image/macro_premix/macro-premix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/macro_premix/macro-premix.webp",
+      "title": "Prémix 0,25 % — chair & pondeuses | MARIDAV",
+      "description": "Prémix vitamino-minéral 0,25 % distribué par MARIDAV Côte d’Ivoire : cœur vitaminé et minéral pour formulations avancées, chair et pondeuse. Transversal, sac 25 kg, appui technique terrain.",
+      "og_title": "Prémix 0,25 % — chair & pondeuses",
+      "og_description": "Prémix vitamino-minéral à 0,25 % pour formulations avancées chair et pondeuse, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Prémix 0,25 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Prémix 0,25 %", "item": "https://maridav.ci/premix_chair_0_25_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Prémix",
+        "h1": "Prémix <span class=\"accent\">0,25 %</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — poulets de chair &amp; pondeuses"},
+        "lead": "Le <strong>cœur vitaminé et minéral</strong> de votre formule, à incorporer à 0,25 % : pour les fabricants avancés qui formulent finement leur aliment et veulent un <em>noyau vitamino-minéral fiable</em>. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "0,25 %", "span": "Taux d’incorporation"},
+          {"b": "25 kg", "span": "Sac standard"},
+          {"b": "Chair &amp; Ponte", "span": "Deux filières"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Prémix 0,25 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Prémix vitamino-minéral"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce prémix",
+        "intro": "Le noyau vitamino-minéral pour les fabricants avancés : un apport fiable de vitamines et oligo-éléments, à très faible taux d’incorporation.",
+        "cards": [
+          {"icon": "bi-capsule", "title": "Noyau vitaminé fiable", "text": "Vitamines et oligo-éléments concentrés pour le cœur de votre formule maison."},
+          {"icon": "bi-sliders", "title": "Pour formulateurs avancés", "text": "À 0,25 %, destiné aux éleveurs qui maîtrisent énergie, protéines et minéraux majeurs."},
+          {"icon": "bi-arrow-left-right", "title": "Transversal chair &amp; ponte", "text": "Un même noyau pour vos formules chair et pondeuse, selon le programme."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plan de formulation complet et suivi des performances par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Construire la formule complète", "text": "Avec votre technicien, équilibrez énergie, protéines et minéraux majeurs, puis ajoutez le prémix."},
+          {"title": "Incorporer à 0,25 %", "text": "Mélangez le prémix à 0,25 % avec une grande précision pour garantir l’homogénéité."},
+          {"title": "Contrôler &amp; ajuster", "text": "À ce taux, l’homogénéité du mélange est critique : vérifiez et ajustez avec votre technicien."}
+        ],
+        "note": "Précision et homogénéité critiques à 0,25 %. Stocker au sec, ventilé (règle FIFO)."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Prémix vitamino-minéral"},
+          {"k": "Filières", "v": "Chair &amp; pondeuses"},
+          {"k": "Mode d’emploi", "v": "Noyau à intégrer en formulation complète (FAF)"},
+          {"k": "Taux d’incorporation", "v": "0,25 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 25 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets</strong> prêts à l’emploi, par phase de croissance.",
+        "link_text": "Voir les aliments complets",
+        "url": "poulets_chair_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur le prémix ? ",
+      "faq": [
+        {"q": "Quelle différence entre prémix et macro-prémix ?", "a": "Le prémix est le noyau vitamino-minéral, à très faible taux (0,25 %) ; le macro-prémix apporte en plus une part de minéraux/acides aminés à plus fort taux. Le choix dépend de votre niveau de formulation.", "a_short": "Le prémix est le noyau vitamino-minéral à 0,25 % ; le macro-prémix en apporte plus, à plus fort taux."},
+        {"q": "Pour quelles filières ?", "a": "Il est <strong>transversal</strong> : utilisable pour les poulets de chair et pour les pondeuses, selon le programme.", "a_short": "Transversal : poulets de chair et pondeuses."},
+        {"q": "Pourquoi l’homogénéité est-elle critique ?", "a": "À 0,25 %, une faible quantité doit se répartir parfaitement dans toute la ration : un mélange homogène est indispensable. Nos techniciens vous guident.", "a_short": "À 0,25 %, le mélange doit être parfaitement homogène dans toute la ration."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 25 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 25 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Macro-prémix", "title": "Macro-Prémix 1,7 %", "text": "Complément à plus fort taux d’incorporation.", "img": "maridav_ci_image/macro_premix/broiler-premix.webp", "alt": "Macro-Prémix 1,7 %", "url": "macropremix_chair_1_7.html"},
+          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Apporte aussi la protéine, taux élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Le noyau fiable de votre formule",
+        "text": "Nos techniciens construisent votre formule complète autour du prémix. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Prémix 0,25 %",
+        "description": "Prémix vitamino-minéral distribué par MARIDAV Côte d’Ivoire comme noyau de formulation pour aliments chair et pondeuse (taux 0,25 %).",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-PREMIX-0-25-25KG",
+        "category": "Prémix",
+        "audience": "Volailles — poulets de chair & pondeuses"
+      }
+    },
+    {
+      "url": "premix_ponte_0_25_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "premix",
+      "taux_inclusion": "0,25 %",
+      "image": "maridav_ci_image/macro_premix/macro-premix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/macro_premix/macro-premix.webp",
+      "title": "Prémix Ponte 0,25 % | MARIDAV",
+      "description": "Prémix vitamino-minéral ponte 0,25 % distribué par MARIDAV Côte d’Ivoire : noyau vitaminé dédié à la pondeuse pour formulations avancées. Sac 25 kg, appui technique terrain.",
+      "og_title": "Prémix Ponte 0,25 %",
+      "og_description": "Prémix vitamino-minéral dédié pondeuses à 0,25 % pour formulations avancées, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "Prémix Ponte 0,25 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "Prémix Ponte 0,25 %", "item": "https://maridav.ci/premix_ponte_0_25_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Prémix pondeuses",
+        "h1": "Prémix Ponte <span class=\"accent\">0,25 %</span>",
+        "pill": {"icon": "bi-percent", "text": "Taux d’incorporation 0,25 %"},
+        "lead": "Le <strong>noyau vitaminé dédié à la pondeuse</strong>, à incorporer à 0,25 % : pour les fabricants avancés qui formulent finement leur aliment de ponte et veulent un cœur vitamino-minéral <em>adapté à la coquille</em>. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "0,25 %", "span": "Taux d’incorporation"},
+          {"b": "25 kg", "span": "Sac standard"},
+          {"b": "Ponte", "span": "Filière dédiée"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Prémix Ponte 0,25 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Prémix ponte"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce prémix ponte",
+        "intro": "Le noyau vitamino-minéral dédié à la pondeuse, pour les formulateurs avancés qui montent leur aliment de ponte.",
+        "cards": [
+          {"icon": "bi-egg", "title": "Spécifique ponte", "text": "Profil vitaminé et minéral adapté aux besoins de la poule pondeuse."},
+          {"icon": "bi-gem", "title": "Qualité de coquille", "text": "Cœur minéral pensé pour soutenir la solidité de coquille au fil du cycle."},
+          {"icon": "bi-sliders", "title": "Pour formulateurs avancés", "text": "À 0,25 %, destiné aux éleveurs qui maîtrisent énergie, protéines et minéraux majeurs."},
+          {"icon": "bi-people", "title": "Appui MARIDAV", "text": "Plan de formulation ponte et suivi du taux de ponte par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Construire la formule ponte", "text": "Avec votre technicien, équilibrez énergie, protéines, calcium et minéraux, puis ajoutez le prémix."},
+          {"title": "Incorporer à 0,25 %", "text": "Mélangez le prémix à 0,25 % avec une grande précision pour garantir l’homogénéité."},
+          {"title": "Suivre la ponte", "text": "Surveillez taux de ponte, poids d’œuf et qualité de coquille ; ajustez avec votre technicien."}
+        ],
+        "note": "Précision, homogénéité et calcium maîtrisés indispensables. Stocker au sec (FIFO)."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Prémix vitamino-minéral pondeuses"},
+          {"k": "Filière", "v": "Pondeuses"},
+          {"k": "Mode d’emploi", "v": "Noyau à intégrer en formulation complète (FAF)"},
+          {"k": "Taux d’incorporation", "v": "0,25 % — selon programme"},
+          {"k": "Conditionnement", "v": "Sac 25 kg"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets pondeuses</strong> prêts à l’emploi, par phase du cycle.",
+        "link_text": "Voir les aliments pondeuses",
+        "url": "pondeuses_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur ce prémix ponte ? ",
+      "faq": [
+        {"q": "En quoi est-il spécifique aux pondeuses ?", "a": "Son profil vitaminé et minéral est adapté aux besoins de la ponte, notamment pour la qualité de coquille.", "a_short": "Profil adapté aux besoins de la ponte, notamment la qualité de coquille."},
+        {"q": "Quelle différence avec un macro-prémix ponte ?", "a": "Le prémix est le noyau vitamino-minéral à très faible taux (0,25 %) ; le macro-prémix en apporte davantage, à plus fort taux. Le choix dépend de votre niveau de formulation.", "a_short": "Le prémix est le noyau à 0,25 % ; le macro-prémix en apporte plus, à plus fort taux."},
+        {"q": "Pourquoi l’homogénéité est-elle critique ?", "a": "À 0,25 %, une faible quantité doit se répartir parfaitement dans toute la ration de ponte : un mélange homogène est indispensable.", "a_short": "À 0,25 %, le mélange doit être parfaitement homogène dans toute la ration."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 25 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 25 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Macro-prémix", "title": "Macro-Prémix Pondeuses 1,7 %", "text": "Complément ponte à plus fort taux.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix Pondeuses 1,7 %", "url": "macropremix_pondeuses_1_7.html"},
+          {"tag": "Concentré", "title": "Maxi Ponte 5 %", "text": "Concentré 5 % spécifique pondeuses.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Maxi Ponte 5 %", "url": "maxiponte_5.html"},
+          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Le noyau fiable de votre formule de ponte",
+        "text": "Nos techniciens construisent votre formule ponte autour du prémix. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Prémix Ponte 0,25 %",
+        "description": "Prémix vitamino-minéral pondeuses distribué par MARIDAV Côte d’Ivoire comme noyau de formulation pour aliment de ponte (taux 0,25 %).",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-PREMIX-PONTE-0-25-25KG",
+        "category": "Prémix",
+        "audience": "Pondeuses — fabrication d’aliment"
+      }
     }
   ]
 }
