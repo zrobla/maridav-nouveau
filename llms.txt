@@ -3,11 +3,12 @@
 > Nutrition et santé animales en Côte d'Ivoire : aliments complets, additifs, biosécurité et appui technique terrain pour éleveurs de volailles, de porcs et de poissons. Devis en FCFA sous 24 h, distribution nationale, accompagnement par des techniciens.
 
 ## Solutions
-- [Volailles](https://maridav.ci/volailles.html) : aliments complets démarrage, croissance, finition et ponte
+- [Volailles](https://maridav.ci/volailles.html) : programme chair & pondeuses, prêt à l'emploi ou fabrication assistée (FAF)
+- [Poulets de chair](https://maridav.ci/poulets_chair_maridav_ci.html) : démarrage → croissance → finition
+- [Pondeuses](https://maridav.ci/pondeuses_maridav_ci.html) : poussinière → poulette → ponte
 - [Porcs](https://maridav.ci/porcins_maridav_ci.html) : aliments porcelets, croissance, finition, truies
 - [Poissons](https://maridav.ci/pisciculture_maridav_ci.html) : aliments tilapia, pisciculture
 - [Biosécurité](https://maridav.ci/biosecurite_maridav_ci.html) : hygiène, désinfection, prévention sanitaire
-- [Additifs & prémix](https://maridav.ci/macropremix_chair_1_7.html) : macro-prémix, concentrés, additifs nutritionnels
 
 ## Pages clés
 - [Accueil](https://maridav.ci/)

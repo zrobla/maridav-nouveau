@@ -14,6 +14,7 @@ Usage : python3 build_maridav.py            # génère toutes les pages produits
         python3 build_maridav.py --check    # génère en mémoire et montre un résumé
 """
 import json
+import re
 import sys
 import html
 from pathlib import Path
@@ -428,6 +429,102 @@ HUB = {
         {"title": "Dites-nous votre élevage", "text": "Filière, effectif, âge des bandes et mode de production (prêt à l'emploi ou FAF)."},
         {"title": "On cadre le programme", "text": "Nos techniciens proposent l'aliment ou la formulation adaptée à chaque phase, et un devis en FCFA."},
         {"title": "Devis sous 24 h + appui terrain", "text": "Réponse chiffrée sous 24 h, retrait au point de vente le plus proche et suivi de vos performances."},
+    ],
+}
+
+# --------------------------------------------------------------------------- #
+#  SEO — sitemap.xml / robots.txt / llms.txt générés depuis l'état du site.     #
+#  Date de build (= lastmod). À bumper au déploiement.                          #
+# --------------------------------------------------------------------------- #
+BUILD_DATE = "2026-06-08"
+
+# Pages non indexables détectables par leur contenu : captures d'erreur HTTrack
+# (« 400 Bad Request » / « 404 Not Found ») et gabarits (« {{TITLE}} »).
+SITEMAP_SKIP_TITLE = ("404 Not Found", "400 Bad Request", "Bad Request", "Not Found", "{{")
+
+# Priorité / fréquence par page (sitemap). Tout le reste = produit/additif (0.6 monthly).
+SITEMAP_RULES = {
+    "index.html": ("1.0", "daily"),
+    "volailles.html": ("0.9", "weekly"),
+    "poulets_chair_maridav_ci.html": ("0.9", "weekly"),
+    "pondeuses_maridav_ci.html": ("0.9", "weekly"),
+    "porcins_maridav_ci.html": ("0.9", "weekly"),
+    "pisciculture_maridav_ci.html": ("0.9", "weekly"),
+    "biosecurite_maridav_ci.html": ("0.8", "weekly"),
+    "a-propos.html": ("0.8", "weekly"),
+    "contact.html": ("0.8", "weekly"),
+    "distributeurs_maridav.html": ("0.8", "weekly"),
+    "partenaires-maridav.html": ("0.7", "monthly"),
+    "carriere-maridav.html": ("0.6", "monthly"),
+    "blog_maridav_ci.html": ("0.8", "weekly"),
+    "blog_maridav_ci_page2.html": ("0.5", "monthly"),
+}
+
+# robots.txt — contenu statique (indexation ouverte moteurs + assistants IA).
+ROBOTS_TXT = """# robots.txt — MARIDAV Côte d'Ivoire
+# Indexation ouverte aux moteurs de recherche et aux assistants IA.
+
+User-agent: *
+Allow: /
+
+# Assistants IA / moteurs de réponse (citation et découverte)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+Sitemap: {base}/sitemap.xml
+""".format(base=SITE["base"])
+
+# llms.txt — digest structuré pour les assistants IA. Sections curées (porcs/poissons/
+# blog stables) ; les pages volailles pointent vers le hub généré. FR, sans recon (§5.6).
+LLMS = {
+    "title": "MARIDAV Côte d'Ivoire",
+    "summary": "Nutrition et santé animales en Côte d'Ivoire : aliments complets, additifs, biosécurité et appui technique terrain pour éleveurs de volailles, de porcs et de poissons. Devis en FCFA sous 24 h, distribution nationale, accompagnement par des techniciens.",
+    "sections": [
+        ("Solutions", [
+            ("Volailles", "volailles.html", "programme chair & pondeuses, prêt à l'emploi ou fabrication assistée (FAF)"),
+            ("Poulets de chair", "poulets_chair_maridav_ci.html", "démarrage → croissance → finition"),
+            ("Pondeuses", "pondeuses_maridav_ci.html", "poussinière → poulette → ponte"),
+            ("Porcs", "porcins_maridav_ci.html", "aliments porcelets, croissance, finition, truies"),
+            ("Poissons", "pisciculture_maridav_ci.html", "aliments tilapia, pisciculture"),
+            ("Biosécurité", "biosecurite_maridav_ci.html", "hygiène, désinfection, prévention sanitaire"),
+        ]),
+        ("Pages clés", [
+            ("Accueil", "", ""),
+            ("À propos", "a-propos.html", ""),
+            ("Points de vente / distributeurs", "distributeurs_maridav.html", ""),
+            ("Partenaires", "partenaires-maridav.html", ""),
+            ("Carrière", "carriere-maridav.html", ""),
+        ]),
+        ("Blog & ressources techniques", [
+            ("Blog", "blog_maridav_ci.html", ""),
+            ("Démarrage des poussins", "article-demarrage-poussins.html", ""),
+            ("Biosécurité poulet de chair", "article-biosecurite-poulet-chair.html", ""),
+            ("Ponte en saison chaude", "article-ponte-chaleur-maridav.html", ""),
+            ("Porcs : FCR et chaleur", "article-porcs-fcr-chaleur.html", ""),
+            ("Tilapia : eau et ration", "article-tilapia-eau-ration.html", ""),
+        ]),
+    ],
+    "contact": [
+        "Adresse : Zone 4C Biétry, 34 Rue Alex Flemming, Abidjan, Côte d'Ivoire",
+        "Téléphone : +225 27 21 35 32 42",
+        "WhatsApp : +225 05 74 64 88 88",
+        "[Page contact / devis](%s/contact.html)" % SITE["base"],
     ],
 }
 
@@ -1439,6 +1536,138 @@ def render_hub_page(h, data):
 """
 
 
+# --------------------------------------------------------------------------- #
+#  Génération SEO (sitemap / robots / llms) depuis l'état réel du site          #
+# --------------------------------------------------------------------------- #
+def is_indexable(path):
+    """True si la page root est une vraie page (pas une capture d'erreur ni un gabarit)."""
+    if "%" in path.name:           # vestiges d'URL encodée (%) → non indexable
+        return False
+    try:
+        head = path.read_text(encoding="utf-8", errors="ignore")[:2000]
+    except Exception:
+        return False
+    m = re.search(r"<title>(.*?)</title>", head, re.S | re.I)
+    if not m:
+        return False
+    title = m.group(1).strip()
+    return not any(bad in title for bad in SITEMAP_SKIP_TITLE)
+
+
+def indexable_pages():
+    """Liste triée des pages root indexables (noms de fichiers)."""
+    pages = []
+    for p in sorted(ROOT.glob("*.html")):
+        if is_indexable(p):
+            pages.append(p.name)
+    return pages
+
+
+def page_loc(name):
+    return f'{SITE["base"]}/' if name == "index.html" else f'{SITE["base"]}/{name}'
+
+
+def sitemap_meta(name):
+    if name in SITEMAP_RULES:
+        return SITEMAP_RULES[name]
+    if name.startswith("article-"):
+        return ("0.7", "monthly")
+    return ("0.6", "monthly")
+
+
+def build_sitemap(pages):
+    rows = []
+    for name in pages:
+        prio, freq = sitemap_meta(name)
+        rows.append(
+            f"  <url>\n    <loc>{page_loc(name)}</loc>\n"
+            f"    <lastmod>{BUILD_DATE}</lastmod>\n"
+            f"    <changefreq>{freq}</changefreq>\n"
+            f"    <priority>{prio}</priority>\n  </url>"
+        )
+    body = "\n".join(rows)
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{body}\n</urlset>\n"
+    )
+
+
+def build_llms():
+    out = [f'# {LLMS["title"]}', "", f'> {LLMS["summary"]}', ""]
+    for heading, items in LLMS["sections"]:
+        out.append(f"## {heading}")
+        for label, url, desc in items:
+            full = f'{SITE["base"]}/' if url == "" else f'{SITE["base"]}/{url}'
+            line = f"- [{label}]({full})"
+            if desc:
+                line += f" : {desc}"
+            out.append(line)
+        out.append("")
+    out.append("## Contact")
+    for c in LLMS["contact"]:
+        out.append(f"- {c}")
+    return "\n".join(out) + "\n"
+
+
+def seo_gate(pages):
+    """Release-gate SEO : vérifie la cohérence des artefacts générés. Retourne (ok, msgs)."""
+    msgs = []
+    ok = True
+    on_disk = {p.name for p in ROOT.glob("*.html")}
+
+    # 1) toute URL du sitemap existe sur disque
+    sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    locs = re.findall(r"<loc>(.*?)</loc>", sm)
+    for loc in locs:
+        name = loc.replace(f'{SITE["base"]}/', "") or "index.html"
+        if name not in on_disk:
+            ok = False
+            msgs.append(f"  ✗ sitemap → fichier absent : {name}")
+    # 2) pas de page d'erreur/junk dans le sitemap
+    for loc in locs:
+        name = loc.replace(f'{SITE["base"]}/', "") or "index.html"
+        if name in on_disk and not is_indexable(ROOT / name):
+            ok = False
+            msgs.append(f"  ✗ sitemap → page non indexable listée : {name}")
+    # 3) toute page volailles (produits + filières + hub) est dans le sitemap
+    vol = [p["url"] for p in iter_products(json.loads(DATA.read_text(encoding="utf-8")))]
+    vol += [fl["url"] for fl in FILIERES.values()] + [HUB["url"]]
+    smnames = {loc.replace(f'{SITE["base"]}/', "") or "index.html" for loc in locs}
+    for u in vol:
+        if u not in smnames:
+            ok = False
+            msgs.append(f"  ✗ sitemap → page volailles manquante : {u}")
+    # 4) liens llms.txt résolus
+    llms = (ROOT / "llms.txt").read_text(encoding="utf-8")
+    for url in re.findall(r"\((%s/[^)]*)\)" % re.escape(SITE["base"]), llms):
+        name = url.replace(f'{SITE["base"]}/', "") or "index.html"
+        if name not in on_disk:
+            ok = False
+            msgs.append(f"  ✗ llms.txt → fichier absent : {name}")
+    # 5) robots référence le sitemap
+    rb = (ROOT / "robots.txt").read_text(encoding="utf-8")
+    if "Sitemap:" not in rb:
+        ok = False
+        msgs.append("  ✗ robots.txt → directive Sitemap absente")
+
+    msgs.append(f"  {'✓' if ok else '✗'} {len(locs)} URL au sitemap, {len(pages)} pages indexables détectées")
+    return ok, msgs
+
+
+def generate_seo():
+    pages = indexable_pages()
+    (ROOT / "sitemap.xml").write_text(build_sitemap(pages), encoding="utf-8")
+    (ROOT / "robots.txt").write_text(ROBOTS_TXT, encoding="utf-8")
+    (ROOT / "llms.txt").write_text(build_llms(), encoding="utf-8")
+    print(f"  écrit  sitemap.xml ({len(pages)} URL) · robots.txt · llms.txt")
+    ok, msgs = seo_gate(pages)
+    print("\n— Release-gate SEO —")
+    for m in msgs:
+        print(m)
+    return ok
+
+
 def main():
     check = "--check" in sys.argv
     data = json.loads(DATA.read_text(encoding="utf-8"))
@@ -1480,6 +1709,14 @@ def main():
         (ROOT / HUB["url"]).write_text(hub_out, encoding="utf-8")
         print(f"  écrit  {HUB['url']:48s} {len(hub_out):6d} o (hub)")
     print("1 hub généré.")
+
+    # 4) SEO (sitemap / robots / llms) + release-gate
+    if not check:
+        print()
+        ok = generate_seo()
+        if not ok:
+            print("\n⚠ Release-gate SEO en échec — voir ci-dessus.")
+            sys.exit(1)
 
 
 if __name__ == "__main__":
