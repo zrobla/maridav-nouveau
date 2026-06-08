@@ -230,6 +230,14 @@
     .hub-step h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.1rem;color:var(--navy);margin:0 0 .35rem}
     .hub-step p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.55}
 
+    /* ---- cycle-timeline 2 pistes (porcs hub) ---- */
+    .fl-track-switch{display:inline-flex;flex-wrap:wrap;gap:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem;box-shadow:var(--shadow);margin-bottom:1.2rem}
+    .fl-tswitch{border:0;background:transparent;border-radius:999px;font-weight:700;font-size:.9rem;color:var(--muted);padding:.55rem 1.1rem;cursor:pointer;transition:background .2s,color .2s;display:inline-flex;align-items:center;gap:.45rem}
+    .fl-tswitch:hover{color:var(--navy)}
+    .fl-tswitch.is-active{background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;box-shadow:0 10px 22px -10px rgba(27,142,62,.7)}
+    .fl-track{display:none}
+    .fl-track.is-active{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1rem;position:relative}
+
     @media (max-width:991px){
       .hub-choices,.hub-steps{grid-template-columns:1fr}
       .hub-choice:hover{transform:none}
@@ -239,6 +247,7 @@
       .fl-matrix{grid-template-columns:repeat(2,1fr)}
       .fl-proofgrid{grid-template-columns:repeat(2,1fr)}
       .fl-mcard:hover,.fl-pillar:hover{transform:none}
+      .fl-track.is-active{grid-auto-flow:row;grid-auto-columns:auto}
     }
     @media (max-width:575px){
       .fl-pillars,.fl-matrix,.fl-proofgrid{grid-template-columns:1fr}
@@ -547,6 +556,20 @@
         modes.forEach(function(x){x.classList.remove('is-active');});
         b.classList.add('is-active');
         apply(b.getAttribute('data-filter'));
+      });
+    });
+  })();
+  (function(){
+    var tswitches=document.querySelectorAll('.fl-tswitch');
+    if(!tswitches.length)return;
+    tswitches.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var track=btn.getAttribute('data-track');
+        tswitches.forEach(function(b){b.classList.remove('is-active')});
+        btn.classList.add('is-active');
+        document.querySelectorAll('.fl-track').forEach(function(t){t.classList.remove('is-active')});
+        var el=document.getElementById('fl-track-'+track);
+        if(el)el.classList.add('is-active');
       });
     });
   })();

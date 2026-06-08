@@ -438,6 +438,48 @@ HUB = {
 }
 
 # --------------------------------------------------------------------------- #
+#  Hub PORCS (porcins_maridav_ci.html) — 2 pistes engraissement / reproduction  #
+#  Matrice dérivée de products-porcs.json (impossible de mal catégoriser).       #
+# --------------------------------------------------------------------------- #
+PORC_HUB = {
+    "url": "porcins_maridav_ci.html",
+    "title": "Porcs — aliments & concentrés | MARIDAV Côte d'Ivoire",
+    "description": "Nutrition porcine en Côte d'Ivoire : aliments complets et concentrés 5 % pour l'engraissement (7–70 kg et finition) et la reproduction (gestation, lactation, Milkiwean). Appui technicien, devis en FCFA sous 24 h.",
+    "eyebrow": "Filière porcs",
+    "h1": 'Nutrition porcine : <span class="accent">engraissement & reproduction</span>',
+    "lead": "Des formulations tropicalisées pour chaque phase du cycle — <strong>prêts à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong> avec vos matières locales — accompagnées par nos techniciens sur le terrain.",
+    "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+    "image_alt": "Gamme aliments porcs MARIDAV Côte d'Ivoire",
+    "facts": [
+        {"b": "2 pistes", "span": "Engraissement & Reproduction"},
+        {"b": "Prêt ou FAF", "span": "Deux modes de production"},
+        {"b": "24 h", "span": "Devis en FCFA"},
+        {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
+    ],
+    "timeline": {
+        "kicker": "Le cycle porcin",
+        "h2": "Quel aliment, à quelle étape",
+        "intro": "Deux pistes distinctes : engraissement (du porcelet à l'abattage, repère = le poids) et reproduction (cheptel truies). Choisissez votre piste.",
+        "eng": [
+            {"phase": "Pré-démarrage", "age": "Post-sevrage", "text": "Milkiwean Eco : aliment lacté pour sécuriser le porcelet dès les premières heures.", "url": "milkeawean.html", "cta": "Milkiwean Eco"},
+            {"phase": "Démarrage", "age": "7 – 25 kg", "text": "Aliment complet ou concentré 5 % pour démarrer le lot sur de bonnes bases.", "url": "aliment_porc_demarrage_maridav_ci.html", "cta": "Aliment Démarrage"},
+            {"phase": "Croissance", "age": "25 – 70 kg", "text": "Ration tropicalisée pour soutenir le gain de poids et maîtriser l'indice de consommation.", "url": "aliment_porc_croissance_maridav_ci.html", "cta": "Aliment Croissance"},
+            {"phase": "Finition", "age": "> 70 kg", "text": "Équilibre énergie/protéines pour préparer les carcasses à l'objectif de vente.", "url": "aliment_porc_finition_maridav_ci.html", "cta": "Aliment Finition"},
+        ],
+        "rep": [
+            {"phase": "Gestation", "age": "Saillie → mise bas", "text": "Fibres et minéraux biodisponibles pour préserver la condition corporelle et soutenir la prolificité.", "url": "aliment_truie_gestante.html", "cta": "Truie Gestante"},
+            {"phase": "Lactation", "age": "Mise bas → sevrage", "text": "Haute énergie et acides aminés digestibles pour soutenir la production laitière et préparer le retour en saillie.", "url": "aliment_truie_allaitante_maridav_ci.html", "cta": "Truie Allaitante"},
+            {"phase": "Sevrage", "age": "Transition", "text": "Milkiwean Eco pour sécuriser le porcelet au sevrage avant le passage à l'aliment démarrage solide.", "url": "milkeawean.html", "cta": "Milkiwean Eco"},
+        ],
+    },
+    "steps": [
+        {"title": "Dites-nous votre élevage", "text": "Piste (engraissement, reproduction ou les deux), effectif, phase actuelle et mode de production (prêt à l'emploi ou FAF)."},
+        {"title": "On cadre le programme", "text": "Nos techniciens proposent l'aliment ou la formulation adaptée à chaque phase — avec un devis en FCFA sous 24 h."},
+        {"title": "Livraison + appui terrain", "text": "Retrait au point de vente le plus proche, suivi des performances et ajustements si nécessaire."},
+    ],
+}
+
+# --------------------------------------------------------------------------- #
 #  SEO — sitemap.xml / robots.txt / llms.txt générés depuis l'état du site.     #
 #  Date de build (= lastmod). À bumper au déploiement.                          #
 # --------------------------------------------------------------------------- #
@@ -611,6 +653,14 @@ FILIERE_CSS = r"""  <style>
     .hub-step h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.1rem;color:var(--navy);margin:0 0 .35rem}
     .hub-step p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.55}
 
+    /* ---- cycle-timeline 2 pistes (porcs hub) ---- */
+    .fl-track-switch{display:inline-flex;flex-wrap:wrap;gap:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem;box-shadow:var(--shadow);margin-bottom:1.2rem}
+    .fl-tswitch{border:0;background:transparent;border-radius:999px;font-weight:700;font-size:.9rem;color:var(--muted);padding:.55rem 1.1rem;cursor:pointer;transition:background .2s,color .2s;display:inline-flex;align-items:center;gap:.45rem}
+    .fl-tswitch:hover{color:var(--navy)}
+    .fl-tswitch.is-active{background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;box-shadow:0 10px 22px -10px rgba(27,142,62,.7)}
+    .fl-track{display:none}
+    .fl-track.is-active{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1rem;position:relative}
+
     @media (max-width:991px){
       .hub-choices,.hub-steps{grid-template-columns:1fr}
       .hub-choice:hover{transform:none}
@@ -620,6 +670,7 @@ FILIERE_CSS = r"""  <style>
       .fl-matrix{grid-template-columns:repeat(2,1fr)}
       .fl-proofgrid{grid-template-columns:repeat(2,1fr)}
       .fl-mcard:hover,.fl-pillar:hover{transform:none}
+      .fl-track.is-active{grid-auto-flow:row;grid-auto-columns:auto}
     }
     @media (max-width:575px){
       .fl-pillars,.fl-matrix,.fl-proofgrid{grid-template-columns:1fr}
@@ -651,6 +702,20 @@ FILIERE_JS = r"""  <script>
         modes.forEach(function(x){x.classList.remove('is-active');});
         b.classList.add('is-active');
         apply(b.getAttribute('data-filter'));
+      });
+    });
+  })();
+  (function(){
+    var tswitches=document.querySelectorAll('.fl-tswitch');
+    if(!tswitches.length)return;
+    tswitches.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var track=btn.getAttribute('data-track');
+        tswitches.forEach(function(b){b.classList.remove('is-active')});
+        btn.classList.add('is-active');
+        document.querySelectorAll('.fl-track').forEach(function(t){t.classList.remove('is-active')});
+        var el=document.getElementById('fl-track-'+track);
+        if(el)el.classList.add('is-active');
       });
     });
   })();
@@ -1663,6 +1728,197 @@ def seo_gate(pages):
     return ok, msgs
 
 
+# --------------------------------------------------------------------------- #
+#  Renderers HUB PORCS                                                          #
+# --------------------------------------------------------------------------- #
+def render_porc_hub_hero(h):
+    crumb = (
+        '<a href="index.html">Accueil</a>'
+        ' <span class="mx-1 text-white-50">/</span>\n          '
+        '<span class="text-white-50">Porcs</span>'
+    )
+    return f"""    <!-- HERO HUB PORCS -->
+    <section class="pdp-hero">
+      <div class="container">
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          {crumb}
+        </nav>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="pdp-eyebrow pdp-reveal d1">{h["eyebrow"]}</span>
+            <h1 class="pdp-reveal d1">{h["h1"]}</h1>
+            <p class="pdp-lead pdp-reveal d2">{h["lead"]}</p>
+            <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
+              <a class="btn-pill btn-green" href="#cycle">Voir le cycle <i class="bi bi-arrow-down"></i></a>
+              <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
+            </div>
+            <div class="pdp-facts pdp-reveal d4">
+              {render_facts(h["facts"])}
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="pdp-figure pdp-reveal d2 mb-0">
+              <img src="{h["image"]}" alt="{h["image_alt"]}">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_porc_timeline_2tracks(tl):
+    def step_html(s, idx):
+        return (
+            f'<div class="fl-tstep">'
+            f'<span class="num">{idx + 1}</span>'
+            f'<span class="age">{s["age"]}</span>'
+            f'<h3>{s["phase"]}</h3>'
+            f'<p>{s["text"]}</p>'
+            f'<a class="btn-line" href="{s["url"]}">{s["cta"]} <i class="bi bi-arrow-right"></i></a>'
+            f'</div>'
+        )
+
+    eng_steps = "\n          ".join(step_html(s, i) for i, s in enumerate(tl["eng"]))
+    rep_steps = "\n          ".join(step_html(s, i) for i, s in enumerate(tl["rep"]))
+    return f"""    <!-- CYCLE-TIMELINE 2 PISTES -->
+    <section class="pdp-sec" id="cycle">
+      <div class="container">
+        <div class="text-center mb-4">
+          <span class="pdp-kicker">{tl["kicker"]}</span>
+          <h2 class="pdp-h2">{tl["h2"]}</h2>
+          <p class="pdp-muted mt-2">{tl["intro"]}</p>
+        </div>
+        <div class="fl-track-switch mb-3" role="group" aria-label="Piste du cycle">
+          <button class="fl-tswitch is-active" data-track="eng"><i class="bi bi-arrow-right-square"></i> Engraissement</button>
+          <button class="fl-tswitch" data-track="rep"><i class="bi bi-heart"></i> Reproduction</button>
+        </div>
+        <div id="fl-track-eng" class="fl-track is-active">
+          {eng_steps}
+        </div>
+        <div id="fl-track-rep" class="fl-track">
+          {rep_steps}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_porc_matrix(porc_data):
+    cards = []
+    for cat in ("aliments_complets", "concentres"):
+        meta = CATEGORY_META[cat]
+        for p in porc_data.get(cat, []):
+            if not p.get("_render", True) or "hero" not in p:
+                continue
+            hero = p["hero"]
+            tags = ""
+            if p.get("transversal", False):
+                tags = '<div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div>'
+            cards.append(
+                f'<article class="fl-mcard" data-mode="{meta["mode"]}">'
+                f'<span class="cat"><i class="bi {meta["icon"]}"></i> {meta["label"]}</span>'
+                f'<h3>{p["jsonld"]["name"]}</h3>'
+                f'<p class="badge-phase">{hero["pill"]["text"]}</p>'
+                f'<p>{hero.get("figchip", {}).get("label", "")}</p>'
+                f'{tags}'
+                f'<a class="btn-line" href="{p["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
+                f'</article>'
+            )
+
+    modes_btns = (
+        '<button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button>'
+        '<button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l\'emploi</button>'
+        '<button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>'
+    )
+    cards_html = "\n          ".join(cards)
+    return f"""    <!-- MATRICE PRODUITS PORCS -->
+    <section class="pdp-sec" id="gamme">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">Toute la gamme</span>
+          <h2 class="pdp-h2">Aliments & concentrés — engraissement et reproduction</h2>
+          <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
+            {modes_btns}
+          </div>
+          <p class="fl-modehint" id="fl-modehint">Toute la gamme porcs, prête à l'emploi comme en fabrication assistée.</p>
+        </div>
+        <div class="fl-matrix" id="fl-matrix">
+          {cards_html}
+        </div>
+        <p class="fl-empty" id="fl-empty">Aucun produit pour ce filtre.</p>
+      </div>
+    </section>"""
+
+
+def render_porc_hub_jsonld(h):
+    url = f'{SITE["base"]}/{h["url"]}'
+    all_products = list(h["timeline"]["eng"]) + list(h["timeline"]["rep"])
+    seen = {}
+    deduped = []
+    for p in all_products:
+        if p["url"] not in seen:
+            seen[p["url"]] = True
+            deduped.append(p)
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f'{SITE["base"]}/'},
+            {"@type": "ListItem", "position": 2, "name": "Porcs", "item": url},
+        ],
+    }
+    itemlist = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": h["title"],
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": p["phase"], "url": f'{SITE["base"]}/{p["url"]}'}
+            for i, p in enumerate(deduped, 1)
+        ],
+    }
+    dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+    return f"""  <script type="application/ld+json">
+  {dump(breadcrumb)}
+  </script>
+  <script type="application/ld+json">
+  {dump(itemlist)}
+  </script>"""
+
+
+def render_porc_hub_page(h, porc_data):
+    piliers = porc_data["_meta"]["piliers"]
+    sections = [
+        render_porc_hub_hero(h),
+        render_porc_timeline_2tracks(h["timeline"]),
+        render_pillars(piliers),
+        render_porc_matrix(porc_data),
+        render_proofbar(),
+        render_techcta(),
+        render_hub_steps(h),
+    ]
+    main = "\n\n".join(s for s in sections if s)
+    return f"""{render_filiere_head(h)}
+<body class="pdp">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+{NAVBAR}
+
+  <main id="main">
+{main}
+  </main>
+
+{FOOTER}
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.min.js" defer></script>
+{FILIERE_JS}
+{render_porc_hub_jsonld(h)}
+  <script src="assets/js/site-crm-bridge.js" defer></script>
+</body>
+</html>
+"""
+
+
 def generate_seo():
     pages = indexable_pages()
     (ROOT / "sitemap.xml").write_text(build_sitemap(pages), encoding="utf-8")
@@ -1719,7 +1975,16 @@ def main():
     else:
         (ROOT / HUB["url"]).write_text(hub_out, encoding="utf-8")
         print(f"  écrit  {HUB['url']:48s} {len(hub_out):6d} o (hub)")
-    print("1 hub généré.")
+
+    # 3b) Hub porcs
+    porc_data = json.loads(PORC_DATA.read_text(encoding="utf-8"))
+    porc_hub_out = render_porc_hub_page(PORC_HUB, porc_data)
+    if check:
+        print(f"  [check] {PORC_HUB['url']:48s} {len(porc_hub_out):6d} o (hub)")
+    else:
+        (ROOT / PORC_HUB["url"]).write_text(porc_hub_out, encoding="utf-8")
+        print(f"  écrit  {PORC_HUB['url']:48s} {len(porc_hub_out):6d} o (hub)")
+    print("2 hubs générés (volailles + porcs).")
 
     # 4) SEO (sitemap / robots / llms) + release-gate
     if not check:
