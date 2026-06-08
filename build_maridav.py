@@ -283,6 +283,204 @@ FILIERE_LABELS = {
     "poissons": ("bi-water", "Poissons"),
 }
 
+# Métadonnées par catégorie produit (clé top-level products.json) — pilote la matrice :
+# mode de production (prêt à l'emploi vs FAF) + libellé de carte.
+CATEGORY_META = {
+    "aliments_complets": {"mode": "pret", "label": "Aliment complet", "icon": "bi-bag-check"},
+    "concentres":        {"mode": "faf",  "label": "Concentré",       "icon": "bi-sliders"},
+    "macro_premix":      {"mode": "faf",  "label": "Macro-prémix",    "icon": "bi-grid-3x3-gap"},
+    "premix":            {"mode": "faf",  "label": "Prémix",          "icon": "bi-eyedropper"},
+}
+
+# --------------------------------------------------------------------------- #
+#  Configuration éditoriale des pages FILIÈRE (hub-niveau, pas produit).        #
+#  La matrice produits est DÉRIVÉE de products.json (filtrée par filière) ;     #
+#  ici seul le contenu rédactionnel de page (hero, frise, modes, preuve) vit.   #
+#  Règles : FR, FCFA, Côte d'Ivoire, AUCUN chiffre de résultat inventé.         #
+# --------------------------------------------------------------------------- #
+FILIERES = {
+    "volailles-chair": {
+        "url": "poulets_chair_maridav_ci.html",
+        "title": "Poulets de chair — programme complet & FAF | MARIDAV Côte d'Ivoire",
+        "description": "Nutrition poulets de chair en Côte d'Ivoire : programme démarrage → croissance → finition, concentrés et prémix pour fabriquer votre aliment (FAF), appui technicien et devis en FCFA sous 24 h.",
+        "eyebrow": "Filière volailles — Poulets de chair",
+        "h1": 'Poulets de chair : le bon aliment à <span class="accent">chaque phase</span>',
+        "lead": "Du démarrage à la finition, un programme nutritionnel complet pensé pour le climat ivoirien — <strong>prêt à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong>, avec l'appui de nos techniciens sur le terrain.",
+        "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+        "image_alt": "Gamme aliments poulets de chair MARIDAV Côte d'Ivoire",
+        "facts": [
+            {"b": "3 phases", "span": "Démarrage → finition"},
+            {"b": "Prêt ou FAF", "span": "Deux modes de production"},
+            {"b": "24 h", "span": "Devis en FCFA"},
+            {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
+        ],
+        "timeline_kicker": "Le cycle du poulet de chair",
+        "timeline_h2": "Quel aliment, à quel âge",
+        "timeline_intro": "Repère naturel de l'éleveur : à chaque phase du cycle, l'aliment qui sécurise la performance suivante.",
+        "timeline": [
+            {"phase": "Démarrage", "age": "0 – 14 jours", "text": "Starter haute appétence : démarrage rapide du poussin et poids moyen sécurisé.", "url": "aliment_chair_demarrage_maridav_ci.html", "cta": "Aliment Démarrage"},
+            {"phase": "Croissance", "age": "15 – 28 jours", "text": "Optimisation du FCR et homogénéité de la bande.", "url": "aliments_chair_croissance_maridav_ci.html", "cta": "Aliment Croissance"},
+            {"phase": "Finition", "age": "29 – 42 jours", "text": "Rendement carcasse et maîtrise du coût des derniers kilos.", "url": "aliments_chair_finition_maridav_ci.html", "cta": "Aliment Finition"},
+        ],
+        "additives": [
+            {"name": "Biotronic Top liquide", "text": "Acidifiant — qualité de l'eau et confort digestif.", "url": "biotronic_top_liquide_maridav_ci.html"},
+            {"name": "Digestarom", "text": "Additif phytogénique — appétence et digestion.", "url": "digestarom_maridav_ci.html"},
+            {"name": "Nutricool", "text": "Soutien anti-stress thermique en climat chaud.", "url": "nutricool_maridav_ci.html"},
+        ],
+        "cross_url": "pondeuses_maridav_ci.html",
+        "cross_label": "Vous élevez des pondeuses ?",
+        "cross_text": "Découvrez le programme poussinière → poulette → ponte.",
+        "cross_link": "Filière pondeuses",
+    },
+    "volailles-ponte": {
+        "url": "pondeuses_maridav_ci.html",
+        "title": "Pondeuses & poulettes — programme complet & FAF | MARIDAV Côte d'Ivoire",
+        "description": "Nutrition pondeuses en Côte d'Ivoire : programme pré-démarrage → poulette → ponte, concentrés et prémix pour fabriquer votre aliment (FAF), appui technicien et devis en FCFA sous 24 h.",
+        "eyebrow": "Filière volailles — Pondeuses",
+        "h1": 'Pondeuses : sécuriser le pic et la <span class="accent">persistance de ponte</span>',
+        "lead": "De la poussinière à la fin de ponte, un programme nutritionnel complet adapté au climat ivoirien — <strong>prêt à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong>, avec l'appui de nos techniciens sur le terrain.",
+        "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+        "image_alt": "Gamme aliments pondeuses MARIDAV Côte d'Ivoire",
+        "facts": [
+            {"b": "5 phases", "span": "Pré-démarrage → ponte"},
+            {"b": "Prêt ou FAF", "span": "Deux modes de production"},
+            {"b": "24 h", "span": "Devis en FCFA"},
+            {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
+        ],
+        "timeline_kicker": "Le cycle de la pondeuse",
+        "timeline_h2": "Quel aliment, à quel âge",
+        "timeline_intro": "Repère naturel de l'éleveur : à chaque phase du cycle, l'aliment qui prépare le pic et la persistance de ponte.",
+        "timeline": [
+            {"phase": "Pré-démarrage", "age": "0 – 5 jours", "text": "ChickCare : sécuriser les tout premiers jours du poussin.", "url": "chickcare.html", "cta": "ChickCare"},
+            {"phase": "Démarrage", "age": "0 – 6 semaines", "text": "Construire le bon démarrage de la future pondeuse.", "url": "aliment_demarrage_ponte.html", "cta": "Aliment Démarrage"},
+            {"phase": "Poulette", "age": "7 – 18 semaines", "text": "Développer un squelette et un poids cible homogènes.", "url": "aliment_poulette.html", "cta": "Aliment Poulette"},
+            {"phase": "Ponte 1", "age": "Entrée → pic", "text": "Accompagner l'entrée en ponte jusqu'au pic.", "url": "aliment_ponte_1_maridav_ci.html", "cta": "Aliment Ponte 1"},
+            {"phase": "Ponte 2", "age": "Persistance", "text": "Soutenir la persistance et la qualité de coquille.", "url": "aliment_ponte_2_maridav_ci.html", "cta": "Aliment Ponte 2"},
+        ],
+        "additives": [
+            {"name": "Biotronic Top liquide", "text": "Acidifiant — qualité de l'eau et confort digestif.", "url": "biotronic_top_liquide_maridav_ci.html"},
+            {"name": "Digestarom", "text": "Additif phytogénique — appétence et digestion.", "url": "digestarom_maridav_ci.html"},
+            {"name": "Nutricool", "text": "Soutien anti-stress thermique en climat chaud.", "url": "nutricool_maridav_ci.html"},
+            {"name": "Profish", "text": "Complément protéique d'origine marine.", "url": "profish_maridav_ci.html"},
+        ],
+        "cross_url": "poulets_chair_maridav_ci.html",
+        "cross_label": "Vous élevez des poulets de chair ?",
+        "cross_text": "Découvrez le programme démarrage → croissance → finition.",
+        "cross_link": "Filière chair",
+    },
+}
+
+# Points de preuve filière — claims VÉRIFIABLES uniquement (structure de l'offre,
+# disponibilité, accompagnement). Les résultats chiffrés (FCR, poids, ponte) restent
+# en attente de données Maridav : surtout NE PAS inventer ici.
+PROOF_POINTS = [
+    {"b": "Tout le cycle", "span": "Un aliment pour chaque phase"},
+    {"b": "Prêt ou FAF", "span": "Acheter prêt à l'emploi ou fabriquer"},
+    {"b": "Devis 24 h", "span": "Réponse chiffrée en FCFA"},
+    {"b": "Appui terrain", "span": "Techniciens MARIDAV en Côte d'Ivoire"},
+]
+
+# --------------------------------------------------------------------------- #
+#  CSS des composants de persuasion FILIÈRE (.fl-*) — s'ajoute à HEAD_CSS.      #
+#  Sécurité GPU mobile ≤991px : pas de backdrop-filter, pas de :has(),          #
+#  filtrage par classes JS (.is-hidden/.is-active), ombres/animations allégées. #
+# --------------------------------------------------------------------------- #
+FILIERE_CSS = r"""  <style>
+    /* ---- pillars-strip (4 piliers) ---- */
+    .fl-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .fl-pillar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem;box-shadow:var(--shadow)}
+    .fl-pillar .ic{width:46px;height:46px;border-radius:13px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(27,142,62,.14),rgba(42,161,84,.14));color:var(--green);font-size:1.25rem;margin-bottom:.7rem}
+    .fl-pillar h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem;color:var(--navy);margin:0 0 .35rem}
+    .fl-pillar p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
+
+    /* ---- cycle-timeline (frise du cycle) ---- */
+    .fl-timeline{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1rem;position:relative}
+    .fl-tstep{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column}
+    .fl-tstep .num{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;font-family:"Fraunces",serif;font-weight:600;display:inline-flex;align-items:center;justify-content:center;margin-bottom:.7rem}
+    .fl-tstep .age{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+    .fl-tstep h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.1rem;color:var(--navy);margin:.15rem 0 .4rem}
+    .fl-tstep p{margin:0 0 .9rem;color:var(--muted);font-size:.88rem;line-height:1.5}
+    .fl-tstep .btn-line{margin-top:auto;align-self:flex-start}
+    .fl-tstep:not(:last-child)::after{content:"\F285";font-family:"bootstrap-icons";position:absolute;right:-.85rem;top:50%;transform:translateY(-50%);color:var(--green);font-size:1.1rem;z-index:1}
+
+    /* ---- mode-switch (prêt à l'emploi / FAF) ---- */
+    .fl-modes{display:inline-flex;flex-wrap:wrap;gap:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem;box-shadow:var(--shadow)}
+    .fl-mode{border:0;background:transparent;border-radius:999px;font-weight:700;font-size:.9rem;color:var(--muted);padding:.55rem 1.1rem;cursor:pointer;transition:background .2s,color .2s;display:inline-flex;align-items:center;gap:.45rem}
+    .fl-mode:hover{color:var(--navy)}
+    .fl-mode.is-active{background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;box-shadow:0 10px 22px -10px rgba(27,142,62,.7)}
+    .fl-modehint{color:var(--muted);font-size:.92rem;margin:.9rem 0 0;min-height:1.2em}
+
+    /* ---- product-matrix ---- */
+    .fl-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .fl-mcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+    .fl-mcard:hover{transform:translateY(-5px);box-shadow:0 30px 56px -30px rgba(2,12,46,.45)}
+    .fl-mcard.is-hidden{display:none}
+    .fl-mcard .cat{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(27,142,62,.1);border-radius:999px;padding:.28rem .65rem;align-self:flex-start;margin-bottom:.6rem}
+    .fl-mcard h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.08rem;color:var(--navy);margin:0 0 .25rem}
+    .fl-mcard .badge-phase{font-size:.78rem;color:var(--muted);margin:0 0 .5rem}
+    .fl-mcard p{margin:0 0 .9rem;color:var(--muted);font-size:.88rem;line-height:1.5}
+    .fl-mcard .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.8rem}
+    .fl-mcard .tg{font-size:.72rem;font-weight:700;color:var(--navy);background:rgba(0,0,102,.06);border-radius:999px;padding:.2rem .6rem}
+    .fl-mcard .btn-line{margin-top:auto;align-self:flex-start}
+    .fl-empty{display:none;color:var(--muted);text-align:center;padding:2rem 0}
+
+    /* ---- proof-bar ---- */
+    .fl-proof{background:linear-gradient(165deg,#04204a,var(--navy-deep));border-radius:var(--radius);padding:1.6rem;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .fl-proof::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--green))}
+    .fl-proofgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .fl-pitem b{display:block;font-family:"Fraunces",serif;font-size:1.15rem;color:#fff;line-height:1.1}
+    .fl-pitem span{display:block;font-size:.8rem;color:rgba(255,255,255,.66);margin-top:.2rem}
+    .fl-proofnote{margin:1rem 0 0;font-size:.84rem;color:rgba(255,255,255,.62)}
+
+    /* ---- technician-cta ---- */
+    .fl-tech{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.2rem;background:linear-gradient(120deg,#04204a,var(--navy));color:#fff;border-radius:var(--radius);padding:1.5rem 1.7rem;box-shadow:var(--shadow)}
+    .fl-tech .tx h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.25rem;color:#fff;margin:0 0 .25rem}
+    .fl-tech .tx p{margin:0;color:rgba(255,255,255,.74);font-size:.93rem}
+    .fl-tech .ax{display:flex;flex-wrap:wrap;gap:.7rem}
+
+    @media (max-width:991px){
+      .fl-pillars{grid-template-columns:repeat(2,1fr)}
+      .fl-timeline{grid-auto-flow:row;grid-auto-columns:auto}
+      .fl-tstep:not(:last-child)::after{content:"\F282";right:auto;left:1.2rem;top:auto;bottom:-.95rem;transform:none}
+      .fl-matrix{grid-template-columns:repeat(2,1fr)}
+      .fl-proofgrid{grid-template-columns:repeat(2,1fr)}
+      .fl-mcard:hover,.fl-pillar:hover{transform:none}
+    }
+    @media (max-width:575px){
+      .fl-pillars,.fl-matrix,.fl-proofgrid{grid-template-columns:1fr}
+    }
+  </style>"""
+
+# JS vanilla léger : mode-switch + filtrage de la matrice par classes (pas de :has()).
+FILIERE_JS = r"""  <script>
+  (function(){
+    var matrix=document.getElementById('fl-matrix');
+    if(!matrix)return;
+    var modes=document.querySelectorAll('.fl-mode');
+    var cards=matrix.querySelectorAll('.fl-mcard');
+    var empty=document.getElementById('fl-empty');
+    var hints={pret:"Aliments complets, prêts à distribuer.",faf:"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:"Toute la gamme volailles, prête à l'emploi comme en fabrication assistée."};
+    var hintEl=document.getElementById('fl-modehint');
+    function apply(mode){
+      var shown=0;
+      cards.forEach(function(c){
+        var ok=(mode==='all')||(c.getAttribute('data-mode')===mode);
+        c.classList.toggle('is-hidden',!ok);
+        if(ok)shown++;
+      });
+      if(empty)empty.style.display=shown?'none':'block';
+      if(hintEl)hintEl.textContent=hints[mode]||'';
+    }
+    modes.forEach(function(b){
+      b.addEventListener('click',function(){
+        modes.forEach(function(x){x.classList.remove('is-active');});
+        b.classList.add('is-active');
+        apply(b.getAttribute('data-filter'));
+      });
+    });
+  })();
+  </script>"""
+
 
 # --------------------------------------------------------------------------- #
 #  Renderers de sections                                                       #
@@ -674,9 +872,349 @@ def iter_products(data):
                     yield it
 
 
+# --------------------------------------------------------------------------- #
+#  Renderers de PAGES FILIÈRE (matrice dérivée de products.json)               #
+# --------------------------------------------------------------------------- #
+def products_for_filiere(data, slug):
+    """Cartes matrice pour une filière, ordonnées prêt-à-l'emploi puis FAF.
+
+    Dérivé de products.json : impossible de placer un produit sur la mauvaise
+    filière (la donnée fait foi)."""
+    cards = []
+    for cat in ("aliments_complets", "concentres", "macro_premix", "premix"):
+        meta = CATEGORY_META[cat]
+        for it in data.get(cat, []):
+            if not it.get("_render", True) or "hero" not in it:
+                continue
+            if slug not in it.get("filieres", []):
+                continue
+            hero = it["hero"]
+            cards.append({
+                "url": it["url"],
+                "name": it["jsonld"]["name"],
+                "cat_label": meta["label"],
+                "cat_icon": meta["icon"],
+                "mode": meta["mode"],
+                "badge": hero["pill"]["text"],
+                "tagline": hero.get("figchip", {}).get("label", ""),
+                "transversal": it.get("transversal", False),
+            })
+    return cards
+
+
+def render_filiere_head(fl):
+    url = f'{SITE["base"]}/{fl["url"]}'
+    og_img = f'{SITE["base"]}/{fl["image"]}'
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000066">
+  <title>{fl["title"]}</title>
+  <meta name="description" content="{fl["description"]}">
+  <link rel="canonical" href="{url}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{fl["title"]}">
+  <meta property="og:description" content="{fl["description"]}">
+  <meta property="og:image" content="{og_img}">
+  <link rel="icon" type="image/png" sizes="56x56" href="favicon_io/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+{HEAD_CSS}
+{FILIERE_CSS}
+</head>"""
+
+
+def render_filiere_hero(fl):
+    crumb = (
+        '<a href="index.html">Accueil</a>'
+        ' <span class="mx-1 text-white-50">/</span>\n          '
+        '<a href="volailles.html">Volailles</a>'
+        ' <span class="mx-1 text-white-50">/</span>\n          '
+        f'<span class="text-white-50">{fl["eyebrow"].split("—")[-1].strip()}</span>'
+    )
+    return f"""    <!-- HERO FILIÈRE -->
+    <section class="pdp-hero">
+      <div class="container">
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          {crumb}
+        </nav>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="pdp-eyebrow pdp-reveal d1">{fl["eyebrow"]}</span>
+            <h1 class="pdp-reveal d1">{fl["h1"]}</h1>
+            <p class="pdp-lead pdp-reveal d2">{fl["lead"]}</p>
+            <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
+              <a class="btn-pill btn-green" href="#gamme">Voir la gamme <i class="bi bi-arrow-down"></i></a>
+              <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
+            </div>
+            <div class="pdp-facts pdp-reveal d4">
+              {render_facts(fl["facts"])}
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="pdp-figure pdp-reveal d2 mb-0">
+              <img src="{fl["image"]}" alt="{fl["image_alt"]}">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_pillars(piliers):
+    cards = []
+    for p in piliers:
+        cards.append(
+            f'<div class="fl-pillar"><span class="ic"><i class="bi {p["icon"]}"></i></span>'
+            f'<h3>{p["titre"]}</h3><p>{p["phrase"]}</p></div>'
+        )
+    cards_html = "\n          ".join(cards)
+    return f"""    <!-- PILLARS-STRIP (4 piliers) -->
+    <section class="pdp-sec" id="pourquoi">
+      <div class="container">
+        <div class="text-center mb-4">
+          <span class="pdp-kicker">Pourquoi MARIDAV</span>
+          <h2 class="pdp-h2">Quatre raisons de nous confier vos bandes</h2>
+        </div>
+        <div class="fl-pillars">
+          {cards_html}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_timeline(fl):
+    steps = []
+    for i, t in enumerate(fl["timeline"], 1):
+        steps.append(
+            f'<div class="fl-tstep"><span class="num">{i}</span>'
+            f'<span class="age">{t["age"]}</span><h3>{t["phase"]}</h3>'
+            f'<p>{t["text"]}</p>'
+            f'<a class="btn-line" href="{t["url"]}">{t["cta"]} <i class="bi bi-arrow-right"></i></a>'
+            f'</div>'
+        )
+    steps_html = "\n          ".join(steps)
+    return f"""    <!-- CYCLE-TIMELINE -->
+    <section class="pdp-sec pt-0" id="cycle">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">{fl["timeline_kicker"]}</span>
+          <h2 class="pdp-h2">{fl["timeline_h2"]}</h2>
+          <p class="text-muted mt-3 mb-0" style="max-width:46rem">{fl["timeline_intro"]}</p>
+        </div>
+        <div class="fl-timeline">
+          {steps_html}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_matrix(fl, cards):
+    has_faf = any(c["mode"] == "faf" for c in cards)
+    has_pret = any(c["mode"] == "pret" for c in cards)
+    modes = ['<button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button>']
+    if has_pret:
+        modes.append('<button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l\'emploi</button>')
+    if has_faf:
+        modes.append('<button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>')
+    modes_html = "\n            ".join(modes)
+    items = []
+    for c in cards:
+        tags = ""
+        if c["transversal"]:
+            tags = '<div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div>'
+        items.append(
+            f'<article class="fl-mcard" data-mode="{c["mode"]}">'
+            f'<span class="cat"><i class="bi {c["cat_icon"]}"></i> {c["cat_label"]}</span>'
+            f'<h3>{c["name"]}</h3>'
+            f'<p class="badge-phase">{c["badge"]}</p>'
+            f'<p>{c["tagline"]}</p>'
+            f'{tags}'
+            f'<a class="btn-line" href="{c["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
+            f'</article>'
+        )
+    items_html = "\n            ".join(items)
+    return f"""    <!-- MODE-SWITCH + PRODUCT-MATRIX -->
+    <section class="pdp-sec pt-0" id="gamme">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">La gamme</span>
+          <h2 class="pdp-h2">Acheter prêt à l'emploi, ou fabriquer votre aliment</h2>
+          <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
+            {modes_html}
+          </div>
+          <p class="fl-modehint" id="fl-modehint">Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.</p>
+        </div>
+        <div class="fl-matrix" id="fl-matrix">
+            {items_html}
+        </div>
+        <p class="fl-empty" id="fl-empty">Aucun produit dans cette sélection.</p>
+      </div>
+    </section>"""
+
+
+def render_additives(fl):
+    adds = fl.get("additives")
+    if not adds:
+        return ""
+    cards = []
+    for a in adds:
+        cards.append(
+            f'<div class="col-md-6 col-lg-3"><div class="pdp-card h-100">'
+            f'<span class="pdp-tag">Additif</span>'
+            f'<h3 class="h6" style="color:var(--navy);font-family:\'Fraunces\',serif;margin:.2rem 0 .35rem">{a["name"]}</h3>'
+            f'<p class="text-muted small mb-3">{a["text"]}</p>'
+            f'<a class="btn-line" href="{a["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
+            f'</div></div>'
+        )
+    cards_html = "\n          ".join(cards)
+    return f"""    <!-- ADDITIFS & BIOSÉCURITÉ -->
+    <section class="pdp-sec pt-0" id="additifs">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">Additifs &amp; biosécurité</span>
+          <h2 class="pdp-h2">Compléter le programme</h2>
+        </div>
+        <div class="row g-4">
+          {cards_html}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_proofbar():
+    items = []
+    for p in PROOF_POINTS:
+        items.append(f'<div class="fl-pitem"><b>{p["b"]}</b><span>{p["span"]}</span></div>')
+    items_html = "\n            ".join(items)
+    return f"""    <!-- PROOF-BAR -->
+    <section class="pdp-sec pt-0" id="preuve">
+      <div class="container">
+        <div class="fl-proof">
+          <div class="fl-proofgrid">
+            {items_html}
+          </div>
+          <p class="fl-proofnote">Résultats chiffrés (FCR, poids/âge, taux de ponte) et références d'élevages communiqués par nos techniciens, selon votre conduite d'élevage.</p>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_techcta():
+    return f"""    <!-- TECHNICIAN-CTA -->
+    <section class="pdp-sec pt-0">
+      <div class="container">
+        <div class="fl-tech">
+          <div class="tx">
+            <h3>Pas sûr du bon programme pour votre bande&nbsp;?</h3>
+            <p>Parlez à un technicien MARIDAV : il cadre la formulation et le devis avec vous.</p>
+          </div>
+          <div class="ax">
+            <a class="btn-pill btn-green" href="contact.html">Demander un devis <i class="bi bi-arrow-right"></i></a>
+            <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,.5)"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_filiere_crosssell(fl):
+    return f"""    <!-- CROSS-SELL FILIÈRE -->
+    <section class="pdp-sec pt-0">
+      <div class="container">
+        <div class="pdp-card d-flex flex-column flex-md-row align-items-md-center gap-3" style="border-left:4px solid var(--green)">
+          <div class="flex-grow-1">
+            <span class="pdp-tag">Autre filière</span>
+            <h3 class="h5 mb-1" style="color:var(--navy);font-family:'Fraunces',serif">{fl["cross_label"]}</h3>
+            <p class="text-muted mb-0">{fl["cross_text"]}</p>
+          </div>
+          <a class="btn-pill btn-green flex-none" href="{fl["cross_url"]}">{fl["cross_link"]} <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_filiere_jsonld(fl, cards):
+    url = f'{SITE["base"]}/{fl["url"]}'
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f'{SITE["base"]}/'},
+            {"@type": "ListItem", "position": 2, "name": "Volailles", "item": f'{SITE["base"]}/volailles.html'},
+            {"@type": "ListItem", "position": 3, "name": fl["eyebrow"].split("—")[-1].strip(), "item": url},
+        ],
+    }
+    itemlist = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": fl["title"],
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": c["name"], "url": f'{SITE["base"]}/{c["url"]}'}
+            for i, c in enumerate(cards, 1)
+        ],
+    }
+    dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+    return f"""  <script type="application/ld+json">
+  {dump(breadcrumb)}
+  </script>
+  <script type="application/ld+json">
+  {dump(itemlist)}
+  </script>"""
+
+
+def render_filiere_page(fl, data):
+    piliers = data["_meta"]["piliers"]
+    cards = products_for_filiere(data, fl["_slug"])
+    sections = [
+        render_filiere_hero(fl),
+        render_pillars(piliers),
+        render_timeline(fl),
+        render_matrix(fl, cards),
+        render_additives(fl),
+        render_proofbar(),
+        render_techcta(),
+        render_filiere_crosssell(fl),
+    ]
+    main = "\n\n".join(s for s in sections if s)
+    return f"""{render_filiere_head(fl)}
+<body class="pdp">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+{NAVBAR}
+
+  <main id="main">
+{main}
+  </main>
+
+{FOOTER}
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.min.js" defer></script>
+{render_filiere_jsonld(fl, cards)}
+{FILIERE_JS}
+  <script src="assets/js/site-crm-bridge.js" defer></script>
+</body>
+</html>
+"""
+
+
 def main():
     check = "--check" in sys.argv
     data = json.loads(DATA.read_text(encoding="utf-8"))
+
+    # 1) Pages produits
     products = list(iter_products(data))
     written = 0
     for p in products:
@@ -689,6 +1227,21 @@ def main():
             print(f"  écrit  {p['url']:48s} {len(html_out):6d} o")
         written += 1
     print(f"\n{written} page(s) produit générée(s).")
+
+    # 2) Pages filière (matrice dérivée de products.json)
+    fwritten = 0
+    for slug, fl in FILIERES.items():
+        fl = {**fl, "_slug": slug}
+        html_out = render_filiere_page(fl, data)
+        target = ROOT / fl["url"]
+        n = len(products_for_filiere(data, slug))
+        if check:
+            print(f"  [check] {fl['url']:48s} {len(html_out):6d} o ({n} produits)")
+        else:
+            target.write_text(html_out, encoding="utf-8")
+            print(f"  écrit  {fl['url']:48s} {len(html_out):6d} o ({n} produits)")
+        fwritten += 1
+    print(f"{fwritten} page(s) filière générée(s).")
 
 
 if __name__ == "__main__":
