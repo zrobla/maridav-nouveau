@@ -702,6 +702,7 @@ FILIERE_CSS = r"""  <style>
     .fl-tswitch.is-active{background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;box-shadow:0 10px 22px -10px rgba(27,142,62,.7)}
     .fl-track{display:none}
     .fl-track.is-active{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1rem;position:relative}
+    .fl-track--linear.is-active{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto}
 
     @media (max-width:991px){
       .hub-choices,.hub-steps{grid-template-columns:1fr}
@@ -2020,7 +2021,7 @@ def render_poisson_timeline(tl):
           <h2 class="pdp-h2">{tl["h2"]}</h2>
           <p class="pdp-muted mt-2">{tl["intro"]}</p>
         </div>
-        <div id="fl-track-tilapia" class="fl-track is-active">
+        <div id="fl-track-tilapia" class="fl-track fl-track--linear is-active">
           {steps_html}
         </div>
       </div>

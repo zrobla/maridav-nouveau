@@ -237,6 +237,7 @@
     .fl-tswitch.is-active{background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;box-shadow:0 10px 22px -10px rgba(27,142,62,.7)}
     .fl-track{display:none}
     .fl-track.is-active{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1rem;position:relative}
+    .fl-track--linear.is-active{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto}
 
     @media (max-width:991px){
       .hub-choices,.hub-steps{grid-template-columns:1fr}
@@ -341,7 +342,7 @@
           <h2 class="pdp-h2">Quel aliment, à quelle étape</h2>
           <p class="pdp-muted mt-2">Un cycle linéaire guidé par le poids du poisson : de l'écloserie à l'abattage, chaque stade a son aliment. Repère = poids en grammes.</p>
         </div>
-        <div id="fl-track-tilapia" class="fl-track is-active">
+        <div id="fl-track-tilapia" class="fl-track fl-track--linear is-active">
           <div class="fl-tstep"><span class="num">1</span><span class="age">0–5 g</span><h3>Alevinage</h3><p>Nutra 0 : granulé micro-extrudé haute digestibilité pour démarrer les alevins dès les premières heures.</p><a class="btn-line" href="nutra_tilapia_0_maridav_ci.html">Nutra® 0 <i class="bi bi-arrow-right"></i></a></div>
           <div class="fl-tstep"><span class="num">2</span><span class="age">5–20 g</span><h3>Alevinage</h3><p>Nutra 80 : profil amino équilibré pour croissance homogène et faible encrassement des bassins.</p><a class="btn-line" href="nutra_tilapia_80_maridav_ci.html">Nutra® 80 <i class="bi bi-arrow-right"></i></a></div>
           <div class="fl-tstep"><span class="num">3</span><span class="age">20–80 g</span><h3>Prégrossissement</h3><p>Nutra 120 : qualité constante lot à lot pour conduire la phase de prégrossissement vers 80 g.</p><a class="btn-line" href="nutra_tilapia_120_maridav_ci.html">Nutra® 120 <i class="bi bi-arrow-right"></i></a></div>
