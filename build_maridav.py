@@ -21,11 +21,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "products.json"            # volailles (source historique)
-PORC_DATA = ROOT / "products-porcs.json"  # porcs
+PORC_DATA    = ROOT / "products-porcs.json"     # porcs
+POISSON_DATA = ROOT / "products-poissons.json"  # pisciculture
 
 # Registre des sources produits (même schéma). Les pages produits sont générées
 # pour chaque source ; render_page est espèce-agnostique.
-PRODUCT_SOURCES = [DATA, PORC_DATA]
+PRODUCT_SOURCES = [DATA, PORC_DATA, POISSON_DATA]
 
 # --------------------------------------------------------------------------- #
 #  Constantes de marque (source unique)                                        #
@@ -296,6 +297,7 @@ CATEGORY_META = {
     "concentres":        {"mode": "faf",  "label": "Concentré",       "icon": "bi-sliders"},
     "macro_premix":      {"mode": "faf",  "label": "Macro-prémix",    "icon": "bi-grid-3x3-gap"},
     "premix":            {"mode": "faf",  "label": "Prémix",          "icon": "bi-eyedropper"},
+    "additifs":          {"mode": "pret", "label": "Additif",         "icon": "bi-water"},
 }
 
 # --------------------------------------------------------------------------- #
@@ -476,6 +478,46 @@ PORC_HUB = {
         {"title": "Dites-nous votre élevage", "text": "Piste (engraissement, reproduction ou les deux), effectif, phase actuelle et mode de production (prêt à l'emploi ou FAF)."},
         {"title": "On cadre le programme", "text": "Nos techniciens proposent l'aliment ou la formulation adaptée à chaque phase — avec un devis en FCFA sous 24 h."},
         {"title": "Livraison + appui terrain", "text": "Retrait au point de vente le plus proche, suivi des performances et ajustements si nécessaire."},
+    ],
+}
+
+# --------------------------------------------------------------------------- #
+#  Hub POISSONS (pisciculture_maridav_ci.html) — cycle linéaire tilapia          #
+#  Matrice dérivée de products-poissons.json.                                   #
+# --------------------------------------------------------------------------- #
+POISSON_HUB = {
+    "url": "pisciculture_maridav_ci.html",
+    "title": "Poissons — aliments tilapia | MARIDAV Côte d'Ivoire",
+    "description": "Alimentation piscicole tilapia en Côte d'Ivoire : gamme complète Nutra (alevinage/prégrossissement) et Optiline (grossissement/finition), plus AquaCare (qualité d'eau) et Profish (FAF). Appui technicien, devis en FCFA sous 24 h.",
+    "eyebrow": "Filière pisciculture",
+    "h1": 'Pisciculture tilapia : <span class="accent">de l\'alevin à l\'abattage</span>',
+    "lead": "Une gamme complète de granulés flottants pour chaque stade du cycle tilapia — <strong>alevinage, prégrossissement, grossissement et finition</strong> — accompagnée par nos techniciens et disponible en Côte d'Ivoire.",
+    "image": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+    "image_alt": "Gamme aliments pisciculture tilapia MARIDAV Côte d'Ivoire",
+    "facts": [
+        {"b": "7 aliments", "span": "De l'alevin à la finition"},
+        {"b": "Flottants", "span": "Gamme granulés extrudés"},
+        {"b": "24 h", "span": "Devis en FCFA"},
+        {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
+    ],
+    "timeline": {
+        "kicker": "Le cycle tilapia",
+        "h2": "Quel aliment, à quelle étape",
+        "intro": "Un cycle linéaire guidé par le poids du poisson : de l'écloserie à l'abattage, chaque stade a son aliment. Repère = poids en grammes.",
+        "steps": [
+            {"phase": "Alevinage", "age": "0–5 g", "text": "Nutra 0 : granulé micro-extrudé haute digestibilité pour démarrer les alevins dès les premières heures.", "url": "nutra_tilapia_0_maridav_ci.html", "cta": "Nutra® 0"},
+            {"phase": "Alevinage", "age": "5–20 g", "text": "Nutra 80 : profil amino équilibré pour croissance homogène et faible encrassement des bassins.", "url": "nutra_tilapia_80_maridav_ci.html", "cta": "Nutra® 80"},
+            {"phase": "Prégrossissement", "age": "20–80 g", "text": "Nutra 120 : qualité constante lot à lot pour conduire la phase de prégrossissement vers 80 g.", "url": "nutra_tilapia_120_maridav_ci.html", "cta": "Nutra® 120"},
+            {"phase": "Prégrossissement", "age": "80–120 g", "text": "Nutra 160 : dernière étape Nutra, profil proche d'Optiline pour une bascule sans stress.", "url": "nutra_tilapia_160_maridav_ci.html", "cta": "Nutra® 160"},
+            {"phase": "Grossissement", "age": "120–200 g", "text": "Optiline 2 : granulé 2,5–3 mm pour démarrer le grossissement avec vitamines et antioxydants renforcés.", "url": "maridav_optiline_2_maridav_ci.html", "cta": "Optiline® 2"},
+            {"phase": "Grossissement", "age": "200–400 g", "text": "Optiline 3 : granulé 3–4 mm pour la phase centrale du grossissement.", "url": "maridav_optiline_3_maridav_ci.html", "cta": "Optiline® 3"},
+            {"phase": "Finition", "age": "> 400 g", "text": "Optiline 4.5 : granulé 4–5 mm pour préparer les lots à l'abattage et au marché.", "url": "maridav_optiline_4_5.html", "cta": "Optiline® 4.5"},
+        ],
+    },
+    "steps": [
+        {"title": "Partagez votre situation", "text": "Stade actuel (poids des poissons), effectif, type de système (étang, cage, RAS) et mode de production visé."},
+        {"title": "On bâtit le programme", "text": "Nos techniciens vous proposent le bon aliment pour chaque stade — avec un devis en FCFA sous 24 h."},
+        {"title": "Livraison + appui terrain", "text": "Retrait au point de vente le plus proche, suivi qualité d'eau et ajustements si nécessaire tout au long du cycle."},
     ],
 }
 
@@ -1919,6 +1961,184 @@ def render_porc_hub_page(h, porc_data):
 """
 
 
+# --------------------------------------------------------------------------- #
+#  Renderers HUB POISSONS                                                       #
+# --------------------------------------------------------------------------- #
+def render_poisson_hub_hero(h):
+    crumb = (
+        '<a href="index.html">Accueil</a>'
+        ' <span class="mx-1 text-white-50">/</span>\n          '
+        '<span class="text-white-50">Poissons</span>'
+    )
+    return f"""    <!-- HERO HUB POISSONS -->
+    <section class="pdp-hero">
+      <div class="container">
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          {crumb}
+        </nav>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="pdp-eyebrow pdp-reveal d1">{h["eyebrow"]}</span>
+            <h1 class="pdp-reveal d1">{h["h1"]}</h1>
+            <p class="pdp-lead pdp-reveal d2">{h["lead"]}</p>
+            <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
+              <a class="btn-pill btn-green" href="#cycle">Voir le cycle <i class="bi bi-arrow-down"></i></a>
+              <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
+            </div>
+            <div class="pdp-facts pdp-reveal d4">
+              {render_facts(h["facts"])}
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="pdp-figure pdp-reveal d2 mb-0">
+              <img src="{h["image"]}" alt="{h["image_alt"]}">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_poisson_timeline(tl):
+    def step_html(s, idx):
+        return (
+            f'<div class="fl-tstep">'
+            f'<span class="num">{idx + 1}</span>'
+            f'<span class="age">{s["age"]}</span>'
+            f'<h3>{s["phase"]}</h3>'
+            f'<p>{s["text"]}</p>'
+            f'<a class="btn-line" href="{s["url"]}">{s["cta"]} <i class="bi bi-arrow-right"></i></a>'
+            f'</div>'
+        )
+
+    steps_html = "\n          ".join(step_html(s, i) for i, s in enumerate(tl["steps"]))
+    return f"""    <!-- CYCLE-TIMELINE POISSONS (linéaire) -->
+    <section class="pdp-sec" id="cycle">
+      <div class="container">
+        <div class="text-center mb-4">
+          <span class="pdp-kicker">{tl["kicker"]}</span>
+          <h2 class="pdp-h2">{tl["h2"]}</h2>
+          <p class="pdp-muted mt-2">{tl["intro"]}</p>
+        </div>
+        <div id="fl-track-tilapia" class="fl-track is-active">
+          {steps_html}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_poisson_matrix(poisson_data):
+    cards = []
+    for cat in ("aliments_complets", "additifs", "concentres"):
+        if cat not in CATEGORY_META:
+            continue
+        meta = CATEGORY_META[cat]
+        for p in poisson_data.get(cat, []):
+            if not p.get("_render", True) or "hero" not in p:
+                continue
+            hero = p["hero"]
+            tags = ""
+            if p.get("transversal", False):
+                tags = '<div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div>'
+            cards.append(
+                f'<article class="fl-mcard" data-mode="{meta["mode"]}">'
+                f'<span class="cat"><i class="bi {meta["icon"]}"></i> {meta["label"]}</span>'
+                f'<h3>{p["jsonld"]["name"]}</h3>'
+                f'<p class="badge-phase">{hero["pill"]["text"]}</p>'
+                f'<p>{hero.get("figchip", {}).get("label", "")}</p>'
+                f'{tags}'
+                f'<a class="btn-line" href="{p["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
+                f'</article>'
+            )
+
+    modes_btns = (
+        '<button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button>'
+        '<button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l\'emploi</button>'
+        '<button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>'
+    )
+    cards_html = "\n          ".join(cards)
+    return f"""    <!-- MATRICE PRODUITS POISSONS -->
+    <section class="pdp-sec" id="gamme">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">Toute la gamme</span>
+          <h2 class="pdp-h2">Aliments & additifs — du granulé à la qualité d'eau</h2>
+          <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
+            {modes_btns}
+          </div>
+          <p class="fl-modehint" id="fl-modehint">Toute la gamme pisciculture, prête à l'emploi comme en fabrication assistée.</p>
+        </div>
+        <div class="fl-matrix" id="fl-matrix">
+          {cards_html}
+        </div>
+        <p class="fl-empty" id="fl-empty">Aucun produit pour ce filtre.</p>
+      </div>
+    </section>"""
+
+
+def render_poisson_hub_jsonld(h):
+    url = f'{SITE["base"]}/{h["url"]}'
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f'{SITE["base"]}/'},
+            {"@type": "ListItem", "position": 2, "name": "Poissons", "item": url},
+        ],
+    }
+    itemlist = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": h["title"],
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": s["phase"] + " " + s["age"], "url": f'{SITE["base"]}/{s["url"]}'}
+            for i, s in enumerate(h["timeline"]["steps"], 1)
+        ],
+    }
+    dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+    return f"""  <script type="application/ld+json">
+  {dump(breadcrumb)}
+  </script>
+  <script type="application/ld+json">
+  {dump(itemlist)}
+  </script>"""
+
+
+def render_poisson_hub_page(h, poisson_data):
+    piliers = poisson_data["_meta"]["piliers"]
+    sections = [
+        render_poisson_hub_hero(h),
+        render_poisson_timeline(h["timeline"]),
+        render_pillars(piliers),
+        render_poisson_matrix(poisson_data),
+        render_proofbar(),
+        render_techcta(),
+        render_hub_steps(h),
+    ]
+    main = "\n\n".join(s for s in sections if s)
+    return f"""{render_filiere_head(h)}
+<body class="pdp">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+{NAVBAR}
+
+  <main id="main">
+{main}
+  </main>
+
+{FOOTER}
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.min.js" defer></script>
+{FILIERE_JS}
+{render_poisson_hub_jsonld(h)}
+  <script src="assets/js/site-crm-bridge.js" defer></script>
+</body>
+</html>
+"""
+
+
 def generate_seo():
     pages = indexable_pages()
     (ROOT / "sitemap.xml").write_text(build_sitemap(pages), encoding="utf-8")
@@ -1984,7 +2204,16 @@ def main():
     else:
         (ROOT / PORC_HUB["url"]).write_text(porc_hub_out, encoding="utf-8")
         print(f"  écrit  {PORC_HUB['url']:48s} {len(porc_hub_out):6d} o (hub)")
-    print("2 hubs générés (volailles + porcs).")
+
+    # 3c) Hub poissons
+    poisson_data = json.loads(POISSON_DATA.read_text(encoding="utf-8"))
+    poisson_hub_out = render_poisson_hub_page(POISSON_HUB, poisson_data)
+    if check:
+        print(f"  [check] {POISSON_HUB['url']:48s} {len(poisson_hub_out):6d} o (hub)")
+    else:
+        (ROOT / POISSON_HUB["url"]).write_text(poisson_hub_out, encoding="utf-8")
+        print(f"  écrit  {POISSON_HUB['url']:48s} {len(poisson_hub_out):6d} o (hub)")
+    print("3 hubs générés (volailles + porcs + poissons).")
 
     # 4) SEO (sitemap / robots / llms) + release-gate
     if not check:

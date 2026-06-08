@@ -1,0 +1,1808 @@
+{
+ "_meta": {
+  "description": "Catalogue + contenu éditorial des pages produits POISSONS (pisciculture tilapia) MARIDAV CI. Source UNIQUE du générateur build_maridav.py. Ne pas éditer les .html à la main. Gamme = aliments granulés flottants (Nutra alevinage + Optiline grossissement/finition) + additif qualité d'eau (AquaCare) + concentré protéique FAF (Profish).",
+  "marque": "MARIDAV Côte d'Ivoire",
+  "espece": "poissons",
+  "piliers": [
+   {
+    "id": "expertise",
+    "icon": "bi-people",
+    "titre": "Expertise & accompagnement",
+    "phrase": "Techniciens MARIDAV sur le terrain : plans de rationnement par stade, suivi qualité d'eau et accompagnement du cycle alevin à l'abattage."
+   },
+   {
+    "id": "gamme",
+    "icon": "bi-layers",
+    "titre": "Gamme complète",
+    "phrase": "De l'écloserie à la finition — Nutra pour l'alevinage et le prégrossissement, Optiline pour le grossissement et la finition, AquaCare pour la qualité d'eau."
+   },
+   {
+    "id": "proximite",
+    "icon": "bi-geo-alt",
+    "titre": "Proximité & disponibilité",
+    "phrase": "Stock disponible en Côte d'Ivoire, devis en FCFA sous 24 h et appui technique sur le terrain."
+   },
+   {
+    "id": "faf",
+    "icon": "bi-sliders",
+    "titre": "Fabrication assistée",
+    "phrase": "Profish — concentré protéique marin — pour renforcer vos formulations maison et maîtriser le coût de la ration."
+   }
+  ],
+  "a_verifier": [
+   "FCR mentionnés dans les FAQ (Nutra 120: 1,0–1,2 ; Nutra 160: ~1,1 ; Optiline 2: 1,3–1,4 ; Optiline 3: ~1,4 ; Optiline 4.5: 1,5–1,6) — valeurs indicatives à confirmer avec Maridav sur données terrain réelles avant mise en avant commerciale.",
+   "Images maridav_ci_image/aliments_poissons/* — vérifier que les fichiers existent bien sur le serveur.",
+   "Données AquaCare : fournisseur non mentionné (recon §5.6). Confirmer la composition (Bacillus spp., enzymes, formats) avec Maridav.",
+   "Profish transversal multi-espèce : s'assurer que les taux d'incorporation (volailles 3–6 %, porcs 2–5 %, aquaculture) sont validés par Maridav.",
+   "Capacité export avec Optiline 4.5 — confirmé par Maridav avant affichage commercial."
+  ]
+ },
+ "aliments_complets": [
+  {
+   "url": "nutra_tilapia_0_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture"
+   ],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "alevinage",
+   "image": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+   "title": "Nutra® 0 — Alevinage tilapia 0–5 g | MARIDAV Côte d'Ivoire",
+   "description": "Granulé micro-extrudé flottant Nutra 0 pour démarrer vos alevins de tilapia dès les premières heures : haute digestibilité, immunostimulants et vitamine C stabilisée. Distribué par MARIDAV CI.",
+   "og_title": "Nutra® 0 — Alevinage tilapia 0–5 g",
+   "og_description": "Granulé micro-extrudé Nutra 0 : démarrez vos alevins tilapia avec un aliment haute digestibilité, flottant et immunostimulant.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Alevinage"
+    },
+    {
+     "name": "Nutra® 0"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Nutra® 0",
+     "item": "https://maridav.ci/nutra_tilapia_0_maridav_ci.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Alevinage",
+    "h1": "Nutra® <span class=\"accent\">0</span>",
+    "pill": {
+     "icon": "bi-fish",
+     "text": "Alevinage · 0–5 g"
+    },
+    "lead": "Granulé <strong>micro-extrudé flottant</strong> pour démarrer vos alevins tilapia avec un aliment <em>haute digestibilité, immunostimulant et à faible pollution organique</em>. Disponible et accompagné par MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "52 %",
+      "span": "Protéines brutes"
+     },
+     {
+      "b": "12 %",
+      "span": "Lipides"
+     },
+     {
+      "b": "0–5 g",
+      "span": "Stade alevin"
+     },
+     {
+      "b": "Flottant",
+      "span": "Granulé stable"
+     }
+    ],
+    "image_alt": "Granulé Nutra 0 alevinage tilapia MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Granulé flottant",
+     "label": "Alevinage 0–5 g"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts Nutra® 0",
+    "intro": "Un granulé micro-extrudé conçu pour la phase la plus critique du cycle tilapia : sécuriser l'alevinage dès les premières heures avec un aliment stable, digestible et immuno-soutenant.",
+    "cards": [
+     {
+      "icon": "bi-droplet",
+      "title": "Granulé flottant stable",
+      "text": "Limite les pertes non ingérées et la charge organique du bassin d'alevinage."
+     },
+     {
+      "icon": "bi-lightning-charge",
+      "title": "Densité énergétique élevée",
+      "text": "Formulation concentrée pour soutenir la croissance des alevins dès les premières semaines."
+     },
+     {
+      "icon": "bi-shield-check",
+      "title": "Immunostimulants & vitamine C",
+      "text": "Soutien immunitaire dès les premières heures pour réduire les mortalités en écloserie et nurserie."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Mode d'emploi",
+    "steps": [
+     {
+      "title": "J0–J7 : alimentation continue",
+      "text": "Petites rations fréquentes, 6 à 8 fois par jour. Distribuez selon l'appétit observé pour limiter les refus."
+     },
+     {
+      "title": "J8–J14 : 4 à 5 repas/jour",
+      "text": "Réduire progressivement la fréquence tout en maintenant une ingestion suffisante selon la densité et le brassage."
+     },
+     {
+      "title": "Transition vers Nutra® 80",
+      "text": "Lorsque les alevins atteignent 5 g, introduire progressivement Nutra 80 sur 2 à 3 jours."
+     }
+    ],
+    "note": "Adaptez la ration quotidienne selon la densité, la température et la qualité d'eau. Nos techniciens MARIDAV vous accompagnent."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Valeurs cibles",
+    "rows": [
+     {
+      "k": "Protéines brutes",
+      "v": "52 %"
+     },
+     {
+      "k": "Lipides",
+      "v": "12 %"
+     },
+     {
+      "k": "Énergie",
+      "v": "Digestibilité élevée"
+     },
+     {
+      "k": "Vitamines / Minéraux",
+      "v": "Profil complet alevins"
+     },
+     {
+      "k": "Additifs",
+      "v": "Immunostimulants, antioxydants"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Étape suivante",
+    "text": "À 5 g, passez à <strong>Nutra® 80</strong> pour poursuivre l'alevinage jusqu'à 20 g.",
+    "link_text": "Découvrir Nutra® 80",
+    "url": "nutra_tilapia_80_maridav_ci.html"
+   },
+   "faq_intro": "Questions fréquentes sur Nutra® 0",
+   "faq": [
+    {
+     "q": "Comment éviter la pollution du bassin ?",
+     "a": "Distribuez de petites quantités fréquentes et ajustez selon le comportement d'ingestion des alevins."
+    },
+    {
+     "q": "Quelle densité recommandez-vous pour l'alevinage ?",
+     "a": "Consultez nos techniciens pour un dimensionnement adapté à vos bassins. La densité optimale dépend du système (bac, RAS ou étang) et des équipements d'oxygénation."
+    },
+    {
+     "q": "Peut-on distribuer Nutra 0 en étang ?",
+     "a": "Nutra 0 est idéal en systèmes contrôlés (bacs, RAS). En étang, veillez à bien maîtriser l'oxygène et à limiter les prédateurs."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Alevinage 5–20 g",
+      "title": "Nutra® 80",
+      "text": "Alevinage 5-20 g : croissance homogene et faible encrassement.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Nutra® 80",
+      "url": "nutra_tilapia_80_maridav_ci.html"
+     },
+     {
+      "tag": "Hub pisciculture",
+      "title": "Gamme Poissons",
+      "text": "Gamme complete de l'alevinage a la finition tilapia.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Gamme Poissons",
+      "url": "pisciculture_maridav_ci.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Commandez votre aliment tilapia en Côte d'Ivoire",
+    "text": "Devis en FCFA sous 24 h — nos techniciens sont disponibles pour bâtir votre programme d'alimentation."
+   },
+   "jsonld": {
+    "name": "Nutra® 0",
+    "description": "Granulé micro-extrudé flottant pour alevinage tilapia 0–5 g, hautement digestible et immunostimulant.",
+    "brand": "MARIDAV",
+    "sku": "NUTRA-0",
+    "category": "Aliment pisciculture",
+    "audience": "Pisciculteurs tilapia — alevinage"
+   }
+  },
+  {
+   "url": "nutra_tilapia_80_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture"
+   ],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "alevinage",
+   "image": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+   "title": "Nutra® 80 — Alevinage tilapia 5–20 g | MARIDAV Côte d'Ivoire",
+   "description": "Granulé flottant Nutra 80 pour accélérer la croissance des alevins de tilapia (5–20 g) : profil amino équilibré, vitamines renforcées et faible encrassement des bassins. MARIDAV CI.",
+   "og_title": "Nutra® 80 — Alevinage 5–20 g",
+   "og_description": "Granulé flottant Nutra 80 : croissance homogène des alevins tilapia 5–20 g, profil amino équilibré et faible pollution organique.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Alevinage"
+    },
+    {
+     "name": "Nutra® 80"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Nutra® 80",
+     "item": "https://maridav.ci/nutra_tilapia_80_maridav_ci.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Alevinage",
+    "h1": "Nutra® <span class=\"accent\">80</span>",
+    "pill": {
+     "icon": "bi-fish",
+     "text": "Alevinage · 5–20 g"
+    },
+    "lead": "Granulé <strong>flottant à profil amino équilibré</strong> pour la phase d'alevinage 5–20 g : <em>croissance homogène, vitamines renforcées et faible encrassement des bassins</em>. Disponible et accompagné par MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "48 %",
+      "span": "Protéines brutes"
+     },
+     {
+      "b": "10 %",
+      "span": "Lipides"
+     },
+     {
+      "b": "5–20 g",
+      "span": "Stade alevin"
+     },
+     {
+      "b": "Flottant",
+      "span": "Granulé stable"
+     }
+    ],
+    "image_alt": "Granulé Nutra 80 alevinage tilapia MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Granulé flottant",
+     "label": "Alevinage 5–20 g"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts Nutra® 80",
+    "intro": "Un aliment flottant formulé pour la deuxième phase d'alevinage : homogénéiser la cohorte, renforcer la résistance et préparer le passage au prégrossissement.",
+    "cards": [
+     {
+      "icon": "bi-arrow-up-right",
+      "title": "Croissance homogène",
+      "text": "Profil amino équilibré pour limiter les écarts de taille entre alevins et homogénéiser la cohorte."
+     },
+     {
+      "icon": "bi-shield-check",
+      "title": "Apports renforcés",
+      "text": "Vitamines, minéraux et antioxydants pour soutenir la santé et la résistance des alevins."
+     },
+     {
+      "icon": "bi-droplet",
+      "title": "Faible encrassement",
+      "text": "Granulé flottant à haute digestibilité — réduit la charge organique et préserve la qualité d'eau."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Mode d'emploi",
+    "steps": [
+     {
+      "title": "Ration : 4 à 5 repas/jour",
+      "text": "Distribuez 3 à 6 % du poids vif par jour selon la taille et la densité. Observez les refus pour ajuster."
+     },
+     {
+      "title": "Transition : à 20 g",
+      "text": "Lorsque les alevins dépassent 20 g, introduisez Nutra 120 progressivement sur 2 à 3 jours."
+     },
+     {
+      "title": "Qualité d'eau",
+      "text": "Maintenez un brassage suffisant et un taux d'O₂ supérieur à 5 mg/L. Surveillez régulièrement l'ammoniac et le pH."
+     }
+    ],
+    "note": "Adaptez la ration selon densité, température et comportement d'ingestion. Nos techniciens MARIDAV vous accompagnent."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Valeurs cibles",
+    "rows": [
+     {
+      "k": "Protéines brutes",
+      "v": "48 %"
+     },
+     {
+      "k": "Lipides",
+      "v": "10 %"
+     },
+     {
+      "k": "Énergie digestible",
+      "v": "Haute"
+     },
+     {
+      "k": "Vitamines / Minéraux",
+      "v": "Profil complet"
+     },
+     {
+      "k": "Additifs",
+      "v": "Immunostimulants, antioxydants"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Étape suivante",
+    "text": "À 20 g, passez à <strong>Nutra® 120</strong> pour la phase de prégrossissement.",
+    "link_text": "Découvrir Nutra® 120",
+    "url": "nutra_tilapia_120_maridav_ci.html"
+   },
+   "faq_intro": "Questions fréquentes sur Nutra® 80",
+   "faq": [
+    {
+     "q": "Comment maintenir la qualité d'eau avec Nutra 80 ?",
+     "a": "Maintenez un brassage suffisant et un taux d'O₂ supérieur à 5 mg/L. La digestibilité élevée du granulé limite la charge organique."
+    },
+    {
+     "q": "Nutra 80 peut-il être retraité sur site ?",
+     "a": "Non, Nutra est un granulé extrudé prêt à l'emploi — aucun retraitement n'est nécessaire ni recommandé."
+    },
+    {
+     "q": "Comment limiter les restes dans le bassin ?",
+     "a": "Distribuez en plusieurs repas et observez l'appétit pour ajuster la ration. Un granulé flottant facilite la récupération des refus."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Alevinage 0–5 g",
+      "title": "Nutra® 0",
+      "text": "Alevinage 0-5 g : granule micro-extrude haute digestibilite.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Nutra® 0",
+      "url": "nutra_tilapia_0_maridav_ci.html"
+     },
+     {
+      "tag": "Prégrossissement 20–80 g",
+      "title": "Nutra® 120",
+      "text": "Pregrossissement 20-80 g : qualite constante lot a lot.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Nutra® 120",
+      "url": "nutra_tilapia_120_maridav_ci.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Commandez votre aliment tilapia en Côte d'Ivoire",
+    "text": "Devis en FCFA sous 24 h — nos techniciens sont disponibles pour bâtir votre programme d'alimentation."
+   },
+   "jsonld": {
+    "name": "Nutra® 80",
+    "description": "Granulé flottant pour alevinage tilapia 5–20 g : croissance homogène et faible encrassement des bassins.",
+    "brand": "MARIDAV",
+    "sku": "NUTRA-80",
+    "category": "Aliment pisciculture",
+    "audience": "Pisciculteurs tilapia — alevinage"
+   }
+  },
+  {
+   "url": "nutra_tilapia_120_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture"
+   ],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "pré-grossissement",
+   "image": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+   "title": "Nutra® 120 — Prégrossissement tilapia 20–80 g | MARIDAV Côte d'Ivoire",
+   "description": "Granulé Nutra 120 pour prégrossissement tilapia (20–80 g) : progression régulière, faible taux de fines et constance lot à lot. MARIDAV Côte d'Ivoire.",
+   "og_title": "Nutra® 120 — Prégrossissement tilapia 20–80 g",
+   "og_description": "Nutra 120 : prégrossissement tilapia 20–80 g avec un granulé flottant de qualité constante.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Prégrossissement"
+    },
+    {
+     "name": "Nutra® 120"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Nutra® 120",
+     "item": "https://maridav.ci/nutra_tilapia_120_maridav_ci.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Prégrossissement",
+    "h1": "Nutra® <span class=\"accent\">120</span>",
+    "pill": {
+     "icon": "bi-fish",
+     "text": "Prégrossissement · 20–80 g"
+    },
+    "lead": "Granulé <strong>flottant à faible taux de fines</strong> pour conduire vos juvéniles tilapia de 20 à 80 g avec une <em>progression régulière, une eau préservée et une constance lot à lot</em>. MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "44 %",
+      "span": "Protéines brutes"
+     },
+     {
+      "b": "9 %",
+      "span": "Lipides"
+     },
+     {
+      "b": "3 350 kcal/kg",
+      "span": "Énergie digestible"
+     },
+     {
+      "b": "1,5–2 mm",
+      "span": "Granulométrie"
+     }
+    ],
+    "image_alt": "Granulé Nutra 120 prégrossissement tilapia MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Prégrossissement",
+     "label": "Prégrossissement 20–80 g"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts Nutra® 120",
+    "intro": "Un granulé extrudé conçu pour conduire efficacement la phase de prégrossissement : qualité analytique constante, eau claire et transition vers Nutra 160 facilitée.",
+    "cards": [
+     {
+      "icon": "bi-arrow-up-right",
+      "title": "Progression régulière",
+      "text": "Formulation ajustée pour accompagner la phase de prégrossissement 20–80 g vers le seuil de Nutra 160."
+     },
+     {
+      "icon": "bi-droplet-half",
+      "title": "Faible taux de fines",
+      "text": "Granulé extrudé de qualité constante — préserve la clarté de l'eau et limite l'encrassement des bassins."
+     },
+     {
+      "icon": "bi-check-circle",
+      "title": "Constance lot à lot",
+      "text": "Valeurs analytiques homogènes d'un sac à l'autre pour des performances reproductibles."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Mode d'emploi",
+    "steps": [
+     {
+      "title": "20–40 g : 3–4 % PV, 3 repas/jour",
+      "text": "Distribuez selon l'appétit observé. Adapter selon la densité et la température de l'eau."
+     },
+     {
+      "title": "40–80 g : 2,5–3 % PV, 2–3 repas/jour",
+      "text": "Réduire progressivement le taux de ration selon la taille des poissons."
+     },
+     {
+      "title": "Transition vers Nutra® 160",
+      "text": "À 80 g, introduisez Nutra 160 progressivement sur 3 jours. Triez si nécessaire pour homogénéiser la cohorte."
+     }
+    ],
+    "note": "Surveillez régulièrement O₂, pH et ammoniaque. Nos techniciens MARIDAV vous accompagnent pour calibrer vos rations."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Valeurs cibles",
+    "rows": [
+     {
+      "k": "Protéines brutes",
+      "v": "44 %"
+     },
+     {
+      "k": "Lipides",
+      "v": "9 %"
+     },
+     {
+      "k": "Énergie digestible",
+      "v": "3 350 kcal/kg"
+     },
+     {
+      "k": "Additifs",
+      "v": "Antioxydants, immunostimulants"
+     },
+     {
+      "k": "Granulométrie",
+      "v": "1,5–2 mm"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Étape suivante",
+    "text": "À 80 g, passez à <strong>Nutra® 160</strong> pour finaliser le prégrossissement.",
+    "link_text": "Découvrir Nutra® 160",
+    "url": "nutra_tilapia_160_maridav_ci.html"
+   },
+   "faq_intro": "Questions fréquentes sur Nutra® 120",
+   "faq": [
+    {
+     "q": "Quel FCR viser avec Nutra 120 ?",
+     "a": "Entre 1,0 et 1,2 selon les conditions d'élevage (densité, température, qualité d'eau). Nos techniciens vous accompagnent pour mesurer votre FCR en conditions réelles."
+    },
+    {
+     "q": "Peut-on utiliser Nutra 120 en cages flottantes ?",
+     "a": "Oui, le granulé flottant reste stable en cage et en étang. Le faible taux de fines limite les pertes dans le courant."
+    },
+    {
+     "q": "Comment éviter les inégalités de taille ?",
+     "a": "Triez régulièrement vos poissons et ajustez la ration selon la taille. Un tri tous les 3 à 4 semaines limite les dominances alimentaires."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Alevinage 5–20 g",
+      "title": "Nutra® 80",
+      "text": "Alevinage 5-20 g : croissance homogene et faible encrassement.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Nutra® 80",
+      "url": "nutra_tilapia_80_maridav_ci.html"
+     },
+     {
+      "tag": "Prégrossissement 80–120 g",
+      "title": "Nutra® 160",
+      "text": "Pregrossissement 80-120 g : transition facilitee vers Optiline.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Nutra® 160",
+      "url": "nutra_tilapia_160_maridav_ci.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Commandez votre aliment tilapia en Côte d'Ivoire",
+    "text": "Devis en FCFA sous 24 h — nos techniciens sont disponibles pour bâtir votre programme d'alimentation."
+   },
+   "jsonld": {
+    "name": "Nutra® 120",
+    "description": "Granulé flottant pour prégrossissement tilapia 20–80 g : qualité constante et faible taux de fines.",
+    "brand": "MARIDAV",
+    "sku": "NUTRA-120",
+    "category": "Aliment pisciculture",
+    "audience": "Pisciculteurs tilapia — prégrossissement"
+   }
+  },
+  {
+   "url": "nutra_tilapia_160_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture"
+   ],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "pré-grossissement",
+   "image": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+   "title": "Nutra® 160 — Prégrossissement tilapia 80–120 g | MARIDAV Côte d'Ivoire",
+   "description": "Granulé Nutra 160 pour finaliser le prégrossissement tilapia (80–120 g) : formulation proche d'Optiline pour faciliter la transition, granulé flottant pauvre en fines. MARIDAV CI.",
+   "og_title": "Nutra® 160 — Prégrossissement tilapia 80–120 g",
+   "og_description": "Nutra 160 : dernière étape Nutra — prégrossissement 80–120 g, transition facilitée vers Optiline 2.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Prégrossissement"
+    },
+    {
+     "name": "Nutra® 160"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Nutra® 160",
+     "item": "https://maridav.ci/nutra_tilapia_160_maridav_ci.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Prégrossissement",
+    "h1": "Nutra® <span class=\"accent\">160</span>",
+    "pill": {
+     "icon": "bi-fish",
+     "text": "Prégrossissement · 80–120 g"
+    },
+    "lead": "Granulé <strong>flottant à profil nutritionnel ciblé</strong> pour conduire vos juvéniles de 80 à 120 g et faciliter la <em>transition vers la gamme Optiline</em> sans stress. MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "40 %",
+      "span": "Protéines brutes"
+     },
+     {
+      "b": "8 %",
+      "span": "Lipides"
+     },
+     {
+      "b": "3 250 kcal/kg",
+      "span": "Énergie digestible"
+     },
+     {
+      "b": "80–120 g",
+      "span": "Phase cible"
+     }
+    ],
+    "image_alt": "Granulé Nutra 160 prégrossissement tilapia MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Prégrossissement",
+     "label": "Prégrossissement 80–120 g"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts Nutra® 160",
+    "intro": "La dernière étape de la gamme Nutra — conduit les juvéniles jusqu'à 120 g avec un profil nutritionnel pensé pour faciliter le passage vers Optiline.",
+    "cards": [
+     {
+      "icon": "bi-arrow-up-right",
+      "title": "Profil nutritionnel adapté",
+      "text": "Formulation ciblée pour la phase finale de prégrossissement (80–120 g) avant l'entrée en grossissement."
+     },
+     {
+      "icon": "bi-droplet-half",
+      "title": "Granulé pauvre en fines",
+      "text": "Flottant, stable — limite l'encrassement du bassin et les refus d'ingestion."
+     },
+     {
+      "icon": "bi-arrow-right-circle",
+      "title": "Transition facilitée",
+      "text": "Profil proche d'Optiline pour limiter le stress alimentaire lors du changement d'aliment à 120 g."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Mode d'emploi",
+    "steps": [
+     {
+      "title": "80–100 g : 2,5 % PV, 2–3 repas/jour",
+      "text": "Adapter selon la densité et la température. Surveiller l'oxygène et l'ammoniaque."
+     },
+     {
+      "title": "100–120 g : 2 % PV, 2 repas/jour",
+      "text": "Réduire la ration en proportion du poids des poissons."
+     },
+     {
+      "title": "Transition vers Optiline® 2",
+      "text": "À 120 g, introduisez Optiline 2 progressivement sur 3 jours pour limiter le stress de transition."
+     }
+    ],
+    "note": "Contrôlez régulièrement O₂, pH et ammoniaque. Nos techniciens MARIDAV vous accompagnent pour calibrer la bascule vers Optiline."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Valeurs cibles",
+    "rows": [
+     {
+      "k": "Protéines brutes",
+      "v": "40 %"
+     },
+     {
+      "k": "Lipides",
+      "v": "8 %"
+     },
+     {
+      "k": "Énergie digestible",
+      "v": "3 250 kcal/kg"
+     },
+     {
+      "k": "Vitamines / Minéraux",
+      "v": "Profil complet"
+     },
+     {
+      "k": "Additifs",
+      "v": "Immunostimulants"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Étape suivante",
+    "text": "À 120 g, passez à <strong>Optiline® 2</strong> pour démarrer la phase de grossissement.",
+    "link_text": "Découvrir Optiline® 2",
+    "url": "maridav_optiline_2_maridav_ci.html"
+   },
+   "faq_intro": "Questions fréquentes sur Nutra® 160",
+   "faq": [
+    {
+     "q": "Quel FCR viser avec Nutra 160 ?",
+     "a": "Autour de 1,1 selon la température et la densité. Nos techniciens vous accompagnent pour mesurer votre FCR en conditions réelles."
+    },
+    {
+     "q": "Peut-on utiliser Nutra 160 en étang traditionnel ?",
+     "a": "Oui, mais veillez à la qualité d'eau et à la distribution homogène pour limiter les inégalités d'ingestion."
+    },
+    {
+     "q": "Combien de temps rester sur Nutra 160 ?",
+     "a": "Jusqu'à atteindre 120 g — c'est le seuil de bascule vers Optiline 2. Triez si nécessaire pour uniformiser le lot."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Prégrossissement 20–80 g",
+      "title": "Nutra® 120",
+      "text": "Pregrossissement 20-80 g : qualite constante lot a lot.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Nutra® 120",
+      "url": "nutra_tilapia_120_maridav_ci.html"
+     },
+     {
+      "tag": "Grossissement 120–200 g",
+      "title": "Optiline® 2",
+      "text": "Grossissement 120-200 g : vitamines et antioxydants renforces.",
+      "img": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+      "alt": "Optiline® 2",
+      "url": "maridav_optiline_2_maridav_ci.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Commandez votre aliment tilapia en Côte d'Ivoire",
+    "text": "Devis en FCFA sous 24 h — nos techniciens sont disponibles pour bâtir votre programme d'alimentation."
+   },
+   "jsonld": {
+    "name": "Nutra® 160",
+    "description": "Granulé flottant pour prégrossissement tilapia 80–120 g : dernière étape Nutra avant Optiline, transition facilitée.",
+    "brand": "MARIDAV",
+    "sku": "NUTRA-160",
+    "category": "Aliment pisciculture",
+    "audience": "Pisciculteurs tilapia — prégrossissement tardif"
+   }
+  },
+  {
+   "url": "maridav_optiline_2_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture"
+   ],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "grossissement",
+   "image": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+   "title": "Optiline® 2 — Grossissement tilapia 120–200 g | MARIDAV Côte d'Ivoire",
+   "description": "Aliment Optiline 2 pour grossissement tilapia 120–200 g : granulé flottant 2,5–3 mm, antioxydants renforcés et faible taux de fines. MARIDAV Côte d'Ivoire.",
+   "og_title": "Optiline® 2 — Grossissement tilapia 120–200 g",
+   "og_description": "Optiline 2 : démarrez le grossissement tilapia avec un granulé flottant adapté à la phase 120–200 g.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Grossissement"
+    },
+    {
+     "name": "Optiline® 2"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Optiline® 2",
+     "item": "https://maridav.ci/maridav_optiline_2_maridav_ci.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Grossissement",
+    "h1": "Optiline® <span class=\"accent\">2</span>",
+    "pill": {
+     "icon": "bi-fish",
+     "text": "Grossissement · 120–200 g"
+    },
+    "lead": "Granulé <strong>flottant 2,5–3 mm</strong> pour démarrer la phase de grossissement tilapia : <em>vitamines et antioxydants renforcés, faible taux de fines et qualité d'eau préservée</em>. MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "38 %",
+      "span": "Protéines brutes"
+     },
+     {
+      "b": "8 %",
+      "span": "Lipides"
+     },
+     {
+      "b": "3 200 kcal/kg",
+      "span": "Énergie digestible"
+     },
+     {
+      "b": "2,5–3 mm",
+      "span": "Granulométrie"
+     }
+    ],
+    "image_alt": "Aliment Optiline 2 grossissement tilapia MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Grossissement",
+     "label": "Grossissement 120–200 g"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts Optiline® 2",
+    "intro": "Premier aliment de la gamme Optiline — conçu pour lancer le grossissement sur de bonnes bases avec une granulométrie adaptée et un profil nutritionnel renforcé.",
+    "cards": [
+     {
+      "icon": "bi-arrow-up-right",
+      "title": "Progression en grossissement",
+      "text": "Formulation pour la phase 120–200 g avec granulométrie adaptée à la taille des poissons."
+     },
+     {
+      "icon": "bi-droplet-half",
+      "title": "Faible taux de fines",
+      "text": "Granulé flottant stable — qualité d'eau et palatabilité préservées en étang, cage ou RAS."
+     },
+     {
+      "icon": "bi-shield-check",
+      "title": "Apports renforcés",
+      "text": "Vitamines et antioxydants pour soutenir la santé des poissons en début de grossissement."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Mode d'emploi",
+    "steps": [
+     {
+      "title": "120–150 g : 2 % PV, 2–3 repas/jour",
+      "text": "Adapter selon la densité et la température. Surveiller la consommation pour éviter les refus."
+     },
+     {
+      "title": "150–200 g : 1,8 % PV, 2 repas/jour",
+      "text": "Réduire progressivement le taux de ration selon la croissance des poissons."
+     },
+     {
+      "title": "Transition vers Optiline® 3",
+      "text": "À 200 g, introduire Optiline 3 progressivement sur 3 jours."
+     }
+    ],
+    "note": "Surveillez régulièrement O₂, pH et ammoniaque. Nos techniciens MARIDAV vous accompagnent pour calibrer vos rations."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Valeurs cibles",
+    "rows": [
+     {
+      "k": "Protéines brutes",
+      "v": "38 %"
+     },
+     {
+      "k": "Lipides",
+      "v": "8 %"
+     },
+     {
+      "k": "Énergie digestible",
+      "v": "3 200 kcal/kg"
+     },
+     {
+      "k": "Additifs",
+      "v": "Antioxydants, immunostimulants"
+     },
+     {
+      "k": "Granulométrie",
+      "v": "2,5–3 mm"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Étape suivante",
+    "text": "À 200 g, passez à <strong>Optiline® 3</strong> pour poursuivre le grossissement jusqu'à 400 g.",
+    "link_text": "Découvrir Optiline® 3",
+    "url": "maridav_optiline_3_maridav_ci.html"
+   },
+   "faq_intro": "Questions fréquentes sur Optiline® 2",
+   "faq": [
+    {
+     "q": "Peut-on utiliser Optiline 2 en étang traditionnel ?",
+     "a": "Oui, en adaptant la ration et en assurant un apport d'oxygène suffisant. Le granulé flottant facilite le contrôle de l'ingestion."
+    },
+    {
+     "q": "Quel FCR viser avec Optiline 2 ?",
+     "a": "Entre 1,3 et 1,4 selon les conditions d'élevage. Nos techniciens vous accompagnent pour mesurer votre FCR en conditions réelles."
+    },
+    {
+     "q": "Combien de temps rester sur Optiline 2 ?",
+     "a": "Jusqu'à atteindre environ 200 g avant la bascule vers Optiline 3. La durée dépend de la température et de la densité."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Prégrossissement 80–120 g",
+      "title": "Nutra® 160",
+      "text": "Pregrossissement 80-120 g : transition facilitee vers Optiline.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Nutra® 160",
+      "url": "nutra_tilapia_160_maridav_ci.html"
+     },
+     {
+      "tag": "Grossissement 200–400 g",
+      "title": "Optiline® 3",
+      "text": "Grossissement 200-400 g : granule 3-4 mm soutien sanitaire.",
+      "img": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+      "alt": "Optiline® 3",
+      "url": "maridav_optiline_3_maridav_ci.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Commandez votre aliment tilapia en Côte d'Ivoire",
+    "text": "Devis en FCFA sous 24 h — nos techniciens sont disponibles pour bâtir votre programme d'alimentation."
+   },
+   "jsonld": {
+    "name": "Optiline® 2",
+    "description": "Granulé flottant 2,5–3 mm pour grossissement tilapia 120–200 g, vitamines et antioxydants renforcés.",
+    "brand": "MARIDAV",
+    "sku": "OPTILINE-2",
+    "category": "Aliment pisciculture",
+    "audience": "Pisciculteurs tilapia — grossissement"
+   }
+  },
+  {
+   "url": "maridav_optiline_3_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture"
+   ],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "grossissement",
+   "image": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+   "title": "Optiline® 3 — Grossissement tilapia 200–400 g | MARIDAV Côte d'Ivoire",
+   "description": "Aliment Optiline 3 pour grossissement tilapia 200–400 g : granulé flottant 3–4 mm, vitamines et minéraux renforcés, faible pollution organique. MARIDAV Côte d'Ivoire.",
+   "og_title": "Optiline® 3 — Grossissement tilapia 200–400 g",
+   "og_description": "Optiline 3 : poursuivez le grossissement tilapia 200–400 g avec un granulé flottant 3–4 mm.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Grossissement"
+    },
+    {
+     "name": "Optiline® 3"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Optiline® 3",
+     "item": "https://maridav.ci/maridav_optiline_3_maridav_ci.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Grossissement",
+    "h1": "Optiline® <span class=\"accent\">3</span>",
+    "pill": {
+     "icon": "bi-fish",
+     "text": "Grossissement · 200–400 g"
+    },
+    "lead": "Granulé <strong>flottant 3–4 mm</strong> pour poursuivre le grossissement tilapia de 200 à 400 g : <em>vitamines et minéraux renforcés, faible pollution organique et suivi technicien</em>. MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "35 %",
+      "span": "Protéines brutes"
+     },
+     {
+      "b": "7 %",
+      "span": "Lipides"
+     },
+     {
+      "b": "3 150 kcal/kg",
+      "span": "Énergie digestible"
+     },
+     {
+      "b": "3–4 mm",
+      "span": "Granulométrie"
+     }
+    ],
+    "image_alt": "Aliment Optiline 3 grossissement tilapia MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Grossissement",
+     "label": "Grossissement 200–400 g"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts Optiline® 3",
+    "intro": "La phase centrale du grossissement — conduit les poissons de 200 à 400 g avec un granulé stable et un profil nutritionnel soutenu.",
+    "cards": [
+     {
+      "icon": "bi-arrow-up-right",
+      "title": "Poursuite de la croissance",
+      "text": "Formulation pour grossissement 200–400 g avec granulométrie 3–4 mm adaptée à la taille des poissons."
+     },
+     {
+      "icon": "bi-shield-check",
+      "title": "Soutien sanitaire",
+      "text": "Vitamines et minéraux renforcés pour maintenir la santé tout au long de la phase de grossissement."
+     },
+     {
+      "icon": "bi-droplet",
+      "title": "Faible pollution",
+      "text": "Granulé flottant à haute digestibilité — minimise les matières non ingérées dans le bassin."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Mode d'emploi",
+    "steps": [
+     {
+      "title": "200–300 g : 1,8 % PV, 2 repas/jour",
+      "text": "Adapter selon la densité, la température et la qualité d'eau. Surveiller l'appétit et les refus."
+     },
+     {
+      "title": "300–400 g : 1,5 % PV, 1–2 repas/jour",
+      "text": "Réduire progressivement selon le poids et les objectifs de cycle."
+     },
+     {
+      "title": "Transition vers Optiline® 4.5",
+      "text": "À 400 g, introduire Optiline 4.5 progressivement sur 3 jours pour préparer la finition."
+     }
+    ],
+    "note": "Surveillez régulièrement O₂, pH et ammoniaque. Nos techniciens vous accompagnent pour piloter le grossissement."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Valeurs cibles",
+    "rows": [
+     {
+      "k": "Protéines brutes",
+      "v": "35 %"
+     },
+     {
+      "k": "Lipides",
+      "v": "7 %"
+     },
+     {
+      "k": "Énergie digestible",
+      "v": "3 150 kcal/kg"
+     },
+     {
+      "k": "Additifs",
+      "v": "Antioxydants, immunostimulants"
+     },
+     {
+      "k": "Granulométrie",
+      "v": "3–4 mm"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Étape suivante",
+    "text": "À 400 g, passez à <strong>Optiline® 4.5</strong> pour la phase de finition avant l'abattage.",
+    "link_text": "Découvrir Optiline® 4.5",
+    "url": "maridav_optiline_4_5.html"
+   },
+   "faq_intro": "Questions fréquentes sur Optiline® 3",
+   "faq": [
+    {
+     "q": "Optiline 3 convient-il à d'autres espèces que le tilapia ?",
+     "a": "Principalement conçu pour le tilapia. Contactez nos techniciens pour une recommandation adaptée à d'autres espèces."
+    },
+    {
+     "q": "Quel FCR viser avec Optiline 3 ?",
+     "a": "Environ 1,4 selon les conditions d'élevage. Nos techniciens vous accompagnent pour mesurer votre FCR en conditions réelles."
+    },
+    {
+     "q": "Quelle est la durée du cycle sur Optiline 3 ?",
+     "a": "Dépend du poids de départ, de la température et de la densité. Nos techniciens vous accompagnent pour planifier votre cycle."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Grossissement 120–200 g",
+      "title": "Optiline® 2",
+      "text": "Grossissement 120-200 g : vitamines et antioxydants renforces.",
+      "img": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+      "alt": "Optiline® 2",
+      "url": "maridav_optiline_2_maridav_ci.html"
+     },
+     {
+      "tag": "Finition > 400 g",
+      "title": "Optiline® 4.5",
+      "text": "Finition > 400 g : poids commercial et cout maitrise.",
+      "img": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+      "alt": "Optiline® 4.5",
+      "url": "maridav_optiline_4_5.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Commandez votre aliment tilapia en Côte d'Ivoire",
+    "text": "Devis en FCFA sous 24 h — nos techniciens sont disponibles pour bâtir votre programme d'alimentation."
+   },
+   "jsonld": {
+    "name": "Optiline® 3",
+    "description": "Granulé flottant 3–4 mm pour grossissement tilapia 200–400 g, vitamines et minéraux renforcés.",
+    "brand": "MARIDAV",
+    "sku": "OPTILINE-3",
+    "category": "Aliment pisciculture",
+    "audience": "Pisciculteurs tilapia — grossissement"
+   }
+  },
+  {
+   "url": "maridav_optiline_4_5.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture"
+   ],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "finition",
+   "image": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+   "title": "Optiline® 4.5 — Finition tilapia > 400 g | MARIDAV Côte d'Ivoire",
+   "description": "Aliment finition tilapia Optiline 4.5 (> 400 g, pré-abattage) : granulé flottant 4–5 mm, profil énergétique maîtrisé pour atteindre le poids commercial. MARIDAV CI.",
+   "og_title": "Optiline® 4.5 — Finition tilapia > 400 g",
+   "og_description": "Optiline 4.5 : finition tilapia > 400 g avec un granulé 4–5 mm pour optimiser le poids commercial et la rentabilité.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Finition"
+    },
+    {
+     "name": "Optiline® 4.5"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Optiline® 4.5",
+     "item": "https://maridav.ci/maridav_optiline_4_5.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Finition",
+    "h1": "Optiline® <span class=\"accent\">4.5</span>",
+    "pill": {
+     "icon": "bi-fish",
+     "text": "Finition · > 400 g"
+    },
+    "lead": "Granulé <strong>flottant 4–5 mm</strong> pour la finition tilapia avant l'abattage : <em>poids commercial atteint, coût maîtrisé et constance de lot</em>. MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "32 %",
+      "span": "Protéines brutes"
+     },
+     {
+      "b": "6 %",
+      "span": "Lipides"
+     },
+     {
+      "b": "3 100 kcal/kg",
+      "span": "Énergie digestible"
+     },
+     {
+      "b": "4–5 mm",
+      "span": "Granulométrie"
+     }
+    ],
+    "image_alt": "Aliment Optiline 4.5 finition tilapia MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Finition",
+     "label": "Finition > 400 g"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts Optiline® 4.5",
+    "intro": "La phase finale du cycle tilapia — valorise votre production en préparant les poissons à l'abattage avec un aliment calibré pour le poids commercial.",
+    "cards": [
+     {
+      "icon": "bi-target",
+      "title": "Poids commercial atteint",
+      "text": "Formulation finition pour des lots livrables à 500 g et plus selon les objectifs de marché."
+     },
+     {
+      "icon": "bi-currency-dollar",
+      "title": "Coût maîtrisé",
+      "text": "Profil énergétique calibré pour optimiser le coût au kg vif en phase de finition."
+     },
+     {
+      "icon": "bi-check-circle",
+      "title": "Constance de lot",
+      "text": "Granulé homogène — limite les écarts de poids et facilite la planification de l'abattage."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Mode d'emploi",
+    "steps": [
+     {
+      "title": "400–500 g : 1,2–1,5 % PV, 2 repas/jour",
+      "text": "Adapter selon la densité et la température. Maintenir une oxygénation suffisante aux densités élevées de finition."
+     },
+     {
+      "title": "Pré-abattage : 1 % PV, 1 repas/jour",
+      "text": "Ration réduite pour maintenir le poids sans surcharger le bassin avant la capture."
+     },
+     {
+      "title": "Jeûne pré-transport",
+      "text": "Réduire l'alimentation 24 h avant le transport pour limiter les pertes et faciliter la manipulation."
+     }
+    ],
+    "note": "Coordonnez la finition avec votre plan de commercialisation. Nos techniciens MARIDAV vous accompagnent pour optimiser la durée de cycle."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Valeurs cibles",
+    "rows": [
+     {
+      "k": "Protéines brutes",
+      "v": "32 %"
+     },
+     {
+      "k": "Lipides",
+      "v": "6 %"
+     },
+     {
+      "k": "Énergie digestible",
+      "v": "3 100 kcal/kg"
+     },
+     {
+      "k": "Additifs",
+      "v": "Antioxydants, minéraux"
+     },
+     {
+      "k": "Granulométrie",
+      "v": "4–5 mm"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Besoin d'un support qualité d'eau ?",
+    "text": "Associez <strong>AquaCare®</strong> à votre finition pour stabiliser la microflore de vos bassins à forte densité.",
+    "link_text": "Découvrir AquaCare®",
+    "url": "aquacare_maridav_ci.html"
+   },
+   "faq_intro": "Questions fréquentes sur Optiline® 4.5",
+   "faq": [
+    {
+     "q": "Quel FCR viser avec Optiline 4.5 ?",
+     "a": "Entre 1,5 et 1,6 selon les conditions d'élevage. Nos techniciens vous accompagnent pour mesurer votre FCR en conditions réelles."
+    },
+    {
+     "q": "Optiline 4.5 est-il adapté pour l'export ?",
+     "a": "Oui, l'aliment est formulé pour accompagner des lots aux standards commerciaux. Contactez-nous pour les spécifications export."
+    },
+    {
+     "q": "Comment gérer les pics de chaleur en finition ?",
+     "a": "Réduire la ration, augmenter les apports d'oxygène et nous consulter pour un protocole adapté à votre système."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Grossissement 200–400 g",
+      "title": "Optiline® 3",
+      "text": "Grossissement 200-400 g : granule 3-4 mm soutien sanitaire.",
+      "img": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+      "alt": "Optiline® 3",
+      "url": "maridav_optiline_3_maridav_ci.html"
+     },
+     {
+      "tag": "Qualité d'eau",
+      "title": "AquaCare®",
+      "text": "Probiotique pour stabiliser la microflore de vos bassins tilapia.",
+      "img": "maridav_ci_image/aliments_poissons/aquacare_poissons_maridav_ci.jpg",
+      "alt": "AquaCare®",
+      "url": "aquacare_maridav_ci.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Commandez votre aliment tilapia en Côte d'Ivoire",
+    "text": "Devis en FCFA sous 24 h — nos techniciens sont disponibles pour bâtir votre programme d'alimentation."
+   },
+   "jsonld": {
+    "name": "Optiline® 4.5",
+    "description": "Granulé flottant 4–5 mm pour finition tilapia > 400 g, poids commercial et coût maîtrisé.",
+    "brand": "MARIDAV",
+    "sku": "OPTILINE-4-5",
+    "category": "Aliment pisciculture",
+    "audience": "Pisciculteurs tilapia — finition"
+   }
+  }
+ ],
+ "additifs": [
+  {
+   "url": "aquacare_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture"
+   ],
+   "transversal": false,
+   "type": "additif-eau",
+   "phase": "toutes phases",
+   "image": "maridav_ci_image/aliments_poissons/aquacare_poissons_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/aquacare_poissons_maridav_ci.jpg",
+   "title": "AquaCare® — Probiotique qualité d'eau tilapia | MARIDAV Côte d'Ivoire",
+   "description": "Solution probiotique AquaCare pour stabiliser la microflore des bassins tilapia, réduire la turbidité et limiter les pathogènes opportunistes. Sachets 500 g et sacs 10 kg. MARIDAV CI.",
+   "og_title": "AquaCare® — Probiotique qualité d'eau tilapia",
+   "og_description": "AquaCare : stabilisez la microflore de vos bassins tilapia avec des souches Bacillus et des enzymes. MARIDAV CI.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Qualité d'eau"
+    },
+    {
+     "name": "AquaCare®"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "AquaCare®",
+     "item": "https://maridav.ci/aquacare_maridav_ci.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Qualité d'eau",
+    "h1": "AquaCare<span class=\"accent\">®</span>",
+    "pill": {
+     "icon": "bi-water",
+     "text": "Probiotique · qualité d'eau"
+    },
+    "lead": "Solution <strong>probiotique et enzymatique</strong> pour stabiliser la microflore de vos bassins tilapia : <em>eau clarifiée, matières organiques dégradées et pathogènes limités</em>. Disponible et accompagné par MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "Bacillus spp.",
+      "span": "Souches sélectionnées"
+     },
+     {
+      "b": "Enzymes",
+      "span": "Dégradeurs matières org."
+     },
+     {
+      "b": "500 g",
+      "span": "Format sachet"
+     },
+     {
+      "b": "10 kg",
+      "span": "Format sac"
+     }
+    ],
+    "image_alt": "AquaCare probiotique qualité eau tilapia MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Probiotique eau",
+     "label": "Qualité d'eau"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts AquaCare®",
+    "intro": "Un probiotique aquacole pour gérer activement la qualité de l'eau — en complément des bonnes pratiques d'élevage et de renouvellement hydrique.",
+    "cards": [
+     {
+      "icon": "bi-water",
+      "title": "Clarté de l'eau",
+      "text": "Réduit la turbidité et les matières en suspension pour un bassin plus sain et mieux oxygéné."
+     },
+     {
+      "icon": "bi-bacteria",
+      "title": "Équilibre microbiologique",
+      "text": "Enzymes et probiotiques Bacillus qui consomment les matières organiques en excès au fond des bassins."
+     },
+     {
+      "icon": "bi-shield-x",
+      "title": "Santé du bassin",
+      "text": "Limite le développement des pathogènes opportunistes liés à une charge organique élevée."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Mode d'emploi",
+    "steps": [
+     {
+      "title": "Pré-mélange",
+      "text": "Diluer AquaCare dans de l'eau propre avant application dans le bassin."
+     },
+     {
+      "title": "Application",
+      "text": "Répartir uniformément sur la surface ou injecter dans le système de recirculation selon le type d'élevage."
+     },
+     {
+      "title": "Fréquence et dose",
+      "text": "Selon la charge organique du bassin. Nos techniciens vous établissent un protocole adapté à votre système."
+     }
+    ],
+    "note": "AquaCare complète vos bonnes pratiques de gestion d'eau — il ne remplace pas les renouvellements hydriques réguliers."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Caractéristiques",
+    "rows": [
+     {
+      "k": "Souches probiotiques",
+      "v": "Bacillus spp. sélectionnés"
+     },
+     {
+      "k": "Enzymes",
+      "v": "Dégradeurs d'amidon et de fibrose"
+     },
+     {
+      "k": "Support minéral",
+      "v": "Assure la dispersion dans l'eau"
+     },
+     {
+      "k": "Formats disponibles",
+      "v": "Sachets 500 g / Sacs 10 kg"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Complétez avec un aliment adapté",
+    "text": "Associez AquaCare® à la gamme <strong>Optiline®</strong> pour optimiser la qualité d'eau lors de la finition à forte densité.",
+    "link_text": "Découvrir Optiline® 4.5",
+    "url": "maridav_optiline_4_5.html"
+   },
+   "faq_intro": "Questions fréquentes sur AquaCare®",
+   "faq": [
+    {
+     "q": "AquaCare remplace-t-il les changements d'eau ?",
+     "a": "Non, AquaCare complète vos bonnes pratiques de gestion d'eau — il ne remplace pas les renouvellements hydriques réguliers."
+    },
+    {
+     "q": "Peut-on appliquer AquaCare en présence de poissons ?",
+     "a": "Oui, il est formulé pour être appliqué en cours de production sans stress pour les poissons."
+    },
+    {
+     "q": "Comment mesurer l'efficacité d'AquaCare ?",
+     "a": "Surveillez régulièrement l'ammoniac, la turbidité et la mortalité. Nos techniciens vous accompagnent avec un protocole de suivi."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Finition > 400 g",
+      "title": "Optiline® 4.5",
+      "text": "Finition > 400 g : poids commercial et cout maitrise.",
+      "img": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg",
+      "alt": "Optiline® 4.5",
+      "url": "maridav_optiline_4_5.html"
+     },
+     {
+      "tag": "Hub pisciculture",
+      "title": "Gamme Poissons",
+      "text": "Gamme complete de l'alevinage a la finition tilapia.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Gamme Poissons",
+      "url": "pisciculture_maridav_ci.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Améliorez la qualité d'eau de vos bassins",
+    "text": "Devis en FCFA sous 24 h — nos techniciens établissent un protocole AquaCare adapté à votre élevage."
+   },
+   "jsonld": {
+    "name": "AquaCare®",
+    "description": "Probiotique aquacole à base de Bacillus spp. et enzymes pour stabiliser la qualité d'eau des bassins tilapia.",
+    "brand": "MARIDAV",
+    "sku": "AQUACARE",
+    "category": "Additif pisciculture",
+    "audience": "Pisciculteurs tilapia — gestion qualité d'eau"
+   }
+  }
+ ],
+ "concentres": [
+  {
+   "url": "profish_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": [
+    "pisciculture",
+    "volailles-chair",
+    "volailles-ponte",
+    "porcs-engraissement"
+   ],
+   "transversal": true,
+   "type": "concentre-proteique",
+   "phase": "formulation FAF",
+   "image": "maridav_ci_image/additifs _alimentaires/Profish.png",
+   "og_image": "https://maridav.ci/maridav_ci_image/additifs _alimentaires/Profish.png",
+   "title": "Profish® — Concentré protéique marin FAF | MARIDAV Côte d'Ivoire",
+   "description": "Profish — concentré protéique marin hautement digestible (≥ 60 % PB) pour renforcer vos formulations FAF volailles, porcs et poissons. Distribué par MARIDAV Côte d'Ivoire.",
+   "og_title": "Profish® — Concentré protéique marin pour formulations FAF",
+   "og_description": "Profish : concentré protéique marin ≥ 60 % PB, traité basse température, pour booster vos formulations fermes ou meuneries.",
+   "breadcrumb": [
+    {
+     "name": "Poissons",
+     "url": "pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Fabrication assistée"
+    },
+    {
+     "name": "Profish®"
+    }
+   ],
+   "breadcrumb_jsonld": [
+    {
+     "name": "Accueil",
+     "item": "https://maridav.ci/"
+    },
+    {
+     "name": "Poissons",
+     "item": "https://maridav.ci/pisciculture_maridav_ci.html"
+    },
+    {
+     "name": "Profish®",
+     "item": "https://maridav.ci/profish_maridav_ci.html"
+    }
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture & Multi-espèces — FAF",
+    "h1": "Profish<span class=\"accent\">®</span>",
+    "pill": {
+     "icon": "bi-sliders",
+     "text": "Concentré protéique · FAF"
+    },
+    "lead": "<strong>Concentré protéique marin haute digestibilité</strong> pour renforcer vos formulations maison : <em>profil amino complet, traitement basse température et incorporation multi-espèce</em> (volailles, porcs, poissons). MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {
+      "b": "≥ 60 %",
+      "span": "Protéines brutes"
+     },
+     {
+      "b": "≈ 91 %",
+      "span": "Digestibilité (volailles)"
+     },
+     {
+      "b": "Lys 4,5 %",
+      "span": "Acides aminés essentiels"
+     },
+     {
+      "b": "FAF",
+      "span": "Incorporation multi-espèce"
+     }
+    ],
+    "image_alt": "Profish concentré protéique marin MARIDAV Côte d'Ivoire",
+    "figchip": {
+     "small": "Concentré FAF",
+     "label": "Protéine FAF"
+    }
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Pourquoi Profish® ?",
+    "intro": "Un concentré protéique fonctionnel pour corriger les limites du soja et améliorer le profil amino de vos formulations fermes ou meuneries.",
+    "cards": [
+     {
+      "icon": "bi-fish",
+      "title": "Profil amino complet",
+      "text": "Riche en Lysine (4,5 %), Méthionine (1,7 %) et Thréonine (2,8 %) — pour corriger les limitations du soja en FAF."
+     },
+     {
+      "icon": "bi-thermometer-low",
+      "title": "Traitement basse température",
+      "text": "Procédé qui préserve les acides aminés et la qualité protéique pour une digestibilité optimale."
+     },
+     {
+      "icon": "bi-layers",
+      "title": "Polyvalent multi-espèce",
+      "text": "S'intègre dans vos formulations volailles, porcs et poissons — un seul ingrédient, plusieurs filières."
+     }
+    ]
+   },
+   "usage": {
+    "h2": "Conseils d'incorporation",
+    "steps": [
+     {
+      "title": "Volailles : 3 à 6 %",
+      "text": "Selon le stade (démarrage ou croissance). Nos nutritionnistes vous fournissent la formulation adaptée."
+     },
+     {
+      "title": "Porcs : 2 à 5 %",
+      "text": "Pour les porcelets et les aliments fermiers. Adapter selon la ration globale."
+     },
+     {
+      "title": "Aquaculture tilapia",
+      "text": "Incorporer selon la formulation fournie par nos techniciens en fonction du stade et de la source de céréales locales."
+     }
+    ],
+    "note": "Les taux d'incorporation sont donnés à titre indicatif. Nos nutritionnistes vous accompagnent pour optimiser votre formulation selon vos matières premières disponibles."
+   },
+   "spec": {
+    "kicker": "Composition",
+    "h2": "Valeurs analytiques",
+    "rows": [
+     {
+      "k": "Protéines brutes",
+      "v": "≥ 60 %"
+     },
+     {
+      "k": "Matières grasses",
+      "v": "8–10 %"
+     },
+     {
+      "k": "Cendres",
+      "v": "< 15 %"
+     },
+     {
+      "k": "Digestibilité",
+      "v": "≈ 91 % (volailles)"
+     },
+     {
+      "k": "Lysine",
+      "v": "4,5 %"
+     },
+     {
+      "k": "Méthionine",
+      "v": "1,7 %"
+     },
+     {
+      "k": "Thréonine",
+      "v": "2,8 %"
+     }
+    ]
+   },
+   "crosssell": {
+    "title": "Besoin d'un aliment complet ?",
+    "text": "Découvrez la gamme <strong>Nutra® et Optiline®</strong> pour une alimentation complète prête à l'emploi sur votre élevage tilapia.",
+    "link_text": "Voir la gamme poissons",
+    "url": "pisciculture_maridav_ci.html"
+   },
+   "faq_intro": "Questions fréquentes sur Profish®",
+   "faq": [
+    {
+     "q": "Profish peut-il remplacer totalement le soja ?",
+     "a": "Non, il vient en complément pour améliorer le profil amino et la digestibilité de vos formulations FAF — il ne remplace pas le soja mais l'optimise."
+    },
+    {
+     "q": "Existe-t-il une version Profish pour ruminants ?",
+     "a": "Contactez-nous pour le profil adapté aux veaux et ruminants jeunes — nos nutritionnistes étudient votre besoin."
+    },
+    {
+     "q": "Comment stocker Profish® ?",
+     "a": "Dans un local sec et ventilé, sacs sur palettes, à l'abri des nuisibles et de l'humidité."
+    }
+   ],
+   "related": {
+    "kicker": "À découvrir aussi",
+    "cards": [
+     {
+      "tag": "Qualité d'eau",
+      "title": "AquaCare®",
+      "text": "Probiotique pour stabiliser la microflore de vos bassins tilapia.",
+      "img": "maridav_ci_image/aliments_poissons/aquacare_poissons_maridav_ci.jpg",
+      "alt": "AquaCare®",
+      "url": "aquacare_maridav_ci.html"
+     },
+     {
+      "tag": "Hub pisciculture",
+      "title": "Gamme Poissons",
+      "text": "Gamme complete de l'alevinage a la finition tilapia.",
+      "img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
+      "alt": "Gamme Poissons",
+      "url": "pisciculture_maridav_ci.html"
+     }
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "MARIDAV CI",
+    "h2": "Améliorez vos formulations avec Profish®",
+    "text": "Devis en FCFA sous 24 h — nos nutritionnistes vous accompagnent pour optimiser vos recettes FAF."
+   },
+   "jsonld": {
+    "name": "Profish®",
+    "description": "Concentré protéique marin hautement digestible (≥ 60 % PB) pour formulations FAF volailles, porcs et poissons.",
+    "brand": "MARIDAV",
+    "sku": "PROFISH",
+    "category": "Concentré protéique",
+    "audience": "Fabricants d'aliments (FAF) — multi-espèce"
+   }
+  }
+ ]
+}
