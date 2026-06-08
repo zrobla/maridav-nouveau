@@ -46,3 +46,7 @@ __cap_tmp.html
 *.swp
 .idea/
 .vscode/
+
+# Backups locaux refonte (originaux conserves dans l_historique git)
+_archive/
+_gate/

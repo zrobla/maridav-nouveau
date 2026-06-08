@@ -1,0 +1,969 @@
+{
+  "_meta": {
+    "description": "Catalogue + contenu éditorial des pages produits VOLAILLES MARIDAV CI. Source UNIQUE du générateur build_maridav.py. Toute page produit volailles est générée d'ici — ne pas éditer les .html à la main.",
+    "marque": "MARIDAV Côte d'Ivoire",
+    "piliers": [
+      {"id": "expertise", "icon": "bi-people", "titre": "Expertise & accompagnement", "phrase": "Techniciens MARIDAV sur le terrain : plans de formulation, visites d'élevage et suivi des performances."},
+      {"id": "resultats", "icon": "bi-graph-up-arrow", "titre": "Résultats prouvés", "phrase": "Des formulations pensées pour la performance : FCR, poids, taux et persistance de ponte (chiffres terrain à compléter)."},
+      {"id": "proximite", "icon": "bi-geo-alt", "titre": "Proximité & disponibilité", "phrase": "Réseau de points de vente en Côte d'Ivoire, stock disponible et devis en FCFA sous 24 h."},
+      {"id": "faf", "icon": "bi-sliders", "titre": "Fabrication assistée", "phrase": "Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration, sans renoncer à la qualité."}
+    ],
+    "a_verifier": [
+      "Chiffres résultats (FCR, poids/âge, taux de ponte) + témoignages éleveurs : à fournir par Maridav avant d'activer les slots proof/testimonial. NE PAS inventer.",
+      "Prix : confirmer 'sur devis' partout (price retiré des JSON-LD Product).",
+      "Conditionnement nutricool & profish : à compléter depuis la page.",
+      "Transversalité : concentrés/macro-prémix/prémix marqués [volailles-chair, volailles-ponte] côté affichage symétrique."
+    ]
+  },
+
+  "aliments_complets": [
+    {
+      "url": "aliment_chair_demarrage_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair"],
+      "transversal": false,
+      "type": "aliment-complet",
+      "phase": "demarrage",
+      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "title": "Aliment Chair Démarrage — poussins 0–14 jours | MARIDAV",
+      "description": "Aliment complet démarrage (0–14 j) distribué par MARIDAV Côte d’Ivoire : démarrage homogène des poussins de chair, santé intestinale et poids moyen sécurisé. Présentation miette, sac 50 kg, appui technique terrain.",
+      "og_title": "Aliment Chair Démarrage — poussins 0–14 jours",
+      "og_description": "Aliment complet starter pour réussir le démarrage de vos poussins de chair, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Poulets de chair", "url": "poulets_chair_maridav_ci.html"},
+        {"name": "Aliment Démarrage"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Poulets de chair", "item": "https://maridav.ci/poulets_chair_maridav_ci.html"},
+        {"name": "Aliment Démarrage", "item": "https://maridav.ci/aliment_chair_demarrage_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Poulet de chair",
+        "h1": "Aliment Chair <span class=\"accent\">Démarrage</span>",
+        "pill": {"icon": "bi-flag", "text": "Phase démarrage — 0 à 14 jours"},
+        "lead": "Formulation <strong>starter haute appétence</strong> pour réussir les deux premières semaines, déterminantes : démarrage rapide du poussin, <em>santé intestinale</em> soutenue et poids moyen sécurisé pour préparer toute la bande. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "21–22 %", "span": "Protéines brutes"},
+          {"b": "3 000", "span": "kcal/kg (EM)"},
+          {"b": "50 kg", "span": "Sac laminé"},
+          {"b": "0–14 j", "span": "Démarrage"}
+        ],
+        "image_alt": "Aliment Chair Démarrage MARIDAV — sacs",
+        "figchip": {"small": "Prêt à l’emploi", "label": "Aliment complet starter"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Bénéfices au démarrage",
+        "intro": "Les 14 premiers jours conditionnent toute la bande : un starter pensé pour un démarrage homogène, une bonne santé digestive et un poids de départ maîtrisé.",
+        "cards": [
+          {"icon": "bi-rocket-takeoff", "title": "Démarrage rapide", "text": "Présentation miette très appétente pour déclencher l’ingestion dès la mise en place et lancer la croissance."},
+          {"icon": "bi-shield-check", "title": "Santé intestinale", "text": "Profil nutritionnel et fibres adaptés pour soutenir un transit sain et limiter les troubles digestifs du jeune âge."},
+          {"icon": "bi-bullseye", "title": "Uniformité du lot", "text": "Apport en acides aminés digestibles équilibré pour démarrer la bande de façon homogène."},
+          {"icon": "bi-people", "title": "Appui technicien", "text": "Conseils de mise en place (température, densité, abreuvement) par nos techniciens dès l’arrivée des poussins."}
+        ]
+      },
+      "usage": {
+        "h2": "Programme d’utilisation",
+        "steps": [
+          {"title": "J0–J3 · Accueil du poussin", "text": "Préchauffez le bâtiment, proposez l’aliment sur papier et un accès facile à l’eau propre. Vérifiez le remplissage des jabots à 24 h."},
+          {"title": "J4–J10 · Installer la croissance", "text": "Distribution à volonté, ajustez la hauteur des mangeoires/abreuvoirs à la taille des poussins, surveillez l’uniformité."},
+          {"title": "J11–J14 · Préparer la transition", "text": "Préparez le passage vers l’aliment croissance ; pesez un échantillon pour situer le lot par rapport au plan."}
+        ],
+        "note": "Eau propre à volonté, ambiance et densité maîtrisées. Stocker à l’abri de l’humidité (règle FIFO)."
+      },
+      "spec": {
+        "kicker": "Garanties nutritionnelles",
+        "h2": "Composition indicative",
+        "rows": [
+          {"k": "Énergie métabolisable (EM)", "v": "3 000 – 3 050 kcal/kg"},
+          {"k": "Protéines brutes", "v": "21 – 22 %"},
+          {"k": "Présentation", "v": "Miette (granulé fin)"},
+          {"k": "Âge cible", "v": "0 – 14 jours"},
+          {"k": "Conditionnement", "v": "Sac 50 kg (laminé)"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous fabriquez votre aliment ?",
+        "text": "Optez pour le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
+        "link_text": "Voir le concentré",
+        "url": "concentre_chair_31.html"
+      },
+      "faq_intro": "Une question sur le démarrage de vos poussins ? ",
+      "faq": [
+        {"q": "Combien de temps donner l’aliment démarrage ?", "a": "De l’arrivée des poussins jusqu’à environ 14 jours, avant la transition progressive vers l’aliment croissance.", "a_short": "De J0 à environ J14, avant la transition vers l’aliment croissance."},
+        {"q": "Pourquoi une présentation en miette ?", "a": "La miette est plus appétente et adaptée à la taille du poussin : elle favorise une ingestion précoce et un démarrage homogène du lot.", "a_short": "La miette est plus appétente et adaptée au poussin : ingestion précoce et démarrage homogène."},
+        {"q": "Comment réussir les premières 24 heures ?", "a": "Bâtiment préchauffé, eau propre accessible, aliment proposé sur papier ; vérifiez le remplissage des jabots et la répartition des poussins.", "a_short": "Bâtiment préchauffé, eau propre, aliment sur papier ; vérifier les jabots à 24 h."},
+        {"q": "Comment passer à l’aliment croissance ?", "a": "Vers J14, faites une transition progressive sur quelques jours en mélangeant démarrage et croissance ; nos techniciens vous aident à caler la date.", "a_short": "Transition progressive vers J14 en mélangeant démarrage et croissance."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg laminé, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme volailles",
+        "cards": [
+          {"tag": "Phase suivante", "title": "Aliment Chair Croissance", "text": "15–28 jours : soutenir la croissance et le FCR.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Croissance", "url": "aliments_chair_croissance_maridav_ci.html"},
+          {"tag": "Finition", "title": "Aliment Chair Finition", "text": "29–42 jours : rendement carcasse et uniformité.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Finition", "url": "aliments_chair_finition_maridav_ci.html"},
+          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Réussissez le démarrage de votre bande",
+        "text": "Nos techniciens cadrent votre mise en place : ambiance, densité, abreuvement et plan d’alimentation. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Aliment Chair Démarrage",
+        "description": "Aliment complet starter (0–14 jours) distribué par MARIDAV Côte d’Ivoire pour le démarrage homogène et la santé intestinale des poussins de chair.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-CHAIR-DEMARRAGE-50KG",
+        "category": "Aliment complet",
+        "audience": "Poulets de chair — Démarrage"
+      }
+    },
+    {
+      "url": "aliments_chair_croissance_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair"],
+      "transversal": false,
+      "type": "aliment-complet",
+      "phase": "croissance",
+      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "title": "Aliment Chair Croissance — poulet de chair 15–28 jours | MARIDAV",
+      "description": "Aliment complet croissance (15–28 j) distribué par MARIDAV Côte d’Ivoire : vitesse de croissance, FCR maîtrisée et solidité du lot avant la finition. Sac 50 kg, appui technique terrain.",
+      "og_title": "Aliment Chair Croissance — poulet de chair 15–28 jours",
+      "og_description": "Aliment complet grower pour soutenir la croissance et la FCR de vos poulets de chair, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Poulets de chair", "url": "poulets_chair_maridav_ci.html"},
+        {"name": "Aliment Croissance"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Poulets de chair", "item": "https://maridav.ci/poulets_chair_maridav_ci.html"},
+        {"name": "Aliment Croissance", "item": "https://maridav.ci/aliments_chair_croissance_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Poulet de chair",
+        "h1": "Aliment Chair <span class=\"accent\">Croissance</span>",
+        "pill": {"icon": "bi-flag", "text": "Phase croissance — 15 à 28 jours"},
+        "lead": "Formulation <strong>grower haute performance</strong> pour la phase de plus forte croissance : <em>vitesse de gain</em> soutenue, FCR maîtrisée et ossature solide pour aborder la finition dans les meilleures conditions. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "19–20 %", "span": "Protéines brutes"},
+          {"b": "3 100", "span": "kcal/kg (EM)"},
+          {"b": "50 kg", "span": "Sac laminé"},
+          {"b": "15–28 j", "span": "Croissance"}
+        ],
+        "image_alt": "Aliment Chair Croissance MARIDAV — sacs",
+        "figchip": {"small": "Prêt à l’emploi", "label": "Aliment complet grower"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Bénéfices en croissance",
+        "intro": "La phase de plus forte croissance : maximiser le gain de poids tout en tenant la FCR et en construisant une ossature solide avant la finition.",
+        "cards": [
+          {"icon": "bi-graph-up-arrow", "title": "Vitesse de croissance", "text": "Densité énergétique et acides aminés digestibles calibrés pour soutenir le gain quotidien de la phase grower."},
+          {"icon": "bi-activity", "title": "Maîtrise de la FCR", "text": "Ratio protéines/énergie pensé pour transformer efficacement l’aliment en muscle et tenir le coût au kilo."},
+          {"icon": "bi-bandaid", "title": "Ossature solide", "text": "Équilibre calcium/phosphore disponible pour soutenir le squelette face à la croissance rapide."},
+          {"icon": "bi-people", "title": "Appui technicien", "text": "Suivi des courbes de poids et ajustement de la ration par nos techniciens tout au long de la bande."}
+        ]
+      },
+      "usage": {
+        "h2": "Programme d’utilisation",
+        "steps": [
+          {"title": "J15–J17 · Transition", "text": "Transition démarrage → croissance sur 3 jours (75/25 → 50/50 → 25/75) pour éviter tout décrochage d’ingestion."},
+          {"title": "J18–J24 · Plein régime", "text": "Distribution à volonté, surveillez le gain quotidien, la densité aux mangeoires et la qualité de la litière."},
+          {"title": "J25–J28 · Préparer la finition", "text": "Pesez un échantillon, situez le lot par rapport au plan et préparez le passage à l’aliment finition."}
+        ],
+        "note": "Eau propre à volonté, ventilation et litière maîtrisées. Stocker à l’abri de l’humidité (règle FIFO)."
+      },
+      "spec": {
+        "kicker": "Garanties nutritionnelles",
+        "h2": "Composition indicative",
+        "rows": [
+          {"k": "Énergie métabolisable (EM)", "v": "3 050 – 3 150 kcal/kg"},
+          {"k": "Protéines brutes", "v": "19 – 20 %"},
+          {"k": "Présentation", "v": "Granulé"},
+          {"k": "Âge cible", "v": "15 – 28 jours"},
+          {"k": "Conditionnement", "v": "Sac 50 kg (laminé)"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous fabriquez votre aliment ?",
+        "text": "Optez pour le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
+        "link_text": "Voir le concentré",
+        "url": "concentre_chair_31.html"
+      },
+      "faq_intro": "Une question sur la phase de croissance ? ",
+      "faq": [
+        {"q": "Quand donner l’aliment croissance ?", "a": "De 15 à 28 jours environ, entre la phase démarrage et la phase finition, après une transition progressive de quelques jours.", "a_short": "De 15 à 28 jours, entre démarrage et finition."},
+        {"q": "Comment réussir la transition démarrage → croissance ?", "a": "Sur 3 jours en mélangeant progressivement les deux aliments (75/25 → 50/50 → 25/75) pour éviter tout décrochage d’ingestion.", "a_short": "Sur 3 jours, en mélangeant progressivement les deux aliments."},
+        {"q": "Comment tenir la FCR en croissance ?", "a": "Maîtrisez la densité aux mangeoires, la qualité de la litière, l’abreuvement et l’ambiance ; nos techniciens suivent les courbes de poids avec vous.", "a_short": "Maîtriser densité, litière, eau et ambiance ; suivi des courbes par les techniciens."},
+        {"q": "Granulé ou miette en croissance ?", "a": "Le granulé est adapté à cette phase : il limite le gaspillage et soutient une ingestion régulière sur des animaux plus grands.", "a_short": "Le granulé est adapté à la croissance : moins de gaspillage, ingestion régulière."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg laminé, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme volailles",
+        "cards": [
+          {"tag": "Phase précédente", "title": "Aliment Chair Démarrage", "text": "0–14 jours : sécuriser le poids moyen au départ.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage", "url": "aliment_chair_demarrage_maridav_ci.html"},
+          {"tag": "Phase suivante", "title": "Aliment Chair Finition", "text": "29–42 jours : rendement carcasse et uniformité.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Finition", "url": "aliments_chair_finition_maridav_ci.html"},
+          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Soutenez la croissance de votre bande",
+        "text": "Nos techniciens suivent vos courbes de poids et ajustent la ration pour tenir la FCR. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Aliment Chair Croissance",
+        "description": "Aliment complet grower (15–28 jours) distribué par MARIDAV Côte d’Ivoire pour la vitesse de croissance et la maîtrise de la FCR des poulets de chair.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-CHAIR-CROISSANCE-50KG",
+        "category": "Aliment complet",
+        "audience": "Poulets de chair — Croissance"
+      }
+    },
+    {
+      "url": "aliments_chair_finition_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair"],
+      "transversal": false,
+      "type": "aliment-complet",
+      "phase": "finition",
+      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "title": "Aliment Chair Finition — poulet de chair 29–42 jours | MARIDAV",
+      "description": "Aliment complet finisher (29–42 j) distribué par MARIDAV Côte d’Ivoire : rendement carcasse, uniformité du lot et FCR maîtrisée pour vos poulets de chair. Sac 50 kg, appui technique terrain.",
+      "og_title": "Aliment Chair Finition — poulet de chair 29–42 jours",
+      "og_description": "Aliment complet finisher prêt à l’emploi pour préparer vos poulets de chair à l’abattage, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Poulets de chair", "url": "poulets_chair_maridav_ci.html"},
+        {"name": "Aliment Finition"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Poulets de chair", "item": "https://maridav.ci/poulets_chair_maridav_ci.html"},
+        {"name": "Aliment Finition", "item": "https://maridav.ci/aliments_chair_finition_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Poulet de chair",
+        "h1": "Aliment Chair <span class=\"accent\">Finition</span>",
+        "pill": {"icon": "bi-flag", "text": "Phase finition — 29 à 42 jours"},
+        "lead": "Formulation <strong>finisher haute densité énergétique</strong> pour préparer vos lots à l’abattage : couverture en acides aminés digestibles, <em>rendement carcasse</em> sécurisé et hétérogénéités de poids réduites, même en climat chaud. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "18–18,5 %", "span": "Protéines brutes"},
+          {"b": "3 200", "span": "kcal/kg (EM)"},
+          {"b": "50 kg", "span": "Sac laminé"},
+          {"b": "29–42 j", "span": "Finition"}
+        ],
+        "image_alt": "Aliment Chair Finition MARIDAV — sacs",
+        "figchip": {"small": "Prêt à l’emploi", "label": "Aliment complet finisher"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Bénéfices en phase finition",
+        "intro": "Un finisher conçu pour les dernières semaines : maximiser le rendement carcasse et l’uniformité du lot tout en maîtrisant la FCR, même sous la chaleur.",
+        "cards": [
+          {"icon": "bi-graph-up-arrow", "title": "Rendement carcasse", "text": "Énergie disponible renforcée et profil d’acides aminés équilibré pour maximiser le muscle en limitant le gras abdominal."},
+          {"icon": "bi-bullseye", "title": "Uniformité du lot", "text": "Granulométrie régulière et lysine digestible pour homogénéiser les gains de poids en fin de bande."},
+          {"icon": "bi-activity", "title": "Maîtrise de la FCR", "text": "Ratio protéines/énergie pensé pour tenir une FCR &lt; 1,70 en fin de lot, ventilation et abreuvement maîtrisés."},
+          {"icon": "bi-droplet", "title": "Qualité viande", "text": "Équilibre électrolytique et vitamines antioxydantes pour limiter les défauts PSE/DFD et la tenue au froid."}
+        ]
+      },
+      "usage": {
+        "h2": "Programme d’utilisation",
+        "steps": [
+          {"title": "J29–J33 · Transition", "text": "Transition croissance → finition sur 3 jours (75/25 → 50/50 → 25/75). Surveillez la FCR cumulée et la densité aux mangeoires."},
+          {"title": "J34–J38 · Optimiser l’ingestion", "text": "Distribuez tôt le matin et tard le soir pour limiter la chaleur. Vérifiez les débits d’eau et nettoyez les auges."},
+          {"title": "J39 → Abattage · Préparation", "text": "Planifiez le jeûne (8–10 h avant chargement), pesez un échantillon, vérifiez l’uniformité ; maintenez l’eau."}
+        ],
+        "note": "Respectez la réglementation transport / jeûne / bien-être animal. Stocker à l’abri de l’humidité."
+      },
+      "spec": {
+        "kicker": "Garanties nutritionnelles",
+        "h2": "Composition indicative",
+        "rows": [
+          {"k": "Énergie métabolisable (EM)", "v": "3 200 – 3 250 kcal/kg"},
+          {"k": "Protéines brutes", "v": "18 – 18,5 %"},
+          {"k": "Lysine digestible", "v": "0,92 %"},
+          {"k": "Méthionine + Cystine", "v": "0,73 %"},
+          {"k": "Calcium / Phosphore dispo.", "v": "0,75 % / 0,40 %"},
+          {"k": "Conditionnement", "v": "Sac 50 kg (laminé)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous fabriquez votre aliment ?",
+        "text": "Optez pour le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
+        "link_text": "Voir le concentré",
+        "url": "concentre_chair_31.html"
+      },
+      "faq_intro": "Une question sur la finition ou la préparation abattoir ? ",
+      "faq": [
+        {"q": "Quand passer en finition ?", "a": "Commencez la transition vers 29 jours quand le poids moyen est conforme au plan (1,5–1,6 kg). Notre équipe fournit un tableau de conversion pour caler la date.", "a_short": "Vers 29 jours, quand le poids moyen est conforme au plan (1,5–1,6 kg)."},
+        {"q": "Peut-on réduire l’aliment avant chargement ?", "a": "Oui : respectez un jeûne de 8–10 heures avant chargement pour limiter les rejets, en maintenant l’eau jusqu’au retrait effectif.", "a_short": "Un jeûne de 8–10 heures avant chargement, en maintenant l’eau jusqu’au retrait."},
+        {"q": "Comment limiter le gras abdominal ?", "a": "Surveillez les ingestions journalières, maintenez un apport équilibré en lysine digestible et évitez les ruptures d’eau ; nos techniciens ajustent la ration si besoin.", "a_short": "Surveiller les ingestions, équilibrer la lysine digestible et éviter les ruptures d’eau."},
+        {"q": "Et si la chaleur ralentit la prise de poids ?", "a": "Distribuez aux heures fraîches, augmentez la ventilation, multipliez les accès à l’eau et envisagez des électrolytes.", "a_short": "Distribuer aux heures fraîches, ventiler, multiplier les accès à l’eau, envisager des électrolytes."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg laminé. À stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme volailles",
+        "cards": [
+          {"tag": "Phase précédente", "title": "Aliment Chair Croissance", "text": "15–28 jours : optimisation du FCR avant la finition.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Croissance", "url": "aliments_chair_croissance_maridav_ci.html"},
+          {"tag": "Démarrage", "title": "Aliment Chair Démarrage", "text": "0–14 jours : sécuriser le poids moyen au départ.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage", "url": "aliment_chair_demarrage_maridav_ci.html"},
+          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Préparez vos lots à l’abattage en toute maîtrise",
+        "text": "Nos techniciens cadrent votre fin de bande : FCR, rendement carcasse et préparation abattoir. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Aliment Chair Finition",
+        "description": "Aliment complet finisher (29–42 jours) distribué par MARIDAV Côte d’Ivoire pour le rendement carcasse et l’uniformité des poulets de chair.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-CHAIR-FINITION-50KG",
+        "category": "Aliment complet",
+        "audience": "Poulets de chair — Finition"
+      }
+    },
+    {
+      "url": "chickcare.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "aliment-complet",
+      "phase": "pre-demarrage",
+      "image": "maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png",
+      "og_image": "https://maridav.ci/maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png",
+      "title": "ChickCare Pré-démarrage — poussinette 0–5 jours | MARIDAV",
+      "description": "ChickCare, aliment de pré-démarrage (0–5 j) distribué par MARIDAV Côte d’Ivoire : un départ idéal pour vos poussinettes futures pondeuses. Granulé appétent, sac 25 kg, appui technique terrain.",
+      "og_title": "ChickCare Pré-démarrage — poussinette 0–5 jours",
+      "og_description": "Aliment de pré-démarrage haut de gamme pour réussir l’arrivée de vos futures pondeuses, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "ChickCare Pré-démarrage"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "ChickCare Pré-démarrage", "item": "https://maridav.ci/chickcare.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Pondeuse",
+        "h1": "ChickCare <span class=\"accent\">Pré-démarrage</span>",
+        "pill": {"icon": "bi-flag", "text": "Phase pré-démarrage — 0 à 5 jours"},
+        "lead": "Aliment de <strong>pré-démarrage haut de gamme</strong> pour les tout premiers jours de la poussinette : <em>démarrage rapide</em>, santé intestinale soutenue et uniformité du lot dès l’éclosion, pour bâtir une future pondeuse performante. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "22 %", "span": "Protéines brutes"},
+          {"b": "3 050", "span": "kcal/kg (EM)"},
+          {"b": "25 kg", "span": "Sac laminé"},
+          {"b": "0–5 j", "span": "Pré-démarrage"}
+        ],
+        "image_alt": "ChickCare Pré-démarrage MARIDAV — sacs",
+        "figchip": {"small": "Prêt à l’emploi", "label": "Aliment pré-démarrage"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Bénéfices au pré-démarrage",
+        "intro": "Les tout premiers jours fixent le potentiel de la future pondeuse : un pré-démarrage très digestible pour lancer la poussinette et homogénéiser le lot.",
+        "cards": [
+          {"icon": "bi-rocket-takeoff", "title": "Démarrage rapide", "text": "Granulé très appétent et nutriments hautement digestibles pour déclencher l’ingestion dès la mise en place."},
+          {"icon": "bi-shield-check", "title": "Santé intestinale", "text": "Formulation adaptée au tube digestif immature de la poussinette pour un transit sain dès le départ."},
+          {"icon": "bi-bullseye", "title": "Uniformité du lot", "text": "Un démarrage homogène : la régularité du lot dès J0 conditionne tout le cycle de ponte."},
+          {"icon": "bi-people", "title": "Appui technicien", "text": "Conseils de mise en place (température, eau, densité) par nos techniciens dès l’arrivée des poussinettes."}
+        ]
+      },
+      "usage": {
+        "h2": "Programme d’utilisation",
+        "steps": [
+          {"title": "J0–J2 · Accueil", "text": "Bâtiment préchauffé, eau propre accessible, aliment proposé sur papier. Vérifiez le remplissage des jabots à 24 h."},
+          {"title": "J3–J5 · Installer le départ", "text": "Distribution à volonté, ajustez mangeoires et abreuvoirs, surveillez la répartition et l’uniformité des poussinettes."},
+          {"title": "Fin J5 · Transition", "text": "Préparez le passage vers l’aliment démarrage pondeuses par une transition progressive."}
+        ],
+        "note": "Eau propre à volonté, ambiance maîtrisée. Stocker à l’abri de l’humidité (règle FIFO)."
+      },
+      "spec": {
+        "kicker": "Garanties nutritionnelles",
+        "h2": "Composition indicative",
+        "rows": [
+          {"k": "Énergie métabolisable (EM)", "v": "3 050 kcal/kg"},
+          {"k": "Protéines brutes", "v": "22 %"},
+          {"k": "Présentation", "v": "Granulé (miette)"},
+          {"k": "Âge cible", "v": "0 – 5 jours"},
+          {"k": "Conditionnement", "v": "Sac 25 kg (laminé)"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous fabriquez votre aliment ?",
+        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment pondeuse.",
+        "link_text": "Voir le concentré",
+        "url": "concentre_chair_31.html"
+      },
+      "faq_intro": "Une question sur le pré-démarrage de vos poussinettes ? ",
+      "faq": [
+        {"q": "Qu’est-ce que ChickCare ?", "a": "Un aliment de pré-démarrage haut de gamme pour les tout premiers jours de la poussinette (future pondeuse), pensé pour un départ rapide et homogène.", "a_short": "Un aliment de pré-démarrage pour les premiers jours de la poussinette."},
+        {"q": "Combien de temps le donner ?", "a": "Sur les 5 premiers jours environ, avant la transition vers l’aliment démarrage pondeuses.", "a_short": "Environ les 5 premiers jours, avant l’aliment démarrage pondeuses."},
+        {"q": "Pourquoi soigner le pré-démarrage ?", "a": "L’uniformité et la santé acquises au pré-démarrage conditionnent toute la phase d’élevage et la future carrière de ponte.", "a_short": "L’uniformité acquise au départ conditionne toute la carrière de ponte."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 25 kg laminé, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 25 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Cycle pondeuses",
+        "cards": [
+          {"tag": "Phase suivante", "title": "Aliment Démarrage Pondeuses", "text": "0–6 semaines : construire la poulette.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage Pondeuses", "url": "aliment_demarrage_ponte.html"},
+          {"tag": "Poulette", "title": "Aliment Poulette", "text": "7–18 semaines : uniformité avant l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
+          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Réussissez l’arrivée de vos poussinettes",
+        "text": "Nos techniciens cadrent votre mise en place et votre plan d’élevage poulette. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "ChickCare Pré-démarrage",
+        "description": "Aliment complet de pré-démarrage (0–5 jours) distribué par MARIDAV Côte d’Ivoire pour le démarrage homogène des futures pondeuses.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-CHICKCARE-25KG",
+        "category": "Aliment complet",
+        "audience": "Pondeuses — Pré-démarrage"
+      }
+    },
+    {
+      "url": "aliment_demarrage_ponte.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "aliment-complet",
+      "phase": "demarrage",
+      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "title": "Aliment Démarrage Pondeuses — 0 à 6 semaines | MARIDAV",
+      "description": "Aliment complet démarrage pondeuses (0–6 semaines) distribué par MARIDAV Côte d’Ivoire : construire une poulette saine et uniforme, base d’une bonne carrière de ponte. Sac 50 kg, appui technique terrain.",
+      "og_title": "Aliment Démarrage Pondeuses — 0 à 6 semaines",
+      "og_description": "Aliment complet pour construire des poulettes saines et uniformes, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "Aliment Démarrage Pondeuses"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "Aliment Démarrage Pondeuses", "item": "https://maridav.ci/aliment_demarrage_ponte.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Pondeuse",
+        "h1": "Aliment Démarrage <span class=\"accent\">Pondeuses</span>",
+        "pill": {"icon": "bi-flag", "text": "Phase démarrage — 0 à 6 semaines"},
+        "lead": "Formulation pour <strong>construire la poulette</strong> sur les six premières semaines : croissance régulière, <em>santé digestive</em> et uniformité du lot — les fondations d’une carrière de ponte longue et productive. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "19–19,5 %", "span": "Protéines brutes"},
+          {"b": "2 900", "span": "kcal/kg (EM)"},
+          {"b": "50 kg", "span": "Sac laminé"},
+          {"b": "0–6 sem", "span": "Démarrage"}
+        ],
+        "image_alt": "Aliment Démarrage Pondeuses MARIDAV — sacs",
+        "figchip": {"small": "Prêt à l’emploi", "label": "Aliment démarrage poulette"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Bénéfices au démarrage poulette",
+        "intro": "Construire la poulette : une croissance régulière et un lot uniforme à 6 semaines sont les meilleurs prédicteurs d’une bonne carrière de ponte.",
+        "cards": [
+          {"icon": "bi-bullseye", "title": "Uniformité du lot", "text": "Apport en acides aminés digestibles équilibré pour homogénéiser le développement des poulettes."},
+          {"icon": "bi-bandaid", "title": "Squelette & croissance", "text": "Minéralisation soutenue pour bâtir l’ossature qui supportera la phase de ponte."},
+          {"icon": "bi-shield-check", "title": "Santé digestive", "text": "Formulation adaptée au jeune âge pour un transit sain et une bonne valorisation de l’aliment."},
+          {"icon": "bi-people", "title": "Appui technicien", "text": "Suivi du poids et de l’uniformité (CV) par nos techniciens pour rester sur la courbe cible."}
+        ]
+      },
+      "usage": {
+        "h2": "Programme d’utilisation",
+        "steps": [
+          {"title": "Sem. 1–2 · Installer le départ", "text": "Distribution à volonté, eau propre, ambiance maîtrisée ; surveillez l’uniformité et le poids moyen."},
+          {"title": "Sem. 3–5 · Suivre la courbe", "text": "Pesées régulières, comparez au poids cible et au CV ; ajustez la conduite avec votre technicien."},
+          {"title": "Sem. 6 · Préparer la poulette", "text": "Préparez la transition vers l’aliment poulette (7–18 semaines) par un passage progressif."}
+        ],
+        "note": "Pesées régulières recommandées pour piloter l’uniformité. Stocker à l’abri de l’humidité (FIFO)."
+      },
+      "spec": {
+        "kicker": "Garanties nutritionnelles",
+        "h2": "Composition indicative",
+        "rows": [
+          {"k": "Énergie métabolisable (EM)", "v": "2 900 – 2 950 kcal/kg"},
+          {"k": "Protéines brutes", "v": "19 – 19,5 %"},
+          {"k": "Âge cible", "v": "0 – 6 semaines"},
+          {"k": "Conditionnement", "v": "Sac 50 kg (laminé)"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous fabriquez votre aliment ?",
+        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment poulette.",
+        "link_text": "Voir le concentré",
+        "url": "concentre_chair_31.html"
+      },
+      "faq_intro": "Une question sur le démarrage de vos poulettes ? ",
+      "faq": [
+        {"q": "Jusqu’à quel âge donner cet aliment ?", "a": "Jusqu’à environ 6 semaines, avant le passage à l’aliment poulette (7–18 semaines).", "a_short": "Jusqu’à environ 6 semaines, avant l’aliment poulette."},
+        {"q": "Pourquoi l’uniformité est-elle clé ?", "a": "Un lot uniforme à la fin de l’élevage entre en ponte de façon synchrone et atteint un meilleur pic ; tout se joue dès le démarrage.", "a_short": "Un lot uniforme entre en ponte de façon synchrone et atteint un meilleur pic."},
+        {"q": "Faut-il peser les poulettes ?", "a": "Oui : des pesées régulières permettent de suivre le poids cible et le CV, et d’ajuster la conduite. Nos techniciens vous accompagnent.", "a_short": "Oui, des pesées régulières pour suivre poids cible et CV."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg laminé, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Cycle pondeuses",
+        "cards": [
+          {"tag": "Phase précédente", "title": "ChickCare Pré-démarrage", "text": "0–5 jours : un départ idéal pour la poussinette.", "img": "maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png", "alt": "ChickCare", "url": "chickcare.html"},
+          {"tag": "Phase suivante", "title": "Aliment Poulette", "text": "7–18 semaines : uniformité avant l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
+          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Construisez des poulettes uniformes",
+        "text": "Nos techniciens suivent le poids et l’uniformité de vos lots pour préparer la ponte. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Aliment Démarrage Pondeuses",
+        "description": "Aliment complet démarrage (0–6 semaines) distribué par MARIDAV Côte d’Ivoire pour construire des poulettes saines et uniformes.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-DEMARRAGE-PONTE-50KG",
+        "category": "Aliment complet",
+        "audience": "Pondeuses — Démarrage"
+      }
+    },
+    {
+      "url": "aliment_poulette.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "aliment-complet",
+      "phase": "poulette",
+      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "title": "Aliment Poulette — pondeuse 7 à 18 semaines | MARIDAV",
+      "description": "Aliment complet poulette (7–18 semaines) distribué par MARIDAV Côte d’Ivoire : développer le squelette et l’uniformité, préparer l’entrée en ponte. Sac 50 kg, appui technique terrain.",
+      "og_title": "Aliment Poulette — pondeuse 7 à 18 semaines",
+      "og_description": "Aliment complet pour préparer vos poulettes à une entrée en ponte réussie, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "Aliment Poulette"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "Aliment Poulette", "item": "https://maridav.ci/aliment_poulette.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Pondeuse",
+        "h1": "Aliment <span class=\"accent\">Poulette</span>",
+        "pill": {"icon": "bi-flag", "text": "Phase poulette — 7 à 18 semaines"},
+        "lead": "Formulation d’<strong>élevage poulette</strong> pour la longue phase 7–18 semaines : développement du <em>squelette</em> et des réserves, maîtrise du poids et uniformité du lot, afin d’aborder l’entrée en ponte au bon stade. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "17,5 %", "span": "Protéines brutes"},
+          {"b": "2 850", "span": "kcal/kg (EM)"},
+          {"b": "50 kg", "span": "Sac laminé"},
+          {"b": "7–18 sem", "span": "Poulette"}
+        ],
+        "image_alt": "Aliment Poulette MARIDAV — sacs",
+        "figchip": {"small": "Prêt à l’emploi", "label": "Aliment élevage poulette"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Bénéfices en phase poulette",
+        "intro": "La phase la plus longue de l’élevage : développer le squelette et les réserves, maîtriser le poids et l’uniformité pour préparer une entrée en ponte réussie.",
+        "cards": [
+          {"icon": "bi-bandaid", "title": "Développement du squelette", "text": "Minéralisation soutenue pour bâtir l’ossature et la réserve médullaire mobilisées pendant la ponte."},
+          {"icon": "bi-bullseye", "title": "Uniformité du lot", "text": "Maintenir un faible CV jusqu’à 18 semaines pour une entrée en ponte synchrone du troupeau."},
+          {"icon": "bi-speedometer2", "title": "Maîtrise du poids", "text": "Profil énergie/protéines pensé pour suivre la courbe de poids cible sans excès d’engraissement."},
+          {"icon": "bi-people", "title": "Appui technicien", "text": "Suivi des pesées et de l’homogénéité par nos techniciens, jusqu’au transfert en ponte."}
+        ]
+      },
+      "usage": {
+        "h2": "Programme d’utilisation",
+        "steps": [
+          {"title": "Sem. 7–10 · Croissance régulière", "text": "Distribution maîtrisée, pesées régulières, comparez au poids cible et au CV de la souche."},
+          {"title": "Sem. 11–16 · Construire les réserves", "text": "Soutenez le développement du squelette ; surveillez l’uniformité et ajustez la conduite alimentaire."},
+          {"title": "Sem. 17–18 · Préparer la ponte", "text": "Préparez la transition vers l’aliment ponte / pré-ponte selon la maturité et le poids du lot."}
+        ],
+        "note": "La maîtrise du poids et de l’uniformité en poulette détermine le pic de ponte. Stocker au sec (FIFO)."
+      },
+      "spec": {
+        "kicker": "Garanties nutritionnelles",
+        "h2": "Composition indicative",
+        "rows": [
+          {"k": "Énergie métabolisable (EM)", "v": "2 850 kcal/kg"},
+          {"k": "Protéines brutes", "v": "17,5 %"},
+          {"k": "Âge cible", "v": "7 – 18 semaines"},
+          {"k": "Conditionnement", "v": "Sac 50 kg (laminé)"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous fabriquez votre aliment ?",
+        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment poulette.",
+        "link_text": "Voir le concentré",
+        "url": "concentre_chair_31.html"
+      },
+      "faq_intro": "Une question sur l’élevage de vos poulettes ? ",
+      "faq": [
+        {"q": "Quelle est la durée de la phase poulette ?", "a": "De 7 à 18 semaines environ : c’est la phase d’élevage la plus longue, déterminante pour la future ponte.", "a_short": "De 7 à 18 semaines environ."},
+        {"q": "Pourquoi surveiller le poids et le CV ?", "a": "Un poids conforme et un faible coefficient de variation garantissent une entrée en ponte synchrone et un meilleur pic ; on les pilote par les pesées.", "a_short": "Poids conforme et faible CV = entrée en ponte synchrone et meilleur pic."},
+        {"q": "Quand passer à l’aliment ponte ?", "a": "Vers 17–18 semaines, selon la maturité et le poids du lot, par une transition progressive. Nos techniciens aident à caler le moment.", "a_short": "Vers 17–18 semaines, selon maturité et poids, en transition progressive."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg laminé, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Cycle pondeuses",
+        "cards": [
+          {"tag": "Phase précédente", "title": "Aliment Démarrage Pondeuses", "text": "0–6 semaines : construire la poulette.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage Pondeuses", "url": "aliment_demarrage_ponte.html"},
+          {"tag": "Phase suivante", "title": "Aliment Ponte Phase 1", "text": "Entrée en ponte → pic : soutenir le démarrage de ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 1", "url": "aliment_ponte_1_maridav_ci.html"},
+          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Préparez vos poulettes à une ponte réussie",
+        "text": "Nos techniciens pilotent poids et uniformité jusqu’au transfert en ponte. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Aliment Poulette",
+        "description": "Aliment complet d’élevage poulette (7–18 semaines) distribué par MARIDAV Côte d’Ivoire pour le développement du squelette et l’uniformité du lot.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-POULETTE-50KG",
+        "category": "Aliment complet",
+        "audience": "Pondeuses — Poulette"
+      }
+    },
+    {
+      "url": "aliment_ponte_1_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "aliment-complet",
+      "phase": "ponte-1",
+      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "title": "Aliment Ponte Phase 1 — entrée en ponte & pic | MARIDAV",
+      "description": "Aliment complet ponte phase 1 (entrée en ponte → pic) distribué par MARIDAV Côte d’Ivoire : soutenir le pic de ponte et la qualité de coquille. Sac 50 kg, appui technique terrain.",
+      "og_title": "Aliment Ponte Phase 1 — entrée en ponte & pic",
+      "og_description": "Aliment complet pour atteindre et tenir le pic de ponte, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "Aliment Ponte Phase 1"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "Aliment Ponte Phase 1", "item": "https://maridav.ci/aliment_ponte_1_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Pondeuse",
+        "h1": "Aliment Ponte <span class=\"accent\">Phase 1</span>",
+        "pill": {"icon": "bi-flag", "text": "Ponte phase 1 — entrée en ponte → pic"},
+        "lead": "Formulation de <strong>début de ponte</strong> pour accompagner l’entrée en ponte jusqu’au <em>pic</em> : apport calcique et acides aminés calibrés pour le poids d’œuf, la qualité de coquille et la tenue du pic. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "17,5–18 %", "span": "Protéines brutes"},
+          {"b": "2 800", "span": "kcal/kg (EM)"},
+          {"b": "50 kg", "span": "Sac laminé"},
+          {"b": "Pic", "span": "Début de ponte"}
+        ],
+        "image_alt": "Aliment Ponte Phase 1 MARIDAV — sacs",
+        "figchip": {"small": "Prêt à l’emploi", "label": "Aliment ponte phase 1"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Bénéfices à l’entrée en ponte",
+        "intro": "Atteindre et tenir le pic : un apport calcique et protéique calibré pour le poids d’œuf, la solidité de coquille et un pic de ponte élevé.",
+        "cards": [
+          {"icon": "bi-egg", "title": "Pic de ponte", "text": "Profil nutritionnel pensé pour atteindre rapidement un pic de ponte élevé et le maintenir."},
+          {"icon": "bi-gem", "title": "Qualité de coquille", "text": "Apport calcique adapté au début de ponte pour des coquilles solides et moins de casse."},
+          {"icon": "bi-bullseye", "title": "Poids d’œuf maîtrisé", "text": "Acides aminés digestibles calibrés pour un calibre d’œuf régulier dès le démarrage de ponte."},
+          {"icon": "bi-people", "title": "Appui technicien", "text": "Suivi du taux de ponte, du poids d’œuf et de la consommation par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Programme d’utilisation",
+        "steps": [
+          {"title": "Transfert · Entrée en ponte", "text": "Transition progressive depuis l’aliment poulette/pré-ponte ; assurez l’accès au calcium et une eau propre."},
+          {"title": "Montée en ponte · Vers le pic", "text": "Distribution à volonté, surveillez la consommation, le taux de ponte et le poids d’œuf jusqu’au pic."},
+          {"title": "Tenue du pic", "text": "Maintenez l’ambiance et l’abreuvement ; nos techniciens ajustent la ration pour tenir le pic."}
+        ],
+        "note": "Calcium et eau propre déterminants en ponte. Stocker à l’abri de l’humidité (règle FIFO)."
+      },
+      "spec": {
+        "kicker": "Garanties nutritionnelles",
+        "h2": "Composition indicative",
+        "rows": [
+          {"k": "Énergie métabolisable (EM)", "v": "2 780 – 2 820 kcal/kg"},
+          {"k": "Protéines brutes", "v": "17,5 – 18 %"},
+          {"k": "Stade", "v": "Entrée en ponte → pic"},
+          {"k": "Conditionnement", "v": "Sac 50 kg (laminé)"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous fabriquez votre aliment ?",
+        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment ponte.",
+        "link_text": "Voir le concentré",
+        "url": "concentre_chair_31.html"
+      },
+      "faq_intro": "Une question sur le démarrage de ponte ? ",
+      "faq": [
+        {"q": "Quand utiliser l’aliment ponte phase 1 ?", "a": "De l’entrée en ponte jusqu’à la tenue du pic, après transition depuis l’aliment poulette/pré-ponte.", "a_short": "De l’entrée en ponte jusqu’à la tenue du pic."},
+        {"q": "Pourquoi le calcium est-il clé en ponte ?", "a": "La formation de la coquille mobilise beaucoup de calcium : un apport adapté soutient la solidité de coquille et limite la casse.", "a_short": "La coquille mobilise beaucoup de calcium : un apport adapté limite la casse."},
+        {"q": "Comment atteindre un bon pic de ponte ?", "a": "Un lot uniforme bien préparé en poulette, une transition réussie et une consommation maîtrisée ; nos techniciens suivent la courbe de ponte.", "a_short": "Lot uniforme, transition réussie et consommation maîtrisée ; suivi des techniciens."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg laminé, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Cycle pondeuses",
+        "cards": [
+          {"tag": "Phase précédente", "title": "Aliment Poulette", "text": "7–18 semaines : préparer l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
+          {"tag": "Phase suivante", "title": "Aliment Ponte Phase 2", "text": "Persistance de ponte en fin de cycle.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 2", "url": "aliment_ponte_2_maridav_ci.html"},
+          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Atteignez et tenez votre pic de ponte",
+        "text": "Nos techniciens suivent taux de ponte, poids d’œuf et qualité de coquille. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Aliment Ponte Phase 1",
+        "description": "Aliment complet ponte phase 1 (entrée en ponte → pic) distribué par MARIDAV Côte d’Ivoire pour le pic de ponte et la qualité de coquille.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-PONTE-1-50KG",
+        "category": "Aliment complet",
+        "audience": "Pondeuses — Ponte phase 1"
+      }
+    },
+    {
+      "url": "aliment_ponte_2_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": ["volailles-ponte"],
+      "transversal": false,
+      "type": "aliment-complet",
+      "phase": "ponte-2",
+      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "title": "Aliment Ponte Phase 2 — persistance de ponte | MARIDAV",
+      "description": "Aliment complet ponte phase 2 (persistance de ponte) distribué par MARIDAV Côte d’Ivoire : tenir la production et la solidité de coquille en fin de cycle. Sac 50 kg, appui technique terrain.",
+      "og_title": "Aliment Ponte Phase 2 — persistance de ponte",
+      "og_description": "Aliment complet pour la persistance de ponte et la qualité de coquille en fin de cycle, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Pondeuses", "url": "pondeuses_maridav_ci.html"},
+        {"name": "Aliment Ponte Phase 2"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Pondeuses", "item": "https://maridav.ci/pondeuses_maridav_ci.html"},
+        {"name": "Aliment Ponte Phase 2", "item": "https://maridav.ci/aliment_ponte_2_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Pondeuse",
+        "h1": "Aliment Ponte <span class=\"accent\">Phase 2</span>",
+        "pill": {"icon": "bi-flag", "text": "Ponte phase 2 — persistance de ponte"},
+        "lead": "Formulation de <strong>fin de cycle</strong> pour la persistance de ponte : ajustement de l’énergie et du calcium pour <em>tenir la production</em> et la solidité de coquille quand la poule vieillit. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "17 %", "span": "Protéines brutes"},
+          {"b": "2 750", "span": "kcal/kg (EM)"},
+          {"b": "50 kg", "span": "Sac laminé"},
+          {"b": "Persistance", "span": "Fin de cycle"}
+        ],
+        "image_alt": "Aliment Ponte Phase 2 MARIDAV — sacs",
+        "figchip": {"small": "Prêt à l’emploi", "label": "Aliment ponte phase 2"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Bénéfices en fin de cycle",
+        "intro": "Tenir la production quand la poule vieillit : énergie et calcium ajustés pour la persistance de ponte et la solidité de coquille.",
+        "cards": [
+          {"icon": "bi-graph-up", "title": "Persistance de ponte", "text": "Profil nutritionnel adapté pour limiter la chute du taux de ponte en fin de cycle."},
+          {"icon": "bi-gem", "title": "Solidité de coquille", "text": "Apport et forme du calcium ajustés à la poule âgée pour préserver la qualité de coquille."},
+          {"icon": "bi-speedometer2", "title": "Poids d’œuf maîtrisé", "text": "Équilibre énergie/protéines pour contenir l’augmentation du calibre en fin de cycle."},
+          {"icon": "bi-people", "title": "Appui technicien", "text": "Suivi du taux de ponte et de la qualité de coquille par nos techniciens jusqu’à la réforme."}
+        ]
+      },
+      "usage": {
+        "h2": "Programme d’utilisation",
+        "steps": [
+          {"title": "Bascule phase 2", "text": "Passage progressif depuis la phase 1 selon l’âge du lot et l’évolution du taux de ponte."},
+          {"title": "Suivi de la persistance", "text": "Surveillez taux de ponte, poids d’œuf et qualité de coquille ; ajustez le calcium si besoin."},
+          {"title": "Fin de cycle", "text": "Préparez la réforme ou la mue selon votre conduite d’élevage et le marché."}
+        ],
+        "note": "Calcium et qualité d’eau déterminants pour la coquille en fin de cycle. Stocker au sec (FIFO)."
+      },
+      "spec": {
+        "kicker": "Garanties nutritionnelles",
+        "h2": "Composition indicative",
+        "rows": [
+          {"k": "Énergie métabolisable (EM)", "v": "2 750 – 2 780 kcal/kg"},
+          {"k": "Protéines brutes", "v": "17 %"},
+          {"k": "Présentation", "v": "Granulé"},
+          {"k": "Stade", "v": "Persistance de ponte"},
+          {"k": "Conditionnement", "v": "Sac 50 kg (laminé, rotation FIFO)"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous fabriquez votre aliment ?",
+        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment ponte.",
+        "link_text": "Voir le concentré",
+        "url": "concentre_chair_31.html"
+      },
+      "faq_intro": "Une question sur la fin de cycle de ponte ? ",
+      "faq": [
+        {"q": "Quand passer en phase 2 ?", "a": "Lorsque le taux de ponte commence à décliner après le pic, selon l’âge du lot ; la bascule se fait de façon progressive.", "a_short": "Quand le taux de ponte décline après le pic, de façon progressive."},
+        {"q": "Comment soutenir la persistance ?", "a": "Un profil énergie/calcium adapté à la poule âgée, une eau propre et une bonne ambiance ; nos techniciens suivent la courbe de ponte.", "a_short": "Profil énergie/calcium adapté, eau propre, ambiance ; suivi des techniciens."},
+        {"q": "Pourquoi la coquille se fragilise-t-elle en fin de cycle ?", "a": "Avec l’âge, l’utilisation du calcium baisse : un apport et une forme de calcium ajustés aident à préserver la solidité de coquille.", "a_short": "Avec l’âge, l’utilisation du calcium baisse ; un apport ajusté préserve la coquille."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg laminé, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Cycle pondeuses",
+        "cards": [
+          {"tag": "Phase précédente", "title": "Aliment Ponte Phase 1", "text": "Entrée en ponte → pic.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 1", "url": "aliment_ponte_1_maridav_ci.html"},
+          {"tag": "Début de cycle", "title": "ChickCare Pré-démarrage", "text": "0–5 jours : repartir sur une nouvelle bande.", "img": "maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png", "alt": "ChickCare", "url": "chickcare.html"},
+          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Tenez votre production jusqu’à la réforme",
+        "text": "Nos techniciens suivent persistance de ponte et qualité de coquille en fin de cycle. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Aliment Ponte Phase 2",
+        "description": "Aliment complet ponte phase 2 (persistance de ponte) distribué par MARIDAV Côte d’Ivoire pour tenir la production et la qualité de coquille en fin de cycle.",
+        "brand": "MARIDAV Côte d'Ivoire",
+        "sku": "MARIDAV-PONTE-2-50KG",
+        "category": "Aliment complet",
+        "audience": "Pondeuses — Ponte phase 2"
+      }
+    }
+  ],
+
+  "concentres": [
+    {
+      "url": "concentre_chair_31.html",
+      "espece": "volailles",
+      "filieres": ["volailles-chair", "volailles-ponte"],
+      "transversal": true,
+      "type": "concentre",
+      "taux_inclusion": "31 %",
+      "image": "maridav_ci_image/concentres/hendrix.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/concentres/hendrix.webp",
+      "title": "Concentré protéique Hendrix 31 % — chair & pondeuses | MARIDAV",
+      "description": "Concentré protéique Hendrix 31 % distribué par MARIDAV Côte d’Ivoire : base de fabrication d’aliment pour poulets de chair et pondeuses. Transversal chair & ponte, sac 50 kg, appui technique terrain.",
+      "og_title": "Concentré protéique Hendrix 31 % — chair & pondeuses",
+      "og_description": "Concentré protéique premium pour fabriquer vos aliments poulets de chair et pondeuses, distribué par MARIDAV CI.",
+      "breadcrumb": [
+        {"name": "Volailles", "url": "volailles.html"},
+        {"name": "Concentré 31 %"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
+        {"name": "Concentré 31 %", "item": "https://maridav.ci/concentre_chair_31.html"}
+      ],
+      "hero": {
+        "eyebrow": "Volailles — Concentré protéique",
+        "h1": "Concentré protéique <span class=\"accent\">Hendrix 31 %</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — poulets de chair &amp; pondeuses"},
+        "lead": "La base premium pour <strong>fabriquer votre aliment</strong>. Formulé au plus strict des normes Hendrix, à incorporer avec vos céréales — vous maîtrisez la qualité protéique <em>et</em> le coût de la ration. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
+        "facts": [
+          {"b": "31 %", "span": "Concentré Hendrix"},
+          {"b": "50 kg", "span": "Sac standard"},
+          {"b": "Chair &amp; Ponte", "span": "Deux filières"},
+          {"b": "FAF", "span": "Fabrication ferme"}
+        ],
+        "image_alt": "Concentré protéique Hendrix 31 % MARIDAV — sacs",
+        "figchip": {"small": "Gamme « Je fabrique »", "label": "Concentré protéique"}
+      },
+      "benefits": {
+        "kicker": "L’essentiel",
+        "h2": "Pourquoi ce concentré",
+        "intro": "Un concentré protéique, c’est la liberté de fabriquer un aliment performant à partir de vos propres matières premières — sans renoncer à la rigueur de formulation.",
+        "cards": [
+          {"icon": "bi-patch-check", "title": "Qualité protéique maîtrisée", "text": "Formulation Hendrix précise et constante pour sécuriser l’apport en acides aminés."},
+          {"icon": "bi-coin", "title": "Coût de ration maîtrisé", "text": "Vous incorporez vos céréales locales : vous gardez la main sur le prix de revient."},
+          {"icon": "bi-arrow-left-right", "title": "Transversal chair &amp; ponte", "text": "Une même base pour vos poulets de chair et vos pondeuses, selon le programme."},
+          {"icon": "bi-people", "title": "Appui Hendrix &amp; MARIDAV", "text": "Plans de formulation, visites terrain et suivi des performances par nos techniciens."}
+        ]
+      },
+      "usage": {
+        "h2": "Comment l’utiliser",
+        "steps": [
+          {"title": "Définir la formule cible", "text": "Choisissez la filière (chair ou pondeuse) et la phase visée. Nos techniciens vous aident à cadrer la formule."},
+          {"title": "Incorporer le concentré", "text": "Mélangez le concentré 31 % avec vos céréales et sources d’énergie, au taux d’incorporation du programme MARIDAV."},
+          {"title": "Contrôler &amp; ajuster", "text": "Vérifiez l’homogénéité du mélange, suivez les performances et ajustez avec votre technicien."}
+        ],
+        "note": "Stocker au sec, ventilé, à l’abri des nuisibles (règle FIFO). Produit non médicamenteux."
+      },
+      "spec": {
+        "kicker": "Fiche d’identité",
+        "h2": "Caractéristiques",
+        "rows": [
+          {"k": "Type de produit", "v": "Concentré protéique (Hendrix)"},
+          {"k": "Filières", "v": "Chair &amp; pondeuses"},
+          {"k": "Mode d’emploi", "v": "À mélanger avec céréales (FAF)"},
+          {"k": "Taux d’incorporation", "v": "Selon programme — voir technicien"},
+          {"k": "Conditionnement", "v": "Sac 50 kg"},
+          {"k": "Partenaire", "v": "Hendrix Genetics / Trouw Nutrition"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon lot)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Vous préférez ne pas fabriquer ?",
+        "text": "Découvrez les <strong>aliments complets</strong> poulet de chair, prêts à l’emploi, par phase de croissance.",
+        "link_text": "Voir les aliments complets",
+        "url": "poulets_chair_maridav_ci.html"
+      },
+      "faq_intro": "Une question sur l’usage ou le taux d’incorporation ? ",
+      "faq": [
+        {"q": "Qu’est-ce qu’un concentré protéique ?", "a": "Une base riche en protéines et nutriments, à mélanger avec vos céréales et sources d’énergie pour fabriquer un aliment complet. Vous gardez la maîtrise du coût et des matières premières.", "a_short": "Une base riche en protéines à mélanger avec vos céréales pour fabriquer un aliment complet."},
+        {"q": "Pour quelles filières ?", "a": "Il est <strong>transversal</strong> : utilisable pour les poulets de chair et pour les pondeuses (en phase d’élevage), selon le programme de formulation.", "a_short": "Transversal : poulets de chair et pondeuses (en phase d’élevage)."},
+        {"q": "À quel taux l’incorporer ?", "a": "Le taux dépend de la filière, de la phase et de vos matières premières. Nos techniciens vous fournissent un plan de formulation adapté.", "a_short": "Selon la filière, la phase et les matières premières ; un plan est fourni par les techniciens MARIDAV."},
+        {"q": "Quelle différence avec un aliment complet ?", "a": "L’aliment complet est prêt à l’emploi. Le concentré se mélange à vos céréales : il s’adresse aux éleveurs qui fabriquent leur aliment et veulent optimiser leurs coûts.", "a_short": "L’aliment complet est prêt à l’emploi ; le concentré se mélange aux céréales."},
+        {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO (premier entré, premier sorti).", "a_short": "Sac de 50 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
+      ],
+      "related": {
+        "kicker": "Gamme « je fabrique »",
+        "cards": [
+          {"tag": "Macro-prémix", "title": "Macro-Prémix 1,7 %", "text": "Complément vitamines &amp; minéraux à plus faible taux d’incorporation.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Macro-Prémix", "url": "macropremix_chair_1_7.html"},
+          {"tag": "Prémix", "title": "Prémix 0,25 %", "text": "Prémix vitamino-minéral pour formulations avancées.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Prémix", "url": "premix_chair_0_25_maridav_ci.html"},
+          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Parlons de votre élevage",
+        "h2": "Un plan de formulation adapté à vos matières premières",
+        "text": "Nos techniciens cadrent votre formule chair ou pondeuse et le bon taux d’incorporation. Devis en FCFA sous 24 h."
+      },
+      "jsonld": {
+        "name": "Concentré protéique Hendrix 31 %",
+        "description": "Concentré protéique (gamme Hendrix) distribué par MARIDAV Côte d’Ivoire pour la fabrication d’aliments destinés aux poulets de chair et aux pondeuses (en élevage).",
+        "brand": "Hendrix Genetics x MARIDAV",
+        "sku": "MARIDAV-CONCENTRE-31-50KG",
+        "category": "Concentré protéique",
+        "audience": "Volailles — poulets de chair & pondeuses"
+      }
+    }
+  ]
+}

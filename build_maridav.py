@@ -1,28 +1,43 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000066">
-  <title>Aliment Poulette — pondeuse 7 à 18 semaines | MARIDAV</title>
-  <meta name="description" content="Aliment complet poulette (7–18 semaines) distribué par MARIDAV Côte d’Ivoire : développer le squelette et l’uniformité, préparer l’entrée en ponte. Sac 50 kg, appui technique terrain.">
-  <link rel="canonical" href="https://maridav.ci/aliment_poulette.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Aliment Poulette — pondeuse 7 à 18 semaines">
-  <meta property="og:description" content="Aliment complet pour préparer vos poulettes à une entrée en ponte réussie, distribué par MARIDAV CI.">
-  <meta property="og:image" content="https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg">
-  <link rel="icon" type="image/png" sizes="56x56" href="favicon_io/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/responsive.css">
-  <link rel="stylesheet" href="assets/css/main.min.css">
-  <style>
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Constructeur des pages produits VOLAILLES — MARIDAV CI.
+
+Source unique : products.json (catalogue + contenu éditorial par produit).
+Sortie : une page HTML par produit, au gabarit premium « pdp » (cf. GABARIT-PAGE-PRODUIT.md).
+
+Principe : le chrome (head CSS, navbar, footer, scripts) est identique partout et figé
+ici en constantes ; seul le contenu (hero, bénéfices, mode d'emploi, fiche, FAQ, liés,
+CTA) + les métadonnées + les 3 blocs JSON-LD varient, dérivés de la donnée.
+
+Usage : python3 build_maridav.py            # génère toutes les pages produits
+        python3 build_maridav.py --check    # génère en mémoire et montre un résumé
+"""
+import json
+import sys
+import html
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+DATA = ROOT / "products.json"
+
+# --------------------------------------------------------------------------- #
+#  Constantes de marque (source unique)                                        #
+# --------------------------------------------------------------------------- #
+SITE = {
+    "base": "https://maridav.ci",
+    "brand": "MARIDAV Côte d'Ivoire",
+    "tel_href": "tel:002252721353242",
+    "tel_label": "(+225) 27 21 35 32 42",
+    "wa": "https://api.whatsapp.com/send?phone=+2250574648888",
+    "wa_label": "05 74 64 88 88",
+}
+
+# --------------------------------------------------------------------------- #
+#  Chrome — verbatim depuis les pages de référence (concentre_chair_31 /       #
+#  aliments_chair_finition). NE PAS diverger sans mettre à jour le gabarit.    #
+# --------------------------------------------------------------------------- #
+HEAD_CSS = r"""  <style>
     :root{
       --navy:#000066; --navy-2:#04153b; --navy-deep:#020b22;
       --green:#1b8e3e; --green-2:#2aa154; --green-soft:#6ee7a8;
@@ -156,11 +171,9 @@
       .pdp-figure{transform:none;margin-top:1.4rem}
     }
     @media (prefers-reduced-motion:reduce){.pdp-reveal{animation:none}.pdp-figure,.pdp-rel,.btn-green,.btn-ghost{transition:none}}
-  </style>
-</head>
-<body class="pdp">
-  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
-  <header class="premium-header sticky-top" role="banner">
+  </style>"""
+
+NAVBAR = """  <header class="premium-header sticky-top" role="banner">
     <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navigation principale">
       <div class="container">
         <a class="navbar-brand" href="index.html" aria-label="MARIDAV CI">
@@ -202,164 +215,9 @@
         </div>
       </div>
     </nav>
-  </header>
+  </header>"""
 
-  <main id="main">
-    <!-- HERO -->
-    <section class="pdp-hero">
-      <div class="container">
-        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
-          <a href="volailles.html">Volailles</a> <span class="mx-1 text-white-50">/</span>
-          <a href="pondeuses_maridav_ci.html">Pondeuses</a> <span class="mx-1 text-white-50">/</span>
-          <span class="text-white-50">Aliment Poulette</span>
-        </nav>
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-7">
-            <span class="pdp-eyebrow pdp-reveal d1">Volailles — Pondeuse</span>
-            <h1 class="pdp-reveal d1">Aliment <span class="accent">Poulette</span></h1>
-            <div class="pdp-trans pdp-reveal d2"><i class="bi bi-flag"></i> Phase poulette — 7 à 18 semaines</div>
-            <p class="pdp-lead pdp-reveal d2">Formulation d’<strong>élevage poulette</strong> pour la longue phase 7–18 semaines : développement du <em>squelette</em> et des réserves, maîtrise du poids et uniformité du lot, afin d’aborder l’entrée en ponte au bon stade. Distribué et accompagné par MARIDAV Côte d’Ivoire.</p>
-            <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
-              <a class="btn-pill btn-green" href="contact.html">Demander un devis <i class="bi bi-arrow-right"></i></a>
-              <a class="btn-pill btn-ghost" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
-            </div>
-            <div class="pdp-facts pdp-reveal d4">
-              <div class="pdp-fact"><b>17,5 %</b><span>Protéines brutes</span></div>
-              <div class="pdp-fact"><b>2 850</b><span>kcal/kg (EM)</span></div>
-              <div class="pdp-fact"><b>50 kg</b><span>Sac laminé</span></div>
-              <div class="pdp-fact"><b>7–18 sem</b><span>Poulette</span></div>
-            </div>
-          </div>
-          <div class="col-lg-5">
-            <figure class="pdp-figure pdp-reveal d2 mb-0">
-              <img src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Aliment Poulette MARIDAV — sacs">
-              <figcaption class="pdp-figchip"><small>Prêt à l’emploi</small>Aliment élevage poulette</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BÉNÉFICES -->
-    <section class="pdp-sec" id="benefices">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-4">
-            <span class="pdp-kicker">L’essentiel</span>
-            <h2 class="pdp-h2">Bénéfices en phase poulette</h2>
-            <p class="text-muted mt-3 mb-0">La phase la plus longue de l’élevage : développer le squelette et les réserves, maîtriser le poids et l’uniformité pour préparer une entrée en ponte réussie.</p>
-          </div>
-          <div class="col-lg-8">
-            <div class="row g-4">
-              <div class="col-md-6"><div class="pdp-card h-100 pdp-benefit"><div class="pdp-bicon"><i class="bi bi-bandaid"></i></div><div><h5>Développement du squelette</h5><p>Minéralisation soutenue pour bâtir l’ossature et la réserve médullaire mobilisées pendant la ponte.</p></div></div></div>
-              <div class="col-md-6"><div class="pdp-card h-100 pdp-benefit"><div class="pdp-bicon"><i class="bi bi-bullseye"></i></div><div><h5>Uniformité du lot</h5><p>Maintenir un faible CV jusqu’à 18 semaines pour une entrée en ponte synchrone du troupeau.</p></div></div></div>
-              <div class="col-md-6"><div class="pdp-card h-100 pdp-benefit"><div class="pdp-bicon"><i class="bi bi-speedometer2"></i></div><div><h5>Maîtrise du poids</h5><p>Profil énergie/protéines pensé pour suivre la courbe de poids cible sans excès d’engraissement.</p></div></div></div>
-              <div class="col-md-6"><div class="pdp-card h-100 pdp-benefit"><div class="pdp-bicon"><i class="bi bi-people"></i></div><div><h5>Appui technicien</h5><p>Suivi des pesées et de l’homogénéité par nos techniciens, jusqu’au transfert en ponte.</p></div></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- USAGE + FICHE -->
-    <section class="pdp-sec pt-0">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-7">
-            <span class="pdp-kicker">Mode d’emploi</span>
-            <h2 class="pdp-h2 mb-4">Programme d’utilisation</h2>
-            <div class="pdp-step"><span class="num">1</span><div><h5>Sem. 7–10 · Croissance régulière</h5><p>Distribution maîtrisée, pesées régulières, comparez au poids cible et au CV de la souche.</p></div></div>
-            <div class="pdp-step"><span class="num">2</span><div><h5>Sem. 11–16 · Construire les réserves</h5><p>Soutenez le développement du squelette ; surveillez l’uniformité et ajustez la conduite alimentaire.</p></div></div>
-            <div class="pdp-step"><span class="num">3</span><div><h5>Sem. 17–18 · Préparer la ponte</h5><p>Préparez la transition vers l’aliment ponte / pré-ponte selon la maturité et le poids du lot.</p></div></div>
-            <p class="small text-muted mt-2"><i class="bi bi-info-circle text-success"></i> La maîtrise du poids et de l’uniformité en poulette détermine le pic de ponte. Stocker au sec (FIFO).</p>
-          </div>
-          <div class="col-lg-5">
-            <div class="pdp-spec">
-              <span class="pdp-kicker" style="color:var(--gold)">Garanties nutritionnelles</span>
-              <h2 class="display h4 mt-2 mb-3" style="color:#fff">Composition indicative</h2>
-              <table>
-                <tr><td>Énergie métabolisable (EM)</td><td>2 850 kcal/kg</td></tr>
-                <tr><td>Protéines brutes</td><td>17,5 %</td></tr>
-                <tr><td>Âge cible</td><td>7 – 18 semaines</td></tr>
-                <tr><td>Conditionnement</td><td>Sac 50 kg (laminé)</td></tr>
-                <tr><td>Valeurs détaillées</td><td>Sur fiche technique (selon lot)</td></tr>
-              </table>
-              <a class="btn-pill btn-green w-100 justify-content-center mt-3" href="contact.html">Recevoir la fiche technique</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CROSS-SELL mode de production -->
-    <section class="pdp-sec pt-0">
-      <div class="container">
-        <div class="pdp-card d-flex flex-column flex-md-row align-items-md-center gap-3" style="border-left:4px solid var(--green)">
-          <div class="flex-grow-1">
-            <span class="pdp-tag">Mode de production</span>
-            <h3 class="h5 mb-1" style="color:var(--navy);font-family:'Fraunces',serif">Vous fabriquez votre aliment ?</h3>
-            <p class="text-muted mb-0">Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment poulette.</p>
-          </div>
-          <a class="btn-pill btn-green flex-none" href="concentre_chair_31.html">Voir le concentré <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="pdp-sec pt-0" id="faq">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-5">
-            <span class="pdp-kicker">Questions fréquentes</span>
-            <h2 class="pdp-h2">Tout comprendre</h2>
-            <p class="text-muted mt-3">Une question sur l’élevage de vos poulettes ? <a class="btn-line" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener">Écrivez-nous</a></p>
-          </div>
-          <div class="col-lg-7 pdp-faq">
-            <details><summary>Quelle est la durée de la phase poulette ?</summary><div class="ans">De 7 à 18 semaines environ : c’est la phase d’élevage la plus longue, déterminante pour la future ponte.</div></details>
-            <details><summary>Pourquoi surveiller le poids et le CV ?</summary><div class="ans">Un poids conforme et un faible coefficient de variation garantissent une entrée en ponte synchrone et un meilleur pic ; on les pilote par les pesées.</div></details>
-            <details><summary>Quand passer à l’aliment ponte ?</summary><div class="ans">Vers 17–18 semaines, selon la maturité et le poids du lot, par une transition progressive. Nos techniciens aident à caler le moment.</div></details>
-            <details><summary>Conditionnement &amp; stockage ?</summary><div class="ans">Sac de 50 kg laminé, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.</div></details>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUITS LIÉS -->
-    <section class="pdp-sec pt-0">
-      <div class="container">
-        <div class="text-center mb-4">
-          <span class="pdp-kicker">Cycle pondeuses</span>
-          <h2 class="pdp-h2">Produits associés</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-4"><div class="pdp-rel"><img src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Aliment Démarrage Pondeuses"><div class="bd"><span class="pdp-tag">Phase précédente</span><h5>Aliment Démarrage Pondeuses</h5><p>0–6 semaines : construire la poulette.</p><a class="btn-line" href="aliment_demarrage_ponte.html">Découvrir <i class="bi bi-arrow-right"></i></a></div></div></div>
-          <div class="col-md-4"><div class="pdp-rel"><img src="maridav_ci_image/aliments_complets/aliments_complets.jpg" alt="Aliment Ponte Phase 1"><div class="bd"><span class="pdp-tag">Phase suivante</span><h5>Aliment Ponte Phase 1</h5><p>Entrée en ponte → pic : soutenir le démarrage de ponte.</p><a class="btn-line" href="aliment_ponte_1_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></div></div></div>
-          <div class="col-md-4"><div class="pdp-rel"><img src="maridav_ci_image/concentres/hendrix.webp" alt="Concentré"><div class="bd"><span class="pdp-tag">Je fabrique</span><h5>Concentré 31 %</h5><p>Pour fabriquer votre aliment avec vos céréales.</p><a class="btn-line" href="concentre_chair_31.html">Découvrir <i class="bi bi-arrow-right"></i></a></div></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA BAND -->
-    <section class="pdp-sec pt-0">
-      <div class="container">
-        <div class="pdp-ctaband">
-          <div class="row align-items-center g-4">
-            <div class="col-lg-8">
-              <span class="pdp-eyebrow">Parlons de votre élevage</span>
-              <h2 class="mt-2 mb-2">Préparez vos poulettes à une ponte réussie</h2>
-              <p class="mb-0" style="color:rgba(255,255,255,.78)">Nos techniciens pilotent poids et uniformité jusqu’au transfert en ponte. Devis en FCFA sous 24 h.</p>
-            </div>
-            <div class="col-lg-4 text-lg-end">
-              <a class="btn-pill btn-green mb-2" href="contact.html">Demander un devis <i class="bi bi-arrow-right"></i></a><br>
-              <a class="btn-pill btn-ghost" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp direct</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer-premium" role="contentinfo">
+FOOTER = """  <footer class="footer-premium" role="contentinfo">
     <div class="footer-top">
       <div class="container">
         <div class="row g-4">
@@ -415,21 +273,423 @@
         <p class="mb-0 small">Site web conçu par <a href="https://tech-and-web.com" target="_blank" rel="noopener" style="color:var(--green-soft)">TECH &amp; WEB</a></p>
       </div>
     </div>
-  </footer>
+  </footer>"""
+
+# Libellés filière pour les chips de transversalité
+FILIERE_LABELS = {
+    "volailles-chair": ("bi-egg-fried", "Poulets de chair"),
+    "volailles-ponte": ("bi-egg", "Pondeuses"),
+    "porcs": ("bi-piggy-bank", "Porcs"),
+    "poissons": ("bi-water", "Poissons"),
+}
+
+
+# --------------------------------------------------------------------------- #
+#  Renderers de sections                                                       #
+# --------------------------------------------------------------------------- #
+def render_head(p):
+    """<head> complet : métadonnées dérivées de la donnée + CSS figé."""
+    url = f'{SITE["base"]}/{p["url"]}'
+    og_img = p.get("og_image") or f'{SITE["base"]}/{p["image"]}'
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000066">
+  <title>{p["title"]}</title>
+  <meta name="description" content="{p["description"]}">
+  <link rel="canonical" href="{url}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{p.get("og_title", p["title"])}">
+  <meta property="og:description" content="{p.get("og_description", p["description"])}">
+  <meta property="og:image" content="{og_img}">
+  <link rel="icon" type="image/png" sizes="56x56" href="favicon_io/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+{HEAD_CSS}
+</head>"""
+
+
+def render_breadcrumb(p):
+    """Fil d'Ariane HTML : liste de {name, url?} ; le dernier sans lien."""
+    parts = []
+    for item in p["breadcrumb"]:
+        if item.get("url"):
+            parts.append(f'<a href="{item["url"]}">{item["name"]}</a>')
+        else:
+            parts.append(f'<span class="text-white-50">{item["name"]}</span>')
+    sep = ' <span class="mx-1 text-white-50">/</span>\n          '
+    return sep.join(parts)
+
+
+def render_facts(facts):
+    out = []
+    for f in facts:
+        out.append(f'<div class="pdp-fact"><b>{f["b"]}</b><span>{f["span"]}</span></div>')
+    return "\n              ".join(out)
+
+
+def render_hero(p):
+    h = p["hero"]
+    pill = h["pill"]
+    return f"""    <!-- HERO -->
+    <section class="pdp-hero">
+      <div class="container">
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          {render_breadcrumb(p)}
+        </nav>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="pdp-eyebrow pdp-reveal d1">{h["eyebrow"]}</span>
+            <h1 class="pdp-reveal d1">{h["h1"]}</h1>
+            <div class="pdp-trans pdp-reveal d2"><i class="bi {pill["icon"]}"></i> {pill["text"]}</div>
+            <p class="pdp-lead pdp-reveal d2">{h["lead"]}</p>
+            <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
+              <a class="btn-pill btn-green" href="contact.html">Demander un devis <i class="bi bi-arrow-right"></i></a>
+              <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
+            </div>
+            <div class="pdp-facts pdp-reveal d4">
+              {render_facts(h["facts"])}
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="pdp-figure pdp-reveal d2 mb-0">
+              <img src="{p["image"]}" alt="{h["image_alt"]}">
+              <figcaption class="pdp-figchip"><small>{h["figchip"]["small"]}</small>{h["figchip"]["label"]}</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_benefits(p):
+    b = p["benefits"]
+    cards = []
+    for c in b["cards"]:
+        cards.append(
+            f'<div class="col-md-6"><div class="pdp-card h-100 pdp-benefit">'
+            f'<div class="pdp-bicon"><i class="bi {c["icon"]}"></i></div>'
+            f'<div><h5>{c["title"]}</h5><p>{c["text"]}</p></div></div></div>'
+        )
+    cards_html = "\n              ".join(cards)
+    return f"""    <!-- BÉNÉFICES -->
+    <section class="pdp-sec" id="benefices">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <span class="pdp-kicker">{b.get("kicker", "L’essentiel")}</span>
+            <h2 class="pdp-h2">{b["h2"]}</h2>
+            <p class="text-muted mt-3 mb-0">{b["intro"]}</p>
+          </div>
+          <div class="col-lg-8">
+            <div class="row g-4">
+              {cards_html}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_transbadge(p):
+    """Sticker transversalité — uniquement si multi-filières."""
+    if not p.get("transversal"):
+        return ""
+    chips = []
+    for f in p["filieres"]:
+        icon, label = FILIERE_LABELS.get(f, ("bi-check", f))
+        chips.append(f'<span class="tb-chip"><i class="bi {icon}"></i> {label}</span>')
+    chips_html = "\n            ".join(chips)
+    return f"""    <!-- STICKER TRANSVERSALITÉ (réutilisable: produits multi-filières) -->
+    <section class="pdp-sec pt-0" id="transversal">
+      <div class="container">
+        <div class="pdp-transbadge">
+          <div class="tb-head">
+            <span class="tb-ic"><i class="bi bi-arrow-left-right"></i></span>
+            <div>
+              <span class="tb-label">Produit transversal</span>
+              <span class="tb-sub">Une même base, utilisable sur plusieurs filières</span>
+            </div>
+          </div>
+          <div class="tb-filieres">
+            {chips_html}
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_usage_spec(p):
+    u = p["usage"]
+    s = p["spec"]
+    steps = []
+    for i, st in enumerate(u["steps"], 1):
+        steps.append(
+            f'<div class="pdp-step"><span class="num">{i}</span>'
+            f'<div><h5>{st["title"]}</h5><p>{st["text"]}</p></div></div>'
+        )
+    steps_html = "\n            ".join(steps)
+    rows = []
+    for r in s["rows"]:
+        rows.append(f'<tr><td>{r["k"]}</td><td>{r["v"]}</td></tr>')
+    rows_html = "\n                ".join(rows)
+    return f"""    <!-- USAGE + FICHE -->
+    <section class="pdp-sec pt-0">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-7">
+            <span class="pdp-kicker">Mode d’emploi</span>
+            <h2 class="pdp-h2 mb-4">{u["h2"]}</h2>
+            {steps_html}
+            <p class="small text-muted mt-2"><i class="bi bi-info-circle text-success"></i> {u["note"]}</p>
+          </div>
+          <div class="col-lg-5">
+            <div class="pdp-spec">
+              <span class="pdp-kicker" style="color:var(--gold)">{s["kicker"]}</span>
+              <h2 class="display h4 mt-2 mb-3" style="color:#fff">{s["h2"]}</h2>
+              <table>
+                {rows_html}
+              </table>
+              <a class="btn-pill btn-green w-100 justify-content-center mt-3" href="contact.html">Recevoir la fiche technique</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_crosssell(p):
+    c = p.get("crosssell")
+    if not c:
+        return ""
+    return f"""    <!-- CROSS-SELL mode de production -->
+    <section class="pdp-sec pt-0">
+      <div class="container">
+        <div class="pdp-card d-flex flex-column flex-md-row align-items-md-center gap-3" style="border-left:4px solid var(--green)">
+          <div class="flex-grow-1">
+            <span class="pdp-tag">Mode de production</span>
+            <h3 class="h5 mb-1" style="color:var(--navy);font-family:'Fraunces',serif">{c["title"]}</h3>
+            <p class="text-muted mb-0">{c["text"]}</p>
+          </div>
+          <a class="btn-pill btn-green flex-none" href="{c["url"]}">{c["link_text"]} <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_faq(p):
+    items = []
+    for q in p["faq"]:
+        items.append(
+            f'<details><summary>{q["q"]}</summary><div class="ans">{q["a"]}</div></details>'
+        )
+    items_html = "\n            ".join(items)
+    intro = p.get("faq_intro", "Une question ? ")
+    return f"""    <!-- FAQ -->
+    <section class="pdp-sec pt-0" id="faq">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-5">
+            <span class="pdp-kicker">Questions fréquentes</span>
+            <h2 class="pdp-h2">Tout comprendre</h2>
+            <p class="text-muted mt-3">{intro}<a class="btn-line" href="{SITE["wa"]}" target="_blank" rel="noopener">Écrivez-nous</a></p>
+          </div>
+          <div class="col-lg-7 pdp-faq">
+            {items_html}
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_related(p):
+    r = p.get("related")
+    if not r:
+        return ""
+    cards = []
+    for c in r["cards"]:
+        cards.append(
+            f'<div class="col-md-4"><div class="pdp-rel">'
+            f'<img src="{c["img"]}" alt="{c["alt"]}">'
+            f'<div class="bd"><span class="pdp-tag">{c["tag"]}</span>'
+            f'<h5>{c["title"]}</h5><p>{c["text"]}</p>'
+            f'<a class="btn-line" href="{c["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
+            f'</div></div></div>'
+        )
+    cards_html = "\n          ".join(cards)
+    return f"""    <!-- PRODUITS LIÉS -->
+    <section class="pdp-sec pt-0">
+      <div class="container">
+        <div class="text-center mb-4">
+          <span class="pdp-kicker">{r.get("kicker", "Produits associés")}</span>
+          <h2 class="pdp-h2">Produits associés</h2>
+        </div>
+        <div class="row g-4">
+          {cards_html}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_ctaband(p):
+    c = p["ctaband"]
+    return f"""    <!-- CTA BAND -->
+    <section class="pdp-sec pt-0">
+      <div class="container">
+        <div class="pdp-ctaband">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <span class="pdp-eyebrow">{c["eyebrow"]}</span>
+              <h2 class="mt-2 mb-2">{c["h2"]}</h2>
+              <p class="mb-0" style="color:rgba(255,255,255,.78)">{c["text"]}</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a class="btn-pill btn-green mb-2" href="contact.html">Demander un devis <i class="bi bi-arrow-right"></i></a><br>
+              <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp direct</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_jsonld(p):
+    url = f'{SITE["base"]}/{p["url"]}'
+    j = p["jsonld"]
+    product = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": j["name"],
+        "description": j["description"],
+        "brand": {"@type": "Organization", "name": j.get("brand", SITE["brand"])},
+        "image": p.get("og_image") or f'{SITE["base"]}/{p["image"]}',
+        "sku": j["sku"],
+        "category": j["category"],
+        "audience": {"@type": "Audience", "audienceType": j["audience"]},
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "XOF",
+            "availability": "https://schema.org/InStock",
+            "url": url,
+        },
+    }
+    crumbs = []
+    for i, item in enumerate(p["breadcrumb_jsonld"], 1):
+        crumbs.append({
+            "@type": "ListItem",
+            "position": i,
+            "name": item["name"],
+            "item": item["item"],
+        })
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": crumbs,
+    }
+    faq = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": strip_tags(q["q"]),
+                "acceptedAnswer": {"@type": "Answer", "text": strip_tags(q.get("a_short", q["a"]))},
+            }
+            for q in p["faq"]
+        ],
+    }
+    dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+    return f"""  <script type="application/ld+json">
+  {dump(product)}
+  </script>
+  <script type="application/ld+json">
+  {dump(breadcrumb)}
+  </script>
+  <script type="application/ld+json">
+  {dump(faq)}
+  </script>"""
+
+
+def strip_tags(s):
+    """Retire les balises HTML simples pour le JSON-LD (texte brut)."""
+    import re
+    return html.unescape(re.sub(r"<[^>]+>", "", s))
+
+
+# --------------------------------------------------------------------------- #
+#  Page complète                                                               #
+# --------------------------------------------------------------------------- #
+def render_page(p):
+    sections = [
+        render_hero(p),
+        render_benefits(p),
+        render_transbadge(p),
+        render_usage_spec(p),
+        render_crosssell(p),
+        render_faq(p),
+        render_related(p),
+        render_ctaband(p),
+    ]
+    main = "\n\n".join(s for s in sections if s)
+    return f"""{render_head(p)}
+<body class="pdp">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+{NAVBAR}
+
+  <main id="main">
+{main}
+  </main>
+
+{FOOTER}
 
   <script src="vendor/jquery.2.2.3.min.js"></script>
   <script src="vendor/popper.js/popper.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/main.min.js" defer></script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Product","name":"Aliment Poulette","description":"Aliment complet d’élevage poulette (7–18 semaines) distribué par MARIDAV Côte d’Ivoire pour le développement du squelette et l’uniformité du lot.","brand":{"@type":"Organization","name":"MARIDAV Côte d'Ivoire"},"image":"https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg","sku":"MARIDAV-POULETTE-50KG","category":"Aliment complet","audience":{"@type":"Audience","audienceType":"Pondeuses — Poulette"},"offers":{"@type":"Offer","priceCurrency":"XOF","availability":"https://schema.org/InStock","url":"https://maridav.ci/aliment_poulette.html"}}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://maridav.ci/"},{"@type":"ListItem","position":2,"name":"Volailles","item":"https://maridav.ci/volailles.html"},{"@type":"ListItem","position":3,"name":"Pondeuses","item":"https://maridav.ci/pondeuses_maridav_ci.html"},{"@type":"ListItem","position":4,"name":"Aliment Poulette","item":"https://maridav.ci/aliment_poulette.html"}]}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quelle est la durée de la phase poulette ?","acceptedAnswer":{"@type":"Answer","text":"De 7 à 18 semaines environ."}},{"@type":"Question","name":"Pourquoi surveiller le poids et le CV ?","acceptedAnswer":{"@type":"Answer","text":"Poids conforme et faible CV = entrée en ponte synchrone et meilleur pic."}},{"@type":"Question","name":"Quand passer à l’aliment ponte ?","acceptedAnswer":{"@type":"Answer","text":"Vers 17–18 semaines, selon maturité et poids, en transition progressive."}},{"@type":"Question","name":"Conditionnement & stockage ?","acceptedAnswer":{"@type":"Answer","text":"Sac de 50 kg laminé, à stocker au sec et ventilé en suivant la règle FIFO."}}]}
-  </script>
+{render_jsonld(p)}
   <script src="assets/js/site-crm-bridge.js" defer></script>
 </body>
 </html>
+"""
+
+
+def iter_products(data):
+    """Aplatit toutes les catégories produits du JSON en une liste."""
+    for key, items in data.items():
+        if key.startswith("_"):
+            continue
+        if isinstance(items, list):
+            for it in items:
+                if it.get("_render", True) and "hero" in it:
+                    yield it
+
+
+def main():
+    check = "--check" in sys.argv
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    products = list(iter_products(data))
+    written = 0
+    for p in products:
+        html_out = render_page(p)
+        target = ROOT / p["url"]
+        if check:
+            print(f"  [check] {p['url']:48s} {len(html_out):6d} o")
+        else:
+            target.write_text(html_out, encoding="utf-8")
+            print(f"  écrit  {p['url']:48s} {len(html_out):6d} o")
+        written += 1
+    print(f"\n{written} page(s) produit générée(s).")
+
+
+if __name__ == "__main__":
+    main()
