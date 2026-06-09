@@ -249,9 +249,10 @@
     .biosec-showcase .media{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#040a1f;padding:1.7rem}
     .biosec-showcase .sc-title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,1rem + 1.8vw,2rem);color:#fff;line-height:1.16;text-align:center;margin:0 0 1.1rem;max-width:30rem}
     .biosec-showcase .sc-photo{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 24px 48px -28px rgba(0,0,0,.65)}
-    .biosec-showcase .sc-logo{box-sizing:content-box;display:block;width:auto;height:40px;margin:1rem 0 0;padding:.62rem 1.25rem;border-radius:16px;background:radial-gradient(65% 130% at 50% 50%,rgba(255,255,255,.20) 0%,rgba(255,255,255,.07) 48%,rgba(255,255,255,0) 80%);box-shadow:0 0 42px -8px rgba(110,231,168,.55),inset 0 0 0 1px rgba(255,255,255,.09)}
+    .biosec-showcase .sc-logo{box-sizing:content-box;display:block;width:auto;height:38px;margin:1rem 0 0;padding:.5rem .9rem;border-radius:14px;background:#fff;box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
     .biosec-showcase .bd{background:var(--navy);padding:2.6rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:.85rem}
-    .biosec-showcase .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green-soft)}
+    .biosec-showcase .eyebrow{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--green-soft);background:rgba(110,231,168,.12);border:1px solid rgba(110,231,168,.30);border-radius:999px;padding:.42rem .9rem}
+    .biosec-showcase .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green-soft);box-shadow:0 0 10px 1px rgba(110,231,168,.85)}
     .biosec-showcase p{margin:0;color:rgba(255,255,255,.86);font-size:.96rem;line-height:1.6}
     .biosec-showcase .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.35rem}
     .biosec-showcase .chip{display:inline-flex;align-items:center;gap:.42rem;font-size:.78rem;font-weight:700;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.42rem .85rem}
@@ -261,6 +262,28 @@
       .biosec-showcase .media{padding:1.4rem}
       .biosec-showcase .bd{padding:1.9rem 1.5rem}
       .biosec-showcase:hover{transform:none}
+    }
+
+    /* ---- biosec partenaire (co-branding MARIDAV × CID LINES, bande "wow") ---- */
+    .biosec-partner{position:relative;overflow:hidden;border-radius:var(--radius);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem;background:radial-gradient(120% 130% at 0% 0%,rgba(110,231,168,.18),transparent 42%),radial-gradient(120% 130% at 100% 100%,rgba(110,231,168,.12),transparent 46%),linear-gradient(135deg,#04204a,var(--navy-deep));box-shadow:0 44px 84px -42px rgba(0,0,102,.7)}
+    .biosec-partner::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--green))}
+    .biosec-partner .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--green-soft);background:rgba(110,231,168,.12);border:1px solid rgba(110,231,168,.30);border-radius:999px;padding:.42rem .9rem}
+    .biosec-partner .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green-soft);box-shadow:0 0 10px 1px rgba(110,231,168,.85)}
+    .biosec-partner .cobrand{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:1.2rem;margin:.5rem 0 .2rem}
+    .biosec-partner .lg{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:16px;padding:.9rem 1.35rem;box-shadow:0 18px 40px -16px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.55);transition:transform .35s,box-shadow .35s}
+    .biosec-partner .lg img{display:block;width:auto;height:48px}
+    .biosec-partner:hover .lg{transform:translateY(-4px);box-shadow:0 26px 52px -18px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.7)}
+    .biosec-partner .x{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;font-family:"Fraunces",serif;font-size:1.45rem;color:#fff;background:linear-gradient(135deg,var(--green),var(--green-2));box-shadow:0 0 30px -4px rgba(110,231,168,.75)}
+    .biosec-partner h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,1rem + 2vw,2.15rem);color:#fff;line-height:1.14;margin:.25rem 0 0;max-width:42rem}
+    .biosec-partner p{margin:0;color:rgba(255,255,255,.82);font-size:1rem;line-height:1.62;max-width:44rem}
+    .biosec-partner .ptags{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.4rem}
+    .biosec-partner .ptag{display:inline-flex;align-items:center;gap:.42rem;font-size:.78rem;font-weight:700;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.42rem .85rem}
+    .biosec-partner .ptag i{color:var(--green-soft)}
+    @media (max-width:991px){
+      .biosec-partner{padding:2.2rem 1.3rem}
+      .biosec-partner .lg img{height:38px}
+      .biosec-partner .x{width:40px;height:40px;font-size:1.2rem}
+      .biosec-partner:hover .lg{transform:none}
     }
 
     @media (max-width:991px){

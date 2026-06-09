@@ -283,6 +283,65 @@ FOOTER = """  <footer class="footer-premium" role="contentinfo">
     </div>
   </footer>"""
 
+# --------------------------------------------------------------------------- #
+#  Ré-habillage du chrome premium des pages de CONTENU héritées (non générées) #
+#  — navbar + footer canoniques + police Fraunces + typo titres. Idempotent.   #
+#  But : unifier ces pages sur le même standard premium que les pages générées #
+#  sans réécrire leur corps éditorial. Voir rechrome_old_pages().              #
+# --------------------------------------------------------------------------- #
+OLD_CONTENT_PAGES = [
+    "a-propos.html", "contact.html", "carriere-maridav.html",
+    "blog_maridav_ci.html", "blog_maridav_ci_page2.html",
+    "distributeurs_maridav.html", "partenaires-maridav.html", "brochure.html",
+    "article-biosecurite-poulet-chair.html", "article-demarrage-poussins.html",
+    "article-mycotoxines-biomix-maridav.html", "article-ponte-chaleur-maridav.html",
+    "article-porcs-fcr-chaleur.html", "article-tilapia-eau-ration.html",
+    "biotronic_top3_maridav_ci.html", "biotronic_top_liquide_maridav_ci.html",
+    "digestarom_maridav_ci.html", "nutricool_maridav_ci.html", "mycofix_select_3.0.html",
+]
+
+# Même chargement de police que les pages générées (Fraunces titres + Inter corps).
+FONTS_LINK = ('<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;'
+              '9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">')
+
+# Typo premium minimale et scopée : Fraunces sur les titres, Inter en corps. Conservateur
+# (pas de refonte de tailles/layout) pour ne pas casser les mises en page héritées.
+PREMIUM_TYPO_CSS = """  <style id="premium-typo">
+    /* === Système typographique premium COMPLET — aligné sur volailles.html (système pdp).
+       Couvre TOUT le texte : corps, paragraphes, listes, titres, chapôs, cartes, stats,
+       boutons, barre de menu et footer. Aucune couleur forcée sur les titres/paragraphes de
+       héros/sections sombres (préservés par les overrides existants à plus forte spécificité). === */
+    /* --- base corps (Inter, encre pdp) --- */
+    body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;color:#0e1c36;font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    p,li,dd,td,th,figcaption,blockquote,label,input,textarea,select,button{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    p,li{font-size:1rem;line-height:1.65}
+    /* --- titres : Fraunces, CASSE NORMALE, hiérarchie du pilote — forcés (!important) sur le
+       legacy qui imposait uppercase via sélecteurs ID/multi-classes. Couleur jamais forcée. --- */
+    h1,h2,h3,h4,h5,.section-title,.maridav-ci-title-one h2,.maridav-ci-title-one h3,.stat-value,.display-1,.display-2,.display-3,.display-4,.display-5,.display-6{font-family:"Fraunces",Georgia,"Times New Roman",serif!important;letter-spacing:-.01em!important;line-height:1.14!important}
+    h1,h2,h3,h4,.section-title,.maridav-ci-title-one h2,.maridav-ci-title-one h3{text-transform:none!important}
+    h1{font-weight:600!important;font-size:clamp(2.1rem,1.3rem + 2.8vw,3.2rem)!important;line-height:1.06!important}
+    h2,.maridav-ci-title-one h2{font-weight:600!important;font-size:clamp(1.6rem,3.2vw,2.3rem)!important;line-height:1.12!important}
+    h3,.maridav-ci-title-one h3{font-weight:600!important;font-size:clamp(1.2rem,1rem + .9vw,1.55rem)!important}
+    /* --- chapô + corps de section muted (fonds clairs) --- */
+    .about-lead,.lead{font-size:clamp(1.05rem,1rem + .35vw,1.18rem)!important;line-height:1.62;color:#34465f}
+    .section-premium p,.card-premium p,.card-body p,.card-body li{color:#34465f}
+    /* --- rythme des sections + cartes (façon .pdp-sec / .pdp-card) --- */
+    .section-premium{padding:clamp(2.8rem,5vw,4.4rem) 0}
+    .card-premium{border:1px solid rgba(2,12,46,.10);border-radius:20px;box-shadow:0 26px 60px -34px rgba(2,12,46,.5)}
+    .card-premium h3,.card-premium .card-body h3{font-family:"Fraunces",Georgia,serif!important}
+    /* --- boutons --- */
+    .btn,.btn-brand,.btn-pill{font-family:"Inter",system-ui,-apple-system,sans-serif!important;font-weight:700}
+    /* --- casse uppercase LÉGITIME du pilote conservée (eyebrows / kickers / nav / footer h6) --- */
+    .pdp-eyebrow,.pdp-kicker,.about-eyebrow,.testi-eyebrow,.blog-eyebrow,.svc-proof-title,.nav-link-compact,.footer-premium h6{text-transform:uppercase!important}
+    /* --- barre de menu : valeurs identiques à volailles.html --- */
+    .navbar-premium{background:rgba(255,255,255,.97);box-shadow:0 14px 34px rgba(2,12,46,.10)}
+    .navbar-premium .nav-link,.nav-link-compact,.meta-pill{font-family:"Inter",system-ui,-apple-system,sans-serif!important}
+    /* --- footer : valeurs identiques à volailles.html --- */
+    .footer-premium .footer-top{background:#020a1c}
+    .footer-premium .footer-bottom{background:#010512}
+    .footer-premium,.footer-premium p,.footer-premium li,.footer-premium h6,.footer-premium .small-link{font-family:"Inter",system-ui,-apple-system,sans-serif!important}
+  </style>"""
+
 # Libellés filière pour les chips de transversalité
 FILIERE_LABELS = {
     "volailles-chair": ("bi-egg-fried", "Poulets de chair"),
@@ -585,6 +644,22 @@ BIOSEC_HUB = {
             {"icon": "bi-droplet-half", "label": "Surfaces &amp; circuits d'eau"},
         ],
     },
+    # Bande co-branding « wow » : partenariat avec le fournisseur des produits de
+    # biosécurité (CID LINES, marque publique déjà présente au carrousel partenaires).
+    "partner": {
+        "eyebrow": "Partenaire officiel",
+        "logo_a": "maridav_ci_image/logo/logo_maridav_ci.png",
+        "logo_a_alt": "MARIDAV Côte d'Ivoire",
+        "logo_b": "maridav_ci_image/logo/cid-logo.png",
+        "logo_b_alt": "CID LINES — biosécurité d'élevage",
+        "h2": "MARIDAV × CID LINES : l'expertise biosécurité internationale, au plus près de vos élevages",
+        "text": "Toute notre gamme d'hygiène et de désinfection s'appuie sur les solutions <strong>CID LINES</strong>, spécialiste international de la biosécurité en élevage. MARIDAV met cette expertise éprouvée — et l'appui de ses techniciens — au service de vos bâtiments, partout en Côte d'Ivoire.",
+        "tags": [
+            {"icon": "bi-globe2", "label": "Expertise internationale"},
+            {"icon": "bi-shield-check", "label": "Solutions éprouvées"},
+            {"icon": "bi-geo-alt", "label": "Appui terrain MARIDAV"},
+        ],
+    },
 }
 
 # --------------------------------------------------------------------------- #
@@ -780,9 +855,10 @@ FILIERE_CSS = r"""  <style>
     .biosec-showcase .media{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#040a1f;padding:1.7rem}
     .biosec-showcase .sc-title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,1rem + 1.8vw,2rem);color:#fff;line-height:1.16;text-align:center;margin:0 0 1.1rem;max-width:30rem}
     .biosec-showcase .sc-photo{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 24px 48px -28px rgba(0,0,0,.65)}
-    .biosec-showcase .sc-logo{box-sizing:content-box;display:block;width:auto;height:40px;margin:1rem 0 0;padding:.62rem 1.25rem;border-radius:16px;background:radial-gradient(65% 130% at 50% 50%,rgba(255,255,255,.20) 0%,rgba(255,255,255,.07) 48%,rgba(255,255,255,0) 80%);box-shadow:0 0 42px -8px rgba(110,231,168,.55),inset 0 0 0 1px rgba(255,255,255,.09)}
+    .biosec-showcase .sc-logo{box-sizing:content-box;display:block;width:auto;height:38px;margin:1rem 0 0;padding:.5rem .9rem;border-radius:14px;background:#fff;box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
     .biosec-showcase .bd{background:var(--navy);padding:2.6rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:.85rem}
-    .biosec-showcase .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green-soft)}
+    .biosec-showcase .eyebrow{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--green-soft);background:rgba(110,231,168,.12);border:1px solid rgba(110,231,168,.30);border-radius:999px;padding:.42rem .9rem}
+    .biosec-showcase .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green-soft);box-shadow:0 0 10px 1px rgba(110,231,168,.85)}
     .biosec-showcase p{margin:0;color:rgba(255,255,255,.86);font-size:.96rem;line-height:1.6}
     .biosec-showcase .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.35rem}
     .biosec-showcase .chip{display:inline-flex;align-items:center;gap:.42rem;font-size:.78rem;font-weight:700;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.42rem .85rem}
@@ -792,6 +868,28 @@ FILIERE_CSS = r"""  <style>
       .biosec-showcase .media{padding:1.4rem}
       .biosec-showcase .bd{padding:1.9rem 1.5rem}
       .biosec-showcase:hover{transform:none}
+    }
+
+    /* ---- biosec partenaire (co-branding MARIDAV × CID LINES, bande "wow") ---- */
+    .biosec-partner{position:relative;overflow:hidden;border-radius:var(--radius);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem;background:radial-gradient(120% 130% at 0% 0%,rgba(110,231,168,.18),transparent 42%),radial-gradient(120% 130% at 100% 100%,rgba(110,231,168,.12),transparent 46%),linear-gradient(135deg,#04204a,var(--navy-deep));box-shadow:0 44px 84px -42px rgba(0,0,102,.7)}
+    .biosec-partner::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--green))}
+    .biosec-partner .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--green-soft);background:rgba(110,231,168,.12);border:1px solid rgba(110,231,168,.30);border-radius:999px;padding:.42rem .9rem}
+    .biosec-partner .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green-soft);box-shadow:0 0 10px 1px rgba(110,231,168,.85)}
+    .biosec-partner .cobrand{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:1.2rem;margin:.5rem 0 .2rem}
+    .biosec-partner .lg{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:16px;padding:.9rem 1.35rem;box-shadow:0 18px 40px -16px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.55);transition:transform .35s,box-shadow .35s}
+    .biosec-partner .lg img{display:block;width:auto;height:48px}
+    .biosec-partner:hover .lg{transform:translateY(-4px);box-shadow:0 26px 52px -18px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.7)}
+    .biosec-partner .x{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;font-family:"Fraunces",serif;font-size:1.45rem;color:#fff;background:linear-gradient(135deg,var(--green),var(--green-2));box-shadow:0 0 30px -4px rgba(110,231,168,.75)}
+    .biosec-partner h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.5rem,1rem + 2vw,2.15rem);color:#fff;line-height:1.14;margin:.25rem 0 0;max-width:42rem}
+    .biosec-partner p{margin:0;color:rgba(255,255,255,.82);font-size:1rem;line-height:1.62;max-width:44rem}
+    .biosec-partner .ptags{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:.4rem}
+    .biosec-partner .ptag{display:inline-flex;align-items:center;gap:.42rem;font-size:.78rem;font-weight:700;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.42rem .85rem}
+    .biosec-partner .ptag i{color:var(--green-soft)}
+    @media (max-width:991px){
+      .biosec-partner{padding:2.2rem 1.3rem}
+      .biosec-partner .lg img{height:38px}
+      .biosec-partner .x{width:40px;height:40px;font-size:1.2rem}
+      .biosec-partner:hover .lg{transform:none}
     }
 
     @media (max-width:991px){
@@ -2343,9 +2441,41 @@ def render_biosec_showcase(h):
     </section>"""
 
 
+def render_biosec_partner(h):
+    """Bande co-branding « wow » : met en avant le partenariat MARIDAV × CID LINES
+    (fournisseur des produits de biosécurité). Logos sur plaques blanches + symbole ×,
+    sur fond navy à orbes lumineux. Placée après la matrice, avant la preuve."""
+    pt = h.get("partner")
+    if not pt:
+        return ""
+    tags = "\n            ".join(
+        f'<span class="ptag"><i class="bi {t["icon"]}"></i> {t["label"]}</span>'
+        for t in pt.get("tags", [])
+    )
+    return f"""    <!-- PARTENARIAT BIOSÉCURITÉ (co-branding MARIDAV × CID LINES) -->
+    <section class="pdp-sec pt-0" id="partenaire">
+      <div class="container">
+        <div class="biosec-partner">
+          <span class="eyebrow">{pt["eyebrow"]}</span>
+          <div class="cobrand">
+            <span class="lg"><img src="{pt["logo_a"]}" alt="{pt["logo_a_alt"]}" loading="lazy"></span>
+            <span class="x" aria-hidden="true">×</span>
+            <span class="lg"><img src="{pt["logo_b"]}" alt="{pt["logo_b_alt"]}" loading="lazy"></span>
+          </div>
+          <h2>{pt["h2"]}</h2>
+          <p>{pt["text"]}</p>
+          <div class="ptags">
+            {tags}
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
 def render_biosec_hub_page(h, biosec_data):
-    """Biosécurité = produits transversaux classés par fonction (pas de cycle) :
-    hero -> piliers -> protocole -> showcase (image réinjectée) -> matrice -> preuve -> techCTA."""
+    """Biosécurité = produits transversaux classés par fonction (pas de cycle) : hero ->
+    piliers -> protocole -> showcase (image réinjectée) -> matrice -> partenaire (CID
+    LINES) -> preuve -> techCTA."""
     piliers = biosec_data["_meta"]["piliers"]
     products = [p for p in biosec_data.get("biosecurite", []) if p.get("_render", True) and "hero" in p]
     sections = [
@@ -2354,6 +2484,7 @@ def render_biosec_hub_page(h, biosec_data):
         render_biosec_protocol(h),
         render_biosec_showcase(h),
         render_biosec_matrix(h, products),
+        render_biosec_partner(h),
         render_proofbar(BIOSEC_PROOF, BIOSEC_PROOFNOTE),
         render_techcta(),
     ]
@@ -2375,6 +2506,274 @@ def render_biosec_hub_page(h, biosec_data):
   <script src="assets/js/main.min.js" defer></script>
 {FILIERE_JS}
 {render_biosec_jsonld(h, products)}
+  <script src="assets/js/site-crm-bridge.js" defer></script>
+</body>
+</html>
+"""
+
+
+def rechrome_old_pages(check=False, only=None):
+    """Ré-habille les pages de contenu héritées au standard premium, sans toucher au corps
+    éditorial : (1) navbar canonique NAVBAR, (2) footer canonique FOOTER, (3) police
+    Fraunces+Inter, (4) couche premium PREMIUM_TYPO_CSS. Version-aware (remplace toute
+    couche premium existante) ⇒ ré-applicable proprement. `only` = sous-liste de pages
+    (validation ciblée) ; sinon OLD_CONTENT_PAGES."""
+    hdr_re   = re.compile(r'<header class="premium-header.*?</header>', re.S)
+    ftr_re   = re.compile(r'<footer class="footer-premium.*?</footer>', re.S)
+    fonts_re = re.compile(r'<link[^>]*fonts\.googleapis\.com/css2\?family=[^>]*>', re.S)
+    typo_re  = re.compile(r'\n?[ \t]*<style id="premium-typo">.*?</style>', re.S)
+    nav, ftr = NAVBAR.strip(), FOOTER.strip()
+    targets = only or OLD_CONTENT_PAGES
+    changed = 0
+    for name in targets:
+        path = ROOT / name
+        if not path.exists():
+            print(f"  ⚠ absente, ignorée : {name}")
+            continue
+        before = path.read_text(encoding="utf-8")
+        out = before
+        if hdr_re.search(out):
+            out = hdr_re.sub(lambda m: nav, out, count=1)
+        if ftr_re.search(out):
+            out = ftr_re.sub(lambda m: ftr, out, count=1)
+        if fonts_re.search(out):
+            out = fonts_re.sub(FONTS_LINK, out, count=1)
+        elif "family=Fraunces" not in out and "</head>" in out:
+            out = out.replace("</head>", f"  {FONTS_LINK}\n</head>", 1)
+        # couche premium : retire toute version précédente puis ré-injecte la courante
+        out = typo_re.sub("", out)
+        if "</head>" in out:
+            out = out.replace("</head>", PREMIUM_TYPO_CSS + "\n</head>", 1)
+        if out != before:
+            changed += 1
+            if check:
+                print(f"  [check] rechrome {name}")
+            else:
+                path.write_text(out, encoding="utf-8")
+                print(f"  rechromé {name}")
+    print(f"{changed} page(s) de contenu ré-habillée(s) au chrome premium.")
+
+
+# --------------------------------------------------------------------------- #
+#  Page À PROPOS — reconstruite sur le système pdp (parité pilote volailles).   #
+#  Contenu fidèle à l'existant (mission, expertises, chiffres, partenaires).    #
+# --------------------------------------------------------------------------- #
+ABOUT = {
+    "url": "a-propos.html",
+    "title": "À propos — MARIDAV Côte d'Ivoire | Nutrition & santé animales",
+    "description": "MARIDAV Côte d'Ivoire : formulations tropicalisées, biosécurité et appui technique de terrain pour volailles, porcs et poissons. Équipe pluridisciplinaire, partenaires internationaux, réseau national.",
+    "eyebrow": "À propos — MARIDAV Côte d'Ivoire",
+    "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+    "image_alt": "MARIDAV Côte d'Ivoire — nutrition et santé animales pour volailles, porcs et poissons",
+}
+
+ABOUT_PILLARS = [
+    {"icon": "bi-clipboard2-pulse", "titre": "Programmes par espèce", "phrase": "Nutrition par stade pour volailles, porcs et poissons — du démarrage à la finition."},
+    {"icon": "bi-shield-check", "titre": "Biosécurité pragmatique", "phrase": "Hygiène, désinfection et qualité d'eau pour briser la chaîne des contaminations."},
+    {"icon": "bi-globe2", "titre": "Partenariats internationaux", "phrase": "BIOMIN, Trouw Nutrition, Skretting, CID LINES, DSM — l'expertise mondiale, localisée."},
+    {"icon": "bi-geo-alt", "titre": "Réseau national", "phrase": "Points de vente et support réactif partout en Côte d'Ivoire."},
+]
+
+ABOUT_VALUES = [
+    {"icon": "bi-patch-check", "titre": "Engagements", "items": ["Qualité &amp; conformité — contrôle des filières et documentation", "Accompagnement — suivi des performances, réglages, bonnes pratiques", "Proximité — présence terrain et écoute des besoins"]},
+    {"icon": "bi-compass", "titre": "Mission", "items": ["Couverture nationale — accompagner les éleveurs partout en Côte d'Ivoire, avec proximité et réactivité", "Standards internationaux — porter l'expertise de nos partenaires mondiaux au plus près du terrain", "Horizon régional — contribuer à une production animale durable en Afrique de l'Ouest"]},
+    {"icon": "bi-gem", "titre": "Valeurs", "items": ["Proximité — diagnostic terrain, écoute et réactivité", "Intégrité — transparence et conformité", "Performance responsable — résultats durables"]},
+]
+
+ABOUT_EXPERTISE = [
+    {"icon": "bi-egg", "titre": "Volailles", "items": ["Démarrage → croissance → finition / ponte", "Optimisation FCR &amp; homogénéité des lots", "Litière, ventilation, eau, biosécurité"], "url": "volailles.html"},
+    {"icon": "bi-piggy-bank", "titre": "Porciculture", "items": ["Porcelets, engraissement, truies", "Confort digestif, densités, conduite", "Biosécurité bâtiments &amp; qualité d'eau"], "url": "porcins_maridav_ci.html"},
+    {"icon": "bi-water", "titre": "Pisciculture", "items": ["Tilapia — granulés flottants &amp; rationnement", "Densité, oxygénation, gestion des bassins", "Qualité d'eau &amp; solutions probiotiques"], "url": "pisciculture_maridav_ci.html"},
+    {"icon": "bi-shield-shaded", "titre": "Biosécurité", "items": ["Protocoles nettoyage &amp; désinfection", "Plans sanitaires &amp; flux — zones propres/sales", "Compatibilité produits &amp; supports"], "url": "biosecurite_maridav_ci.html"},
+]
+
+ABOUT_STATS = [
+    {"b": "20+", "span": "Années d'expertise"},
+    {"b": "50+", "span": "Points de vente"},
+    {"b": "5 000+", "span": "Éleveurs accompagnés"},
+    {"b": "3", "span": "Espèces majeures"},
+]
+
+ABOUT_PARTNERS = [
+    ("maridav_ci_image/logo/biomin-logo.png", "BIOMIN"),
+    ("maridav_ci_image/logo/logo-trouw-nutrition-partner-maridav-ci.png", "Trouw Nutrition"),
+    ("maridav_ci_image/logo/Skretting full colour logo.png", "Skretting"),
+    ("maridav_ci_image/logo/cid-logo.png", "CID LINES"),
+    ("maridav_ci_image/logo/dsm-logo.png", "DSM"),
+]
+
+
+def render_about_page(h):
+    facts = render_facts(ABOUT_STATS)
+    pillars = "\n          ".join(
+        f'<div class="fl-pillar"><span class="ic"><i class="bi {p["icon"]}"></i></span><h3>{p["titre"]}</h3><p>{p["phrase"]}</p></div>'
+        for p in ABOUT_PILLARS
+    )
+    def feat_li(item):
+        if " — " in item:
+            t, d = item.split(" — ", 1)
+            return f'<li><i class="bi bi-check-circle-fill"></i><div><strong>{t}</strong><span>{d}</span></div></li>'
+        return f'<li><i class="bi bi-check-circle-fill"></i><span>{item}</span></li>'
+    values = "\n          ".join(
+        '<div class="col-md-4"><div class="pdp-card about-card2 h-100">'
+        f'<span class="pdp-bicon"><i class="bi {v["icon"]}"></i></span>'
+        f'<h3 class="about-ctitle">{v["titre"]}</h3>'
+        '<ul class="about-feats">' + "".join(feat_li(it) for it in v["items"]) + '</ul>'
+        '</div></div>'
+        for v in ABOUT_VALUES
+    )
+    expertise = "\n          ".join(
+        '<div class="col-12 col-md-6 col-lg-3"><div class="pdp-card about-card2 h-100 d-flex flex-column">'
+        f'<span class="pdp-bicon"><i class="bi {e["icon"]}"></i></span>'
+        f'<h3 class="about-ctitle">{e["titre"]}</h3>'
+        '<ul class="about-feats about-feats--tight">'
+        + "".join(f'<li><i class="bi bi-check-circle-fill"></i><span>{it}</span></li>' for it in e["items"])
+        + '</ul>'
+        f'<a class="btn-line about-cardlink" href="{e["url"]}">Voir la filière <i class="bi bi-arrow-right"></i></a>'
+        '</div></div>'
+        for e in ABOUT_EXPERTISE
+    )
+    partners = "\n            ".join(
+        f'<div class="about-logo"><img src="{src}" alt="{alt}" loading="lazy"></div>'
+        for src, alt in ABOUT_PARTNERS
+    )
+    crumb = ('<a href="index.html">Accueil</a> <span class="mx-1 text-white-50">/</span>\n          '
+             '<span class="text-white-50">À propos</span>')
+    breadcrumb = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f'{SITE["base"]}/'},
+        {"@type": "ListItem", "position": 2, "name": "À propos", "item": f'{SITE["base"]}/{h["url"]}'}]}
+    org = {"@context": "https://schema.org", "@type": "Organization", "name": "MARIDAV Côte d'Ivoire",
+           "url": f'{SITE["base"]}/', "description": h["description"],
+           "areaServed": "CI", "knowsAbout": ["Nutrition animale", "Biosécurité d'élevage", "Aviculture", "Porciculture", "Pisciculture"]}
+    dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+    main = f"""    <!-- HERO À PROPOS -->
+    <section class="pdp-hero">
+      <div class="container">
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          {crumb}
+        </nav>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="pdp-eyebrow pdp-reveal d1">{h["eyebrow"]}</span>
+            <h1 class="pdp-reveal d1">Nutrition &amp; santé animales, <span class="accent">au plus près de vos élevages</span></h1>
+            <p class="pdp-lead pdp-reveal d2">Depuis la Côte d'Ivoire, nous conjuguons formulations tropicalisées, biosécurité pragmatique et appui technique de terrain pour des élevages performants et réguliers — en volailles, porcs et poissons.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
+              <a class="btn-pill btn-green" href="contact.html">Demander un devis <i class="bi bi-arrow-right"></i></a>
+              <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
+            </div>
+            <div class="pdp-facts pdp-reveal d4">
+              {facts}
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="pdp-figure about-fig pdp-reveal d2 mb-0">
+              <img src="{h["image"]}" alt="{h["image_alt"]}">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARIDAV EN BREF (piliers) -->
+    <section class="pdp-sec" id="en-bref">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">MARIDAV CI en bref</span>
+          <h2 class="pdp-h2">Un partenaire intégré, du programme nutritionnel au terrain</h2>
+          <p class="text-muted mt-3 mb-0" style="max-width:46rem">Nous accompagnons les éleveurs ivoiriens avec des solutions concrètes : nutrition par espèce, biosécurité et suivi de performances, portées par des partenaires internationaux et un réseau national.</p>
+        </div>
+        <div class="fl-pillars">
+          {pillars}
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION / VALEURS / ENGAGEMENTS -->
+    <section class="pdp-sec pt-0" id="mission">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">Notre ADN</span>
+          <h2 class="pdp-h2">Mission, valeurs et engagements</h2>
+        </div>
+        <div class="row g-4">
+          {values}
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES & EXPERTISES -->
+    <section class="pdp-sec pt-0" id="competences">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">Expertise</span>
+          <h2 class="pdp-h2">Compétences &amp; expertises au service de vos élevages</h2>
+          <p class="text-muted mt-3 mb-0" style="max-width:50rem">Une équipe pluridisciplinaire — vétérinaires, zootechniciens, nutritionnistes, hygiénistes et techniciens aquacoles — accompagne chaque filière avec un haut niveau d'exigence.</p>
+        </div>
+        <div class="row g-4">
+          {expertise}
+        </div>
+      </div>
+    </section>
+
+    <!-- CHIFFRES CLÉS -->
+{render_proofbar(ABOUT_STATS, "Indicateurs communiqués par MARIDAV — réseau, accompagnement et couverture en Côte d'Ivoire.")}
+
+    <!-- PARTENAIRES -->
+    <section class="pdp-sec pt-0" id="partenaires">
+      <div class="container">
+        <div class="mb-4 text-center">
+          <span class="pdp-kicker">Partenaires</span>
+          <h2 class="pdp-h2">L'expertise internationale, au service de vos élevages</h2>
+        </div>
+        <div class="about-logos">
+            {partners}
+        </div>
+      </div>
+    </section>
+
+{render_techcta()}"""
+    extra_css = """  <style>
+    /* héros à-propos : image transparente, fond neutre (pas de carte blanche) */
+    .about-fig{background:transparent!important;box-shadow:none!important;padding:0!important;transform:none!important}
+    .about-fig::before{display:none!important}
+    .about-fig img{border-radius:0;filter:drop-shadow(0 26px 46px rgba(0,0,0,.5))}
+    /* cartes premium ADN / expertises : checklist verte aérée + lift */
+    .about-card2{transition:transform .3s,box-shadow .3s}
+    .about-card2:hover{transform:translateY(-5px);box-shadow:0 36px 64px -30px rgba(2,12,46,.5)}
+    .about-ctitle{font-family:"Fraunces",serif;color:var(--navy);font-weight:600;font-size:1.18rem;margin:.95rem 0 .85rem}
+    .about-feats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.65rem}
+    .about-feats li{display:flex;gap:.55rem;align-items:flex-start}
+    .about-feats li i{color:var(--green);font-size:.98rem;margin-top:.18rem;flex:none}
+    .about-feats li strong{display:block;color:var(--navy);font-weight:700;font-size:.9rem;line-height:1.3}
+    .about-feats li>div span,.about-feats li>span{display:block;color:var(--muted);font-size:.86rem;line-height:1.5}
+    .about-cardlink{margin-top:1.05rem}
+    .about-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem}
+    .about-logo{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center;min-width:150px;min-height:84px;transition:transform .3s,box-shadow .3s}
+    .about-logo:hover{transform:translateY(-4px);box-shadow:0 30px 56px -30px rgba(2,12,46,.5)}
+    .about-logo img{max-height:46px;width:auto;max-width:140px;object-fit:contain;display:block}
+    .pdp-card .pdp-bicon{width:46px;height:46px;border-radius:13px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(27,142,62,.14),rgba(42,161,84,.14));color:var(--green);font-size:1.25rem}
+  </style>"""
+    return f"""{render_filiere_head(h).replace("</head>", extra_css + chr(10) + "</head>")}
+<body class="pdp">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+{NAVBAR}
+
+  <main id="main">
+{main}
+  </main>
+
+{FOOTER}
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.min.js" defer></script>
+  <script type="application/ld+json">
+  {dump(breadcrumb)}
+  </script>
+  <script type="application/ld+json">
+  {dump(org)}
+  </script>
   <script src="assets/js/site-crm-bridge.js" defer></script>
 </body>
 </html>
@@ -2465,6 +2864,19 @@ def main():
         (ROOT / BIOSEC_HUB["url"]).write_text(biosec_hub_out, encoding="utf-8")
         print(f"  écrit  {BIOSEC_HUB['url']:48s} {len(biosec_hub_out):6d} o (hub)")
     print("4 hubs générés (volailles + porcs + poissons + biosécurité).")
+
+    # 3f) Page À propos (reconstruite sur le système pdp)
+    about_out = render_about_page(ABOUT)
+    if check:
+        print(f"  [check] {ABOUT['url']:48s} {len(about_out):6d} o (à propos)")
+    else:
+        (ROOT / ABOUT["url"]).write_text(about_out, encoding="utf-8")
+        print(f"  écrit  {ABOUT['url']:48s} {len(about_out):6d} o (à propos)")
+
+    # 3e) Ré-habillage premium des pages de contenu héritées — DÉSACTIVÉ : l'approche
+    # "couche CSS injectée" ne pouvait changer que les polices (le legacy gouverne layout/
+    # couleurs/footer/menu). Refonte réelle sur le système pdp à mener page par page.
+    # print(); rechrome_old_pages(check)
 
     # 4) SEO (sitemap / robots / llms) + release-gate
     if not check:
