@@ -396,6 +396,7 @@
             <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 2</h3><p class="badge-phase">Grossissement · 120–200 g</p><p>Grossissement 120–200 g</p><a class="btn-line" href="maridav_optiline_2_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
             <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 3</h3><p class="badge-phase">Grossissement · 200–400 g</p><p>Grossissement 200–400 g</p><a class="btn-line" href="maridav_optiline_3_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
             <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 4.5</h3><p class="badge-phase">Finition · > 400 g</p><p>Finition > 400 g</p><a class="btn-line" href="maridav_optiline_4_5.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Vitalis</h3><p class="badge-phase">Reproducteurs · Broodstock</p><p>Reproducteurs tilapia</p><a class="btn-line" href="vitalis_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
             <article class="fl-mcard" data-mode="faf"><span class="cat"><i class="bi bi-sliders"></i> Concentré</span><h3>Profish®</h3><p class="badge-phase">Concentré protéique · FAF</p><p>Protéine FAF</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="profish_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
         </div>
         <p class="fl-empty" id="fl-empty">Aucun produit dans cette sélection.</p>
@@ -518,6 +519,11 @@
     var empty=document.getElementById('fl-empty');
     var hintEl=document.getElementById('fl-modehint');
     var hints={pret:(hintEl&&hintEl.dataset.hintPret)||"Aliments complets, prêts à distribuer.",faf:(hintEl&&hintEl.dataset.hintFaf)||"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:(hintEl&&hintEl.dataset.hintAll)||"Toute la gamme, prête à l'emploi comme en fabrication assistée."};
+    function hintFor(mode){
+      if(hints[mode]!=null)return hints[mode];
+      if(hintEl){var k='hint'+mode.charAt(0).toUpperCase()+mode.slice(1);if(hintEl.dataset[k])return hintEl.dataset[k];}
+      return (hintEl&&hintEl.dataset.hintAll)||'';
+    }
     function apply(mode){
       var shown=0;
       cards.forEach(function(c){
@@ -526,7 +532,7 @@
         if(ok)shown++;
       });
       if(empty)empty.style.display=shown?'none':'block';
-      if(hintEl)hintEl.textContent=hints[mode]||'';
+      if(hintEl)hintEl.textContent=hintFor(mode);
     }
     modes.forEach(function(b){
       b.addEventListener('click',function(){
@@ -555,7 +561,7 @@
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://maridav.ci/"},{"@type":"ListItem","position":2,"name":"Poissons","item":"https://maridav.ci/pisciculture_maridav_ci.html"}]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","name":"Poissons — aliments tilapia | MARIDAV Côte d'Ivoire","itemListElement":[{"@type":"ListItem","position":1,"name":"Nutra® 0","url":"https://maridav.ci/nutra_tilapia_0_maridav_ci.html"},{"@type":"ListItem","position":2,"name":"Nutra® 80","url":"https://maridav.ci/nutra_tilapia_80_maridav_ci.html"},{"@type":"ListItem","position":3,"name":"Nutra® 120","url":"https://maridav.ci/nutra_tilapia_120_maridav_ci.html"},{"@type":"ListItem","position":4,"name":"Nutra® 160","url":"https://maridav.ci/nutra_tilapia_160_maridav_ci.html"},{"@type":"ListItem","position":5,"name":"Optiline® 2","url":"https://maridav.ci/maridav_optiline_2_maridav_ci.html"},{"@type":"ListItem","position":6,"name":"Optiline® 3","url":"https://maridav.ci/maridav_optiline_3_maridav_ci.html"},{"@type":"ListItem","position":7,"name":"Optiline® 4.5","url":"https://maridav.ci/maridav_optiline_4_5.html"},{"@type":"ListItem","position":8,"name":"Profish®","url":"https://maridav.ci/profish_maridav_ci.html"}]}
+  {"@context":"https://schema.org","@type":"ItemList","name":"Poissons — aliments tilapia | MARIDAV Côte d'Ivoire","itemListElement":[{"@type":"ListItem","position":1,"name":"Nutra® 0","url":"https://maridav.ci/nutra_tilapia_0_maridav_ci.html"},{"@type":"ListItem","position":2,"name":"Nutra® 80","url":"https://maridav.ci/nutra_tilapia_80_maridav_ci.html"},{"@type":"ListItem","position":3,"name":"Nutra® 120","url":"https://maridav.ci/nutra_tilapia_120_maridav_ci.html"},{"@type":"ListItem","position":4,"name":"Nutra® 160","url":"https://maridav.ci/nutra_tilapia_160_maridav_ci.html"},{"@type":"ListItem","position":5,"name":"Optiline® 2","url":"https://maridav.ci/maridav_optiline_2_maridav_ci.html"},{"@type":"ListItem","position":6,"name":"Optiline® 3","url":"https://maridav.ci/maridav_optiline_3_maridav_ci.html"},{"@type":"ListItem","position":7,"name":"Optiline® 4.5","url":"https://maridav.ci/maridav_optiline_4_5.html"},{"@type":"ListItem","position":8,"name":"Vitalis","url":"https://maridav.ci/vitalis_maridav_ci.html"},{"@type":"ListItem","position":9,"name":"Profish®","url":"https://maridav.ci/profish_maridav_ci.html"}]}
   </script>
   <script src="assets/js/site-crm-bridge.js" defer></script>
 </body>

@@ -547,6 +547,11 @@
     var empty=document.getElementById('fl-empty');
     var hintEl=document.getElementById('fl-modehint');
     var hints={pret:(hintEl&&hintEl.dataset.hintPret)||"Aliments complets, prêts à distribuer.",faf:(hintEl&&hintEl.dataset.hintFaf)||"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:(hintEl&&hintEl.dataset.hintAll)||"Toute la gamme, prête à l'emploi comme en fabrication assistée."};
+    function hintFor(mode){
+      if(hints[mode]!=null)return hints[mode];
+      if(hintEl){var k='hint'+mode.charAt(0).toUpperCase()+mode.slice(1);if(hintEl.dataset[k])return hintEl.dataset[k];}
+      return (hintEl&&hintEl.dataset.hintAll)||'';
+    }
     function apply(mode){
       var shown=0;
       cards.forEach(function(c){
@@ -555,7 +560,7 @@
         if(ok)shown++;
       });
       if(empty)empty.style.display=shown?'none':'block';
-      if(hintEl)hintEl.textContent=hints[mode]||'';
+      if(hintEl)hintEl.textContent=hintFor(mode);
     }
     modes.forEach(function(b){
       b.addEventListener('click',function(){

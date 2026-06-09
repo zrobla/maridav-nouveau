@@ -34,7 +34,8 @@
    "Images maridav_ci_image/aliments_poissons/* — vérifier que les fichiers existent bien sur le serveur.",
    "Données AquaCare : fournisseur non mentionné (recon §5.6). Confirmer la composition (Bacillus spp., enzymes, formats) avec Maridav.",
    "Profish transversal multi-espèce : s'assurer que les taux d'incorporation (volailles 3–6 %, porcs 2–5 %, aquaculture) sont validés par Maridav.",
-   "Capacité export avec Optiline 4.5 — confirmé par Maridav avant affichage commercial."
+   "Capacité export avec Optiline 4.5 — confirmé par Maridav avant affichage commercial.",
+   "Vitalis (reproducteurs/broodstock, marque Skretting) repris de l'ancienne page produit : claim « +15 % taux d'éclosion constaté » et garanties (PB 45 %, lipides 14 % EPA/DHA) à confirmer avec la fiche technique Skretting avant mise en avant commerciale. Produit broodstock distinct du cycle alevin→finition : affiché dans la matrice du hub, hors frise du cycle."
   ]
  },
  "aliments_complets": [
@@ -83,7 +84,7 @@
     "eyebrow": "Pisciculture — Alevinage",
     "h1": "Nutra® <span class=\"accent\">0</span>",
     "pill": {
-     "icon": "bi-fish",
+     "icon": "bi-water",
      "text": "Alevinage · 0–5 g"
     },
     "lead": "Granulé <strong>micro-extrudé flottant</strong> pour démarrer vos alevins tilapia avec un aliment <em>haute digestibilité, immunostimulant et à faible pollution organique</em>. Disponible et accompagné par MARIDAV Côte d'Ivoire.",
@@ -130,6 +131,11 @@
       "icon": "bi-shield-check",
       "title": "Immunostimulants & vitamine C",
       "text": "Soutien immunitaire dès les premières heures pour réduire les mortalités en écloserie et nurserie."
+     },
+     {
+      "icon": "bi-stopwatch",
+      "title": "Démarrage rapide",
+      "text": "Forte appétence du micro-granulé dès les premières heures pour un démarrage homogène des alevins."
      }
     ]
    },
@@ -286,7 +292,7 @@
     "eyebrow": "Pisciculture — Alevinage",
     "h1": "Nutra® <span class=\"accent\">80</span>",
     "pill": {
-     "icon": "bi-fish",
+     "icon": "bi-water",
      "text": "Alevinage · 5–20 g"
     },
     "lead": "Granulé <strong>flottant à profil amino équilibré</strong> pour la phase d'alevinage 5–20 g : <em>croissance homogène, vitamines renforcées et faible encrassement des bassins</em>. Disponible et accompagné par MARIDAV Côte d'Ivoire.",
@@ -333,6 +339,11 @@
       "icon": "bi-droplet",
       "title": "Faible encrassement",
       "text": "Granulé flottant à haute digestibilité — réduit la charge organique et préserve la qualité d'eau."
+     },
+     {
+      "icon": "bi-rulers",
+      "title": "Granulométrie adaptée",
+      "text": "Taille de granulé calibrée pour la bouche des alevins de 5 à 20 g, pour une prise alimentaire optimale."
      }
     ]
    },
@@ -489,7 +500,7 @@
     "eyebrow": "Pisciculture — Prégrossissement",
     "h1": "Nutra® <span class=\"accent\">120</span>",
     "pill": {
-     "icon": "bi-fish",
+     "icon": "bi-water",
      "text": "Prégrossissement · 20–80 g"
     },
     "lead": "Granulé <strong>flottant à faible taux de fines</strong> pour conduire vos juvéniles tilapia de 20 à 80 g avec une <em>progression régulière, une eau préservée et une constance lot à lot</em>. MARIDAV Côte d'Ivoire.",
@@ -536,6 +547,11 @@
       "icon": "bi-check-circle",
       "title": "Constance lot à lot",
       "text": "Valeurs analytiques homogènes d'un sac à l'autre pour des performances reproductibles."
+     },
+     {
+      "icon": "bi-graph-up-arrow",
+      "title": "Indice de consommation maîtrisé",
+      "text": "Haute digestibilité pour transformer efficacement l'aliment en croissance et maîtriser l'indice de consommation."
      }
     ]
    },
@@ -692,7 +708,7 @@
     "eyebrow": "Pisciculture — Prégrossissement",
     "h1": "Nutra® <span class=\"accent\">160</span>",
     "pill": {
-     "icon": "bi-fish",
+     "icon": "bi-water",
      "text": "Prégrossissement · 80–120 g"
     },
     "lead": "Granulé <strong>flottant à profil nutritionnel ciblé</strong> pour conduire vos juvéniles de 80 à 120 g et faciliter la <em>transition vers la gamme Optiline</em> sans stress. MARIDAV Côte d'Ivoire.",
@@ -739,6 +755,11 @@
       "icon": "bi-arrow-right-circle",
       "title": "Transition facilitée",
       "text": "Profil proche d'Optiline pour limiter le stress alimentaire lors du changement d'aliment à 120 g."
+     },
+     {
+      "icon": "bi-shield-check",
+      "title": "Robustesse avant grossissement",
+      "text": "Apports en vitamines et minéraux pour des poissons robustes à l'entrée en phase de grossissement."
      }
     ]
    },
@@ -895,7 +916,7 @@
     "eyebrow": "Pisciculture — Grossissement",
     "h1": "Optiline® <span class=\"accent\">2</span>",
     "pill": {
-     "icon": "bi-fish",
+     "icon": "bi-water",
      "text": "Grossissement · 120–200 g"
     },
     "lead": "Granulé <strong>flottant 2,5–3 mm</strong> pour démarrer la phase de grossissement tilapia : <em>vitamines et antioxydants renforcés, faible taux de fines et qualité d'eau préservée</em>. MARIDAV Côte d'Ivoire.",
@@ -942,6 +963,11 @@
       "icon": "bi-shield-check",
       "title": "Apports renforcés",
       "text": "Vitamines et antioxydants pour soutenir la santé des poissons en début de grossissement."
+     },
+     {
+      "icon": "bi-eye",
+      "title": "Nourrissage maîtrisé",
+      "text": "Granulé flottant : ajustez la ration à l'appétit réel des poissons et limitez le gaspillage."
      }
     ]
    },
@@ -1098,7 +1124,7 @@
     "eyebrow": "Pisciculture — Grossissement",
     "h1": "Optiline® <span class=\"accent\">3</span>",
     "pill": {
-     "icon": "bi-fish",
+     "icon": "bi-water",
      "text": "Grossissement · 200–400 g"
     },
     "lead": "Granulé <strong>flottant 3–4 mm</strong> pour poursuivre le grossissement tilapia de 200 à 400 g : <em>vitamines et minéraux renforcés, faible pollution organique et suivi technicien</em>. MARIDAV Côte d'Ivoire.",
@@ -1145,6 +1171,11 @@
       "icon": "bi-droplet",
       "title": "Faible pollution",
       "text": "Granulé flottant à haute digestibilité — minimise les matières non ingérées dans le bassin."
+     },
+     {
+      "icon": "bi-eye",
+      "title": "Nourrissage maîtrisé",
+      "text": "Le granulé flotte : suivez la consommation et ajustez la ration en étang comme en cage."
      }
     ]
    },
@@ -1301,7 +1332,7 @@
     "eyebrow": "Pisciculture — Finition",
     "h1": "Optiline® <span class=\"accent\">4.5</span>",
     "pill": {
-     "icon": "bi-fish",
+     "icon": "bi-water",
      "text": "Finition · > 400 g"
     },
     "lead": "Granulé <strong>flottant 4–5 mm</strong> pour la finition tilapia avant l'abattage : <em>poids commercial atteint, coût maîtrisé et constance de lot</em>. MARIDAV Côte d'Ivoire.",
@@ -1335,7 +1366,7 @@
     "intro": "La phase finale du cycle tilapia — valorise votre production en préparant les poissons à l'abattage avec un aliment calibré pour le poids commercial.",
     "cards": [
      {
-      "icon": "bi-target",
+      "icon": "bi-bullseye",
       "title": "Poids commercial atteint",
       "text": "Formulation finition pour des lots livrables à 500 g et plus selon les objectifs de marché."
      },
@@ -1348,6 +1379,11 @@
       "icon": "bi-check-circle",
       "title": "Constance de lot",
       "text": "Granulé homogène — limite les écarts de poids et facilite la planification de l'abattage."
+     },
+     {
+      "icon": "bi-droplet",
+      "title": "Qualité d'eau préservée",
+      "text": "Granulé flottant à faible taux de fines — préserve la qualité d'eau sur la phase la plus chargée du cycle."
      }
     ]
    },
@@ -1458,6 +1494,108 @@
     "category": "Aliment pisciculture",
     "audience": "Pisciculteurs tilapia — finition"
    }
+  },
+  {
+   "url": "vitalis_maridav_ci.html",
+   "espece": "poissons",
+   "filieres": ["pisciculture"],
+   "transversal": false,
+   "type": "aliment-complet",
+   "phase": "reproducteurs",
+   "image": "maridav_ci_image/aliments_poissons/vitalis_poissons_maridav_ci.jpg",
+   "og_image": "https://maridav.ci/maridav_ci_image/aliments_poissons/vitalis_poissons_maridav_ci.jpg",
+   "title": "Vitalis® — Reproducteurs tilapia (broodstock) | MARIDAV Côte d'Ivoire",
+   "description": "Aliment extrudé premium Vitalis (Skretting) pour reproducteurs tilapia (broodstock) : fécondité, qualité d'œuf et vigueur des alevins, granulé 3–4 mm en sac 25 kg. Distribué par MARIDAV CI.",
+   "og_title": "Vitalis® — Reproducteurs tilapia (broodstock)",
+   "og_description": "Vitalis : aliment broodstock tilapia pour des œufs viables et des alevins vigoureux — EPA/DHA, vitamines et antioxydants renforcés.",
+   "breadcrumb": [
+    {"name": "Poissons", "url": "pisciculture_maridav_ci.html"},
+    {"name": "Reproducteurs"},
+    {"name": "Vitalis®"}
+   ],
+   "breadcrumb_jsonld": [
+    {"name": "Accueil", "item": "https://maridav.ci/"},
+    {"name": "Poissons", "item": "https://maridav.ci/pisciculture_maridav_ci.html"},
+    {"name": "Vitalis®", "item": "https://maridav.ci/vitalis_maridav_ci.html"}
+   ],
+   "hero": {
+    "eyebrow": "Pisciculture — Reproducteurs",
+    "h1": "Vitalis<span class=\"accent\">®</span>",
+    "pill": {"icon": "bi-water", "text": "Reproducteurs · Broodstock"},
+    "lead": "Aliment <strong>extrudé premium</strong> à forte densité nutritionnelle pour les <strong>reproducteurs tilapia</strong> : il soutient la <em>fécondité, la qualité d'œuf et la vigueur des alevins</em>. Aliment Skretting distribué par MARIDAV Côte d'Ivoire.",
+    "facts": [
+     {"b": "+15 %", "span": "Taux d'éclosion constaté"},
+     {"b": "45 %", "span": "Protéines brutes"},
+     {"b": "3–4 mm", "span": "Granulométrie"},
+     {"b": "Sac 25 kg", "span": "Conditionnement hermétique"}
+    ],
+    "image_alt": "Sac d'aliment reproducteurs tilapia Vitalis distribué par MARIDAV Côte d'Ivoire",
+    "figchip": {"small": "Granulés premium", "label": "Reproducteurs tilapia"}
+   },
+   "benefits": {
+    "kicker": "L'essentiel",
+    "h2": "Atouts Vitalis®",
+    "intro": "Un aliment broodstock à forte densité nutritionnelle : la performance de vos alevins commence dans l'assiette des géniteurs.",
+    "cards": [
+     {"icon": "bi-egg", "title": "Œufs viables", "text": "Apports en EPA/DHA pour une membrane ovocytaire solide et des œufs de qualité."},
+     {"icon": "bi-heart-pulse", "title": "Vigueur larvaire", "text": "Vitamines et antioxydants renforcés pour un démarrage rapide des alevins."},
+     {"icon": "bi-arrow-repeat", "title": "Production continue", "text": "Ration stable favorisant la ponte tout au long de l'année."},
+     {"icon": "bi-gem", "title": "Forte densité nutritionnelle", "text": "Profil en acides aminés et lipides optimisé pour les géniteurs."}
+    ]
+   },
+   "usage": {
+    "h2": "Conduite d'alimentation des géniteurs",
+    "steps": [
+     {"title": "Ration", "text": "Distribuer 1,5–2 % du poids vif par jour, en 2 à 3 repas."},
+     {"title": "Température", "text": "Optimum 22–32 °C ; réduire la ration en dessous de 24 °C."},
+     {"title": "Contrôle quotidien", "text": "Vérifier l'appétit et l'état corporel des géniteurs, ajuster si besoin."}
+    ],
+    "note": "Plan de ration par densité et bassin, et suivi qualité d'eau (O₂, pH, alcalinité) avec l'appui MARIDAV CI."
+   },
+   "spec": {
+    "kicker": "Fiche produit",
+    "h2": "Garanties nutritionnelles",
+    "rows": [
+     {"k": "Protéines brutes", "v": "45 %"},
+     {"k": "Lipides", "v": "14 % (riches en EPA/DHA)"},
+     {"k": "Énergie digestible", "v": "Digestibilité élevée"},
+     {"k": "Vitamines & minéraux", "v": "Profil complet broodstock"},
+     {"k": "Granulométrie", "v": "3–4 mm (granulé extrudé)"},
+     {"k": "Conditionnement", "v": "Sac 25 kg hermétique"}
+    ]
+   },
+   "crosssell": {
+    "title": "Vous fabriquez votre aliment ?",
+    "text": "Profish — concentré protéique marin — renforce vos formulations broodstock maison.",
+    "url": "profish_maridav_ci.html",
+    "link_text": "Voir Profish"
+   },
+   "faq": [
+    {"q": "Quelle est la ration journalière ?", "a": "Entre 1,5 et 2 % du poids vif, répartis en 2 à 3 repas par jour."},
+    {"q": "Peut-on l'utiliser pour d'autres espèces ?", "a": "Oui, pour d'autres poissons tropicaux à forte valeur. Consultez nos techniciens pour adapter la ration."},
+    {"q": "Comment stocker les sacs ?", "a": "Dans un local frais et ventilé, sur palettes, à l'abri de l'humidité. Refermer hermétiquement après ouverture."}
+   ],
+   "related": {
+    "kicker": "Gamme pisciculture",
+    "cards": [
+     {"img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg", "alt": "Granulé alevinage Nutra 0", "tag": "Alevinage", "title": "Nutra® 0", "text": "Premier aliment des alevins issus de vos géniteurs.", "url": "nutra_tilapia_0_maridav_ci.html"},
+     {"img": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg", "alt": "Granulé alevinage Nutra 80", "tag": "Alevinage", "title": "Nutra® 80", "text": "Croissance homogène des jeunes alevins.", "url": "nutra_tilapia_80_maridav_ci.html"},
+     {"img": "maridav_ci_image/aliments_poissons/optiline_maridav_ci.jpg", "alt": "Granulé grossissement Optiline 2", "tag": "Grossissement", "title": "Optiline® 2", "text": "Démarrage du grossissement vers le poids marchand.", "url": "maridav_optiline_2_maridav_ci.html"}
+    ]
+   },
+   "ctaband": {
+    "eyebrow": "Pisciculture MARIDAV CI",
+    "h2": "Un cheptel de géniteurs au top, toute l'année",
+    "text": "Plan de ration par densité et bassin, suivi qualité d'eau : nos techniciens vous accompagnent."
+   },
+   "jsonld": {
+    "name": "Vitalis",
+    "description": "Aliment extrudé premium pour reproducteurs tilapia (broodstock), distribué par MARIDAV CI.",
+    "brand": "MARIDAV",
+    "sku": "VITALIS",
+    "category": "Aliment pisciculture",
+    "audience": "Stations de reproduction tilapia"
+   }
   }
  ],
  "additifs": [
@@ -1545,7 +1683,7 @@
       "text": "Réduit la turbidité et les matières en suspension pour un bassin plus sain et mieux oxygéné."
      },
      {
-      "icon": "bi-bacteria",
+      "icon": "bi-virus2",
       "title": "Équilibre microbiologique",
       "text": "Enzymes et probiotiques Bacillus qui consomment les matières organiques en excès au fond des bassins."
      },
@@ -1553,6 +1691,11 @@
       "icon": "bi-shield-x",
       "title": "Santé du bassin",
       "text": "Limite le développement des pathogènes opportunistes liés à une charge organique élevée."
+     },
+     {
+      "icon": "bi-arrow-repeat",
+      "title": "Curatif & préventif",
+      "text": "S'utilise au quotidien en préventif comme en curatif lors des pics de charge organique, en étang, cage ou RAS."
      }
     ]
    },
@@ -1744,7 +1887,7 @@
     "intro": "Un concentré protéique fonctionnel pour corriger les limites du soja et améliorer le profil amino de vos formulations fermes ou meuneries.",
     "cards": [
      {
-      "icon": "bi-fish",
+      "icon": "bi-water",
       "title": "Profil amino complet",
       "text": "Riche en Lysine (4,5 %), Méthionine (1,7 %) et Thréonine (2,8 %) — pour corriger les limitations du soja en FAF."
      },
@@ -1757,6 +1900,11 @@
       "icon": "bi-layers",
       "title": "Polyvalent multi-espèce",
       "text": "S'intègre dans vos formulations volailles, porcs et poissons — un seul ingrédient, plusieurs filières."
+     },
+     {
+      "icon": "bi-piggy-bank",
+      "title": "Coût de ration maîtrisé",
+      "text": "Renforce vos formulations maison pour réduire la dépendance aux aliments complets et maîtriser le coût de la ration."
      }
     ]
    },

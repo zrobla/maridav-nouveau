@@ -34,7 +34,7 @@
       "pH Kenosan « ≈13 » repris de l'ancienne page — confirmer la valeur exacte sur la fiche technique.",
       "Homologations Virocid (OIE / normes internationales) et nombre de souches testées (>300) — confirmer la formulation des claims avec la documentation CID LINES en vigueur.",
       "Formats (5 / 20 / 200 L, IBC) — vérifier les conditionnements réellement disponibles au stock MARIDAV CI.",
-      "Kenolox : page legacy vide (stub), produit non documenté — exclu du catalogue tant qu'aucune donnée réelle n'est fournie."
+      "Kenolox : reconstruit à partir des informations CID LINES fournies par Maridav (désinfectant prêt à l'emploi, large spectre bactéries/virus/levures, applications surfaces/pédiluves/nébulisation, biodégradable). Aucune valeur chiffrée (dilution/pH/temps de contact) publiée pour Kenolox prêt à l'emploi — specs détaillées renvoyées à la fiche technique. À confirmer avec la documentation CID LINES en vigueur."
     ]
   },
   "biosecurite": [
@@ -338,6 +338,108 @@
         "name": "Virocid",
         "description": "Désinfectant concentré large spectre CID LINES (virus, bactéries, levures, spores), distribué par MARIDAV CI.",
         "sku": "VIROCID",
+        "category": "Désinfectant biosécurité",
+        "audience": "Bâtiments d'élevage (volailles, porcs, poissons)"
+      }
+    },
+    {
+      "url": "kenolox_maridav_ci.html",
+      "espece": "biosecurite",
+      "filieres": ["volailles-chair", "volailles-ponte", "porcs-engraissement", "pisciculture"],
+      "transversal": true,
+      "type": "biosecurite",
+      "fonction": "desinfection",
+      "image": "maridav_ci_image/hygiene_biosecurite/Kenolox.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/hygiene_biosecurite/Kenolox.jpg",
+      "title": "Kenolox® — Désinfectant prêt à l'emploi large spectre | MARIDAV Côte d'Ivoire",
+      "description": "Désinfectant CID LINES Kenolox, prêt à l'emploi et large spectre (bactéries, virus, levures), pour surfaces, équipements, pédiluves, véhicules et nébulisation. Formulation biodégradable et sûre. Distribué par MARIDAV CI.",
+      "og_title": "Kenolox® — Désinfectant prêt à l'emploi large spectre",
+      "og_description": "Kenolox : désinfectant prêt à l'emploi actif sur bactéries, virus et levures, pour surfaces, pédiluves et nébulisation. Biodégradable et sûr.",
+      "breadcrumb": [
+        {"name": "Biosécurité", "url": "biosecurite_maridav_ci.html"},
+        {"name": "Désinfection"},
+        {"name": "Kenolox®"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Biosécurité", "item": "https://maridav.ci/biosecurite_maridav_ci.html"},
+        {"name": "Kenolox®", "item": "https://maridav.ci/kenolox_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Biosécurité — Désinfection",
+        "h1": "Kenolox<span class=\"accent\">®</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — volailles, porcs & poissons"},
+        "lead": "Désinfectant <strong>prêt à l'emploi</strong> et <strong>large spectre</strong> — actif sur bactéries, virus et levures. S'applique par <em>pulvérisation, nébulisation et en pédiluves</em>, avec une formulation biodégradable et sûre pour les animaux et les manipulateurs. Produit CID LINES distribué par MARIDAV CI.",
+        "facts": [
+          {"b": "Prêt à l'emploi", "span": "Aucune dilution"},
+          {"b": "Large spectre", "span": "Bactéries · virus · levures"},
+          {"b": "Biodégradable", "span": "Sûr animaux & manipulateurs"},
+          {"b": "Multi-usage", "span": "Surfaces · pédiluves · fogging"}
+        ],
+        "image_alt": "Bidon de désinfectant prêt à l'emploi Kenolox CID LINES distribué par MARIDAV Côte d'Ivoire",
+        "figchip": {"small": "Désinfectant prêt à l'emploi", "label": "Désinfection & nébulisation"}
+      },
+      "benefits": {
+        "kicker": "L'essentiel",
+        "h2": "Atouts Kenolox®",
+        "intro": "Un désinfectant prêt à l'emploi pour l'étape de désinfection : pas de dilution à préparer, une polyvalence d'application et une formulation pensée pour la sécurité des animaux comme des équipes.",
+        "cards": [
+          {"icon": "bi-virus", "title": "Large spectre", "text": "Efficace contre les bactéries, les virus et les levures sur les surfaces nettoyées."},
+          {"icon": "bi-droplet-half", "title": "Prêt à l'emploi", "text": "Aucune dilution à préparer : application directe par pulvérisation ou nébulisation."},
+          {"icon": "bi-shield-check", "title": "Formulation sûre", "text": "Solution biodégradable et respectueuse, sûre pour les animaux et les manipulateurs."},
+          {"icon": "bi-clipboard-pulse", "title": "Prévention des maladies", "text": "Aide à limiter la propagation de maladies virulentes comme l'influenza aviaire et la peste porcine africaine."}
+        ]
+      },
+      "usage": {
+        "h2": "Protocole de désinfection recommandé",
+        "steps": [
+          {"title": "Nettoyage", "text": "Laver les surfaces et retirer toute la matière organique (fientes, lisier, biofilm)."},
+          {"title": "Désinfection", "text": "Pulvériser ou nébuliser Kenolox directement sur les surfaces propres."},
+          {"title": "Séchage", "text": "Laisser sécher complètement les zones traitées avant de réintroduire les animaux."}
+        ],
+        "note": "La matière organique neutralise tout désinfectant : un nettoyage soigné précède toujours l'application."
+      },
+      "spec": {
+        "kicker": "Fiche produit",
+        "h2": "Caractéristiques techniques",
+        "rows": [
+          {"k": "Nature", "v": "Désinfectant large spectre, prêt à l'emploi"},
+          {"k": "Spectre", "v": "Bactéries, virus, levures"},
+          {"k": "Applications", "v": "Surfaces, équipements, pédiluves, véhicules, nébulisation"},
+          {"k": "Dilution", "v": "Prêt à l'emploi (sans dilution)"},
+          {"k": "Formulation", "v": "Biodégradable, sûre pour animaux et manipulateurs"},
+          {"k": "Valeurs détaillées", "v": "Sur fiche technique (selon usage)"}
+        ]
+      },
+      "crosssell": {
+        "title": "Avant de désinfecter, nettoyez",
+        "text": "La matière organique neutralise le désinfectant : passez Kenosan puis rincez avant Kenolox.",
+        "url": "kenosan_maridav_ci.html",
+        "link_text": "Voir Kenosan"
+      },
+      "faq": [
+        {"q": "Faut-il diluer Kenolox ?", "a": "Non : Kenolox est prêt à l'emploi et s'applique directement, sans préparation de dilution."},
+        {"q": "Sur quels pathogènes Kenolox agit-il ?", "a": "Sur un large spectre — bactéries, virus et levures — utile pour limiter la propagation de maladies virulentes comme l'influenza aviaire et la peste porcine africaine."},
+        {"q": "Peut-on l'appliquer en présence d'animaux ?", "a": "Non : appliquer sur surfaces propres, hors présence des animaux, et laisser sécher complètement avant de les réintroduire."},
+        {"q": "Faut-il nettoyer avant de désinfecter ?", "a": "Oui. La matière organique (fientes, lisier, biofilm) neutralise l'efficacité du désinfectant : le nettoyage est indispensable au préalable."}
+      ],
+      "related": {
+        "kicker": "Gamme biosécurité",
+        "cards": [
+          {"img": "maridav_ci_image/hygiene_biosecurite/virocid.webp", "alt": "Désinfectant concentré Virocid", "tag": "Désinfection", "title": "Virocid®", "text": "Désinfectant concentré large spectre, économique à faible dosage.", "url": "virocid_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/Kenosan Maridav.png", "alt": "Détergent moussant Kenosan", "tag": "Nettoyage moussant", "title": "Kenosan®", "text": "Détergent alcalin moussant : l'étape de nettoyage avant désinfection.", "url": "kenosan_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/cid_2000_maridav.ci.jpg", "alt": "Nettoyant circuits d'eau CID 2000", "tag": "Hygiène de l'eau", "title": "CID 2000®", "text": "Nettoyant désinfectant des lignes d'abreuvement.", "url": "cid_2000_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Biosécurité MARIDAV CI",
+        "h2": "Désinfectez simplement, sans erreur de dosage",
+        "text": "Nos techniciens cadrent l'application (surfaces, pédiluves, nébulisation) et forment vos équipes."
+      },
+      "jsonld": {
+        "name": "Kenolox",
+        "description": "Désinfectant large spectre prêt à l'emploi CID LINES (bactéries, virus, levures), distribué par MARIDAV CI.",
+        "sku": "KENOLOX",
         "category": "Désinfectant biosécurité",
         "audience": "Bâtiments d'élevage (volailles, porcs, poissons)"
       }

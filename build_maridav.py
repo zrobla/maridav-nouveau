@@ -2138,6 +2138,201 @@ def render_poisson_hub_page(h, poisson_data):
 """
 
 
+# --------------------------------------------------------------------------- #
+#  Renderers HUB BIOSÉCURITÉ — transversal, classé par FONCTION (pas de cycle). #
+#  Réutilise les composants partagés (pillars/proofbar/techcta + fl-mcard/      #
+#  fl-timeline) ; spécifique : protocole 5 étapes + filtre matrice par fonction.#
+# --------------------------------------------------------------------------- #
+def render_biosec_hero(h):
+    crumb = (
+        '<a href="index.html">Accueil</a>'
+        ' <span class="mx-1 text-white-50">/</span>\n          '
+        '<span class="text-white-50">Biosécurité</span>'
+    )
+    return f"""    <!-- HERO HUB BIOSÉCURITÉ -->
+    <section class="pdp-hero">
+      <div class="container">
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          {crumb}
+        </nav>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="pdp-eyebrow pdp-reveal d1">{h["eyebrow"]}</span>
+            <h1 class="pdp-reveal d1">{h["h1"]}</h1>
+            <p class="pdp-lead pdp-reveal d2">{h["lead"]}</p>
+            <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
+              <a class="btn-pill btn-green" href="#protocole">Voir le protocole <i class="bi bi-arrow-down"></i></a>
+              <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
+            </div>
+            <div class="pdp-facts pdp-reveal d4">
+              {render_facts(h["facts"])}
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="pdp-figure pdp-reveal d2 mb-0">
+              <img src="{h["image"]}" alt="{h["image_alt"]}">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def render_biosec_protocol(h):
+    """Protocole en 5 étapes (composant fl-timeline partagé). CTA produit optionnel
+    par étape (les étapes de nettoyage à sec / rinçage n'ont pas de produit)."""
+    steps = []
+    for i, s in enumerate(h["protocol"], 1):
+        cta = (f'<a class="btn-line" href="{s["url"]}">{s["cta"]} <i class="bi bi-arrow-right"></i></a>'
+               if s.get("url") else "")
+        steps.append(
+            f'<div class="fl-tstep"><span class="num">{i}</span>'
+            f'<span class="age">{s["role"]}</span><h3>{s["phase"]}</h3>'
+            f'<p>{s["text"]}</p>{cta}</div>'
+        )
+    steps_html = "\n          ".join(steps)
+    wrap = " fl-timeline--wrap" if len(h["protocol"]) > 5 else ""
+    return f"""    <!-- PROTOCOLE BIOSÉCURITÉ -->
+    <section class="pdp-sec pt-0" id="protocole">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">{h["protocol_kicker"]}</span>
+          <h2 class="pdp-h2">{h["protocol_h2"]}</h2>
+          <p class="text-muted mt-3 mb-0" style="max-width:46rem">{h["protocol_intro"]}</p>
+        </div>
+        <div class="fl-timeline{wrap}">
+          {steps_html}
+        </div>
+      </div>
+    </section>"""
+
+
+def render_biosec_matrix(h, products):
+    """Matrice produits filtrable par FONCTION (nettoyage / désinfection / eau).
+    Réutilise fl-mcard + le filtre FILIERE_JS (data-mode = fonction)."""
+    present = [f for f in BIOSEC_FONCTIONS if any(p.get("fonction") == f for p in products)]
+    buttons = ['<button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button>']
+    hint_attrs = [f'data-hint-all="{h["matrix_hint_all"]}"']
+    for f in present:
+        meta = BIOSEC_FONCTIONS[f]
+        buttons.append(f'<button class="fl-mode" data-filter="{f}"><i class="bi {meta["icon"]}"></i> {meta["label"]}</button>')
+        hint_attrs.append(f'data-hint-{f}="{meta["hint"]}"')
+    buttons_html = "\n            ".join(buttons)
+    hint_attrs_html = " ".join(hint_attrs)
+    cards = []
+    for p in products:
+        f = p.get("fonction", "")
+        meta = BIOSEC_FONCTIONS.get(f, {"label": "Biosécurité", "icon": "bi-shield-shaded"})
+        hero = p["hero"]
+        figchip = hero.get("figchip", {})
+        tags = ('<div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div>'
+                if p.get("transversal") else "")
+        cards.append(
+            f'<article class="fl-mcard" data-mode="{f}">'
+            f'<span class="cat"><i class="bi {meta["icon"]}"></i> {meta["label"]}</span>'
+            f'<h3>{p["jsonld"]["name"]}</h3>'
+            f'<p class="badge-phase">{figchip.get("small", "")}</p>'
+            f'<p>{figchip.get("label", "")}</p>'
+            f'{tags}'
+            f'<a class="btn-line" href="{p["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
+            f'</article>'
+        )
+    cards_html = "\n            ".join(cards)
+    return f"""    <!-- MODE-SWITCH PAR FONCTION + MATRICE BIOSÉCURITÉ -->
+    <section class="pdp-sec pt-0" id="gamme">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">{h["matrix_kicker"]}</span>
+          <h2 class="pdp-h2">{h["matrix_h2"]}</h2>
+          <div class="fl-modes mt-3" role="group" aria-label="Fonction biosécurité">
+            {buttons_html}
+          </div>
+          <p class="fl-modehint" id="fl-modehint" {hint_attrs_html}>{h["matrix_hint_all"]}</p>
+        </div>
+        <div class="fl-matrix" id="fl-matrix">
+            {cards_html}
+        </div>
+        <p class="fl-empty" id="fl-empty">Aucun produit pour ce filtre.</p>
+      </div>
+    </section>"""
+
+
+def render_biosec_jsonld(h, products):
+    url = f'{SITE["base"]}/{h["url"]}'
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f'{SITE["base"]}/'},
+            {"@type": "ListItem", "position": 2, "name": "Biosécurité", "item": url},
+        ],
+    }
+    itemlist = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": h["title"],
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": p["jsonld"]["name"], "url": f'{SITE["base"]}/{p["url"]}'}
+            for i, p in enumerate(products, 1)
+        ],
+    }
+    dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+    return f"""  <script type="application/ld+json">
+  {dump(breadcrumb)}
+  </script>
+  <script type="application/ld+json">
+  {dump(itemlist)}
+  </script>"""
+
+
+# Points de preuve biosécurité (pas de FCR/ponte : claims structure + accompagnement).
+BIOSEC_PROOF = [
+    {"b": "5 étapes", "span": "Protocole structuré"},
+    {"b": "Transversal", "span": "Volailles · porcs · poissons"},
+    {"b": "Devis 24 h", "span": "Réponse chiffrée en FCFA"},
+    {"b": "Appui terrain", "span": "Audits & formation MARIDAV"},
+]
+BIOSEC_PROOFNOTE = ("Audits biosécurité, checklists et contrôle d'efficacité communiqués par nos "
+                    "techniciens, selon votre conduite d'élevage et vos bâtiments.")
+
+
+def render_biosec_hub_page(h, biosec_data):
+    """Biosécurité = produits transversaux classés par fonction (pas de cycle) :
+    hero -> piliers -> protocole 5 étapes -> matrice par fonction -> preuve -> techCTA."""
+    piliers = biosec_data["_meta"]["piliers"]
+    products = [p for p in biosec_data.get("biosecurite", []) if p.get("_render", True) and "hero" in p]
+    sections = [
+        render_biosec_hero(h),
+        render_pillars(piliers),
+        render_biosec_protocol(h),
+        render_biosec_matrix(h, products),
+        render_proofbar(BIOSEC_PROOF, BIOSEC_PROOFNOTE),
+        render_techcta(),
+    ]
+    main = "\n\n".join(s for s in sections if s)
+    return f"""{render_filiere_head(h)}
+<body class="pdp">
+  <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
+{NAVBAR}
+
+  <main id="main">
+{main}
+  </main>
+
+{FOOTER}
+
+  <script src="vendor/jquery.2.2.3.min.js"></script>
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.min.js" defer></script>
+{FILIERE_JS}
+{render_biosec_jsonld(h, products)}
+  <script src="assets/js/site-crm-bridge.js" defer></script>
+</body>
+</html>
+"""
+
+
 def generate_seo():
     pages = indexable_pages()
     (ROOT / "sitemap.xml").write_text(build_sitemap(pages), encoding="utf-8")
@@ -2212,7 +2407,16 @@ def main():
     else:
         (ROOT / POISSON_HUB["url"]).write_text(poisson_hub_out, encoding="utf-8")
         print(f"  écrit  {POISSON_HUB['url']:48s} {len(poisson_hub_out):6d} o (hub)")
-    print("3 hubs générés (volailles + porcs + poissons).")
+
+    # 3d) Hub biosécurité (transversal, par fonction)
+    biosec_data = json.loads(BIOSEC_DATA.read_text(encoding="utf-8"))
+    biosec_hub_out = render_biosec_hub_page(BIOSEC_HUB, biosec_data)
+    if check:
+        print(f"  [check] {BIOSEC_HUB['url']:48s} {len(biosec_hub_out):6d} o (hub)")
+    else:
+        (ROOT / BIOSEC_HUB["url"]).write_text(biosec_hub_out, encoding="utf-8")
+        print(f"  écrit  {BIOSEC_HUB['url']:48s} {len(biosec_hub_out):6d} o (hub)")
+    print("4 hubs générés (volailles + porcs + poissons + biosécurité).")
 
     # 4) SEO (sitemap / robots / llms) + release-gate
     if not check:
