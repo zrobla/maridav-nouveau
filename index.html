@@ -37,7 +37,9 @@
 
     <!-- Main style sheet -->
     <!-- Premium fonts & Bootstrap 5 CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
@@ -48,21 +50,135 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   <link rel="stylesheet" href="assets/css/main.min.css">
   <style>
-    .hero-premium .hero-content{max-width:760px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;}
-    .hero-premium .hero-content .cta-row{justify-content:center;}
-    .hero-premium .hero-content .chips{justify-content:center;}
-    .hero-premium .hero-content .cta-row .btn{display:flex;align-items:center;justify-content:center;text-align:center;}
-    @media (max-width: 768px){
-      .hero-premium.home-hero{min-height:auto;}
-      .hero-premium.home-hero .active{position:relative;height:auto;}
-      .hero-premium.home-hero .active video{object-fit:contain!important;clip-path:none!important;height:auto;max-height:440px;width:100%;}
+    /* === Accueil : vidéo bannière nette (sans superposition) + bloc intro corporate fusionné jusqu'au carrousel villes === */
+    .home-intro,.home-cities{--m-navy:#000066;--m-navy-2:#04153b;--m-green:#1b8e3e;--m-green-2:#2aa154;--m-green-soft:#6ee7a8;--m-gold:#b8902f;--m-muted:#5a6b85;--m-line:rgba(2,12,46,.10)}
+    /* vidéo bannière propre, ratio natif 16:9, sans crop ni superposition */
+    .hero-premium.home-hero{min-height:0;height:auto;background:#fff;overflow:visible}
+    .hero-premium.home-hero .active{position:relative;inset:auto;width:100%;height:auto}
+    .hero-premium.home-hero video{position:relative;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;clip-path:none;display:block}
+    /* SECTION INTRO fusionnée : message + atouts (fond clair unifié) */
+    .home-intro{background:#e8ecf4;padding:clamp(2.2rem,4.5vw,3.8rem) 0 clamp(1.4rem,2.6vw,2rem)}
+    .home-intro .hi-eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--m-green);margin-bottom:.5rem}
+    .home-intro .hi-eyebrow::before{content:"";width:26px;height:2px;background:var(--m-gold);display:inline-block}
+    .home-intro .hi-title{font-weight:700;font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.08;color:var(--m-navy);margin:.1rem 0 .7rem}
+    .home-intro .hi-title .accent{color:var(--m-green)}
+    .home-intro .hi-lead{font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.6;color:var(--m-muted);max-width:36rem;margin:0}
+    .home-intro .hi-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
+    .home-intro .btn-pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;font-weight:700;font-size:.95rem;padding:.78rem 1.4rem;text-decoration:none;transition:transform .25s,box-shadow .25s,gap .25s}
+    .home-intro .btn-green{background:linear-gradient(135deg,var(--m-green),var(--m-green-2));color:#fff;box-shadow:0 16px 30px -12px rgba(27,142,62,.6)}
+    .home-intro .btn-green:hover{transform:translateY(-2px);gap:.7rem;box-shadow:0 22px 40px -12px rgba(27,142,62,.75);color:#fff}
+    .home-intro .btn-line{border:1.5px solid rgba(0,0,102,.25);color:var(--m-navy);background:#fff}
+    .home-intro .btn-line:hover{border-color:var(--m-green);color:var(--m-green);transform:translateY(-2px)}
+    /* chips filières claires (sans carte de fond) */
+    .home-intro .hi-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}
+    .home-intro .hi-chip{display:inline-flex;align-items:center;gap:.45rem;background:#fff;border:1px solid var(--m-line);border-radius:999px;padding:.5rem 1rem;font-weight:700;font-size:.88rem;color:var(--m-navy);text-decoration:none;box-shadow:0 6px 18px -12px rgba(2,12,46,.4);transition:border-color .25s,transform .25s,box-shadow .25s}
+    .home-intro .hi-chip i{color:var(--m-green);font-size:1.02rem}
+    .home-intro .hi-chip:hover{border-color:rgba(27,142,62,.5);transform:translateY(-2px);box-shadow:0 12px 26px -14px rgba(27,142,62,.5);color:var(--m-navy)}
+    /* panneau atouts (3 valeurs) */
+    .home-intro .hi-values{display:flex;flex-direction:column;gap:.7rem}
+    .home-intro .hi-value{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--m-line);border-radius:16px;padding:1rem 1.1rem;box-shadow:0 18px 40px -28px rgba(2,12,46,.5);transition:transform .25s,box-shadow .25s}
+    .home-intro .hi-value:hover{transform:translateY(-3px);box-shadow:0 26px 50px -28px rgba(2,12,46,.55)}
+    .home-intro .hi-value .ic{flex:none;width:50px;height:50px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(27,142,62,.12),rgba(42,161,84,.12));color:var(--m-green);font-size:1.3rem}
+    .home-intro .hi-value .ic img{width:30px;height:30px;object-fit:contain}
+    .home-intro .hi-value b{display:block;color:var(--m-navy);font-weight:700;font-size:1rem;line-height:1.2}
+    .home-intro .hi-value span{display:block;color:var(--m-muted);font-size:.88rem;margin-top:.15rem}
+    /* VILLES — disponibilité nationale, panneau navy CONTENU sur fond clair (accent, pas de dalle pleine largeur) */
+    .home-cities{background:#e8ecf4;padding:clamp(.4rem,1.4vw,1rem) 0 clamp(2.2rem,4vw,3.4rem)}
+    .home-cities .hc-panel{position:relative;overflow:hidden;border-radius:22px;padding:clamp(1.3rem,2.4vw,1.8rem) clamp(1.2rem,2.6vw,2rem);color:#fff;background:radial-gradient(120% 180% at 100% 0%,#0a2a73,var(--m-navy) 55%,var(--m-navy-2));box-shadow:0 30px 60px -34px rgba(2,12,46,.6)}
+    .home-cities .hc-panel::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--m-gold),var(--m-green-2))}
+    .home-cities .hc-panel::after{content:"";position:absolute;width:280px;height:280px;right:-90px;top:-120px;background:radial-gradient(closest-side,rgba(27,142,62,.35),transparent 70%);pointer-events:none}
+    .home-cities .hc-head{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.95rem;color:#fff;margin-bottom:.95rem;position:relative;z-index:1}
+    .home-cities .hc-head i{color:var(--m-green-soft)}
+    .home-cities .hc-head .soft{color:rgba(255,255,255,.6);font-weight:500}
+    .home-cities .city-carousel{position:relative;z-index:1}
+    .home-cities .city-carousel .city-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#fff;padding:.45rem 1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:.82rem;text-align:center;white-space:nowrap}
+    .home-cities .city-carousel .city-pill:hover{background:rgba(255,255,255,.22)}
+    @media (max-width: 991px){
+      .home-intro .hi-values{margin-top:1.8rem}
+      /* responsive : chips filières AU-DESSUS des boutons + centrées (Biosécurité non isolée) */
+      .home-intro .col-lg-7{display:flex;flex-direction:column}
+      .home-intro .hi-chips{order:1;justify-content:center;margin-top:1.2rem}
+      .home-intro .hi-cta{order:2;margin-top:1rem}
     }
     @media (max-width: 768px){
-      .hero-premium .container{display:flex;justify-content:center;}
-      .hero-premium .hero-content .cta-row{flex-wrap:wrap;gap:10px;}
-      .hero-premium .hero-content .cta-row .btn{white-space:normal;line-height:1.25;padding:10px 14px;}
-      .hero-premium .hero-content .cta-row .btn.btn-lg{font-size:15px;}
+      .home-intro{padding-top:clamp(1.8rem,6vw,2.4rem)}
+      .home-intro .btn-pill{flex:1 1 auto;justify-content:center}
     }
+    @media (prefers-reduced-motion:reduce){.home-intro .btn-pill,.home-intro .hi-chip,.home-intro .hi-value{transition:none}}
+
+    /* === Section "Des solutions complètes" — refonte premium (navy magnifié, cartes verre, badges lumineux) === */
+    .home-solutions{position:relative;overflow:hidden;color:#fff;padding:clamp(3rem,6vw,5rem) 0;background:#041038}
+    .home-solutions .container{position:relative;z-index:1}
+    .home-solutions .hs-head{text-align:center;max-width:46rem;margin:0 auto clamp(2rem,4vw,3rem)}
+    .home-solutions .hs-eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.74rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#6ee7a8}
+    .home-solutions .hs-eyebrow::before,.home-solutions .hs-eyebrow::after{content:"";width:24px;height:2px;background:#b8902f;display:inline-block}
+    .home-solutions .hs-title{font-weight:700;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.14;margin:.75rem 0 .6rem;color:#fff}
+    .home-solutions .hs-title .accent{color:#6ee7a8}
+    .home-solutions .hs-lead{color:rgba(255,255,255,.74);font-size:1.02rem;line-height:1.6;margin:0}
+    .home-solutions .hs-grid{margin-top:0}
+    .home-solutions .sol-card{position:relative;height:100%;display:flex;flex-direction:column;gap:.65rem;background:linear-gradient(160deg,rgba(255,255,255,.085),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:1.6rem 1.5rem 1.7rem;overflow:hidden;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 30px 60px -34px rgba(0,0,0,.7);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s}
+    .home-solutions .sol-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#b8902f,#1b8e3e);transform:scaleX(0);transform-origin:left;transition:transform .45s}
+    .home-solutions .sol-card:hover{transform:translateY(-8px);border-color:rgba(110,231,168,.4);box-shadow:0 44px 74px -34px rgba(27,142,62,.5)}
+    .home-solutions .sol-card:hover::before{transform:scaleX(1)}
+    .home-solutions .sol-ic{width:58px;height:58px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;font-size:1.5rem;color:#6ee7a8;background:linear-gradient(135deg,rgba(27,142,62,.3),rgba(110,231,168,.12));border:1px solid rgba(110,231,168,.3)}
+    .home-solutions .sol-card h3{font-weight:700;font-size:1.06rem;color:#fff;margin:.35rem 0 0;line-height:1.25}
+    .home-solutions .sol-card p{color:rgba(255,255,255,.72);font-size:.92rem;line-height:1.55;margin:0}
+    .home-solutions .sol-index{position:absolute;top:1.05rem;right:1.25rem;font-weight:800;font-size:1.45rem;line-height:1;color:rgba(255,255,255,.12);letter-spacing:.02em}
+    @media (prefers-reduced-motion:reduce){.home-solutions .sol-card,.home-solutions .sol-card::before{transition:none}}
+
+    /* === Typographie alignée sur les pages pilotes (hubs) : Inter en corps, Fraunces en titres — prioritaire sur le legacy === */
+    body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    h1,h2,.display,.maridav-ci-title-one h2{font-family:"Fraunces","Georgia",serif;letter-spacing:-.01em}
+    .maridav-ci-title-one h2{text-transform:none;letter-spacing:-.012em;font-weight:600;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.12}
+    .home-intro .hi-title,.home-solutions .hs-title{font-weight:600}
+
+    /* === Section "Parlons élevage" : overlay du titre en bleu (même opacité .72) + refonte du CONTENU de la carte contact (carte legacy inchangée) === */
+    #lead .maridav-ci-title-one{background:rgba(10,42,115,.72)}
+    #lead .contact-card .cc-eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#6ee7a8;margin-bottom:.55rem}
+    #lead .contact-card .cc-title{font-family:"Fraunces","Georgia",serif;letter-spacing:-.01em;text-transform:none;color:#fff;font-size:1.3rem;font-weight:600;margin:0 0 .4rem}
+    #lead .contact-card .cc-intro{color:rgba(255,255,255,.82);font-size:.92rem;margin:0 0 .95rem}
+    #lead .contact-card .cc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem}
+    #lead .contact-card .cc-list li{display:flex;gap:.7rem;align-items:flex-start;color:rgba(255,255,255,.9);font-size:.9rem;line-height:1.42}
+    #lead .contact-card .cc-list li i{flex:none;width:30px;height:30px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;background:rgba(110,231,168,.14);border:1px solid rgba(110,231,168,.28);color:#6ee7a8;font-size:.95rem;margin-top:.05rem}
+    #lead .contact-card .cc-wa{border-radius:999px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:.5rem}
+
+    /* === Section "comment nous trouver" — refonte signature : en-tête éditorial, carte contacts navy, carte GPS encadrée + épingle === */
+    .contact-location .cl-head{text-align:center;max-width:42rem;margin:0 auto clamp(2rem,4vw,3rem)}
+    .contact-location .cl-kicker{display:inline-flex;align-items:center;gap:.45rem;font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#1b8e3e}
+    .contact-location .cl-h2{font-family:"Fraunces","Georgia",serif;letter-spacing:-.015em;text-transform:lowercase;font-weight:600;font-size:clamp(2.3rem,5.8vw,3.7rem);line-height:1.02;color:#000066;margin:.55rem 0 .55rem}
+    .contact-location .cl-headsub{color:#5a6b85;font-size:1.02rem;line-height:1.6;margin:0}
+    /* carte contacts : navy premium */
+    .contact-location .cl-contacts{position:relative;overflow:hidden;border:1px solid rgba(110,231,168,.18);border-radius:24px;color:#fff;background:radial-gradient(120% 130% at 100% 0%,#0a2a73,#04153b 55%,#020b22);box-shadow:0 44px 84px -42px rgba(2,12,46,.7)}
+    .contact-location .cl-contacts::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#b8902f,#1b8e3e);z-index:2}
+    .contact-location .cl-contacts::after{content:"";position:absolute;width:300px;height:300px;right:-110px;top:-130px;background:radial-gradient(closest-side,rgba(27,142,62,.30),transparent 70%);pointer-events:none}
+    .contact-location .cl-contacts .card-body{position:relative;z-index:1}
+    .contact-location .cl-eyebrow{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#6ee7a8;margin-bottom:.55rem}
+    .contact-location .cl-name{font-family:"Fraunces","Georgia",serif;letter-spacing:-.01em;color:#fff;font-weight:600;font-size:1.6rem;margin:0 0 .35rem}
+    .contact-location .cl-sub{color:rgba(255,255,255,.74);font-size:.93rem;line-height:1.5;margin:0 0 1.3rem}
+    .contact-location .cl-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.95rem}
+    .contact-location .cl-list li{display:flex;gap:.85rem;align-items:flex-start}
+    .contact-location .cl-list .ic{flex:none;width:44px;height:44px;border-radius:13px;display:inline-flex;align-items:center;justify-content:center;background:rgba(110,231,168,.13);border:1px solid rgba(110,231,168,.28);color:#6ee7a8;font-size:1.15rem}
+    .contact-location .cl-list .tx{min-width:0}
+    .contact-location .cl-list .tx b{display:block;font-weight:800;color:#fff;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.15rem}
+    .contact-location .cl-list .tx span{display:block;color:rgba(255,255,255,.82);font-size:.93rem;line-height:1.45}
+    .contact-location .cl-list a{color:#6ee7a8;text-decoration:none;font-weight:600}
+    .contact-location .cl-list a:hover{text-decoration:underline}
+    .contact-location .cl-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;border-top:1px solid rgba(255,255,255,.14)}
+    .contact-location .cl-actions .btn-brand{border-radius:999px}
+    .contact-location .cl-actions .btn-outline-brand{border-radius:999px;color:#fff;border-color:rgba(255,255,255,.5)}
+    .contact-location .cl-actions .btn-outline-brand:hover{background:rgba(255,255,255,.12);color:#fff;border-color:#fff}
+    .contact-location .cl-social{display:flex;align-items:center;gap:.7rem;margin-left:auto}
+    .contact-location .cl-social .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6);font-weight:700}
+    .contact-location .cl-social a{color:#fff}
+    .contact-location .cl-social a:hover{color:#6ee7a8}
+    /* carte GPS : cadre + épingle flottante */
+    .contact-location .cl-mapcard{position:relative;height:100%;min-height:380px;border:1px solid rgba(2,12,46,.08);border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 44px 84px -42px rgba(2,12,46,.5)}
+    .contact-location .cl-mapcard iframe{display:block;width:100%;height:100%;min-height:380px;border:0}
+    .contact-location .cl-pin{position:absolute;left:16px;bottom:16px;z-index:2;display:flex;align-items:center;gap:.7rem;background:rgba(4,16,46,.9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;border:1px solid rgba(110,231,168,.25);border-radius:14px;padding:.65rem .9rem;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)}
+    .contact-location .cl-pin .pin-ic{flex:none;width:34px;height:34px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:rgba(110,231,168,.16);color:#6ee7a8;font-size:1.05rem}
+    .contact-location .cl-pin b{display:block;font-size:.86rem;font-weight:700;line-height:1.2}
+    .contact-location .cl-pin small{display:block;color:rgba(255,255,255,.7);font-size:.74rem}
+    @media (max-width:575px){ .contact-location .cl-pin{left:12px;right:12px;bottom:12px} }
   </style>
 <!-- Existing theme CSS -->
     <!-- Premium overrides -->
@@ -186,27 +302,8 @@
             <video class="d-block w-100" autoplay loop muted playsinline preload="metadata" poster="maridav_ci_image/body/maridav_ci_banniere_blanche.webp">
               <source src="maridav_ci_image/body/maridav_ci_eleveurs_banner.webm" type="video/webm">
               <source src="maridav_ci_image/body/maridav_ci_eleveurs_banner.mp4" type="video/mp4">
-              <img src="maridav_ci_image/body/maridav_ci_banniere_blanche.webp" alt="Éleveurs MARIDAV CI">
+              <img src="maridav_ci_image/body/maridav_ci_banniere_blanche.webp" alt="Éleveurs accompagnés par MARIDAV Côte d’Ivoire">
             </video>
-          </div>
-          <div class="hero-overlay" role="region" aria-label="Proposition de valeur">
-            <div class="container">
-              <div class="hero-content">
-                <h1>Nutrition & santé animales pour des élevages performants en Côte d’Ivoire</h1>
-                <p>Aliments complets, additifs et biosécurité, avec accompagnement technique pour éleveurs, vétérinaires et intégrateurs – volailles, porcs et poissons.</p>
-                <div class="cta-row">
-                  <a href="#maridav_services" class="btn btn-brand btn-lg">Découvrir nos solutions</a>
-                  <a href="https://api.whatsapp.com/send?phone=+2250574648888" class="btn btn-outline-brand btn-lg" target="_blank" rel="noopener">Parler à un technicien</a>
-                  <a href="contact.html" class="btn btn-outline-brand btn-lg d-none d-md-inline-flex">Contact</a>
-                </div>
-                <div class="chips" aria-label="Accès rapide aux espèces">
-                  <a class="chip" href="#maridav_services">Volailles</a>
-                  <a class="chip" href="#maridav_services">Porcs</a>
-                  <a class="chip" href="#maridav_services">Poissons</a>
-                  <a class="chip" href="#maridav_services">Biosécurité</a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -214,134 +311,108 @@
 <!-- /#theme-main-banner -->
 
 
-<!-- Feature Bar -->
-<section class="feature-bar" aria-label="Atouts MARIDAV CI">
-  <div class="feature-top">
-    <div class="container">
-      <div class="row g-3">
-      <div class="col-12 col-md-4">
-        <div class="feature-item">
-          <div class="feature-map feature-map-img feature-map-small" aria-hidden="true">
-            <img src="images/cote-d-ivoire.png" alt="Carte Côte d’Ivoire">
+<!-- Intro corporate fusionnée : message + atouts -->
+<section class="home-intro" aria-label="MARIDAV Côte d’Ivoire — nutrition & santé animales">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-7">
+        <span class="hi-eyebrow">MARIDAV Côte d’Ivoire</span>
+        <h1 class="hi-title">Nutrition &amp; santé animales <span class="accent">pour des élevages performants en Côte d’Ivoire</span></h1>
+        <p class="hi-lead">Aliments complets, additifs et biosécurité, avec accompagnement technique pour éleveurs, vétérinaires et intégrateurs – volailles, porcs et poissons.</p>
+        <div class="hi-cta">
+          <a href="#maridav_services" class="btn-pill btn-green">Découvrir nos solutions <i class="bi bi-arrow-right"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=+2250574648888" class="btn-pill btn-line" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
+        </div>
+        <nav class="hi-chips" aria-label="Nos filières">
+          <a class="hi-chip" href="volailles.html"><i class="bi bi-egg"></i> Volailles</a>
+          <a class="hi-chip" href="porcins_maridav_ci.html"><i class="bi bi-piggy-bank"></i> Porcs</a>
+          <a class="hi-chip" href="pisciculture_maridav_ci.html"><i class="bi bi-water"></i> Poissons</a>
+          <a class="hi-chip" href="biosecurite_maridav_ci.html"><i class="bi bi-shield-check"></i> Biosécurité</a>
+        </nav>
+      </div>
+      <div class="col-lg-5">
+        <div class="hi-values">
+          <div class="hi-value">
+            <span class="ic"><img src="images/cote-d-ivoire.png" alt="Carte de la Côte d’Ivoire"></span>
+            <div><b>Disponibilité nationale</b><span>Un réseau fourni de distributeurs</span></div>
           </div>
-          <div>
-            <div class="label">Disponibilité nationale</div>
-            <p class="small desc">Un réseau fourni de distributeurs</p>
+          <div class="hi-value">
+            <span class="ic"><i class="bi bi-person-workspace" aria-hidden="true"></i></span>
+            <div><b>Appui technique terrain</b><span>Réglages, suivi, ateliers et webinaires</span></div>
+          </div>
+          <div class="hi-value">
+            <span class="ic"><i class="bi bi-box-seam" aria-hidden="true"></i></span>
+            <div><b>Vente en gros &amp; détail</b><span>Pour toutes les classes d’éleveurs</span></div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa fa-user-tie" aria-hidden="true"></i></div>
-          <div>
-            <div class="label">Appui technique terrain</div>
-            <p class="small desc">Réglages, suivi, ateliers et webinaires</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fa fa-box-open" aria-hidden="true"></i></div>
-          <div>
-            <div class="label">Vente en gros & détail</div>
-            <p class="small desc">Pour toutes les classes d'éléveurs.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-  <div class="feature-bottom">
-    <div class="container">
-      <div class="city-carousel owl-carousel" aria-label="Villes desservies par MARIDAV CI">
-        <div class="city-pill">Abidjan</div>
-        <div class="city-pill">Bingerville</div>
-        <div class="city-pill">San Pedro</div>
-        <div class="city-pill">Bouaké</div>
-        <div class="city-pill">Yamoussoukro</div>
-        <div class="city-pill">Korhogo</div>
-        <div class="city-pill">Grand-Bassam</div>
-        <div class="city-pill">Songon-Bimbresso</div>
-        <div class="city-pill">Daloa</div>
-        <div class="city-pill">Aboisso</div>
-        <div class="city-pill">Agnibilékrou</div>
-        <div class="city-pill">Soubré</div>
-        <div class="city-pill">Man</div>
       </div>
     </div>
   </div>
-
 </section>
 
-<section class="section-premium alt" aria-label="Pourquoi choisir MARIDAV CI">
+<!-- Couverture nationale : carrousel des villes (fusion bas du bloc) -->
+<section class="home-cities" aria-label="Villes desservies par MARIDAV CI">
   <div class="container">
-    <div class="maridav-ci-title-one text-center">
-      <h2>Des solutions complètes pour des élevages performants</h2>
+    <div class="hc-panel">
+      <div class="hc-head"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Présents partout en Côte d’Ivoire <span class="soft">— nos villes desservies</span></div>
+      <div class="city-carousel owl-carousel">
+      <div class="city-pill">Abidjan</div>
+      <div class="city-pill">Bingerville</div>
+      <div class="city-pill">San Pedro</div>
+      <div class="city-pill">Bouaké</div>
+      <div class="city-pill">Yamoussoukro</div>
+      <div class="city-pill">Korhogo</div>
+      <div class="city-pill">Grand-Bassam</div>
+      <div class="city-pill">Songon-Bimbresso</div>
+      <div class="city-pill">Daloa</div>
+      <div class="city-pill">Aboisso</div>
+      <div class="city-pill">Agnibilékrou</div>
+      <div class="city-pill">Soubré</div>
+      <div class="city-pill">Man</div>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-6 col-lg-3 mb-3">
-        <div class="card card-premium card-accent hover-lift h-100">
-          <div class="card-body">
-            <div class="icon-badge icon-volailles" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <path d="M7 4h10l-1 3H8L7 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-                <rect x="6" y="7" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"></rect>
-                <path d="M12 10v6M12 10l-2 2M12 11.5l2 2M12 13l-2 2M12 14.5l2 2" stroke="#fff" stroke-width="1.4" stroke-linecap="round"></path>
-              </svg>
-            </div>
-            <h3 class="h6 text-brand">Nutrition adaptée aux espèces</h3>
-            <p class="small mb-0">Programmes Volailles, Porcs et Poissons pensés pour la performance en climat tropical.</p>
-          </div>
-        </div>
+  </div>
+</section>
+
+<section class="home-solutions" aria-label="Pourquoi choisir MARIDAV CI">
+  <div class="container">
+    <div class="hs-head">
+      <span class="hs-eyebrow">L’offre intégrée MARIDAV</span>
+      <h2 class="hs-title">Des solutions complètes <span class="accent">pour des élevages performants</span></h2>
+      <p class="hs-lead">Nutrition, biosécurité et accompagnement réunis sous un même toit — pour des résultats réguliers, du démarrage à la finition, en volailles, porcs et poissons.</p>
+    </div>
+    <div class="row swipe-row hs-grid g-4">
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="sol-card">
+          <span class="sol-ic"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i></span>
+          <h3>Nutrition adaptée aux espèces</h3>
+          <p>Programmes Volailles, Porcs et Poissons pensés pour la performance en climat tropical.</p>
+          <span class="sol-index" aria-hidden="true">01</span>
+        </article>
       </div>
-      <div class="col-12 col-md-6 col-lg-3 mb-3">
-        <div class="card card-premium card-accent hover-lift h-100">
-          <div class="card-body">
-            <div class="icon-badge icon-biosecurite" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <!-- Outer ring -->
-                <circle cx="12" cy="12" r="9" fill="none" stroke="#fff" stroke-width="1.8"></circle>
-                <!-- Center dot -->
-                <circle cx="12" cy="12" r="2" fill="#fff"></circle>
-                <!-- Radiation blades -->
-                <path d="M12 4a8 8 0 0 1 4.8 1.6l-2 3.4A4.5 4.5 0 0 0 12 8.5 4.5 4.5 0 0 0 9.2 9.1l-2-3.4A8 8 0 0 1 12 4z" fill="currentColor"></path>
-                <path d="M4.2 14.5A8 8 0 0 1 6 7.8l2.5 2.6A4.5 4.5 0 0 0 8.5 12c0 .6.1 1.1.3 1.6l-2.6 2.5z" fill="currentColor"></path>
-                <path d="M19.8 14.5l-2.6-2.5c.2-.5.3-1 .3-1.6 0-.6-.1-1.1-.3-1.6L19 7.8a8 8 0 0 1 .8 6.7z" fill="currentColor"></path>
-              </svg>
-            </div>
-            <h3 class="h6 text-brand">Biosécurité pratique</h3>
-            <p class="small mb-0">Protocoles et produits d’hygiène pour sécuriser vos bâtiments et vos lots.</p>
-          </div>
-        </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="sol-card">
+          <span class="sol-ic"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+          <h3>Biosécurité pratique</h3>
+          <p>Protocoles et produits d’hygiène pour sécuriser vos bâtiments et vos lots.</p>
+          <span class="sol-index" aria-hidden="true">02</span>
+        </article>
       </div>
-      <div class="col-12 col-md-6 col-lg-3 mb-3">
-        <div class="card card-premium card-accent hover-lift h-100">
-          <div class="card-body">
-            <div class="icon-badge icon-pisciculture" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <path d="M9 3h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"></path>
-                <path d="M10 3v5l-4 7a4 4 0 0 0 3.5 6h5a4 4 0 0 0 3.5-6l-4-7V3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M9 14h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"></path>
-              </svg>
-            </div>
-            <h3 class="h6 text-brand">Appui technique</h3>
-            <p class="small mb-0">Conseil de terrain, réglages d’équipement et suivi des performances.</p>
-          </div>
-        </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="sol-card">
+          <span class="sol-ic"><i class="bi bi-person-workspace" aria-hidden="true"></i></span>
+          <h3>Appui technique</h3>
+          <p>Conseil de terrain, réglages d’équipement et suivi des performances.</p>
+          <span class="sol-index" aria-hidden="true">03</span>
+        </article>
       </div>
-      <div class="col-12 col-md-6 col-lg-3 mb-3">
-        <div class="card card-premium card-accent hover-lift h-100">
-          <div class="card-body">
-            <div class="icon-badge icon-porcs" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none" stroke="#fff" stroke-width="1.8"></circle>
-                <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" fill="none" stroke="#fff" stroke-width="1.4"></path>
-              </svg>
-            </div>
-            <h3 class="h6 text-brand">Partenaires mondiaux</h3>
-            <p class="small mb-0">BIOMIN, Trouw Nutrition, Skretting, CID LINES, DSM… qualité garantie.</p>
-          </div>
-        </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="sol-card">
+          <span class="sol-ic"><i class="bi bi-globe2" aria-hidden="true"></i></span>
+          <h3>Partenaires mondiaux</h3>
+          <p>BIOMIN, Trouw Nutrition, Skretting, CID LINES, DSM… qualité garantie.</p>
+          <span class="sol-index" aria-hidden="true">04</span>
+        </article>
       </div>
     </div>
   </div>
@@ -628,7 +699,7 @@
   <div class="container">
     <div class="maridav-ci-title-one text-center"><h2>Guides & Ressources</h2></div>
     <p class="text-center text-muted mb-4">Briefs techniques et fiches pratiques rédigés par nos équipes terrain pour optimiser et sécuriser vos élevages.</p>
-    <div class="row g-4">
+    <div class="row g-4 swipe-row">
       <div class="col-12 col-md-4">
         <div class="card card-premium premium-bg h-100 shadow-lg overflow-hidden">
           <img src="images/biosecurite.jpeg" class="card-img-top" alt="Biosécurité tropicale pour poulets de chair">
@@ -670,9 +741,9 @@
 
 <div class="section-spacing parallax" id="lead"><section class="section-premium" aria-label="Demander un devis">
   <div class="container">
-    <div class="maridav-ci-title-one text-center"><h2 style="color: whitesmoke;">Besoin de discuter ?</h2></div>
+    <div class="maridav-ci-title-one text-center"><h2 style="color: whitesmoke;">Parlons élevage !</h2></div>
     <div class="row g-3">
-      <div class="col-12 col-lg-8">
+      <div class="col-12 col-lg-8 order-2 order-lg-1">
         <div class="card card-premium quote-form">
           <div class="form-top p-3">
             <strong>REMPLISSEZ CE FORMULAIRE ET UN EXPERT VOUS RECONTACTERA SOUS 24H</strong>
@@ -740,32 +811,30 @@
                   <div class="col-md-6"><label class="form-label">Région / Ville</label><input name="region" class="form-control" placeholder="Ex: Abidjan, Bouaké…"></div>
                 </div>
               </div>
-              <div class="d-flex justify-content-between mt-3">
-                <button type="button" id="prevBtn" class="btn btn-outline-brand" disabled>Précédent</button>
-                <div class="d-flex gap-2">
-                  <button type="button" id="nextBtn" class="btn btn-brand">Suivant</button>
-                  <button type="submit" id="submitBtn" class="btn btn-brand d-none">Envoyer</button>
-                </div>
+              <div class="d-flex gap-2 mt-3">
+                <button type="button" id="prevBtn" class="btn btn-outline-brand d-none">Précédent</button>
+                <button type="button" id="nextBtn" class="btn btn-brand flex-grow-1">Suivant</button>
+                <button type="submit" id="submitBtn" class="btn btn-brand flex-grow-1 d-none">Envoyer</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-4">
+      <div class="col-12 col-lg-4 order-1 order-lg-2">
         <div class="card card-premium contact-card h-100">
           <div class="card-body d-flex flex-column h-100 gap-3">
             <div>
-              <h3 class="h6 text-brand text-white text-uppercase fw-bold">Pourquoi nous contacter ?</h3>
-              <p class="small text-light mb-1">Nos experts vous répondent sous 24h ouvrées pour :</p>
-              <ul class="small text-light mb-3">
-                <li>Analyser vos objectifs (FCR, homogénéité, biosécurité, qualité d’eau,etc.)</li>
-                <li>Recommander une gamme adaptée (aliments complets, additifs, protocoles)</li>
-                <li>Mettre en relation avec un distributeur MARIDAV proche de votre site</li>
-                <li>Programmer une visite terrain ou un suivi WhatsApp. Et bien plus...</li>
+              <span class="cc-eyebrow"><i class="bi bi-headset" aria-hidden="true"></i> Contact direct</span>
+              <h3 class="cc-title">Pourquoi nous contacter ?</h3>
+              <ul class="cc-list">
+                <li><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span>Analyser vos objectifs : FCR, homogénéité, biosécurité, qualité d’eau…</span></li>
+                <li><i class="bi bi-box-seam" aria-hidden="true"></i><span>Recommander une gamme adaptée : aliments complets, additifs, protocoles.</span></li>
+                <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Vous mettre en relation avec un distributeur MARIDAV proche de votre site.</span></li>
+                <li><i class="bi bi-calendar2-check" aria-hidden="true"></i><span>Programmer une visite terrain ou un suivi WhatsApp. Et bien plus…</span></li>
               </ul>
             </div>
             <div class="mt-auto">
-              <a target="_blank" href="https://api.whatsapp.com/send?phone=+2250574648888" class="btn btn-brand w-100">WhatsApp direct</a>
+              <a target="_blank" href="https://api.whatsapp.com/send?phone=+2250574648888" class="btn btn-brand w-100 cc-wa"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp direct</a>
             </div>
           </div>
         </div>
@@ -782,51 +851,52 @@
 <!-- Google Map -->
 <section class="section-premium contact-location" aria-label="Comment nous trouver ?">
   <div class="container">
-    <div class="maridav-ci-title-one mb-4">
-      <h2 id="contact">Comment nous trouver ?</h2>
+    <div class="cl-head">
+      <span class="cl-kicker"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Nous rendre visite</span>
+      <h2 id="contact" class="cl-h2">comment nous trouver ?</h2>
+      <p class="cl-headsub">Passez à notre siège d'Abidjan ou écrivez‑nous : un expert MARIDAV vous oriente vers la bonne solution et le distributeur le plus proche.</p>
     </div>
     <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card card-premium h-100">
-          <div class="card-body d-flex flex-column">
-            <p class="text-uppercase small text-brand fw-semibold mb-2">Notre géolocalisation</p>
-            <div class="ratio ratio-4x3 flex-grow-1 rounded-3 overflow-hidden shadow-sm">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.825300529409!2d-3.9797426254371775!3d5.289938394688298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eea583091659%3A0x34e2243ecc59f56e!2sMARIDAV%20CI!5e0!3m2!1sfr!2sci!4v1694433479483!5m2!1sfr!2sci" class="border-0 w-100 h-100" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+      <div class="col-lg-6 order-2 order-lg-1">
+        <div class="cl-mapcard h-100">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.825300529409!2d-3.9797426254371775!3d5.289938394688298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eea583091659%3A0x34e2243ecc59f56e!2sMARIDAV%20CI!5e0!3m2!1sfr!2sci!4v1694433479483!5m2!1sfr!2sci" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation MARIDAV Côte d'Ivoire"></iframe>
+          <div class="cl-pin">
+            <span class="pin-ic"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></span>
+            <div><b>MARIDAV Côte d'Ivoire</b><small>Marcory Zone 4C Biétry · Abidjan</small></div>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card card-premium h-100">
+      <div class="col-lg-6 order-1 order-lg-2">
+        <div class="cl-contacts h-100">
           <div class="card-body d-flex flex-column h-100">
-            <p class="text-uppercase small text-brand fw-semibold mb-1">Nos coordonnées</p>
-            <h3 class="h4 mb-3">MARIDAV Côte d'Ivoire</h3>
-            <p class="mb-4">Marcory Zone 4C Biétry, 34 Rue Alex Flemming – Abidjan. Accueil clients du lundi au samedi et support technique terrain sur rendez‑vous.</p>
-            <ul class="list-unstyled contact-list mb-4 flex-grow-1">
-              <li class="d-flex gap-3 mb-3">
-                <span class="icon text-brand"><i class="bi bi-geo-alt-fill"></i></span>
-                <span>Marcory Zone 4C Biétry<br>34 Rue Alex Flemming<br>09 BP 3643 Abidjan 09</span>
+            <span class="cl-eyebrow"><i class="bi bi-pin-map-fill" aria-hidden="true"></i> Nos coordonnées</span>
+            <h3 class="cl-name">MARIDAV Côte d'Ivoire</h3>
+            <p class="cl-sub">Accueil clients du lundi au samedi et support technique terrain sur rendez‑vous.</p>
+            <ul class="cl-list flex-grow-1">
+              <li>
+                <span class="ic"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></span>
+                <div class="tx"><b>Adresse</b><span>Marcory Zone 4C Biétry, 34 Rue Alex Flemming<br>09 BP 3643 Abidjan 09</span></div>
               </li>
-              <li class="d-flex gap-3 mb-3">
-                <span class="icon text-brand"><i class="bi bi-clock-history"></i></span>
-                <span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span>
+              <li>
+                <span class="ic"><i class="bi bi-clock-history" aria-hidden="true"></i></span>
+                <div class="tx"><b>Horaires</b><span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span></div>
               </li>
-              <li class="d-flex gap-3 mb-3">
-                <span class="icon text-brand"><i class="bi bi-telephone-forward"></i></span>
-                <span><a class="small-link" href="tel:002252721353242">(+225) 27 21 35 32 42</a><br><a class="small-link" href="tel:002250574648888">(+225) 05 74 64 88 88</a></span>
+              <li>
+                <span class="ic"><i class="bi bi-telephone-forward-fill" aria-hidden="true"></i></span>
+                <div class="tx"><b>Téléphone</b><span><a href="tel:002252721353242">(+225) 27 21 35 32 42</a><br><a href="tel:002250574648888">(+225) 05 74 64 88 88</a></span></div>
               </li>
-              <li class="d-flex gap-3">
-                <span class="icon text-brand"><i class="bi bi-envelope"></i></span>
-                <span><a class="small-link" href="mailto:info@maridav.ci">info@maridav.ci</a></span>
+              <li>
+                <span class="ic"><i class="bi bi-envelope-fill" aria-hidden="true"></i></span>
+                <div class="tx"><b>Email</b><span><a href="mailto:info@maridav.ci">info@maridav.ci</a></span></div>
               </li>
             </ul>
-            <div class="d-flex flex-wrap gap-2 mt-auto pt-3 border-top align-items-center">
+            <div class="cl-actions mt-auto pt-3">
               <a href="contact.html" class="btn btn-brand">Demander un devis</a>
-              <a href="https://api.whatsapp.com/send?phone=+2250574648888" class="btn btn-outline-brand" target="_blank" rel="noopener">WhatsApp</a>
-              <div class="d-flex align-items-center gap-3 ms-auto">
-                <span class="small text-muted text-uppercase fw-semibold">Suivez-nous</span>
-                <a class="text-brand" href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook fa-lg"></i></a>
-                <a class="text-brand" href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+              <a href="https://api.whatsapp.com/send?phone=+2250574648888" class="btn btn-outline-brand" target="_blank" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+              <div class="cl-social">
+                <span class="lbl">Suivez-nous</span>
+                <a href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
               </div>
             </div>
           </div>
@@ -908,7 +978,7 @@
         steps.forEach(function(s,idx){ s.classList.toggle('d-none', idx!==i); });
         if(stepbar){ stepbar.style.width = Math.round(((i+1)/steps.length)*100)+'%'; }
         if(label){ label.textContent = 'Étape '+(i+1)+'/'+steps.length+' — '+(['Élevage','Message','Coordonnées'])[i]; }
-        prev.disabled = (i===0);
+        prev.classList.toggle('d-none', i===0);
         next.classList.toggle('d-none', i===steps.length-1);
         submit.classList.toggle('d-none', i!==steps.length-1);
       }

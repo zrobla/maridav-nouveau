@@ -589,3 +589,56 @@ section.section-premium[aria-label="Appels à l'action"] .card .btn.btn-outline-
 #a_propos .about-card .tab-content ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
 #a_propos .about-card .tab-content li{position:relative;padding-left:18px;font-size:.86rem;line-height:1.45;color:rgba(255,255,255,.9)}
 #a_propos .about-card .tab-content li::before{content:"▹";position:absolute;left:0;top:0;color:#36c1e0;font-weight:700}
+
+/* ===== Cartes "swipe" sur mobile (scroll-snap), même esprit que les témoignages =====
+   Repères de geste intuitifs : aperçu de la carte suivante (85%) + dégradé du bord droit qui invite au balayage.
+   Exclusions volontaires : grilles services & contact de l'accueil (laissées empilées). */
+@media (max-width:575px){
+  body .home-intro .hi-values,
+  body .hub-choices,
+  body .hub-steps,
+  body .fl-pillars,
+  body .fl-matrix,
+  body .fl-proofgrid,
+  body .fl-timeline,
+  body .swipe-row{
+    display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:85%;
+    gap:14px;margin-inline:0;padding:6px 2px 16px;
+    overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding:0 8px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent)
+  }
+  body .home-intro .hi-values::-webkit-scrollbar,
+  body .hub-choices::-webkit-scrollbar,
+  body .hub-steps::-webkit-scrollbar,
+  body .fl-pillars::-webkit-scrollbar,
+  body .fl-matrix::-webkit-scrollbar,
+  body .fl-proofgrid::-webkit-scrollbar,
+  body .fl-timeline::-webkit-scrollbar,
+  body .swipe-row::-webkit-scrollbar{display:none}
+  body .home-intro .hi-values>*,
+  body .hub-choices>*,
+  body .hub-steps>*,
+  body .fl-pillars>*,
+  body .fl-matrix>*,
+  body .fl-proofgrid>*,
+  body .fl-timeline>*,
+  body .swipe-row>*{scroll-snap-align:center;min-width:0}
+  body .swipe-row>*{padding-left:0;padding-right:0}
+}
+/* Indice de swipe "‹ ›" : masqué par défaut, visible et animé (étirement) seulement en mobile */
+.swipe-cue{display:none}
+@media (max-width:575px){
+  .swipe-cue{display:flex;align-items:center;justify-content:center;gap:.5rem;margin:0 0 .55rem;line-height:1;color:#1b8e3e;opacity:.85;font-size:1.05rem;font-weight:700}
+  .swipe-cue .d{font-size:.95rem;opacity:.8;animation:swipeCueD 1.5s ease-in-out infinite}
+  .swipe-cue .l{animation:swipeCueL 1.5s ease-in-out infinite}
+  .swipe-cue .r{animation:swipeCueR 1.5s ease-in-out infinite}
+  @keyframes swipeCueL{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+  @keyframes swipeCueR{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+  @keyframes swipeCueD{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+  /* contraste sur la section navy "Des solutions complètes" */
+  .home-solutions .swipe-cue{color:#6ee7a8}
+}
+@media (max-width:575px) and (prefers-reduced-motion:reduce){
+  .swipe-cue .l,.swipe-cue .r,.swipe-cue .d{animation:none}
+}
