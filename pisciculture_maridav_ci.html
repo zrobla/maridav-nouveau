@@ -174,6 +174,9 @@
     .fl-tstep p{margin:0 0 .9rem;color:var(--muted);font-size:.88rem;line-height:1.5}
     .fl-tstep .btn-line{margin-top:auto;align-self:flex-start}
     .fl-tstep:not(:last-child)::after{content:"\F285";font-family:"bootstrap-icons";position:absolute;right:-.85rem;top:50%;transform:translateY(-50%);color:var(--green);font-size:1.1rem;z-index:1}
+    /* cycle long (>5 phases) : grille 4 col qui retombe, sans connecteurs */
+    .fl-timeline--wrap{grid-auto-flow:row;grid-template-columns:repeat(4,1fr)}
+    .fl-timeline--wrap .fl-tstep::after{display:none}
 
     /* ---- mode-switch (prêt à l'emploi / FAF) ---- */
     .fl-modes{display:inline-flex;flex-wrap:wrap;gap:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem;box-shadow:var(--shadow)}
@@ -245,13 +248,15 @@
       .fl-pillars{grid-template-columns:repeat(2,1fr)}
       .fl-timeline{grid-auto-flow:row;grid-auto-columns:auto}
       .fl-tstep:not(:last-child)::after{content:"\F282";right:auto;left:1.2rem;top:auto;bottom:-.95rem;transform:none}
+      .fl-timeline--wrap{grid-template-columns:repeat(2,1fr)}
+      .fl-timeline--wrap .fl-tstep::after{display:none}
       .fl-matrix{grid-template-columns:repeat(2,1fr)}
       .fl-proofgrid{grid-template-columns:repeat(2,1fr)}
       .fl-mcard:hover,.fl-pillar:hover{transform:none}
       .fl-track.is-active{grid-auto-flow:row;grid-auto-columns:auto}
     }
     @media (max-width:575px){
-      .fl-pillars,.fl-matrix,.fl-proofgrid{grid-template-columns:1fr}
+      .fl-pillars,.fl-matrix,.fl-proofgrid,.fl-timeline--wrap{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -334,26 +339,6 @@
       </div>
     </section>
 
-    <!-- CYCLE-TIMELINE POISSONS (linéaire) -->
-    <section class="pdp-sec" id="cycle">
-      <div class="container">
-        <div class="text-center mb-4">
-          <span class="pdp-kicker">Le cycle tilapia</span>
-          <h2 class="pdp-h2">Quel aliment, à quelle étape</h2>
-          <p class="pdp-muted mt-2">Un cycle linéaire guidé par le poids du poisson : de l'écloserie à l'abattage, chaque stade a son aliment. Repère = poids en grammes.</p>
-        </div>
-        <div id="fl-track-tilapia" class="fl-track fl-track--linear is-active">
-          <div class="fl-tstep"><span class="num">1</span><span class="age">0–5 g</span><h3>Alevinage</h3><p>Nutra 0 : granulé micro-extrudé haute digestibilité pour démarrer les alevins dès les premières heures.</p><a class="btn-line" href="nutra_tilapia_0_maridav_ci.html">Nutra® 0 <i class="bi bi-arrow-right"></i></a></div>
-          <div class="fl-tstep"><span class="num">2</span><span class="age">5–20 g</span><h3>Alevinage</h3><p>Nutra 80 : profil amino équilibré pour croissance homogène et faible encrassement des bassins.</p><a class="btn-line" href="nutra_tilapia_80_maridav_ci.html">Nutra® 80 <i class="bi bi-arrow-right"></i></a></div>
-          <div class="fl-tstep"><span class="num">3</span><span class="age">20–80 g</span><h3>Prégrossissement</h3><p>Nutra 120 : qualité constante lot à lot pour conduire la phase de prégrossissement vers 80 g.</p><a class="btn-line" href="nutra_tilapia_120_maridav_ci.html">Nutra® 120 <i class="bi bi-arrow-right"></i></a></div>
-          <div class="fl-tstep"><span class="num">4</span><span class="age">80–120 g</span><h3>Prégrossissement</h3><p>Nutra 160 : dernière étape Nutra, profil proche d'Optiline pour une bascule sans stress.</p><a class="btn-line" href="nutra_tilapia_160_maridav_ci.html">Nutra® 160 <i class="bi bi-arrow-right"></i></a></div>
-          <div class="fl-tstep"><span class="num">5</span><span class="age">120–200 g</span><h3>Grossissement</h3><p>Optiline 2 : granulé 2,5–3 mm pour démarrer le grossissement avec vitamines et antioxydants renforcés.</p><a class="btn-line" href="maridav_optiline_2_maridav_ci.html">Optiline® 2 <i class="bi bi-arrow-right"></i></a></div>
-          <div class="fl-tstep"><span class="num">6</span><span class="age">200–400 g</span><h3>Grossissement</h3><p>Optiline 3 : granulé 3–4 mm pour la phase centrale du grossissement.</p><a class="btn-line" href="maridav_optiline_3_maridav_ci.html">Optiline® 3 <i class="bi bi-arrow-right"></i></a></div>
-          <div class="fl-tstep"><span class="num">7</span><span class="age">> 400 g</span><h3>Finition</h3><p>Optiline 4.5 : granulé 4–5 mm pour préparer les lots à l'abattage et au marché.</p><a class="btn-line" href="maridav_optiline_4_5.html">Optiline® 4.5 <i class="bi bi-arrow-right"></i></a></div>
-        </div>
-      </div>
-    </section>
-
     <!-- PILLARS-STRIP (4 piliers) -->
     <section class="pdp-sec" id="pourquoi">
       <div class="container">
@@ -370,29 +355,63 @@
       </div>
     </section>
 
-    <!-- MATRICE PRODUITS POISSONS -->
-    <section class="pdp-sec" id="gamme">
+    <!-- CYCLE-TIMELINE -->
+    <section class="pdp-sec pt-0" id="cycle">
       <div class="container">
         <div class="mb-4">
-          <span class="pdp-kicker">Toute la gamme</span>
-          <h2 class="pdp-h2">Aliments & additifs — du granulé à la qualité d'eau</h2>
+          <span class="pdp-kicker">Le cycle tilapia</span>
+          <h2 class="pdp-h2">Quel aliment, à quelle étape</h2>
+          <p class="text-muted mt-3 mb-0" style="max-width:46rem">Un cycle linéaire guidé par le poids du poisson : de l'écloserie à l'abattage, chaque stade a son aliment. Repère = poids en grammes.</p>
+        </div>
+        <div class="fl-timeline fl-timeline--wrap">
+          <div class="fl-tstep"><span class="num">1</span><span class="age">0–5 g</span><h3>Alevinage</h3><p>Nutra 0 : granulé micro-extrudé haute digestibilité pour démarrer les alevins dès les premières heures.</p><a class="btn-line" href="nutra_tilapia_0_maridav_ci.html">Nutra® 0 <i class="bi bi-arrow-right"></i></a></div>
+          <div class="fl-tstep"><span class="num">2</span><span class="age">5–20 g</span><h3>Alevinage</h3><p>Nutra 80 : profil amino équilibré pour croissance homogène et faible encrassement des bassins.</p><a class="btn-line" href="nutra_tilapia_80_maridav_ci.html">Nutra® 80 <i class="bi bi-arrow-right"></i></a></div>
+          <div class="fl-tstep"><span class="num">3</span><span class="age">20–80 g</span><h3>Prégrossissement</h3><p>Nutra 120 : qualité constante lot à lot pour conduire la phase de prégrossissement vers 80 g.</p><a class="btn-line" href="nutra_tilapia_120_maridav_ci.html">Nutra® 120 <i class="bi bi-arrow-right"></i></a></div>
+          <div class="fl-tstep"><span class="num">4</span><span class="age">80–120 g</span><h3>Prégrossissement</h3><p>Nutra 160 : dernière étape Nutra, profil proche d'Optiline pour une bascule sans stress.</p><a class="btn-line" href="nutra_tilapia_160_maridav_ci.html">Nutra® 160 <i class="bi bi-arrow-right"></i></a></div>
+          <div class="fl-tstep"><span class="num">5</span><span class="age">120–200 g</span><h3>Grossissement</h3><p>Optiline 2 : granulé 2,5–3 mm pour démarrer le grossissement avec vitamines et antioxydants renforcés.</p><a class="btn-line" href="maridav_optiline_2_maridav_ci.html">Optiline® 2 <i class="bi bi-arrow-right"></i></a></div>
+          <div class="fl-tstep"><span class="num">6</span><span class="age">200–400 g</span><h3>Grossissement</h3><p>Optiline 3 : granulé 3–4 mm pour la phase centrale du grossissement.</p><a class="btn-line" href="maridav_optiline_3_maridav_ci.html">Optiline® 3 <i class="bi bi-arrow-right"></i></a></div>
+          <div class="fl-tstep"><span class="num">7</span><span class="age">> 400 g</span><h3>Finition</h3><p>Optiline 4.5 : granulé 4–5 mm pour préparer les lots à l'abattage et au marché.</p><a class="btn-line" href="maridav_optiline_4_5.html">Optiline® 4.5 <i class="bi bi-arrow-right"></i></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODE-SWITCH + PRODUCT-MATRIX -->
+    <section class="pdp-sec pt-0" id="gamme">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">La gamme</span>
+          <h2 class="pdp-h2">Acheter prêt à l'emploi, ou fabriquer votre aliment</h2>
           <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
-            <button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button><button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l'emploi</button><button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>
+            <button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button>
+            <button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l'emploi</button>
+            <button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>
           </div>
-          <p class="fl-modehint" id="fl-modehint">Toute la gamme pisciculture, prête à l'emploi comme en fabrication assistée.</p>
+          <p class="fl-modehint" id="fl-modehint" data-hint-all="Toute la gamme pisciculture, prête à l'emploi comme en fabrication assistée.">Toute la gamme pisciculture, prête à l'emploi comme en fabrication assistée.</p>
         </div>
         <div class="fl-matrix" id="fl-matrix">
-          <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Nutra® 0</h3><p class="badge-phase">Alevinage · 0–5 g</p><p>Alevinage 0–5 g</p><a class="btn-line" href="nutra_tilapia_0_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-          <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Nutra® 80</h3><p class="badge-phase">Alevinage · 5–20 g</p><p>Alevinage 5–20 g</p><a class="btn-line" href="nutra_tilapia_80_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-          <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Nutra® 120</h3><p class="badge-phase">Prégrossissement · 20–80 g</p><p>Prégrossissement 20–80 g</p><a class="btn-line" href="nutra_tilapia_120_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-          <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Nutra® 160</h3><p class="badge-phase">Prégrossissement · 80–120 g</p><p>Prégrossissement 80–120 g</p><a class="btn-line" href="nutra_tilapia_160_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-          <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 2</h3><p class="badge-phase">Grossissement · 120–200 g</p><p>Grossissement 120–200 g</p><a class="btn-line" href="maridav_optiline_2_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-          <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 3</h3><p class="badge-phase">Grossissement · 200–400 g</p><p>Grossissement 200–400 g</p><a class="btn-line" href="maridav_optiline_3_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-          <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 4.5</h3><p class="badge-phase">Finition · > 400 g</p><p>Finition > 400 g</p><a class="btn-line" href="maridav_optiline_4_5.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-          <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-water"></i> Additif</span><h3>AquaCare®</h3><p class="badge-phase">Probiotique · qualité d'eau</p><p>Qualité d'eau</p><a class="btn-line" href="aquacare_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-          <article class="fl-mcard" data-mode="faf"><span class="cat"><i class="bi bi-sliders"></i> Concentré</span><h3>Profish®</h3><p class="badge-phase">Concentré protéique · FAF</p><p>Protéine FAF</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="profish_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Nutra® 0</h3><p class="badge-phase">Alevinage · 0–5 g</p><p>Alevinage 0–5 g</p><a class="btn-line" href="nutra_tilapia_0_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Nutra® 80</h3><p class="badge-phase">Alevinage · 5–20 g</p><p>Alevinage 5–20 g</p><a class="btn-line" href="nutra_tilapia_80_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Nutra® 120</h3><p class="badge-phase">Prégrossissement · 20–80 g</p><p>Prégrossissement 20–80 g</p><a class="btn-line" href="nutra_tilapia_120_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Nutra® 160</h3><p class="badge-phase">Prégrossissement · 80–120 g</p><p>Prégrossissement 80–120 g</p><a class="btn-line" href="nutra_tilapia_160_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 2</h3><p class="badge-phase">Grossissement · 120–200 g</p><p>Grossissement 120–200 g</p><a class="btn-line" href="maridav_optiline_2_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 3</h3><p class="badge-phase">Grossissement · 200–400 g</p><p>Grossissement 200–400 g</p><a class="btn-line" href="maridav_optiline_3_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Optiline® 4.5</h3><p class="badge-phase">Finition · > 400 g</p><p>Finition > 400 g</p><a class="btn-line" href="maridav_optiline_4_5.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="faf"><span class="cat"><i class="bi bi-sliders"></i> Concentré</span><h3>Profish®</h3><p class="badge-phase">Concentré protéique · FAF</p><p>Protéine FAF</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="profish_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
         </div>
-        <p class="fl-empty" id="fl-empty">Aucun produit pour ce filtre.</p>
+        <p class="fl-empty" id="fl-empty">Aucun produit dans cette sélection.</p>
+      </div>
+    </section>
+
+    <!-- ADDITIFS & BIOSÉCURITÉ -->
+    <section class="pdp-sec pt-0" id="additifs">
+      <div class="container">
+        <div class="mb-4">
+          <span class="pdp-kicker">Additifs &amp; qualité d'eau</span>
+          <h2 class="pdp-h2">Compléter le programme</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3"><div class="pdp-card h-100"><span class="pdp-tag">Additif</span><h3 class="h6" style="color:var(--navy);font-family:'Fraunces',serif;margin:.2rem 0 .35rem">AquaCare</h3><p class="text-muted small mb-3">Additif qualité d'eau — flore bénéfique et enzymes pour limiter l'encrassement organique et stabiliser le milieu d'élevage.</p><a class="btn-line" href="aquacare_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></div></div>
+        </div>
       </div>
     </section>
 
@@ -423,21 +442,6 @@
             <a class="btn-pill btn-green" href="contact.html">Demander un devis <i class="bi bi-arrow-right"></i></a>
             <a class="btn-pill btn-ghost" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,.5)"><i class="bi bi-whatsapp"></i> WhatsApp</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMMENT ÇA MARCHE -->
-    <section class="pdp-sec pt-0" id="comment">
-      <div class="container">
-        <div class="mb-4">
-          <span class="pdp-kicker">Comment ça marche</span>
-          <h2 class="pdp-h2">De votre élevage au devis, en 3 étapes</h2>
-        </div>
-        <div class="hub-steps">
-          <div class="hub-step"><span class="num">1</span><h3>Partagez votre situation</h3><p>Stade actuel (poids des poissons), effectif, type de système (étang, cage, RAS) et mode de production visé.</p></div>
-          <div class="hub-step"><span class="num">2</span><h3>On bâtit le programme</h3><p>Nos techniciens vous proposent le bon aliment pour chaque stade — avec un devis en FCFA sous 24 h.</p></div>
-          <div class="hub-step"><span class="num">3</span><h3>Livraison + appui terrain</h3><p>Retrait au point de vente le plus proche, suivi qualité d'eau et ajustements si nécessaire tout au long du cycle.</p></div>
         </div>
       </div>
     </section>
@@ -512,8 +516,8 @@
     var modes=document.querySelectorAll('.fl-mode');
     var cards=matrix.querySelectorAll('.fl-mcard');
     var empty=document.getElementById('fl-empty');
-    var hints={pret:"Aliments complets, prêts à distribuer.",faf:"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:"Toute la gamme volailles, prête à l'emploi comme en fabrication assistée."};
     var hintEl=document.getElementById('fl-modehint');
+    var hints={pret:(hintEl&&hintEl.dataset.hintPret)||"Aliments complets, prêts à distribuer.",faf:(hintEl&&hintEl.dataset.hintFaf)||"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:(hintEl&&hintEl.dataset.hintAll)||"Toute la gamme, prête à l'emploi comme en fabrication assistée."};
     function apply(mode){
       var shown=0;
       cards.forEach(function(c){
@@ -551,7 +555,7 @@
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://maridav.ci/"},{"@type":"ListItem","position":2,"name":"Poissons","item":"https://maridav.ci/pisciculture_maridav_ci.html"}]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","name":"Poissons — aliments tilapia | MARIDAV Côte d'Ivoire","itemListElement":[{"@type":"ListItem","position":1,"name":"Alevinage 0–5 g","url":"https://maridav.ci/nutra_tilapia_0_maridav_ci.html"},{"@type":"ListItem","position":2,"name":"Alevinage 5–20 g","url":"https://maridav.ci/nutra_tilapia_80_maridav_ci.html"},{"@type":"ListItem","position":3,"name":"Prégrossissement 20–80 g","url":"https://maridav.ci/nutra_tilapia_120_maridav_ci.html"},{"@type":"ListItem","position":4,"name":"Prégrossissement 80–120 g","url":"https://maridav.ci/nutra_tilapia_160_maridav_ci.html"},{"@type":"ListItem","position":5,"name":"Grossissement 120–200 g","url":"https://maridav.ci/maridav_optiline_2_maridav_ci.html"},{"@type":"ListItem","position":6,"name":"Grossissement 200–400 g","url":"https://maridav.ci/maridav_optiline_3_maridav_ci.html"},{"@type":"ListItem","position":7,"name":"Finition > 400 g","url":"https://maridav.ci/maridav_optiline_4_5.html"}]}
+  {"@context":"https://schema.org","@type":"ItemList","name":"Poissons — aliments tilapia | MARIDAV Côte d'Ivoire","itemListElement":[{"@type":"ListItem","position":1,"name":"Nutra® 0","url":"https://maridav.ci/nutra_tilapia_0_maridav_ci.html"},{"@type":"ListItem","position":2,"name":"Nutra® 80","url":"https://maridav.ci/nutra_tilapia_80_maridav_ci.html"},{"@type":"ListItem","position":3,"name":"Nutra® 120","url":"https://maridav.ci/nutra_tilapia_120_maridav_ci.html"},{"@type":"ListItem","position":4,"name":"Nutra® 160","url":"https://maridav.ci/nutra_tilapia_160_maridav_ci.html"},{"@type":"ListItem","position":5,"name":"Optiline® 2","url":"https://maridav.ci/maridav_optiline_2_maridav_ci.html"},{"@type":"ListItem","position":6,"name":"Optiline® 3","url":"https://maridav.ci/maridav_optiline_3_maridav_ci.html"},{"@type":"ListItem","position":7,"name":"Optiline® 4.5","url":"https://maridav.ci/maridav_optiline_4_5.html"},{"@type":"ListItem","position":8,"name":"Profish®","url":"https://maridav.ci/profish_maridav_ci.html"}]}
   </script>
   <script src="assets/js/site-crm-bridge.js" defer></script>
 </body>

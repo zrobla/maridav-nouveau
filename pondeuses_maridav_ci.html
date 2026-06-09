@@ -174,6 +174,9 @@
     .fl-tstep p{margin:0 0 .9rem;color:var(--muted);font-size:.88rem;line-height:1.5}
     .fl-tstep .btn-line{margin-top:auto;align-self:flex-start}
     .fl-tstep:not(:last-child)::after{content:"\F285";font-family:"bootstrap-icons";position:absolute;right:-.85rem;top:50%;transform:translateY(-50%);color:var(--green);font-size:1.1rem;z-index:1}
+    /* cycle long (>5 phases) : grille 4 col qui retombe, sans connecteurs */
+    .fl-timeline--wrap{grid-auto-flow:row;grid-template-columns:repeat(4,1fr)}
+    .fl-timeline--wrap .fl-tstep::after{display:none}
 
     /* ---- mode-switch (prêt à l'emploi / FAF) ---- */
     .fl-modes{display:inline-flex;flex-wrap:wrap;gap:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem;box-shadow:var(--shadow)}
@@ -245,13 +248,15 @@
       .fl-pillars{grid-template-columns:repeat(2,1fr)}
       .fl-timeline{grid-auto-flow:row;grid-auto-columns:auto}
       .fl-tstep:not(:last-child)::after{content:"\F282";right:auto;left:1.2rem;top:auto;bottom:-.95rem;transform:none}
+      .fl-timeline--wrap{grid-template-columns:repeat(2,1fr)}
+      .fl-timeline--wrap .fl-tstep::after{display:none}
       .fl-matrix{grid-template-columns:repeat(2,1fr)}
       .fl-proofgrid{grid-template-columns:repeat(2,1fr)}
       .fl-mcard:hover,.fl-pillar:hover{transform:none}
       .fl-track.is-active{grid-auto-flow:row;grid-auto-columns:auto}
     }
     @media (max-width:575px){
-      .fl-pillars,.fl-matrix,.fl-proofgrid{grid-template-columns:1fr}
+      .fl-pillars,.fl-matrix,.fl-proofgrid,.fl-timeline--wrap{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -380,7 +385,7 @@
             <button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l'emploi</button>
             <button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>
           </div>
-          <p class="fl-modehint" id="fl-modehint">Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.</p>
+          <p class="fl-modehint" id="fl-modehint" data-hint-all="Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.">Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.</p>
         </div>
         <div class="fl-matrix" id="fl-matrix">
             <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>ChickCare Pré-démarrage</h3><p class="badge-phase">Phase pré-démarrage — 0 à 5 jours</p><p>Aliment pré-démarrage</p><a class="btn-line" href="chickcare.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
@@ -540,8 +545,8 @@
     var modes=document.querySelectorAll('.fl-mode');
     var cards=matrix.querySelectorAll('.fl-mcard');
     var empty=document.getElementById('fl-empty');
-    var hints={pret:"Aliments complets, prêts à distribuer.",faf:"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:"Toute la gamme volailles, prête à l'emploi comme en fabrication assistée."};
     var hintEl=document.getElementById('fl-modehint');
+    var hints={pret:(hintEl&&hintEl.dataset.hintPret)||"Aliments complets, prêts à distribuer.",faf:(hintEl&&hintEl.dataset.hintFaf)||"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:(hintEl&&hintEl.dataset.hintAll)||"Toute la gamme, prête à l'emploi comme en fabrication assistée."};
     function apply(mode){
       var shown=0;
       cards.forEach(function(c){

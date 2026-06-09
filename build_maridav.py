@@ -494,31 +494,33 @@ POISSON_HUB = {
     "lead": "Une gamme complète de granulés flottants pour chaque stade du cycle tilapia — <strong>alevinage, prégrossissement, grossissement et finition</strong> — accompagnée par nos techniciens et disponible en Côte d'Ivoire.",
     "image": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
     "image_alt": "Gamme aliments pisciculture tilapia MARIDAV Côte d'Ivoire",
+    "_slug": "pisciculture",
     "facts": [
         {"b": "7 aliments", "span": "De l'alevin à la finition"},
         {"b": "Flottants", "span": "Gamme granulés extrudés"},
         {"b": "24 h", "span": "Devis en FCFA"},
         {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
     ],
-    "timeline": {
-        "kicker": "Le cycle tilapia",
-        "h2": "Quel aliment, à quelle étape",
-        "intro": "Un cycle linéaire guidé par le poids du poisson : de l'écloserie à l'abattage, chaque stade a son aliment. Repère = poids en grammes.",
-        "steps": [
-            {"phase": "Alevinage", "age": "0–5 g", "text": "Nutra 0 : granulé micro-extrudé haute digestibilité pour démarrer les alevins dès les premières heures.", "url": "nutra_tilapia_0_maridav_ci.html", "cta": "Nutra® 0"},
-            {"phase": "Alevinage", "age": "5–20 g", "text": "Nutra 80 : profil amino équilibré pour croissance homogène et faible encrassement des bassins.", "url": "nutra_tilapia_80_maridav_ci.html", "cta": "Nutra® 80"},
-            {"phase": "Prégrossissement", "age": "20–80 g", "text": "Nutra 120 : qualité constante lot à lot pour conduire la phase de prégrossissement vers 80 g.", "url": "nutra_tilapia_120_maridav_ci.html", "cta": "Nutra® 120"},
-            {"phase": "Prégrossissement", "age": "80–120 g", "text": "Nutra 160 : dernière étape Nutra, profil proche d'Optiline pour une bascule sans stress.", "url": "nutra_tilapia_160_maridav_ci.html", "cta": "Nutra® 160"},
-            {"phase": "Grossissement", "age": "120–200 g", "text": "Optiline 2 : granulé 2,5–3 mm pour démarrer le grossissement avec vitamines et antioxydants renforcés.", "url": "maridav_optiline_2_maridav_ci.html", "cta": "Optiline® 2"},
-            {"phase": "Grossissement", "age": "200–400 g", "text": "Optiline 3 : granulé 3–4 mm pour la phase centrale du grossissement.", "url": "maridav_optiline_3_maridav_ci.html", "cta": "Optiline® 3"},
-            {"phase": "Finition", "age": "> 400 g", "text": "Optiline 4.5 : granulé 4–5 mm pour préparer les lots à l'abattage et au marché.", "url": "maridav_optiline_4_5.html", "cta": "Optiline® 4.5"},
-        ],
-    },
-    "steps": [
-        {"title": "Partagez votre situation", "text": "Stade actuel (poids des poissons), effectif, type de système (étang, cage, RAS) et mode de production visé."},
-        {"title": "On bâtit le programme", "text": "Nos techniciens vous proposent le bon aliment pour chaque stade — avec un devis en FCFA sous 24 h."},
-        {"title": "Livraison + appui terrain", "text": "Retrait au point de vente le plus proche, suivi qualité d'eau et ajustements si nécessaire tout au long du cycle."},
+    # Frise du cycle (composant volailles partagé render_timeline) : liste plate.
+    # 7 étapes -> render_timeline bascule en grille 4 colonnes (fl-timeline--wrap).
+    "timeline_kicker": "Le cycle tilapia",
+    "timeline_h2": "Quel aliment, à quelle étape",
+    "timeline_intro": "Un cycle linéaire guidé par le poids du poisson : de l'écloserie à l'abattage, chaque stade a son aliment. Repère = poids en grammes.",
+    "timeline": [
+        {"phase": "Alevinage", "age": "0–5 g", "text": "Nutra 0 : granulé micro-extrudé haute digestibilité pour démarrer les alevins dès les premières heures.", "url": "nutra_tilapia_0_maridav_ci.html", "cta": "Nutra® 0"},
+        {"phase": "Alevinage", "age": "5–20 g", "text": "Nutra 80 : profil amino équilibré pour croissance homogène et faible encrassement des bassins.", "url": "nutra_tilapia_80_maridav_ci.html", "cta": "Nutra® 80"},
+        {"phase": "Prégrossissement", "age": "20–80 g", "text": "Nutra 120 : qualité constante lot à lot pour conduire la phase de prégrossissement vers 80 g.", "url": "nutra_tilapia_120_maridav_ci.html", "cta": "Nutra® 120"},
+        {"phase": "Prégrossissement", "age": "80–120 g", "text": "Nutra 160 : dernière étape Nutra, profil proche d'Optiline pour une bascule sans stress.", "url": "nutra_tilapia_160_maridav_ci.html", "cta": "Nutra® 160"},
+        {"phase": "Grossissement", "age": "120–200 g", "text": "Optiline 2 : granulé 2,5–3 mm pour démarrer le grossissement avec vitamines et antioxydants renforcés.", "url": "maridav_optiline_2_maridav_ci.html", "cta": "Optiline® 2"},
+        {"phase": "Grossissement", "age": "200–400 g", "text": "Optiline 3 : granulé 3–4 mm pour la phase centrale du grossissement.", "url": "maridav_optiline_3_maridav_ci.html", "cta": "Optiline® 3"},
+        {"phase": "Finition", "age": "> 400 g", "text": "Optiline 4.5 : granulé 4–5 mm pour préparer les lots à l'abattage et au marché.", "url": "maridav_optiline_4_5.html", "cta": "Optiline® 4.5"},
     ],
+    # Section additifs dédiée (composant volailles partagé render_additives).
+    "additives_kicker": "Additifs &amp; qualité d'eau",
+    "additives": [
+        {"name": "AquaCare", "text": "Additif qualité d'eau — flore bénéfique et enzymes pour limiter l'encrassement organique et stabiliser le milieu d'élevage.", "url": "aquacare_maridav_ci.html"},
+    ],
+    "matrix_hint_all": "Toute la gamme pisciculture, prête à l'emploi comme en fabrication assistée.",
 }
 
 # --------------------------------------------------------------------------- #
@@ -639,6 +641,9 @@ FILIERE_CSS = r"""  <style>
     .fl-tstep p{margin:0 0 .9rem;color:var(--muted);font-size:.88rem;line-height:1.5}
     .fl-tstep .btn-line{margin-top:auto;align-self:flex-start}
     .fl-tstep:not(:last-child)::after{content:"\F285";font-family:"bootstrap-icons";position:absolute;right:-.85rem;top:50%;transform:translateY(-50%);color:var(--green);font-size:1.1rem;z-index:1}
+    /* cycle long (>5 phases) : grille 4 col qui retombe, sans connecteurs */
+    .fl-timeline--wrap{grid-auto-flow:row;grid-template-columns:repeat(4,1fr)}
+    .fl-timeline--wrap .fl-tstep::after{display:none}
 
     /* ---- mode-switch (prêt à l'emploi / FAF) ---- */
     .fl-modes{display:inline-flex;flex-wrap:wrap;gap:.4rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem;box-shadow:var(--shadow)}
@@ -710,13 +715,15 @@ FILIERE_CSS = r"""  <style>
       .fl-pillars{grid-template-columns:repeat(2,1fr)}
       .fl-timeline{grid-auto-flow:row;grid-auto-columns:auto}
       .fl-tstep:not(:last-child)::after{content:"\F282";right:auto;left:1.2rem;top:auto;bottom:-.95rem;transform:none}
+      .fl-timeline--wrap{grid-template-columns:repeat(2,1fr)}
+      .fl-timeline--wrap .fl-tstep::after{display:none}
       .fl-matrix{grid-template-columns:repeat(2,1fr)}
       .fl-proofgrid{grid-template-columns:repeat(2,1fr)}
       .fl-mcard:hover,.fl-pillar:hover{transform:none}
       .fl-track.is-active{grid-auto-flow:row;grid-auto-columns:auto}
     }
     @media (max-width:575px){
-      .fl-pillars,.fl-matrix,.fl-proofgrid{grid-template-columns:1fr}
+      .fl-pillars,.fl-matrix,.fl-proofgrid,.fl-timeline--wrap{grid-template-columns:1fr}
     }
   </style>"""
 
@@ -728,8 +735,8 @@ FILIERE_JS = r"""  <script>
     var modes=document.querySelectorAll('.fl-mode');
     var cards=matrix.querySelectorAll('.fl-mcard');
     var empty=document.getElementById('fl-empty');
-    var hints={pret:"Aliments complets, prêts à distribuer.",faf:"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:"Toute la gamme volailles, prête à l'emploi comme en fabrication assistée."};
     var hintEl=document.getElementById('fl-modehint');
+    var hints={pret:(hintEl&&hintEl.dataset.hintPret)||"Aliments complets, prêts à distribuer.",faf:(hintEl&&hintEl.dataset.hintFaf)||"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:(hintEl&&hintEl.dataset.hintAll)||"Toute la gamme, prête à l'emploi comme en fabrication assistée."};
     function apply(mode){
       var shown=0;
       cards.forEach(function(c){
@@ -1287,6 +1294,9 @@ def render_timeline(fl):
             f'</div>'
         )
     steps_html = "\n          ".join(steps)
+    # Cycle long (>5 phases, ex. tilapia 7 stades) : grille 4 colonnes au lieu
+    # d'une rangée unique trop serrée. Cycles courts (chair 3, ponte 5) inchangés.
+    wrap = " fl-timeline--wrap" if len(fl["timeline"]) > 5 else ""
     return f"""    <!-- CYCLE-TIMELINE -->
     <section class="pdp-sec pt-0" id="cycle">
       <div class="container">
@@ -1295,7 +1305,7 @@ def render_timeline(fl):
           <h2 class="pdp-h2">{fl["timeline_h2"]}</h2>
           <p class="text-muted mt-3 mb-0" style="max-width:46rem">{fl["timeline_intro"]}</p>
         </div>
-        <div class="fl-timeline">
+        <div class="fl-timeline{wrap}">
           {steps_html}
         </div>
       </div>
@@ -1327,6 +1337,7 @@ def render_matrix(fl, cards):
             f'</article>'
         )
     items_html = "\n            ".join(items)
+    hint_all = fl.get("matrix_hint_all", "Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.")
     return f"""    <!-- MODE-SWITCH + PRODUCT-MATRIX -->
     <section class="pdp-sec pt-0" id="gamme">
       <div class="container">
@@ -1336,7 +1347,7 @@ def render_matrix(fl, cards):
           <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
             {modes_html}
           </div>
-          <p class="fl-modehint" id="fl-modehint">Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.</p>
+          <p class="fl-modehint" id="fl-modehint" data-hint-all="{hint_all}">{hint_all}</p>
         </div>
         <div class="fl-matrix" id="fl-matrix">
             {items_html}
@@ -1361,11 +1372,12 @@ def render_additives(fl):
             f'</div></div>'
         )
     cards_html = "\n          ".join(cards)
+    kicker = fl.get("additives_kicker", "Additifs &amp; biosécurité")
     return f"""    <!-- ADDITIFS & BIOSÉCURITÉ -->
     <section class="pdp-sec pt-0" id="additifs">
       <div class="container">
         <div class="mb-4">
-          <span class="pdp-kicker">Additifs &amp; biosécurité</span>
+          <span class="pdp-kicker">{kicker}</span>
           <h2 class="pdp-h2">Compléter le programme</h2>
         </div>
         <div class="row g-4">
@@ -2000,84 +2012,8 @@ def render_poisson_hub_hero(h):
     </section>"""
 
 
-def render_poisson_timeline(tl):
-    def step_html(s, idx):
-        return (
-            f'<div class="fl-tstep">'
-            f'<span class="num">{idx + 1}</span>'
-            f'<span class="age">{s["age"]}</span>'
-            f'<h3>{s["phase"]}</h3>'
-            f'<p>{s["text"]}</p>'
-            f'<a class="btn-line" href="{s["url"]}">{s["cta"]} <i class="bi bi-arrow-right"></i></a>'
-            f'</div>'
-        )
-
-    steps_html = "\n          ".join(step_html(s, i) for i, s in enumerate(tl["steps"]))
-    return f"""    <!-- CYCLE-TIMELINE POISSONS (linéaire) -->
-    <section class="pdp-sec" id="cycle">
-      <div class="container">
-        <div class="text-center mb-4">
-          <span class="pdp-kicker">{tl["kicker"]}</span>
-          <h2 class="pdp-h2">{tl["h2"]}</h2>
-          <p class="pdp-muted mt-2">{tl["intro"]}</p>
-        </div>
-        <div id="fl-track-tilapia" class="fl-track fl-track--linear is-active">
-          {steps_html}
-        </div>
-      </div>
-    </section>"""
-
-
-def render_poisson_matrix(poisson_data):
-    cards = []
-    for cat in ("aliments_complets", "additifs", "concentres"):
-        if cat not in CATEGORY_META:
-            continue
-        meta = CATEGORY_META[cat]
-        for p in poisson_data.get(cat, []):
-            if not p.get("_render", True) or "hero" not in p:
-                continue
-            hero = p["hero"]
-            tags = ""
-            if p.get("transversal", False):
-                tags = '<div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div>'
-            cards.append(
-                f'<article class="fl-mcard" data-mode="{meta["mode"]}">'
-                f'<span class="cat"><i class="bi {meta["icon"]}"></i> {meta["label"]}</span>'
-                f'<h3>{p["jsonld"]["name"]}</h3>'
-                f'<p class="badge-phase">{hero["pill"]["text"]}</p>'
-                f'<p>{hero.get("figchip", {}).get("label", "")}</p>'
-                f'{tags}'
-                f'<a class="btn-line" href="{p["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
-                f'</article>'
-            )
-
-    modes_btns = (
-        '<button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button>'
-        '<button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l\'emploi</button>'
-        '<button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>'
-    )
-    cards_html = "\n          ".join(cards)
-    return f"""    <!-- MATRICE PRODUITS POISSONS -->
-    <section class="pdp-sec" id="gamme">
-      <div class="container">
-        <div class="mb-4">
-          <span class="pdp-kicker">Toute la gamme</span>
-          <h2 class="pdp-h2">Aliments & additifs — du granulé à la qualité d'eau</h2>
-          <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
-            {modes_btns}
-          </div>
-          <p class="fl-modehint" id="fl-modehint">Toute la gamme pisciculture, prête à l'emploi comme en fabrication assistée.</p>
-        </div>
-        <div class="fl-matrix" id="fl-matrix">
-          {cards_html}
-        </div>
-        <p class="fl-empty" id="fl-empty">Aucun produit pour ce filtre.</p>
-      </div>
-    </section>"""
-
-
-def render_poisson_hub_jsonld(h):
+def render_poisson_hub_jsonld(h, cards):
+    """Breadcrumb 2 niveaux (mono-filière) + ItemList des produits réels."""
     url = f'{SITE["base"]}/{h["url"]}'
     breadcrumb = {
         "@context": "https://schema.org",
@@ -2092,8 +2028,8 @@ def render_poisson_hub_jsonld(h):
         "@type": "ItemList",
         "name": h["title"],
         "itemListElement": [
-            {"@type": "ListItem", "position": i, "name": s["phase"] + " " + s["age"], "url": f'{SITE["base"]}/{s["url"]}'}
-            for i, s in enumerate(h["timeline"]["steps"], 1)
+            {"@type": "ListItem", "position": i, "name": c["name"], "url": f'{SITE["base"]}/{c["url"]}'}
+            for i, c in enumerate(cards, 1)
         ],
     }
     dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
@@ -2106,15 +2042,19 @@ def render_poisson_hub_jsonld(h):
 
 
 def render_poisson_hub_page(h, poisson_data):
+    """Pisciculture = espèce mono-filière : page bâtie au gabarit FILIÈRE volailles
+    (hero -> piliers -> frise du cycle -> matrice mode-switch -> additifs -> preuve
+    -> techCTA), via les composants partagés. Pas de fork de renderer."""
     piliers = poisson_data["_meta"]["piliers"]
+    cards = products_for_filiere(poisson_data, h["_slug"])
     sections = [
         render_poisson_hub_hero(h),
-        render_poisson_timeline(h["timeline"]),
         render_pillars(piliers),
-        render_poisson_matrix(poisson_data),
+        render_timeline(h),
+        render_matrix(h, cards),
+        render_additives(h),
         render_proofbar(),
         render_techcta(),
-        render_hub_steps(h),
     ]
     main = "\n\n".join(s for s in sections if s)
     return f"""{render_filiere_head(h)}
@@ -2133,7 +2073,7 @@ def render_poisson_hub_page(h, poisson_data):
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/main.min.js" defer></script>
 {FILIERE_JS}
-{render_poisson_hub_jsonld(h)}
+{render_poisson_hub_jsonld(h, cards)}
   <script src="assets/js/site-crm-bridge.js" defer></script>
 </body>
 </html>
