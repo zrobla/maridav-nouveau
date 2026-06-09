@@ -1,0 +1,447 @@
+{
+  "_meta": {
+    "description": "Catalogue + contenu éditorial des pages produits BIOSÉCURITÉ (nettoyage, désinfection, hygiène de l'eau) MARIDAV CI. Source UNIQUE du générateur build_maridav.py. Ne pas éditer les .html à la main. Gamme = produits CID LINES transversaux (toutes filières) : Kenosan (détergent moussant alcalin), DM CID S24 (détergent acide), Virocid (désinfectant large spectre), CID 2000 (nettoyant circuits d'eau). Tous TRANSVERSAUX : utilisables en volailles, porcs et poissons.",
+    "marque": "MARIDAV Côte d'Ivoire",
+    "espece": "biosecurite",
+    "piliers": [
+      {
+        "id": "protocoles",
+        "icon": "bi-clipboard-check",
+        "titre": "Protocoles validés",
+        "phrase": "Plan en 5 étapes — nettoyage à sec, détergence, rinçage, désinfection, séchage et vide sanitaire — adapté à chaque espèce et à chaque bâtiment."
+      },
+      {
+        "id": "cidlines",
+        "icon": "bi-patch-check",
+        "titre": "Produits CID LINES",
+        "phrase": "Formulations homologuées, fortes concentrations en agents actifs et compatibilité eau dure, distribuées et accompagnées par MARIDAV CI."
+      },
+      {
+        "id": "formation",
+        "icon": "bi-people",
+        "titre": "Formation & audits",
+        "phrase": "Coaching des équipes, checklists de terrain et contrôle d'efficacité pour ancrer durablement les bonnes pratiques."
+      },
+      {
+        "id": "eau",
+        "icon": "bi-droplet",
+        "titre": "Hygiène de l'eau",
+        "phrase": "Nettoyage des circuits d'abreuvement, élimination des biofilms et dépôts calcaires pour limiter les pathogènes véhiculés par l'eau."
+      }
+    ],
+    "a_verifier": [
+      "Dilutions et temps de contact (Kenosan 1–3 %, DM CID 0,5–3 %, Virocid 0,25–0,5 %, CID 2000 0,5–2 %) repris des pages produits existantes — à confirmer avec les fiches techniques CID LINES à jour avant mise en avant commerciale.",
+      "pH Kenosan « ≈13 » repris de l'ancienne page — confirmer la valeur exacte sur la fiche technique.",
+      "Homologations Virocid (OIE / normes internationales) et nombre de souches testées (>300) — confirmer la formulation des claims avec la documentation CID LINES en vigueur.",
+      "Formats (5 / 20 / 200 L, IBC) — vérifier les conditionnements réellement disponibles au stock MARIDAV CI.",
+      "Kenolox : page legacy vide (stub), produit non documenté — exclu du catalogue tant qu'aucune donnée réelle n'est fournie."
+    ]
+  },
+  "biosecurite": [
+    {
+      "url": "kenosan_maridav_ci.html",
+      "espece": "biosecurite",
+      "filieres": ["volailles-chair", "volailles-ponte", "porcs-engraissement", "pisciculture"],
+      "transversal": true,
+      "type": "biosecurite",
+      "fonction": "nettoyage",
+      "image": "maridav_ci_image/hygiene_biosecurite/Kenosan Maridav.png",
+      "og_image": "https://maridav.ci/maridav_ci_image/hygiene_biosecurite/Kenosan Maridav.png",
+      "title": "Kenosan® — Détergent alcalin moussant biosécurité | MARIDAV Côte d'Ivoire",
+      "description": "Détergent alcalin ultra-moussant Kenosan pour nettoyer bâtiments et équipements d'élevage avant désinfection : dissout graisses, protéines et matières organiques. Produit CID LINES distribué par MARIDAV CI.",
+      "og_title": "Kenosan® — Détergent alcalin moussant biosécurité",
+      "og_description": "Détergent moussant Kenosan : éliminez graisses et matières organiques avant désinfection, sur tous vos bâtiments d'élevage.",
+      "breadcrumb": [
+        {"name": "Biosécurité", "url": "biosecurite_maridav_ci.html"},
+        {"name": "Nettoyage"},
+        {"name": "Kenosan®"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Biosécurité", "item": "https://maridav.ci/biosecurite_maridav_ci.html"},
+        {"name": "Kenosan®", "item": "https://maridav.ci/kenosan_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Biosécurité — Nettoyage",
+        "h1": "Kenosan<span class=\"accent\">®</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — volailles, porcs & poissons"},
+        "lead": "Détergent <strong>alcalin ultra-moussant</strong> pour éliminer graisses, protéines et matières organiques <em>avant la désinfection</em>. La mousse adhère longtemps aux parois pour un nettoyage en profondeur. Produit CID LINES distribué par MARIDAV CI.",
+        "facts": [
+          {"b": "1–3 %", "span": "Dilution"},
+          {"b": "≈ 13", "span": "pH alcalin"},
+          {"b": "5 · 20 L · IBC", "span": "Formats"},
+          {"b": "Moussant", "span": "Forte adhérence"}
+        ],
+        "image_alt": "Bidon de détergent moussant Kenosan CID LINES distribué par MARIDAV Côte d'Ivoire",
+        "figchip": {"small": "Détergent moussant", "label": "Nettoyage bâtiments"}
+      },
+      "benefits": {
+        "kicker": "L'essentiel",
+        "h2": "Atouts Kenosan®",
+        "intro": "Un détergent moussant haut de gamme pour la première étape — la plus déterminante — de tout protocole de biosécurité : un bâtiment propre conditionne l'efficacité du désinfectant.",
+        "cards": [
+          {"icon": "bi-bucket", "title": "Pouvoir mouillant", "text": "La mousse épaisse adhère longtemps aux surfaces verticales pour dissoudre les graisses et les protéines."},
+          {"icon": "bi-arrow-repeat", "title": "Facile à rincer", "text": "Se rince aisément à l'eau claire sans laisser de résidus avant la désinfection."},
+          {"icon": "bi-hammer", "title": "Polyvalent", "text": "Convient aux murs, sols, équipements, silos, abattoirs et véhicules de transport."},
+          {"icon": "bi-shield-check", "title": "Optimise la désinfection", "text": "En retirant la matière organique, il rend le désinfectant nettement plus efficace."}
+        ]
+      },
+      "usage": {
+        "h2": "Protocole de nettoyage recommandé",
+        "steps": [
+          {"title": "Pré-mouillage", "text": "Retirer la matière organique grossière et mouiller les surfaces."},
+          {"title": "Application de la mousse", "text": "Diluer à 1–3 %, appliquer du bas vers le haut, laisser agir 10–15 minutes."},
+          {"title": "Rinçage", "text": "Rincer abondamment à l'eau claire avant de passer à la désinfection."}
+        ],
+        "note": "Toujours porter les EPI et suivre les fiches de données de sécurité du produit."
+      },
+      "spec": {
+        "kicker": "Fiche produit",
+        "h2": "Caractéristiques techniques",
+        "rows": [
+          {"k": "Nature", "v": "Détergent alcalin moussant"},
+          {"k": "pH", "v": "Alcalin (≈ 13)"},
+          {"k": "Compatibilité", "v": "Acier inox, carrelage, PVC"},
+          {"k": "Formats", "v": "Bidons 5 L, 20 L, IBC"},
+          {"k": "Application", "v": "Canon à mousse, nettoyeur haute pression"},
+          {"k": "Consommation", "v": "≈ 0,5–1 L de solution / 10 m²"}
+        ]
+      },
+      "crosssell": {
+        "title": "Après le nettoyage, désinfectez",
+        "text": "Sur surfaces propres et rincées, Virocid détruit virus, bactéries, levures et spores.",
+        "url": "virocid_maridav_ci.html",
+        "link_text": "Voir Virocid"
+      },
+      "faq": [
+        {"q": "Peut-on l'utiliser sur des surfaces peintes ?", "a": "Oui, si la dilution est respectée. Effectuez toujours un test préalable sur les surfaces neuves ou fragiles."},
+        {"q": "Kenosan est-il compatible avec la mousse chaude ?", "a": "Oui, Kenosan s'utilise avec de l'eau froide comme avec de l'eau chaude."},
+        {"q": "Quelle est la consommation moyenne ?", "a": "Entre 0,5 et 1 L de solution diluée par 10 m², selon l'état d'encrassement de la surface."},
+        {"q": "Faut-il l'utiliser avant la désinfection ?", "a": "Oui. Le nettoyage retire les matières organiques qui neutralisent les désinfectants : c'est l'étape qui conditionne toute l'efficacité du protocole."}
+      ],
+      "related": {
+        "kicker": "Gamme biosécurité",
+        "cards": [
+          {"img": "maridav_ci_image/hygiene_biosecurite/DM Cid S24 Maridav.png", "alt": "Détergent acide DM CID S24", "tag": "Nettoyage acide", "title": "DM CID® S24", "text": "Détergent acide pour les dépôts minéraux et le tartre tenaces.", "url": "dm_cid_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/virocid.webp", "alt": "Désinfectant Virocid", "tag": "Désinfection", "title": "Virocid®", "text": "Désinfectant large spectre pour l'étape suivante du protocole.", "url": "virocid_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/cid_2000_maridav.ci.jpg", "alt": "Nettoyant circuits d'eau CID 2000", "tag": "Hygiène de l'eau", "title": "CID 2000®", "text": "Nettoyant désinfectant des lignes d'abreuvement.", "url": "cid_2000_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Biosécurité MARIDAV CI",
+        "h2": "Un protocole de nettoyage adapté à votre élevage",
+        "text": "Nos techniciens dimensionnent volumes, fréquences et équipements, et forment vos équipes."
+      },
+      "jsonld": {
+        "name": "Kenosan",
+        "description": "Détergent alcalin moussant CID LINES pour le nettoyage des bâtiments d'élevage, distribué par MARIDAV CI.",
+        "sku": "KENOSAN",
+        "category": "Détergent biosécurité",
+        "audience": "Bâtiments d'élevage (volailles, porcs, poissons)"
+      }
+    },
+    {
+      "url": "dm_cid_maridav_ci.html",
+      "espece": "biosecurite",
+      "filieres": ["volailles-chair", "volailles-ponte", "porcs-engraissement", "pisciculture"],
+      "transversal": true,
+      "type": "biosecurite",
+      "fonction": "nettoyage",
+      "image": "maridav_ci_image/hygiene_biosecurite/DM Cid S24 Maridav.png",
+      "og_image": "https://maridav.ci/maridav_ci_image/hygiene_biosecurite/DM Cid S24 Maridav.png",
+      "title": "DM CID® S24 — Détergent acide biosécurité | MARIDAV Côte d'Ivoire",
+      "description": "Détergent acide DM CID S24 pour dissoudre dépôts minéraux, tartres et biofilms tenaces sur bâtiments et équipements d'élevage. Produit CID LINES distribué par MARIDAV CI.",
+      "og_title": "DM CID® S24 — Détergent acide biosécurité",
+      "og_description": "DM CID S24 : éliminez les dépôts minéraux et biofilms tenaces et préparez vos surfaces avant désinfection.",
+      "breadcrumb": [
+        {"name": "Biosécurité", "url": "biosecurite_maridav_ci.html"},
+        {"name": "Nettoyage"},
+        {"name": "DM CID® S24"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Biosécurité", "item": "https://maridav.ci/biosecurite_maridav_ci.html"},
+        {"name": "DM CID® S24", "item": "https://maridav.ci/dm_cid_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Biosécurité — Nettoyage acide",
+        "h1": "DM CID<span class=\"accent\">®</span> S24",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — volailles, porcs & poissons"},
+        "lead": "Détergent <strong>acide puissant</strong> pour dissoudre les <em>dépôts minéraux, le tartre et les biofilms</em> que les nettoyants alcalins ne retirent pas. Prépare des surfaces parfaitement propres avant désinfection. Produit CID LINES distribué par MARIDAV CI.",
+        "facts": [
+          {"b": "0,5–3 %", "span": "Dilution"},
+          {"b": "Acide", "span": "Anti-tartre & biofilm"},
+          {"b": "5 · 20 L · IBC", "span": "Formats"},
+          {"b": "Basse / HP", "span": "Application"}
+        ],
+        "image_alt": "Bidon de détergent acide DM CID S24 CID LINES distribué par MARIDAV Côte d'Ivoire",
+        "figchip": {"small": "Détergent acide", "label": "Dépôts minéraux & biofilms"}
+      },
+      "benefits": {
+        "kicker": "L'essentiel",
+        "h2": "Atouts DM CID® S24",
+        "intro": "Le complément acide du nettoyage alcalin : là où Kenosan retire les graisses, DM CID S24 attaque les dépôts minéraux et les biofilms incrustés au fil des cycles.",
+        "cards": [
+          {"icon": "bi-lightning-charge", "title": "Action rapide", "text": "Dissout les biofilms et les dépôts minéraux difficiles en quelques minutes."},
+          {"icon": "bi-grid-1x2", "title": "Polyvalent", "text": "S'utilise sur parois, sols, équipements et structures métalliques."},
+          {"icon": "bi-stars", "title": "Finition impeccable", "text": "Prépare des surfaces nettes pour un résultat de désinfection optimal."},
+          {"icon": "bi-calendar-check", "title": "Nettoyage périodique", "text": "Idéal après plusieurs cycles, lorsque les dépôts minéraux s'accumulent."}
+        ]
+      },
+      "usage": {
+        "h2": "Protocole de nettoyage recommandé",
+        "steps": [
+          {"title": "Pré-nettoyage", "text": "Retirer la matière organique et mouiller les surfaces."},
+          {"title": "Application", "text": "Diluer à 0,5–3 %, appliquer uniformément, laisser agir 10 minutes."},
+          {"title": "Rinçage", "text": "Rincer abondamment à l'eau claire avant la désinfection."}
+        ],
+        "note": "Respecter les dilutions pour éviter toute corrosion ; porter les EPI."
+      },
+      "spec": {
+        "kicker": "Fiche produit",
+        "h2": "Caractéristiques techniques",
+        "rows": [
+          {"k": "Nature", "v": "Détergent acide"},
+          {"k": "Compatibilité", "v": "Inox, carrelage, surfaces plastiques"},
+          {"k": "Formats", "v": "Bidons 5 L, 20 L, IBC"},
+          {"k": "Application", "v": "Basse ou haute pression"},
+          {"k": "Usage", "v": "Bâtiments, véhicules, équipements"}
+        ]
+      },
+      "crosssell": {
+        "title": "Pour les circuits d'eau, préférez CID 2000",
+        "text": "DM CID S24 traite les surfaces ; pour les lignes d'abreuvement, utilisez CID 2000.",
+        "url": "cid_2000_maridav_ci.html",
+        "link_text": "Voir CID 2000"
+      },
+      "faq": [
+        {"q": "Quand faut-il utiliser DM CID S24 ?", "a": "Après plusieurs cycles, ou dès que des dépôts minéraux et du tartre apparaissent malgré le nettoyage alcalin habituel."},
+        {"q": "Est-il compatible avec l'inox ?", "a": "Oui, en respectant les dilutions indiquées pour éviter tout risque de corrosion."},
+        {"q": "Peut-on l'utiliser dans les circuits d'eau ?", "a": "Préférez CID 2000 pour les tuyauteries et lignes d'abreuvement. DM CID S24 est destiné aux surfaces et équipements."},
+        {"q": "Faut-il rincer après application ?", "a": "Oui, rincez abondamment à l'eau claire avant d'enchaîner avec la désinfection."}
+      ],
+      "related": {
+        "kicker": "Gamme biosécurité",
+        "cards": [
+          {"img": "maridav_ci_image/hygiene_biosecurite/Kenosan Maridav.png", "alt": "Détergent moussant Kenosan", "tag": "Nettoyage moussant", "title": "Kenosan®", "text": "Détergent alcalin moussant pour graisses et matières organiques.", "url": "kenosan_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/virocid.webp", "alt": "Désinfectant Virocid", "tag": "Désinfection", "title": "Virocid®", "text": "Désinfectant large spectre pour l'étape suivante du protocole.", "url": "virocid_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/cid_2000_maridav.ci.jpg", "alt": "Nettoyant circuits d'eau CID 2000", "tag": "Hygiène de l'eau", "title": "CID 2000®", "text": "Nettoyant désinfectant des lignes d'abreuvement.", "url": "cid_2000_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Biosécurité MARIDAV CI",
+        "h2": "Des surfaces parfaitement préparées avant désinfection",
+        "text": "Nos techniciens combinent détergents alcalin et acide selon l'état de vos bâtiments."
+      },
+      "jsonld": {
+        "name": "DM CID S24",
+        "description": "Détergent acide CID LINES pour éliminer dépôts minéraux et biofilms dans les bâtiments d'élevage, distribué par MARIDAV CI.",
+        "sku": "DM-CID-S24",
+        "category": "Détergent biosécurité",
+        "audience": "Bâtiments d'élevage (volailles, porcs, poissons)"
+      }
+    },
+    {
+      "url": "virocid_maridav_ci.html",
+      "espece": "biosecurite",
+      "filieres": ["volailles-chair", "volailles-ponte", "porcs-engraissement", "pisciculture"],
+      "transversal": true,
+      "type": "biosecurite",
+      "fonction": "desinfection",
+      "image": "maridav_ci_image/hygiene_biosecurite/virocid.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/hygiene_biosecurite/virocid.webp",
+      "title": "Virocid® — Désinfectant large spectre biosécurité | MARIDAV Côte d'Ivoire",
+      "description": "Désinfectant concentré Virocid actif sur virus, bactéries, levures et spores à très faible dosage, pour bâtiments, véhicules et pédiluves. Produit CID LINES distribué par MARIDAV CI.",
+      "og_title": "Virocid® — Désinfectant large spectre biosécurité",
+      "og_description": "Virocid : désinfectant concentré actif sur virus, bactéries, levures et spores à faible dosage, homologué pour toutes les filières.",
+      "breadcrumb": [
+        {"name": "Biosécurité", "url": "biosecurite_maridav_ci.html"},
+        {"name": "Désinfection"},
+        {"name": "Virocid®"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Biosécurité", "item": "https://maridav.ci/biosecurite_maridav_ci.html"},
+        {"name": "Virocid®", "item": "https://maridav.ci/virocid_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Biosécurité — Désinfection",
+        "h1": "Virocid<span class=\"accent\">®</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — volailles, porcs & poissons"},
+        "lead": "Référence mondiale des désinfectants : <strong>actif sur virus, bactéries, levures et spores</strong> à <em>très faible dosage</em>. S'applique par pulvérisation, nébulisation et en pédiluves. Produit CID LINES distribué par MARIDAV CI.",
+        "facts": [
+          {"b": "0,25–0,5 %", "span": "Dilution standard"},
+          {"b": "5–10 min", "span": "Temps de contact"},
+          {"b": "Large spectre", "span": "Virus · bactéries · spores"},
+          {"b": "5 · 20 · 200 L", "span": "Formats"}
+        ],
+        "image_alt": "Bidon de désinfectant large spectre Virocid CID LINES distribué par MARIDAV Côte d'Ivoire",
+        "figchip": {"small": "Désinfectant concentré", "label": "Désinfection totale"}
+      },
+      "benefits": {
+        "kicker": "L'essentiel",
+        "h2": "Atouts Virocid®",
+        "intro": "Le désinfectant de l'étape clé : après un nettoyage soigné, il sécurise le vide sanitaire en détruisant un très large éventail de pathogènes, à dosage réduit.",
+        "cards": [
+          {"icon": "bi-virus", "title": "Spectre large", "text": "Actif sur virus, bactéries, levures et spores — plus de 300 souches testées."},
+          {"icon": "bi-sliders", "title": "Utilisation flexible", "text": "Pulvérisation, nébulisation, pédiluves et désinfection des véhicules."},
+          {"icon": "bi-piggy-bank", "title": "Faible dosage", "text": "Économique grâce à des dilutions réduites et un fort pouvoir d'action."},
+          {"icon": "bi-globe", "title": "Homologations", "text": "Conforme aux normes internationales (OIE), utilisé dans toutes les filières."}
+        ]
+      },
+      "usage": {
+        "h2": "Protocole de désinfection recommandé",
+        "steps": [
+          {"title": "Surfaces", "text": "Appliquer la solution à 0,25–0,5 % sur surfaces propres, laisser sécher."},
+          {"title": "Nébulisation", "text": "Nébuliser à 0,5–1 % pour traiter l'air et les zones difficiles d'accès."},
+          {"title": "Pédiluves", "text": "Maintenir une solution à 1 % et la renouveler régulièrement pour garantir l'efficacité."}
+        ],
+        "note": "Appliquer hors présence des animaux et laisser sécher avant réintroduction."
+      },
+      "spec": {
+        "kicker": "Fiche produit",
+        "h2": "Caractéristiques techniques",
+        "rows": [
+          {"k": "Nature", "v": "Désinfectant concentré large spectre"},
+          {"k": "Compatibilité", "v": "Matériaux courants (suivre les dilutions)"},
+          {"k": "Applications", "v": "Bâtiments, véhicules, pédiluves, nébulisation"},
+          {"k": "Temps de contact", "v": "5–10 min selon dilution"},
+          {"k": "Formats", "v": "Bidons 5 L, 20 L, 200 L"}
+        ]
+      },
+      "crosssell": {
+        "title": "Avant de désinfecter, nettoyez",
+        "text": "La matière organique neutralise les désinfectants : passez Kenosan puis rincez avant Virocid.",
+        "url": "kenosan_maridav_ci.html",
+        "link_text": "Voir Kenosan"
+      },
+      "faq": [
+        {"q": "Virocid est-il compatible avec l'eau dure ?", "a": "Oui, sa formule reste efficace même en eau dure."},
+        {"q": "Peut-on l'utiliser en présence d'animaux ?", "a": "Non : appliquer hors présence des animaux et laisser sécher avant de les réintroduire."},
+        {"q": "Quelle est la stabilité de la solution préparée ?", "a": "Utiliser les solutions diluées dans les 24 heures suivant leur préparation."},
+        {"q": "Sur quels pathogènes Virocid agit-il ?", "a": "Sur un très large spectre — virus, bactéries, levures et spores — avec plus de 300 souches testées."}
+      ],
+      "related": {
+        "kicker": "Gamme biosécurité",
+        "cards": [
+          {"img": "maridav_ci_image/hygiene_biosecurite/Kenosan Maridav.png", "alt": "Détergent moussant Kenosan", "tag": "Nettoyage moussant", "title": "Kenosan®", "text": "Détergent alcalin moussant : l'étape de nettoyage avant désinfection.", "url": "kenosan_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/DM Cid S24 Maridav.png", "alt": "Détergent acide DM CID S24", "tag": "Nettoyage acide", "title": "DM CID® S24", "text": "Détergent acide pour les dépôts minéraux et biofilms tenaces.", "url": "dm_cid_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/cid_2000_maridav.ci.jpg", "alt": "Nettoyant circuits d'eau CID 2000", "tag": "Hygiène de l'eau", "title": "CID 2000®", "text": "Nettoyant désinfectant des lignes d'abreuvement.", "url": "cid_2000_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Biosécurité MARIDAV CI",
+        "h2": "Sécurisez vos vides sanitaires",
+        "text": "Nos techniciens cadrent dilutions, temps de contact et matériel de nébulisation avec vous."
+      },
+      "jsonld": {
+        "name": "Virocid",
+        "description": "Désinfectant concentré large spectre CID LINES (virus, bactéries, levures, spores), distribué par MARIDAV CI.",
+        "sku": "VIROCID",
+        "category": "Désinfectant biosécurité",
+        "audience": "Bâtiments d'élevage (volailles, porcs, poissons)"
+      }
+    },
+    {
+      "url": "cid_2000_maridav_ci.html",
+      "espece": "biosecurite",
+      "filieres": ["volailles-chair", "volailles-ponte", "porcs-engraissement", "pisciculture"],
+      "transversal": true,
+      "type": "biosecurite",
+      "fonction": "eau",
+      "image": "maridav_ci_image/hygiene_biosecurite/cid_2000_maridav.ci.jpg",
+      "og_image": "https://maridav.ci/maridav_ci_image/hygiene_biosecurite/cid_2000_maridav.ci.jpg",
+      "title": "CID 2000® — Nettoyant des circuits d'eau biosécurité | MARIDAV Côte d'Ivoire",
+      "description": "Nettoyant acide et désinfectant CID 2000 pour les circuits d'eau d'élevage : élimine biofilms, dépôts de calcaire et bactéries des abreuvoirs, brumisateurs et tanks. Produit CID LINES distribué par MARIDAV CI.",
+      "og_title": "CID 2000® — Nettoyant des circuits d'eau biosécurité",
+      "og_description": "CID 2000 : nettoyez et désinfectez vos lignes d'abreuvement — biofilms, calcaire et bactéries éliminés.",
+      "breadcrumb": [
+        {"name": "Biosécurité", "url": "biosecurite_maridav_ci.html"},
+        {"name": "Hygiène de l'eau"},
+        {"name": "CID 2000®"}
+      ],
+      "breadcrumb_jsonld": [
+        {"name": "Accueil", "item": "https://maridav.ci/"},
+        {"name": "Biosécurité", "item": "https://maridav.ci/biosecurite_maridav_ci.html"},
+        {"name": "CID 2000®", "item": "https://maridav.ci/cid_2000_maridav_ci.html"}
+      ],
+      "hero": {
+        "eyebrow": "Biosécurité — Hygiène de l'eau",
+        "h1": "CID 2000<span class=\"accent\">®</span>",
+        "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — volailles, porcs & poissons"},
+        "lead": "Nettoyant <strong>acide et désinfectant des circuits d'eau</strong> : élimine <em>biofilms, dépôts de calcaire et bactéries</em> dans les lignes d'abreuvement, brumisateurs et tanks. Produit CID LINES distribué par MARIDAV CI.",
+        "facts": [
+          {"b": "0,5–2 %", "span": "Dosage"},
+          {"b": "30–60 min", "span": "Temps de contact"},
+          {"b": "PVC · PE · inox", "span": "Compatibilité"},
+          {"b": "5 · 20 L", "span": "Formats"}
+        ],
+        "image_alt": "Bidon de nettoyant circuits d'eau CID 2000 CID LINES distribué par MARIDAV Côte d'Ivoire",
+        "figchip": {"small": "Nettoyant circuits d'eau", "label": "Hygiène des lignes d'abreuvement"}
+      },
+      "benefits": {
+        "kicker": "L'essentiel",
+        "h2": "Atouts CID 2000®",
+        "intro": "L'eau d'abreuvement est une voie de contamination majeure : les biofilms des canalisations hébergent des bactéries. CID 2000 nettoie et désinfecte ces circuits souvent négligés.",
+        "cards": [
+          {"icon": "bi-droplet-half", "title": "Qualité d'eau", "text": "Supprime les biofilms et dépôts qui hébergent les bactéries dans les lignes."},
+          {"icon": "bi-arrow-repeat", "title": "Polyvalent", "text": "S'utilise en curatif comme en préventif sur toutes les lignes d'eau."},
+          {"icon": "bi-thermometer-half", "title": "Eau chaude ou froide", "text": "Efficace quelle que soit la température de l'eau du circuit."},
+          {"icon": "bi-gear-wide-connected", "title": "Pompe doseuse", "text": "Compatible avec les pompes doseuses, en respectant matériaux et dilutions."}
+        ]
+      },
+      "usage": {
+        "h2": "Protocole d'hygiène des circuits d'eau",
+        "steps": [
+          {"title": "Vidange des lignes", "text": "Éliminer l'eau stagnante des circuits d'abreuvement."},
+          {"title": "Circulation", "text": "Injecter la solution diluée à 0,5–2 % et la laisser agir 30–60 minutes."},
+          {"title": "Rinçage", "text": "Rincer abondamment jusqu'à pH neutre avant la remise en eau pour les animaux."}
+        ],
+        "note": "Ne jamais laisser les animaux boire la solution : nettoyer et rincer avant remise en eau."
+      },
+      "spec": {
+        "kicker": "Fiche produit",
+        "h2": "Caractéristiques techniques",
+        "rows": [
+          {"k": "Nature", "v": "Détergent acide pour circuits d'eau"},
+          {"k": "Compatibilité", "v": "PVC, PE, inox (suivre la dilution)"},
+          {"k": "Applications", "v": "Abreuvoirs, brumisateurs, tanks de préparation"},
+          {"k": "Temps de contact", "v": "30–60 min selon l'encrassement"},
+          {"k": "Formats", "v": "Bidons 5 L, 20 L"}
+        ]
+      },
+      "crosssell": {
+        "title": "Pour les surfaces et bâtiments",
+        "text": "CID 2000 traite l'eau ; pour les parois, sols et équipements, utilisez Kenosan puis Virocid.",
+        "url": "kenosan_maridav_ci.html",
+        "link_text": "Voir Kenosan"
+      },
+      "faq": [
+        {"q": "Peut-on l'utiliser en présence d'animaux ?", "a": "Non : il faut nettoyer puis rincer le circuit avant de remettre l'eau à disposition des animaux."},
+        {"q": "Quelle fréquence recommandez-vous ?", "a": "À chaque vide sanitaire, et en prévention toutes les 6 à 8 semaines."},
+        {"q": "Est-il compatible avec les pompes doseuses ?", "a": "Oui, en respectant les matériaux compatibles (PVC, PE, inox) et les dilutions indiquées."},
+        {"q": "Pourquoi traiter les circuits d'eau ?", "a": "Les biofilms qui tapissent les canalisations hébergent des bactéries et réduisent l'efficacité des traitements administrés par l'eau."}
+      ],
+      "related": {
+        "kicker": "Gamme biosécurité",
+        "cards": [
+          {"img": "maridav_ci_image/hygiene_biosecurite/Kenosan Maridav.png", "alt": "Détergent moussant Kenosan", "tag": "Nettoyage moussant", "title": "Kenosan®", "text": "Détergent alcalin moussant pour graisses et matières organiques.", "url": "kenosan_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/DM Cid S24 Maridav.png", "alt": "Détergent acide DM CID S24", "tag": "Nettoyage acide", "title": "DM CID® S24", "text": "Détergent acide pour les dépôts minéraux et biofilms tenaces.", "url": "dm_cid_maridav_ci.html"},
+          {"img": "maridav_ci_image/hygiene_biosecurite/virocid.webp", "alt": "Désinfectant Virocid", "tag": "Désinfection", "title": "Virocid®", "text": "Désinfectant large spectre pour bâtiments et matériel.", "url": "virocid_maridav_ci.html"}
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "Biosécurité MARIDAV CI",
+        "h2": "Une eau d'abreuvement saine, tout le cycle",
+        "text": "Audit pH/dureté, installation de pompe doseuse et formation : nos techniciens vous accompagnent."
+      },
+      "jsonld": {
+        "name": "CID 2000",
+        "description": "Nettoyant acide et désinfectant des circuits d'eau CID LINES (biofilms, calcaire, bactéries), distribué par MARIDAV CI.",
+        "sku": "CID-2000",
+        "category": "Hygiène de l'eau biosécurité",
+        "audience": "Circuits d'eau d'élevage (volailles, porcs, poissons)"
+      }
+    }
+  ]
+}

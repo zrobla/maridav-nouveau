@@ -23,10 +23,11 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "products.json"            # volailles (source historique)
 PORC_DATA    = ROOT / "products-porcs.json"     # porcs
 POISSON_DATA = ROOT / "products-poissons.json"  # pisciculture
+BIOSEC_DATA  = ROOT / "products-biosecurite.json"  # biosécurité (transversale)
 
 # Registre des sources produits (même schéma). Les pages produits sont générées
 # pour chaque source ; render_page est espèce-agnostique.
-PRODUCT_SOURCES = [DATA, PORC_DATA, POISSON_DATA]
+PRODUCT_SOURCES = [DATA, PORC_DATA, POISSON_DATA, BIOSEC_DATA]
 
 # --------------------------------------------------------------------------- #
 #  Constantes de marque (source unique)                                        #
@@ -287,7 +288,9 @@ FILIERE_LABELS = {
     "volailles-chair": ("bi-egg-fried", "Poulets de chair"),
     "volailles-ponte": ("bi-egg", "Pondeuses"),
     "porcs": ("bi-piggy-bank", "Porcs"),
+    "porcs-engraissement": ("bi-piggy-bank", "Porcs"),
     "poissons": ("bi-water", "Poissons"),
+    "pisciculture": ("bi-water", "Poissons"),
 }
 
 # Métadonnées par catégorie produit (clé top-level products.json) — pilote la matrice :
@@ -524,6 +527,53 @@ POISSON_HUB = {
 }
 
 # --------------------------------------------------------------------------- #
+#  Hub BIOSÉCURITÉ (biosecurite_maridav_ci.html) — produits CID LINES           #
+#  TRANSVERSAUX, classés par FONCTION (pas de cycle de production).             #
+#  Matrice dérivée de products-biosecurite.json, filtre par fonction.           #
+# --------------------------------------------------------------------------- #
+# Fonctions biosécurité : pilotent le filtre de la matrice (libellé + hint).
+BIOSEC_FONCTIONS = {
+    "nettoyage":    {"label": "Nettoyage",       "icon": "bi-bucket",
+                     "hint": "Détergents alcalin et acide pour retirer graisses, matières organiques et dépôts minéraux avant désinfection."},
+    "desinfection": {"label": "Désinfection",    "icon": "bi-shield-shaded",
+                     "hint": "Désinfectant large spectre pour détruire virus, bactéries, levures et spores après nettoyage."},
+    "eau":          {"label": "Qualité d'eau",   "icon": "bi-droplet",
+                     "hint": "Nettoyage et désinfection des circuits d'eau : biofilms, calcaire et bactéries des lignes d'abreuvement."},
+}
+
+BIOSEC_HUB = {
+    "url": "biosecurite_maridav_ci.html",
+    "title": "Biosécurité élevage — nettoyage, désinfection & hygiène de l'eau | MARIDAV Côte d'Ivoire",
+    "description": "Biosécurité multi-espèces en Côte d'Ivoire : détergents, désinfectant large spectre et hygiène des circuits d'eau (CID LINES), avec protocole en 5 étapes et appui technicien MARIDAV. Devis en FCFA sous 24 h.",
+    "eyebrow": "Biosécurité multi-espèces",
+    "h1": 'Biosécurité : <span class="accent">nettoyer, désinfecter, protéger</span>',
+    "lead": "Des produits CID LINES <strong>transversaux</strong> — utilisables en volailles, porcs et poissons — et un <strong>protocole en 5 étapes</strong> pour briser la chaîne des contaminations, accompagnés par nos techniciens en Côte d'Ivoire.",
+    "image": "maridav_ci_image/hygiene_biosecurite/biosecurite_real.jpg",
+    "image_alt": "Nettoyage et désinfection d'un bâtiment d'élevage — biosécurité MARIDAV Côte d'Ivoire",
+    "_category": "biosecurite",
+    "facts": [
+        {"b": "5 étapes", "span": "Protocole vide sanitaire"},
+        {"b": "Transversal", "span": "Volailles · porcs · poissons"},
+        {"b": "24 h", "span": "Devis en FCFA"},
+        {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
+    ],
+    # Protocole signature (composant fl-timeline partagé, sans cycle produit imposé).
+    "protocol_kicker": "Le protocole",
+    "protocol_h2": "Cinq étapes pour un vide sanitaire efficace",
+    "protocol_intro": "La biosécurité n'est pas un produit mais un enchaînement : chaque étape conditionne l'efficacité de la suivante. Nettoyer avant de désinfecter est la règle d'or.",
+    "protocol": [
+        {"phase": "Nettoyage à sec", "role": "Étape 1", "text": "Évacuer litière, fientes et matière organique grossière du bâtiment vidé.", "url": "", "cta": ""},
+        {"phase": "Détergence", "role": "Étape 2", "text": "Décoller graisses et dépôts avec Kenosan (moussant) ou DM CID S24 (acide).", "url": "kenosan_maridav_ci.html", "cta": "Kenosan"},
+        {"phase": "Rinçage", "role": "Étape 3", "text": "Rincer abondamment à l'eau claire pour retirer détergent et salissures décollées.", "url": "", "cta": ""},
+        {"phase": "Désinfection", "role": "Étape 4", "text": "Détruire les pathogènes sur surfaces propres avec Virocid, large spectre.", "url": "virocid_maridav_ci.html", "cta": "Virocid"},
+        {"phase": "Séchage & eau", "role": "Étape 5", "text": "Sécher le bâtiment, respecter le vide sanitaire et assainir les circuits d'eau (CID 2000).", "url": "cid_2000_maridav_ci.html", "cta": "CID 2000"},
+    ],
+    "matrix_kicker": "La gamme",
+    "matrix_h2": "Choisir par fonction",
+    "matrix_hint_all": "Toute la gamme biosécurité : nettoyer, désinfecter et assainir l'eau, sur toutes les filières.",
+}
+
+# --------------------------------------------------------------------------- #
 #  SEO — sitemap.xml / robots.txt / llms.txt générés depuis l'état du site.     #
 #  Date de build (= lastmod). À bumper au déploiement.                          #
 # --------------------------------------------------------------------------- #
@@ -737,6 +787,11 @@ FILIERE_JS = r"""  <script>
     var empty=document.getElementById('fl-empty');
     var hintEl=document.getElementById('fl-modehint');
     var hints={pret:(hintEl&&hintEl.dataset.hintPret)||"Aliments complets, prêts à distribuer.",faf:(hintEl&&hintEl.dataset.hintFaf)||"Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.",all:(hintEl&&hintEl.dataset.hintAll)||"Toute la gamme, prête à l'emploi comme en fabrication assistée."};
+    function hintFor(mode){
+      if(hints[mode]!=null)return hints[mode];
+      if(hintEl){var k='hint'+mode.charAt(0).toUpperCase()+mode.slice(1);if(hintEl.dataset[k])return hintEl.dataset[k];}
+      return (hintEl&&hintEl.dataset.hintAll)||'';
+    }
     function apply(mode){
       var shown=0;
       cards.forEach(function(c){
@@ -745,7 +800,7 @@ FILIERE_JS = r"""  <script>
         if(ok)shown++;
       });
       if(empty)empty.style.display=shown?'none':'block';
-      if(hintEl)hintEl.textContent=hints[mode]||'';
+      if(hintEl)hintEl.textContent=hintFor(mode);
     }
     modes.forEach(function(b){
       b.addEventListener('click',function(){
@@ -1387,9 +1442,12 @@ def render_additives(fl):
     </section>"""
 
 
-def render_proofbar():
+def render_proofbar(points=None, note=None):
+    points = points or PROOF_POINTS
+    note = note or ("Résultats chiffrés (FCR, poids/âge, taux de ponte) et références d'élevages "
+                    "communiqués par nos techniciens, selon votre conduite d'élevage.")
     items = []
-    for p in PROOF_POINTS:
+    for p in points:
         items.append(f'<div class="fl-pitem"><b>{p["b"]}</b><span>{p["span"]}</span></div>')
     items_html = "\n            ".join(items)
     return f"""    <!-- PROOF-BAR -->
@@ -1399,7 +1457,7 @@ def render_proofbar():
           <div class="fl-proofgrid">
             {items_html}
           </div>
-          <p class="fl-proofnote">Résultats chiffrés (FCR, poids/âge, taux de ponte) et références d'élevages communiqués par nos techniciens, selon votre conduite d'élevage.</p>
+          <p class="fl-proofnote">{note}</p>
         </div>
       </div>
     </section>"""
