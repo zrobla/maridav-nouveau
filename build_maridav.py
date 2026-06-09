@@ -326,7 +326,7 @@ FILIERES = {
             {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
         ],
         "timeline_kicker": "Le cycle du poulet de chair",
-        "timeline_h2": "Quel aliment, à quel âge",
+        "timeline_h2": "Quel aliment, à quel âge&nbsp;?",
         "timeline_intro": "Repère naturel de l'éleveur : à chaque phase du cycle, l'aliment qui sécurise la performance suivante.",
         "timeline": [
             {"phase": "Démarrage", "age": "0 – 14 jours", "text": "Starter haute appétence : démarrage rapide du poussin et poids moyen sécurisé.", "url": "aliment_chair_demarrage_maridav_ci.html", "cta": "Aliment Démarrage"},
@@ -359,7 +359,7 @@ FILIERES = {
             {"b": "Côte d'Ivoire", "span": "Réseau de points de vente"},
         ],
         "timeline_kicker": "Le cycle de la pondeuse",
-        "timeline_h2": "Quel aliment, à quel âge",
+        "timeline_h2": "Quel aliment, à quel âge&nbsp;?",
         "timeline_intro": "Repère naturel de l'éleveur : à chaque phase du cycle, l'aliment qui prépare le pic et la persistance de ponte.",
         "timeline": [
             {"phase": "Pré-démarrage", "age": "0 – 5 jours", "text": "ChickCare : sécuriser les tout premiers jours du poussin.", "url": "chickcare.html", "cta": "ChickCare"},
@@ -403,7 +403,7 @@ HUB = {
     "eyebrow": "Solutions volailles",
     "h1": 'Nutrition volailles : <span class="accent">chair & pondeuses</span>, du poussin à la performance',
     "lead": "Un programme nutritionnel complet pour chaque filière, adapté au climat ivoirien — <strong>prêt à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong>, avec l'appui de nos techniciens sur le terrain.",
-    "image": "maridav_ci_image/especes_maridav_ci/poulets_de_chair_maridav_ci.webp",
+    "image": "images/volailles-maridav-3.jpg",
     "image_alt": "Élevage de volailles accompagné par MARIDAV Côte d'Ivoire",
     "facts": [
         {"b": "2 filières", "span": "Chair & pondeuses"},
@@ -426,7 +426,7 @@ HUB = {
         {
             "title": "Pondeuses",
             "sub": "Entrée en ponte sécurisée, pic et persistance soutenus.",
-            "image": "maridav_ci_image/especes_maridav_ci/pondeuses_maridav_ci.webp",
+            "image": "images/pondeuses-maridav.png",
             "bullets": [
                 "Programme poussinière → poulette → ponte",
                 "Concentrés & prémix pour fabriquer votre aliment",
@@ -453,8 +453,8 @@ PORC_HUB = {
     "eyebrow": "Filière porcs",
     "h1": 'Nutrition porcine : <span class="accent">engraissement & reproduction</span>',
     "lead": "Des formulations tropicalisées pour chaque phase du cycle — <strong>prêts à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong> avec vos matières locales — accompagnées par nos techniciens sur le terrain.",
-    "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
-    "image_alt": "Gamme aliments porcs MARIDAV Côte d'Ivoire",
+    "image": "images/truie-et-porcelets.jpg",
+    "image_alt": "Truie et porcelets — élevage porcin accompagné par MARIDAV Côte d'Ivoire",
     "facts": [
         {"b": "2 pistes", "span": "Engraissement & Reproduction"},
         {"b": "Prêt ou FAF", "span": "Deux modes de production"},
@@ -463,7 +463,7 @@ PORC_HUB = {
     ],
     "timeline": {
         "kicker": "Le cycle porcin",
-        "h2": "Quel aliment, à quelle étape",
+        "h2": "Quel aliment, à quelle étape&nbsp;?",
         "intro": "Deux pistes distinctes : engraissement (du porcelet à l'abattage, repère = le poids) et reproduction (cheptel truies). Choisissez votre piste.",
         "eng": [
             {"phase": "Pré-démarrage", "age": "Post-sevrage", "text": "Milkiwean Eco : aliment lacté pour sécuriser le porcelet dès les premières heures.", "url": "milkeawean.html", "cta": "Milkiwean Eco"},
@@ -477,6 +477,7 @@ PORC_HUB = {
             {"phase": "Sevrage", "age": "Transition", "text": "Milkiwean Eco pour sécuriser le porcelet au sevrage avant le passage à l'aliment démarrage solide.", "url": "milkeawean.html", "cta": "Milkiwean Eco"},
         ],
     },
+    "matrix_hint_all": "Toute la gamme porcs, prête à l'emploi comme en fabrication assistée.",
     "steps": [
         {"title": "Dites-nous votre élevage", "text": "Piste (engraissement, reproduction ou les deux), effectif, phase actuelle et mode de production (prêt à l'emploi ou FAF)."},
         {"title": "On cadre le programme", "text": "Nos techniciens proposent l'aliment ou la formulation adaptée à chaque phase — avec un devis en FCFA sous 24 h."},
@@ -495,8 +496,8 @@ POISSON_HUB = {
     "eyebrow": "Filière pisciculture",
     "h1": 'Pisciculture tilapia : <span class="accent">de l\'alevin à l\'abattage</span>',
     "lead": "Une gamme complète de granulés flottants pour chaque stade du cycle tilapia — <strong>alevinage, prégrossissement, grossissement et finition</strong> — accompagnée par nos techniciens et disponible en Côte d'Ivoire.",
-    "image": "maridav_ci_image/aliments_poissons/nutra_poissons_maridav_ci.jpg",
-    "image_alt": "Gamme aliments pisciculture tilapia MARIDAV Côte d'Ivoire",
+    "image": "images/fish-farming.jpg",
+    "image_alt": "Pisciculture tilapia accompagnée par MARIDAV Côte d'Ivoire",
     "_slug": "pisciculture",
     "facts": [
         {"b": "7 aliments", "span": "De l'alevin à la finition"},
@@ -507,7 +508,7 @@ POISSON_HUB = {
     # Frise du cycle (composant volailles partagé render_timeline) : liste plate.
     # 7 étapes -> render_timeline bascule en grille 4 colonnes (fl-timeline--wrap).
     "timeline_kicker": "Le cycle tilapia",
-    "timeline_h2": "Quel aliment, à quelle étape",
+    "timeline_h2": "Quel aliment, à quelle étape&nbsp;?",
     "timeline_intro": "Un cycle linéaire guidé par le poids du poisson : de l'écloserie à l'abattage, chaque stade a son aliment. Repère = poids en grammes.",
     "timeline": [
         {"phase": "Alevinage", "age": "0–5 g", "text": "Nutra 0 : granulé micro-extrudé haute digestibilité pour démarrer les alevins dès les premières heures.", "url": "nutra_tilapia_0_maridav_ci.html", "cta": "Nutra® 0"},
@@ -548,7 +549,7 @@ BIOSEC_HUB = {
     "eyebrow": "Biosécurité multi-espèces",
     "h1": 'Biosécurité : <span class="accent">nettoyer, désinfecter, protéger</span>',
     "lead": "Des produits CID LINES <strong>transversaux</strong> — utilisables en volailles, porcs et poissons — et un <strong>protocole en 5 étapes</strong> pour briser la chaîne des contaminations, accompagnés par nos techniciens en Côte d'Ivoire.",
-    "image": "maridav_ci_image/hygiene_biosecurite/biosecurite_real.jpg",
+    "image": "images/Biosecurity.png",
     "image_alt": "Nettoyage et désinfection d'un bâtiment d'élevage — biosécurité MARIDAV Côte d'Ivoire",
     "_category": "biosecurite",
     "facts": [
@@ -568,7 +569,7 @@ BIOSEC_HUB = {
         {"phase": "Désinfection", "role": "Étape 4", "text": "Détruire les pathogènes sur surfaces propres avec Virocid, large spectre.", "url": "virocid_maridav_ci.html", "cta": "Virocid"},
         {"phase": "Séchage & eau", "role": "Étape 5", "text": "Sécher le bâtiment, respecter le vide sanitaire et assainir les circuits d'eau (CID 2000).", "url": "cid_2000_maridav_ci.html", "cta": "CID 2000"},
     ],
-    "matrix_kicker": "La gamme",
+    "matrix_kicker": "Notre gamme de produits",
     "matrix_h2": "Choisir par fonction",
     "matrix_hint_all": "Toute la gamme biosécurité : nettoyer, désinfecter et assainir l'eau, sur toutes les filières.",
 }
@@ -1247,6 +1248,31 @@ def products_for_filiere(data, slug):
     return cards
 
 
+def products_all(data):
+    """Cartes matrice de TOUTE l'espèce (toutes filières confondues), ordonnées
+    prêt-à-l'emploi puis FAF. Utilisé par les hubs mono-page multi-pistes (porcs)
+    dont la matrice présente l'ensemble de la gamme, pas une seule filière.
+    Même schéma de carte que products_for_filiere → consommable par render_matrix."""
+    cards = []
+    for cat in ("aliments_complets", "concentres", "macro_premix", "premix"):
+        meta = CATEGORY_META[cat]
+        for it in data.get(cat, []):
+            if not it.get("_render", True) or "hero" not in it:
+                continue
+            hero = it["hero"]
+            cards.append({
+                "url": it["url"],
+                "name": it["jsonld"]["name"],
+                "cat_label": meta["label"],
+                "cat_icon": meta["icon"],
+                "mode": meta["mode"],
+                "badge": hero["pill"]["text"],
+                "tagline": hero.get("figchip", {}).get("label", ""),
+                "transversal": it.get("transversal", False),
+            })
+    return cards
+
+
 def render_filiere_head(fl):
     url = f'{SITE["base"]}/{fl["url"]}'
     og_img = f'{SITE["base"]}/{fl["image"]}'
@@ -1397,7 +1423,7 @@ def render_matrix(fl, cards):
     <section class="pdp-sec pt-0" id="gamme">
       <div class="container">
         <div class="mb-4">
-          <span class="pdp-kicker">La gamme</span>
+          <span class="pdp-kicker">Notre gamme de produits</span>
           <h2 class="pdp-h2">Acheter prêt à l'emploi, ou fabriquer votre aliment</h2>
           <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
             {modes_html}
@@ -1893,13 +1919,13 @@ def render_porc_timeline_2tracks(tl):
 
     eng_steps = "\n          ".join(step_html(s, i) for i, s in enumerate(tl["eng"]))
     rep_steps = "\n          ".join(step_html(s, i) for i, s in enumerate(tl["rep"]))
-    return f"""    <!-- CYCLE-TIMELINE 2 PISTES -->
+    return f"""    <!-- CYCLE-TIMELINE 2 PISTES (spécificité porcs : engraissement / reproduction) -->
     <section class="pdp-sec" id="cycle">
       <div class="container">
-        <div class="text-center mb-4">
+        <div class="mb-4">
           <span class="pdp-kicker">{tl["kicker"]}</span>
           <h2 class="pdp-h2">{tl["h2"]}</h2>
-          <p class="pdp-muted mt-2">{tl["intro"]}</p>
+          <p class="text-muted mt-3 mb-0" style="max-width:46rem">{tl["intro"]}</p>
         </div>
         <div class="fl-track-switch mb-3" role="group" aria-label="Piste du cycle">
           <button class="fl-tswitch is-active" data-track="eng"><i class="bi bi-arrow-right-square"></i> Engraissement</button>
@@ -1915,62 +1941,10 @@ def render_porc_timeline_2tracks(tl):
     </section>"""
 
 
-def render_porc_matrix(porc_data):
-    cards = []
-    for cat in ("aliments_complets", "concentres"):
-        meta = CATEGORY_META[cat]
-        for p in porc_data.get(cat, []):
-            if not p.get("_render", True) or "hero" not in p:
-                continue
-            hero = p["hero"]
-            tags = ""
-            if p.get("transversal", False):
-                tags = '<div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div>'
-            cards.append(
-                f'<article class="fl-mcard" data-mode="{meta["mode"]}">'
-                f'<span class="cat"><i class="bi {meta["icon"]}"></i> {meta["label"]}</span>'
-                f'<h3>{p["jsonld"]["name"]}</h3>'
-                f'<p class="badge-phase">{hero["pill"]["text"]}</p>'
-                f'<p>{hero.get("figchip", {}).get("label", "")}</p>'
-                f'{tags}'
-                f'<a class="btn-line" href="{p["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
-                f'</article>'
-            )
-
-    modes_btns = (
-        '<button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button>'
-        '<button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l\'emploi</button>'
-        '<button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>'
-    )
-    cards_html = "\n          ".join(cards)
-    return f"""    <!-- MATRICE PRODUITS PORCS -->
-    <section class="pdp-sec" id="gamme">
-      <div class="container">
-        <div class="mb-4">
-          <span class="pdp-kicker">Toute la gamme</span>
-          <h2 class="pdp-h2">Aliments & concentrés — engraissement et reproduction</h2>
-          <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
-            {modes_btns}
-          </div>
-          <p class="fl-modehint" id="fl-modehint">Toute la gamme porcs, prête à l'emploi comme en fabrication assistée.</p>
-        </div>
-        <div class="fl-matrix" id="fl-matrix">
-          {cards_html}
-        </div>
-        <p class="fl-empty" id="fl-empty">Aucun produit pour ce filtre.</p>
-      </div>
-    </section>"""
-
-
-def render_porc_hub_jsonld(h):
+def render_porc_hub_jsonld(h, cards):
+    """Breadcrumb 2 niveaux (Accueil → Porcs) + ItemList des produits réels de la
+    gamme (mêmes cartes que la matrice), aligné sur render_poisson_hub_jsonld."""
     url = f'{SITE["base"]}/{h["url"]}'
-    all_products = list(h["timeline"]["eng"]) + list(h["timeline"]["rep"])
-    seen = {}
-    deduped = []
-    for p in all_products:
-        if p["url"] not in seen:
-            seen[p["url"]] = True
-            deduped.append(p)
     breadcrumb = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -1984,8 +1958,8 @@ def render_porc_hub_jsonld(h):
         "@type": "ItemList",
         "name": h["title"],
         "itemListElement": [
-            {"@type": "ListItem", "position": i, "name": p["phase"], "url": f'{SITE["base"]}/{p["url"]}'}
-            for i, p in enumerate(deduped, 1)
+            {"@type": "ListItem", "position": i, "name": c["name"], "url": f'{SITE["base"]}/{c["url"]}'}
+            for i, c in enumerate(cards, 1)
         ],
     }
     dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
@@ -1998,15 +1972,21 @@ def render_porc_hub_jsonld(h):
 
 
 def render_porc_hub_page(h, porc_data):
+    """Hub porcs mono-page, multi-pistes. Réutilise les composants partagés
+    (pillars / matrix / proofbar / techcta / hub_steps) ; la SEULE spécificité
+    porcine est la frise 2-pistes (engraissement / reproduction). Ordre des
+    sections aligné sur les autres hubs : hero → piliers → cycle → gamme →
+    comment ça marche → preuve → CTA technicien."""
     piliers = porc_data["_meta"]["piliers"]
+    cards = products_all(porc_data)
     sections = [
         render_porc_hub_hero(h),
-        render_porc_timeline_2tracks(h["timeline"]),
         render_pillars(piliers),
-        render_porc_matrix(porc_data),
+        render_porc_timeline_2tracks(h["timeline"]),
+        render_matrix(h, cards),
+        render_hub_steps(h),
         render_proofbar(),
         render_techcta(),
-        render_hub_steps(h),
     ]
     main = "\n\n".join(s for s in sections if s)
     return f"""{render_filiere_head(h)}
@@ -2025,7 +2005,7 @@ def render_porc_hub_page(h, porc_data):
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/main.min.js" defer></script>
 {FILIERE_JS}
-{render_porc_hub_jsonld(h)}
+{render_porc_hub_jsonld(h, cards)}
   <script src="assets/js/site-crm-bridge.js" defer></script>
 </body>
 </html>
