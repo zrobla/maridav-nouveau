@@ -572,6 +572,19 @@ BIOSEC_HUB = {
     "matrix_kicker": "Notre gamme de produits",
     "matrix_h2": "Choisir par fonction",
     "matrix_hint_all": "Toute la gamme biosécurité : nettoyer, désinfecter et assainir l'eau, sur toutes les filières.",
+    # Bande "showcase" : l'image de la bannière réinjectée dans le corps de page,
+    # entre le protocole et la gamme, pour ancrer l'enjeu sanitaire (bénéfice, §5.6).
+    "showcase": {
+        "eyebrow": "L'enjeu sanitaire",
+        "h2": "Un bâtiment assaini, c'est une bande protégée",
+        "text": "Avant le moindre traitement, la biosécurité est votre première barrière : nettoyer puis désinfecter brise la chaîne de contamination avant qu'elle n'atteigne vos animaux. Dans un contexte de pression sanitaire, c'est la protection la plus simple et la plus rentable de votre cheptel — et de votre revenu.",
+        "alt": "Bâtiment d'élevage nettoyé et désinfecté — la biosécurité, première barrière sanitaire en Côte d'Ivoire",
+        "chips": [
+            {"icon": "bi-shield-check", "label": "Prévention avant traitement"},
+            {"icon": "bi-arrow-repeat", "label": "Volailles · porcs · poissons"},
+            {"icon": "bi-droplet-half", "label": "Surfaces &amp; circuits d'eau"},
+        ],
+    },
 }
 
 # --------------------------------------------------------------------------- #
@@ -759,6 +772,27 @@ FILIERE_CSS = r"""  <style>
     .fl-track{display:none}
     .fl-track.is-active{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1rem;position:relative}
     .fl-track--linear.is-active{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto}
+
+    /* ---- biosec showcase : image entière (2fr) + panneau texte navy (1fr) ---- */
+    .biosec-showcase{display:grid;grid-template-columns:2fr 1fr;align-items:stretch;position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 44px 84px -42px rgba(0,0,102,.62);transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+    .biosec-showcase:hover{transform:translateY(-4px);box-shadow:0 56px 96px -44px rgba(0,0,102,.7)}
+    .biosec-showcase::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;z-index:3;background:linear-gradient(90deg,var(--gold),var(--green))}
+    .biosec-showcase .media{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#040a1f;padding:1.7rem}
+    .biosec-showcase .sc-title{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.4rem,1rem + 1.8vw,2rem);color:#fff;line-height:1.16;text-align:center;margin:0 0 1.1rem;max-width:30rem}
+    .biosec-showcase .sc-photo{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 24px 48px -28px rgba(0,0,0,.65)}
+    .biosec-showcase .sc-logo{box-sizing:content-box;display:block;width:auto;height:40px;margin:1rem 0 0;padding:.62rem 1.25rem;border-radius:16px;background:radial-gradient(65% 130% at 50% 50%,rgba(255,255,255,.20) 0%,rgba(255,255,255,.07) 48%,rgba(255,255,255,0) 80%);box-shadow:0 0 42px -8px rgba(110,231,168,.55),inset 0 0 0 1px rgba(255,255,255,.09)}
+    .biosec-showcase .bd{background:var(--navy);padding:2.6rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:.85rem}
+    .biosec-showcase .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green-soft)}
+    .biosec-showcase p{margin:0;color:rgba(255,255,255,.86);font-size:.96rem;line-height:1.6}
+    .biosec-showcase .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.35rem}
+    .biosec-showcase .chip{display:inline-flex;align-items:center;gap:.42rem;font-size:.78rem;font-weight:700;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.42rem .85rem}
+    .biosec-showcase .chip i{color:var(--green-soft)}
+    @media (max-width:991px){
+      .biosec-showcase{grid-template-columns:1fr}
+      .biosec-showcase .media{padding:1.4rem}
+      .biosec-showcase .bd{padding:1.9rem 1.5rem}
+      .biosec-showcase:hover{transform:none}
+    }
 
     @media (max-width:991px){
       .hub-choices,.hub-steps{grid-template-columns:1fr}
@@ -2276,15 +2310,49 @@ BIOSEC_PROOFNOTE = ("Audits biosécurité, checklists et contrôle d'efficacité
                     "techniciens, selon votre conduite d'élevage et vos bâtiments.")
 
 
+def render_biosec_showcase(h):
+    """Showcase 2 colonnes : colonne média (2fr) empilant titre + photo bannière
+    (entière, jamais rognée) + logo MARIDAV sur fond sombre, à côté d'un panneau
+    texte navy séparé (1fr) — eyebrow + message éditorial + chips. S'empile en
+    mobile. Entre protocole et gamme."""
+    sc = h.get("showcase")
+    if not sc:
+        return ""
+    chips = "\n            ".join(
+        f'<span class="chip"><i class="bi {c["icon"]}"></i> {c["label"]}</span>'
+        for c in sc.get("chips", [])
+    )
+    return f"""    <!-- SHOWCASE BIOSÉCURITÉ (image bannière réinjectée, panneau texte séparé) -->
+    <section class="pdp-sec pt-0" id="enjeu">
+      <div class="container">
+        <div class="biosec-showcase">
+          <div class="media">
+            <h2 class="sc-title">{sc["h2"]}</h2>
+            <img class="sc-photo" src="{h["image"]}" alt="{sc.get("alt", h["image_alt"])}" loading="lazy">
+            <img class="sc-logo" src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV Côte d'Ivoire" loading="lazy">
+          </div>
+          <div class="bd">
+            <span class="eyebrow">{sc["eyebrow"]}</span>
+            <p>{sc["text"]}</p>
+            <div class="chips">
+            {chips}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
 def render_biosec_hub_page(h, biosec_data):
     """Biosécurité = produits transversaux classés par fonction (pas de cycle) :
-    hero -> piliers -> protocole 5 étapes -> matrice par fonction -> preuve -> techCTA."""
+    hero -> piliers -> protocole -> showcase (image réinjectée) -> matrice -> preuve -> techCTA."""
     piliers = biosec_data["_meta"]["piliers"]
     products = [p for p in biosec_data.get("biosecurite", []) if p.get("_render", True) and "hero" in p]
     sections = [
         render_biosec_hero(h),
         render_pillars(piliers),
         render_biosec_protocol(h),
+        render_biosec_showcase(h),
         render_biosec_matrix(h, products),
         render_proofbar(BIOSEC_PROOF, BIOSEC_PROOFNOTE),
         render_techcta(),
