@@ -534,6 +534,7 @@ body .footer-premium .brand img{height:58px;width:auto}
 .resources-premium .card-premium.premium-bg{background:#062a6a;border-radius:18px}
 .resources-premium .card-premium.premium-bg::after{background:radial-gradient(circle,rgba(70,120,220,.32),rgba(70,120,220,0))}
 .resources-premium .card-premium.premium-bg .card-img-top{height:188px;object-fit:cover}
+.resources-premium .card-premium.premium-bg .card-img-top.blog-img-contain,.card-img-top.blog-img-contain{height:auto;width:100%;display:block;object-fit:contain;background:#020a1c}
 .resources-premium .card-premium.premium-bg .card-body{padding:22px 24px 24px}
 .resources-premium .card-premium.premium-bg .blog-eyebrow{align-self:flex-start;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#dbe7ff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:.32rem .7rem;border-radius:999px;margin-bottom:.85rem}
 .resources-premium .card-premium.premium-bg .blog-title{font-size:1.12rem;font-weight:700;line-height:1.34;color:#fff;margin:0 0 .55rem}
