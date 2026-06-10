@@ -753,3 +753,6 @@ body .footer-premium .brand img{height:58px;width:auto}
 .navbar-premium .dropdown-item .dd-ic i{font-size:1.04rem;line-height:1}
 .navbar-premium .dropdown-menu li:not(:last-child) .dropdown-item{border-bottom:1px solid rgba(0,0,102,.08)}
 .navbar-premium .dropdown-item:hover .dd-ic,.navbar-premium .dropdown-item:focus .dd-ic{color:#1b8e3e}
+/* ===== TITRES DE SECTION : Casse Titre (1re lettre de chaque mot en majuscule, reste en minuscule) + tenue mobile — override global ===== */
+.maridav-ci-title-one h2,.maridav-ci-title-one h3,.section-title,.section-title h2,.pdp-h2,.sc-title,.hs-title,.svc-title,.about-ctitle,.cc-title,.blog-title{text-transform:capitalize!important;letter-spacing:.01em!important}
+@media (max-width:575.98px){.maridav-ci-title-one h2,.maridav-ci-title-one h3,.section-title h2,.pdp-h2,.sc-title,.hs-title,.svc-title,.about-ctitle,.cc-title,.blog-title{font-size:clamp(1.12rem,5vw,1.6rem)!important;line-height:1.22!important;letter-spacing:0!important;overflow-wrap:break-word;word-break:break-word;hyphens:auto;max-width:100%}}
