@@ -205,26 +205,25 @@
     .scroll-progress::after{content:"";position:absolute;inset:0;transform:scaleX(var(--sp,0));transform-origin:left;background:linear-gradient(90deg,#000066,#1b8e3e);transition:transform .08s linear}
     /* logo : placement mobile soigné + toggler premium */
     @media (max-width:991px){
-      .navbar-premium{padding:.4rem 0}
-      .navbar-premium .navbar-brand{margin-right:auto}
-      .navbar-premium .navbar-brand img{height:42px}
+      .navbar-premium{padding:.4rem 0;min-height:64px}
+      .navbar-premium .navbar-brand{display:none !important}  /* logo déplacé en flottant centré */
+      #navPremium{display:none !important}                    /* ancien menu desktop : jamais affiché en mobile */
+      .floating-logo{display:flex !important}
       .navbar-premium .navbar-toggler{border:1px solid rgba(0,0,102,.2);border-radius:12px;padding:.4rem .55rem;color:#000066}
       .navbar-premium .navbar-toggler:focus{box-shadow:0 0 0 .2rem rgba(0,0,102,.15)}
       .navbar-premium .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,102,0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.4' d='M4 8h22M4 15h22M4 22h22'/%3e%3c/svg%3e")}
     }
+    /* Logo flottant mobile : même position (centré, haut) et dimensions dans la barre ET dans le menu ; cadre néon vide qui l'encadre à l'ouverture */
+    .floating-logo{display:none;position:fixed;top:5px;left:50%;transform:translateX(-50%);z-index:1098;align-items:center;justify-content:center;padding:11px 30px;background:#fff;border-radius:14px;box-shadow:0 10px 22px -12px rgba(0,0,0,.45);text-decoration:none}
+    .floating-logo img{height:36px;width:auto;display:block}
     /* ===== Tiroir latéral mobile — autonome (indépendant de Bootstrap JS v4) ===== */
     .drawer-backdrop{position:fixed;inset:0;z-index:1085;background:rgba(2,8,28,.55);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
     .drawer-backdrop.is-open{opacity:1;visibility:visible}
     body.drawer-open{overflow:hidden}
     .mobile-drawer{position:fixed;top:0;right:0;bottom:0;width:min(87vw,372px);z-index:1090;display:flex;flex-direction:column;color:#fff;border:0;background:radial-gradient(130% 100% at 100% 0%,#0a2a73,#04153b 52%,#020b22);box-shadow:-30px 0 80px -30px rgba(0,0,0,.6);transform:translateX(105%);visibility:hidden;transition:transform .34s cubic-bezier(.2,.7,.2,1),visibility .34s}
     .mobile-drawer.is-open{transform:translateX(0);visibility:visible}
-    .mobile-drawer .md-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.05rem 1.15rem;border-bottom:1px solid rgba(255,255,255,.1);position:relative;flex:none}
-    .mobile-drawer .md-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,#b8902f,#1b8e3e)}
-    .mobile-drawer .md-brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none}
-    .mobile-drawer .md-brand img{height:46px;background:#fff;border-radius:11px;padding:6px;box-shadow:0 10px 22px -12px rgba(0,0,0,.5)}
-    .mobile-drawer .md-brand b{display:block;color:#fff;font-family:"Fraunces",serif;font-weight:600;font-size:1.04rem;line-height:1.05}
-    .mobile-drawer .md-brand small{display:block;color:#6ee7a8;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase}
-    .mobile-drawer .md-close{flex:none;width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem;transition:background .2s}
+    .mobile-drawer .md-head{display:flex;align-items:center;justify-content:center;gap:1rem;min-height:66px;padding:1rem 1.15rem;border-bottom:1px solid rgba(255,255,255,.1);position:relative;flex:none}
+    .mobile-drawer .md-close{position:absolute;right:1.05rem;top:50%;transform:translateY(-50%);flex:none;width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem;transition:background .2s}
     .mobile-drawer .md-close:hover{background:rgba(255,255,255,.14)}
     .mobile-drawer .md-body{flex:1 1 auto;overflow-y:auto;padding:1.05rem 1.1rem;-webkit-overflow-scrolling:touch}
     .mobile-drawer .md-label{display:block;font-size:.67rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#6ee7a8;margin:.1rem 0 .7rem}
@@ -233,7 +232,9 @@
     .mobile-drawer .md-tile{display:flex;align-items:center;gap:.6rem;padding:.65rem .75rem;border-radius:14px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none;transition:transform .2s,background .2s,border-color .2s,box-shadow .2s}
     .mobile-drawer .md-tile .md-tb{flex:none;width:38px;height:38px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(27,142,62,.32),rgba(110,231,168,.14));border:1px solid rgba(110,231,168,.3);color:#6ee7a8;font-size:1.12rem}
     .mobile-drawer .md-tile .md-tl{font-weight:700;font-size:.9rem;letter-spacing:-.01em;white-space:nowrap}
+    .mobile-drawer .md-tile .md-tb svg{width:21px;height:21px;display:block}
     .mobile-drawer .md-tile:hover,.mobile-drawer .md-tile:active{background:rgba(110,231,168,.12);border-color:rgba(110,231,168,.42);transform:translateY(-2px);box-shadow:0 14px 26px -16px rgba(27,142,62,.6)}
+    /* sous-menu villes (Points de vente) */
     .mobile-drawer .md-nav{display:flex;flex-direction:column;gap:.12rem;margin-bottom:1.35rem}
     .mobile-drawer .md-link{display:flex;align-items:center;gap:.8rem;width:100%;padding:.8rem .6rem;border-radius:12px;background:none;border:0;color:#fff;font-weight:600;font-size:1.04rem;text-decoration:none;text-align:left;font-family:"Fraunces",serif;cursor:pointer;transition:background .2s}
     .mobile-drawer .md-link .md-ic{flex:none;width:36px;height:36px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:rgba(110,231,168,.12);color:#6ee7a8;font-size:1.05rem}
@@ -258,7 +259,11 @@
     .mobile-drawer .md-social{display:flex;align-items:center;justify-content:center;gap:1.2rem}
     .mobile-drawer .md-social a{color:rgba(255,255,255,.8);font-size:1.25rem}
     .mobile-drawer .md-social a:hover{color:#6ee7a8}
-    @media (prefers-reduced-motion:reduce){.mobile-drawer .md-tile,.mobile-drawer .md-cta,.mobile-drawer .md-sub,.mobile-drawer .md-arrow{transition:none}}
+    /* signature discrète "mi-underground mi-révélée" : faible par défaut, se révèle (vert) au survol */
+    .mobile-drawer .md-credit{display:block;text-align:center;margin-top:.15rem;font-size:.72rem;letter-spacing:.05em;color:rgba(255,255,255,.3);text-decoration:none;transition:color .35s ease}
+    .mobile-drawer .md-credit strong{font-weight:700;color:rgba(255,255,255,.5);transition:color .35s ease}
+    .mobile-drawer .md-credit:hover,.mobile-drawer .md-credit:focus,.mobile-drawer .md-credit:hover strong{color:#6ee7a8}
+    @media (prefers-reduced-motion:reduce){.mobile-drawer .md-tile,.mobile-drawer .md-cta,.mobile-drawer .md-sub,.mobile-drawer .md-arrow,.mobile-drawer .md-credit,.mobile-drawer .md-credit strong{transition:none}}
   </style>
 <!-- Existing theme CSS -->
     <!-- Premium overrides -->
@@ -314,7 +319,22 @@
     "url": "https://maridav.ci/",
     "name": "MARIDAV Côte d'Ivoire",
     "inLanguage": "fr",
-    "publisher": { "@id": "https://maridav.ci/#organization" }
+    "publisher": { "@id": "https://maridav.ci/#organization" },
+    "creator": { "@id": "https://tech-and-web.com/#organization" },
+    "author": { "@id": "https://tech-and-web.com/#organization" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://tech-and-web.com/#organization",
+    "name": "Tech & Web",
+    "alternateName": "Tech and Web",
+    "url": "https://tech-and-web.com",
+    "description": "Agence de création de sites web, d'applications, de design et de référencement (SEO) — conception du site MARIDAV Côte d'Ivoire.",
+    "knowsAbout": ["Création de site web", "Développement web", "SEO", "Design", "Applications web"],
+    "sameAs": ["https://tech-and-web.com"]
   }
   </script>
 
@@ -369,23 +389,25 @@
       </nav>
       <div class="scroll-progress" aria-hidden="true"></div>
 
+      <!-- Logo flottant (mobile) : même emplacement dans la barre et dans le menu ; cadre néon vide qui l'encadre à l'ouverture -->
+      <a class="floating-logo" href="index.html" aria-label="MARIDAV Côte d'Ivoire — accueil">
+        <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV Côte d'Ivoire">
+      </a>
+
       <!-- ===== Tiroir latéral mobile (premium, autonome) ===== -->
       <div class="drawer-backdrop" id="drawerBackdrop"></div>
       <div class="mobile-drawer" id="mobileDrawer" aria-label="Menu de navigation" aria-hidden="true">
         <div class="md-head">
-          <a class="md-brand" href="index.html" aria-label="MARIDAV Côte d'Ivoire — accueil">
-            <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV Côte d'Ivoire">
-          </a>
           <button class="md-close" type="button" data-drawer-close aria-label="Fermer le menu"><i class="bi bi-x-lg"></i></button>
         </div>
         <div class="md-body">
           <div class="md-section">
             <span class="md-label">Nos filières</span>
             <div class="md-grid">
-              <a class="md-tile" href="volailles.html"><span class="md-tb"><i class="bi bi-egg" aria-hidden="true"></i></span><span class="md-tl">Volailles</span></a>
-              <a class="md-tile" href="porcins_maridav_ci.html"><span class="md-tb"><i class="bi bi-piggy-bank" aria-hidden="true"></i></span><span class="md-tl">Porcs</span></a>
-              <a class="md-tile" href="pisciculture_maridav_ci.html"><span class="md-tb"><i class="bi bi-water" aria-hidden="true"></i></span><span class="md-tl">Poissons</span></a>
-              <a class="md-tile" href="biosecurite_maridav_ci.html"><span class="md-tb"><i class="bi bi-shield-check" aria-hidden="true"></i></span><span class="md-tl">Biosécurité</span></a>
+              <a class="md-tile" href="volailles.html"><span class="md-tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11.5" cy="13.5" r="5"/><circle cx="14" cy="7.8" r="2.9"/><path d="M16.7 7.2l2.3-.6-2.1-1"/><path d="M9.5 18.3l-1 2M13.5 18.3l1 2"/></svg></span><span class="md-tl">Volailles</span></a>
+              <a class="md-tile" href="porcins_maridav_ci.html"><span class="md-tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 8.5 5 6.6l2.4.7M17.5 8.5 19 6.6l-2.4.7"/><ellipse cx="12" cy="13" rx="7" ry="5.5"/><ellipse cx="12" cy="13.6" rx="3" ry="2.3"/><circle cx="11" cy="13.6" r=".55" fill="currentColor" stroke="none"/><circle cx="13" cy="13.6" r=".55" fill="currentColor" stroke="none"/></svg></span><span class="md-tl">Porcs</span></a>
+              <a class="md-tile" href="pisciculture_maridav_ci.html"><span class="md-tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c2.5-3.6 6-5 9-5s5.6 1.5 6 5c-.4 3.5-3 5-6 5s-6.5-1.4-9-5z"/><path d="M18 12l3-2.2v4.4L18 12z"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg></span><span class="md-tl">Poissons</span></a>
+              <a class="md-tile" href="biosecurite_maridav_ci.html"><span class="md-tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="md-tl">Biosécurité</span></a>
             </div>
           </div>
           <nav class="md-nav" aria-label="Navigation mobile">
@@ -418,6 +440,7 @@
             <a href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           </div>
+          <a class="md-credit" href="https://tech-and-web.com" target="_blank" rel="noopener" title="Création de site web par Tech &amp; Web">Conçu par <strong>Tech &amp; Web</strong></a>
         </div>
       </div>
     </header>
