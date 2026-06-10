@@ -180,92 +180,6 @@
     .contact-location .cl-pin small{display:block;color:rgba(255,255,255,.7);font-size:.74rem}
     @media (max-width:575px){ .contact-location .cl-pin{left:12px;right:12px;bottom:12px} }
 
-    /* ===== HEADER — menu desktop Fraunces/bleu (hauteur navbar inchangée) + tiroir latéral mobile premium ===== */
-    .navbar-premium .nav-link.nav-link-compact{font-family:"Fraunces","Georgia",serif;font-size:1.24rem;line-height:1.15;letter-spacing:.01em;text-transform:uppercase;color:#000066;font-weight:600;padding:.45rem .6rem}
-    .navbar-premium .nav-link.nav-link-compact:hover,.navbar-premium .nav-link.nav-link-compact:focus,.navbar-premium .nav-item.show .nav-link.nav-link-compact{color:#1b8e3e;background:rgba(27,142,62,.08)}
-    /* éléments du menu déroulant : même bleu que le parent */
-    .navbar-premium .dropdown-menu{border:1px solid rgba(0,0,102,.10);box-shadow:0 25px 60px rgba(2,12,46,.16)}
-    .navbar-premium .dropdown-menu .dropdown-item{font-family:"Fraunces","Georgia",serif;color:#000066;font-size:1.04rem;font-weight:600}
-    .navbar-premium .dropdown-menu .dropdown-item:hover,.navbar-premium .dropdown-menu .dropdown-item:focus{color:#1b8e3e;background:rgba(27,142,62,.08)}
-    /* pastilles tél/WhatsApp + bouton devis en bleu marque */
-    /* pastilles contact : TOUJOURS sur une seule ligne (jamais l'une sous l'autre) */
-    .navbar-premium .nav-meta{flex-wrap:nowrap!important;gap:.4rem}
-    .navbar-premium .meta-pill{background:rgba(0,0,102,.05);border:1px solid rgba(0,0,102,.14);color:#000066;white-space:nowrap;flex:0 0 auto;padding:.34rem .6rem;font-size:.82rem}
-    .navbar-premium .meta-pill i{color:#1b8e3e}
-    .navbar-premium .meta-pill:hover{background:rgba(0,0,102,.10);border-color:rgba(0,0,102,.28)}
-    .navbar-premium .nav-cta .btn-brand{background:#000066;border:0;color:#fff;box-shadow:0 14px 26px -12px rgba(0,0,102,.6);transition:background .2s,transform .2s}
-    .navbar-premium .nav-cta .btn-brand:hover{background:#0a2a73;color:#fff;transform:translateY(-1px)}
-    /* menu plus grand : sur desktop étroit, pastilles contact en icône seule pour éviter le débordement */
-    @media (min-width:992px) and (max-width:1299px){
-      .navbar-premium .meta-pill span{display:none}
-      .navbar-premium .meta-pill{padding:.4rem .55rem}
-      .navbar-premium .nav-link.nav-link-compact{font-size:1.12rem;padding:.45rem .5rem}
-    }
-    /* ligne de progression de scroll (bleue) sous la barre */
-    .premium-header{position:sticky}
-    .scroll-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(0,0,102,.07);overflow:hidden;z-index:6;pointer-events:none}
-    .scroll-progress::after{content:"";position:absolute;inset:0;transform:scaleX(var(--sp,0));transform-origin:left;background:linear-gradient(90deg,#000066,#1b8e3e);transition:transform .08s linear}
-    /* logo : placement mobile soigné + toggler premium */
-    @media (max-width:991px){
-      .navbar-premium{padding:.4rem 0;min-height:64px}
-      .navbar-premium .navbar-brand{display:none !important}  /* logo déplacé en flottant centré */
-      #navPremium{display:none !important}                    /* ancien menu desktop : jamais affiché en mobile */
-      .floating-logo{display:flex !important}
-      .navbar-premium .navbar-toggler{border:1px solid rgba(0,0,102,.2);border-radius:12px;padding:.4rem .55rem;color:#000066}
-      .navbar-premium .navbar-toggler:focus{box-shadow:0 0 0 .2rem rgba(0,0,102,.15)}
-      .navbar-premium .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,102,0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.4' d='M4 8h22M4 15h22M4 22h22'/%3e%3c/svg%3e")}
-    }
-    /* Logo flottant mobile : même position (centré, haut) et dimensions dans la barre ET dans le menu ; cadre néon vide qui l'encadre à l'ouverture */
-    .floating-logo{display:none;position:fixed;top:5px;left:50%;transform:translateX(-50%);z-index:1098;align-items:center;justify-content:center;padding:11px 30px;background:#fff;border-radius:14px;box-shadow:0 10px 22px -12px rgba(0,0,0,.45);text-decoration:none}
-    .floating-logo img{height:36px;width:auto;display:block}
-    /* ===== Tiroir latéral mobile — autonome (indépendant de Bootstrap JS v4) ===== */
-    .drawer-backdrop{position:fixed;inset:0;z-index:1085;background:rgba(2,8,28,.55);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
-    .drawer-backdrop.is-open{opacity:1;visibility:visible}
-    body.drawer-open{overflow:hidden}
-    .mobile-drawer{position:fixed;top:0;right:0;bottom:0;width:min(87vw,372px);z-index:1090;display:flex;flex-direction:column;color:#fff;border:0;background:radial-gradient(130% 100% at 100% 0%,#0a2a73,#04153b 52%,#020b22);box-shadow:-30px 0 80px -30px rgba(0,0,0,.6);transform:translateX(105%);visibility:hidden;transition:transform .34s cubic-bezier(.2,.7,.2,1),visibility .34s}
-    .mobile-drawer.is-open{transform:translateX(0);visibility:visible}
-    .mobile-drawer .md-head{display:flex;align-items:center;justify-content:center;gap:1rem;min-height:66px;padding:1rem 1.15rem;border-bottom:1px solid rgba(255,255,255,.1);position:relative;flex:none}
-    .mobile-drawer .md-close{position:absolute;right:1.05rem;top:50%;transform:translateY(-50%);flex:none;width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem;transition:background .2s}
-    .mobile-drawer .md-close:hover{background:rgba(255,255,255,.14)}
-    .mobile-drawer .md-body{flex:1 1 auto;overflow-y:auto;padding:1.05rem 1.1rem;-webkit-overflow-scrolling:touch}
-    .mobile-drawer .md-label{display:block;font-size:.67rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#6ee7a8;margin:.1rem 0 .7rem}
-    .mobile-drawer .md-section{margin-bottom:1.35rem}
-    .mobile-drawer .md-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-    .mobile-drawer .md-tile{display:flex;align-items:center;gap:.6rem;padding:.65rem .75rem;border-radius:14px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none;transition:transform .2s,background .2s,border-color .2s,box-shadow .2s}
-    .mobile-drawer .md-tile .md-tb{flex:none;width:38px;height:38px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(27,142,62,.32),rgba(110,231,168,.14));border:1px solid rgba(110,231,168,.3);color:#6ee7a8;font-size:1.12rem}
-    .mobile-drawer .md-tile .md-tl{font-weight:700;font-size:.9rem;letter-spacing:-.01em;white-space:nowrap}
-    .mobile-drawer .md-tile .md-tb svg{width:21px;height:21px;display:block}
-    .mobile-drawer .md-tile:hover,.mobile-drawer .md-tile:active{background:rgba(110,231,168,.12);border-color:rgba(110,231,168,.42);transform:translateY(-2px);box-shadow:0 14px 26px -16px rgba(27,142,62,.6)}
-    /* sous-menu villes (Points de vente) */
-    .mobile-drawer .md-nav{display:flex;flex-direction:column;gap:.12rem;margin-bottom:1.35rem}
-    .mobile-drawer .md-link{display:flex;align-items:center;gap:.8rem;width:100%;padding:.8rem .6rem;border-radius:12px;background:none;border:0;color:#fff;font-weight:600;font-size:1.04rem;text-decoration:none;text-align:left;font-family:"Fraunces",serif;cursor:pointer;transition:background .2s}
-    .mobile-drawer .md-link .md-ic{flex:none;width:36px;height:36px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:rgba(110,231,168,.12);color:#6ee7a8;font-size:1.05rem}
-    .mobile-drawer .md-link>span:not(.md-ic){flex:1}
-    .mobile-drawer .md-link .md-arrow{color:rgba(255,255,255,.42);font-size:.85rem;transition:transform .25s}
-    .mobile-drawer .md-link:hover,.mobile-drawer .md-link:active{background:rgba(255,255,255,.07)}
-    .mobile-drawer .md-acc.open .md-arrow{transform:rotate(180deg)}
-    .mobile-drawer .md-sub{display:grid;grid-template-rows:0fr;overflow:hidden;transition:grid-template-rows .3s ease;padding-left:3rem}
-    .mobile-drawer .md-acc.open + .md-sub{grid-template-rows:1fr}
-    .mobile-drawer .md-sub>div{min-height:0;overflow:hidden}
-    .mobile-drawer .md-sub a{display:block;padding:.55rem .2rem;color:rgba(255,255,255,.78);text-decoration:none;font-size:.94rem;border-bottom:1px solid rgba(255,255,255,.07)}
-    .mobile-drawer .md-sub a:last-child{border-bottom:0}
-    .mobile-drawer .md-sub a:hover,.mobile-drawer .md-sub a:active{color:#6ee7a8}
-    .mobile-drawer .md-contact{display:flex;align-items:center;gap:.8rem;padding:.7rem .8rem;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none;margin-bottom:.55rem}
-    .mobile-drawer .md-contact i{flex:none;width:38px;height:38px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;background:rgba(110,231,168,.14);color:#6ee7a8;font-size:1.1rem}
-    .mobile-drawer .md-contact.wa i{background:rgba(37,211,102,.16);color:#25d366}
-    .mobile-drawer .md-contact b{display:block;font-size:.93rem}
-    .mobile-drawer .md-contact small{display:block;color:rgba(255,255,255,.62);font-size:.8rem}
-    .mobile-drawer .md-foot{flex:none;margin-top:auto;padding:1rem 1.1rem 1.25rem;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:.85rem;background:rgba(0,0,0,.16)}
-    .mobile-drawer .md-cta{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:999px;background:linear-gradient(135deg,#1b8e3e,#2aa154);color:#fff;font-weight:700;text-decoration:none;box-shadow:0 16px 30px -12px rgba(27,142,62,.7);transition:transform .2s,box-shadow .2s}
-    .mobile-drawer .md-cta:hover,.mobile-drawer .md-cta:active{transform:translateY(-2px);color:#fff;box-shadow:0 22px 40px -12px rgba(27,142,62,.85)}
-    .mobile-drawer .md-social{display:flex;align-items:center;justify-content:center;gap:1.2rem}
-    .mobile-drawer .md-social a{color:rgba(255,255,255,.8);font-size:1.25rem}
-    .mobile-drawer .md-social a:hover{color:#6ee7a8}
-    /* signature discrète "mi-underground mi-révélée" : faible par défaut, se révèle (vert) au survol */
-    .mobile-drawer .md-credit{display:block;text-align:center;margin-top:.15rem;font-size:.72rem;letter-spacing:.05em;color:rgba(255,255,255,.3);text-decoration:none;transition:color .35s ease}
-    .mobile-drawer .md-credit strong{font-weight:700;color:rgba(255,255,255,.5);transition:color .35s ease}
-    .mobile-drawer .md-credit:hover,.mobile-drawer .md-credit:focus,.mobile-drawer .md-credit:hover strong{color:#6ee7a8}
-    @media (prefers-reduced-motion:reduce){.mobile-drawer .md-tile,.mobile-drawer .md-cta,.mobile-drawer .md-sub,.mobile-drawer .md-arrow,.mobile-drawer .md-credit,.mobile-drawer .md-credit strong{transition:none}}
   </style>
 <!-- Existing theme CSS -->
     <!-- Premium overrides -->
@@ -358,19 +272,19 @@
               <li class="nav-item dropdown">
                 <button class="nav-link nav-link-compact dropdown-toggle" id="navSolutions" type="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</button>
                 <ul class="dropdown-menu" aria-labelledby="navSolutions">
-                  <li><a class="dropdown-item" href="volailles.html">Volailles</a></li>
-                  <li><a class="dropdown-item" href="porcins_maridav_ci.html">Porcs</a></li>
-                  <li><a class="dropdown-item" href="pisciculture_maridav_ci.html">Poissons</a></li>
-                  <li><a class="dropdown-item" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+                  <li><a class="dropdown-item" href="volailles.html"><span class="dd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11.5" cy="13.5" r="5"/><circle cx="14" cy="7.8" r="2.9"/><path d="M16.7 7.2l2.3-.6-2.1-1"/><path d="M9.5 18.3l-1 2M13.5 18.3l1 2"/></svg></span>Volailles</a></li>
+                  <li><a class="dropdown-item" href="porcins_maridav_ci.html"><span class="dd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 8.5 5 6.6l2.4.7M17.5 8.5 19 6.6l-2.4.7"/><ellipse cx="12" cy="13" rx="7" ry="5.5"/><ellipse cx="12" cy="13.6" rx="3" ry="2.3"/><circle cx="11" cy="13.6" r=".55" fill="currentColor" stroke="none"/><circle cx="13" cy="13.6" r=".55" fill="currentColor" stroke="none"/></svg></span>Porcs</a></li>
+                  <li><a class="dropdown-item" href="pisciculture_maridav_ci.html"><span class="dd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c2.5-3.6 6-5 9-5s5.6 1.5 6 5c-.4 3.5-3 5-6 5s-6.5-1.4-9-5z"/><path d="M18 12l3-2.2v4.4L18 12z"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg></span>Poissons</a></li>
+                  <li><a class="dropdown-item" href="biosecurite_maridav_ci.html"><span class="dd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>Biosécurité</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <button class="nav-link nav-link-compact dropdown-toggle" id="navResources" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ressources</button>
                 <ul class="dropdown-menu" aria-labelledby="navResources">
-                  <li><a class="dropdown-item" href="a-propos.html">À propos de nous</a></li>
-                  <li><a class="dropdown-item" href="blog_maridav_ci.html">Blog</a></li>
-                  <li><a class="dropdown-item" href="ressources/">Documentations techniques</a></li>
-                  <li><a class="dropdown-item" href="carriere-maridav.html">Carrière</a></li>
+                  <li><a class="dropdown-item" href="a-propos.html"><span class="dd-ic"><i class="bi bi-info-circle" aria-hidden="true"></i></span>À propos de nous</a></li>
+                  <li><a class="dropdown-item" href="blog_maridav_ci.html"><span class="dd-ic"><i class="bi bi-journal-text" aria-hidden="true"></i></span>Blog</a></li>
+                  <li><a class="dropdown-item" href="ressources/"><span class="dd-ic"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></span>Documentations techniques</a></li>
+                  <li><a class="dropdown-item" href="carriere-maridav.html"><span class="dd-ic"><i class="bi bi-briefcase" aria-hidden="true"></i></span>Carrière</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link nav-link-compact" href="distributeurs_maridav.html">Points de vente</a></li>
@@ -445,51 +359,8 @@
           <a class="md-credit" href="https://tech-and-web.com" target="_blank" rel="noopener" title="Création de site web par Tech &amp; Web">Conçu par <strong>Tech &amp; Web</strong></a>
         </div>
       </div>
-    </header>
-    <script>
-      (function(){
-        var drawer   = document.getElementById('mobileDrawer');
-        var backdrop = document.getElementById('drawerBackdrop');
-        var toggle   = document.getElementById('drawerToggle');
-        if(!drawer || !backdrop || !toggle) return;
-        function open(){
-          drawer.classList.add('is-open'); backdrop.classList.add('is-open');
-          document.body.classList.add('drawer-open');
-          drawer.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');
-        }
-        function close(){
-          drawer.classList.remove('is-open'); backdrop.classList.remove('is-open');
-          document.body.classList.remove('drawer-open');
-          drawer.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false');
-        }
-        toggle.addEventListener('click', open);
-        backdrop.addEventListener('click', close);
-        drawer.querySelectorAll('[data-drawer-close]').forEach(function(el){ el.addEventListener('click', close); });
-        drawer.querySelectorAll('a[href]').forEach(function(a){ a.addEventListener('click', close); });
-        document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
-        window.addEventListener('resize', function(){ if(window.innerWidth>=992) close(); });
-        // accordéons (Solutions / Ressources)
-        drawer.querySelectorAll('.md-acc').forEach(function(b){
-          b.addEventListener('click', function(){
-            var isOpen = b.classList.toggle('open');
-            b.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-          });
-        });
-        // ligne de progression de scroll sous la barre
-        var sp = document.querySelector('.scroll-progress');
-        if(sp){
-          var update = function(){
-            var d = document.documentElement;
-            var max = d.scrollHeight - d.clientHeight;
-            var r = max > 0 ? (window.scrollY || d.scrollTop) / max : 0;
-            sp.style.setProperty('--sp', (r < 0 ? 0 : r > 1 ? 1 : r).toFixed(3));
-          };
-          window.addEventListener('scroll', update, {passive:true});
-          window.addEventListener('resize', update, {passive:true});
-          update();
-        }
-      })();
-    </script>
+  <script src="assets/js/maridav-header.js" defer></script>
+  </header>
 
 <div class="main-page-wrapper">
       <!-- ===================================================

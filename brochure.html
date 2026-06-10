@@ -20,43 +20,102 @@
           <a class="navbar-brand" href="index.html" aria-label="MARIDAV CI">
             <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV CI">
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPremium" aria-controls="navPremium" aria-expanded="false" aria-label="Menu">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navPremium">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link nav-link-compact" href="index.html">ACCUEIL</a></li>
+          <!-- Menu desktop -->
+          <div class="navbar-collapse d-none d-lg-flex align-items-center" id="navPremium">
+            <ul class="navbar-nav me-auto mb-0">
+              <li class="nav-item"><a class="nav-link nav-link-compact" href="index.html">Accueil</a></li>
               <li class="nav-item dropdown">
-                <button class="nav-link nav-link-compact dropdown-toggle" id="navSolutions" type="button" data-bs-toggle="dropdown" aria-expanded="false">SOLUTIONS</button>
+                <button class="nav-link nav-link-compact dropdown-toggle" id="navSolutions" type="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</button>
                 <ul class="dropdown-menu" aria-labelledby="navSolutions">
-                  <li><a class="dropdown-item" href="volailles.html">VOLAILLES</a></li>
-                  <li><a class="dropdown-item" href="porcins_maridav_ci.html">PORCS</a></li>
-                  <li><a class="dropdown-item" href="pisciculture_maridav_ci.html">POISSONS</a></li>
-                  <li><a class="dropdown-item" href="biosecurite_maridav_ci.html">BIOSECURITE</a></li>
+                  <li><a class="dropdown-item" href="volailles.html"><span class="dd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11.5" cy="13.5" r="5"/><circle cx="14" cy="7.8" r="2.9"/><path d="M16.7 7.2l2.3-.6-2.1-1"/><path d="M9.5 18.3l-1 2M13.5 18.3l1 2"/></svg></span>Volailles</a></li>
+                  <li><a class="dropdown-item" href="porcins_maridav_ci.html"><span class="dd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 8.5 5 6.6l2.4.7M17.5 8.5 19 6.6l-2.4.7"/><ellipse cx="12" cy="13" rx="7" ry="5.5"/><ellipse cx="12" cy="13.6" rx="3" ry="2.3"/><circle cx="11" cy="13.6" r=".55" fill="currentColor" stroke="none"/><circle cx="13" cy="13.6" r=".55" fill="currentColor" stroke="none"/></svg></span>Porcs</a></li>
+                  <li><a class="dropdown-item" href="pisciculture_maridav_ci.html"><span class="dd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c2.5-3.6 6-5 9-5s5.6 1.5 6 5c-.4 3.5-3 5-6 5s-6.5-1.4-9-5z"/><path d="M18 12l3-2.2v4.4L18 12z"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg></span>Poissons</a></li>
+                  <li><a class="dropdown-item" href="biosecurite_maridav_ci.html"><span class="dd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>Biosécurité</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <button class="nav-link nav-link-compact dropdown-toggle" id="navResources" type="button" data-bs-toggle="dropdown" aria-expanded="false">RESSOURCES</button>
+                <button class="nav-link nav-link-compact dropdown-toggle" id="navResources" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ressources</button>
                 <ul class="dropdown-menu" aria-labelledby="navResources">
-                  <li><a class="dropdown-item" href="a-propos.html">A PROPOS DE NOUS</a></li>
-                  <li><a class="dropdown-item" href="blog_maridav_ci.html">BLOG</a></li>
-                  <li><a class="dropdown-item" href="ressources/">DOCUMENTATIONS TECHNIQUES</a></li>
-                  <li><a class="dropdown-item" href="carriere-maridav.html">CARRIÈRE</a></li>
+                  <li><a class="dropdown-item" href="a-propos.html"><span class="dd-ic"><i class="bi bi-info-circle" aria-hidden="true"></i></span>À propos de nous</a></li>
+                  <li><a class="dropdown-item" href="blog_maridav_ci.html"><span class="dd-ic"><i class="bi bi-journal-text" aria-hidden="true"></i></span>Blog</a></li>
+                  <li><a class="dropdown-item" href="ressources/"><span class="dd-ic"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></span>Documentations techniques</a></li>
+                  <li><a class="dropdown-item" href="carriere-maridav.html"><span class="dd-ic"><i class="bi bi-briefcase" aria-hidden="true"></i></span>Carrière</a></li>
                 </ul>
               </li>
-              <li class="nav-item"><a class="nav-link nav-link-compact" href="distributeurs_maridav.html">POINTS DE VENTE</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-compact" href="distributeurs_maridav.html">Points de vente</a></li>
             </ul>
             <div class="nav-meta d-lg-flex align-items-center gap-2 ms-lg-3">
               <a class="meta-pill" href="tel:002252721353242"><i class="fa fa-phone"></i><span>(+225) 27 21 35 32 42</span></a>
               <a class="meta-pill" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>05 74 64 88 88</span></a>
             </div>
-            <div class="nav-cta d-flex flex-column flex-lg-row gap-2 ms-lg-3">
+            <div class="nav-cta d-flex gap-2 ms-lg-3">
               <a class="btn btn-brand btn-sm" href="contact.html">Demander un devis</a>
             </div>
           </div>
+          <!-- Mobile : ouvre le tiroir latéral -->
+          <button class="navbar-toggler ms-auto d-lg-none" id="drawerToggle" type="button" aria-controls="mobileDrawer" aria-expanded="false" aria-label="Ouvrir le menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
         </div>
       </nav>
-    </header>
+      <div class="scroll-progress" aria-hidden="true"></div>
+
+      <!-- Logo flottant (mobile) : même emplacement dans la barre et dans le menu ; cadre néon vide qui l'encadre à l'ouverture -->
+      <a class="floating-logo" href="index.html" aria-label="MARIDAV Côte d'Ivoire — accueil">
+        <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV Côte d'Ivoire">
+      </a>
+
+      <!-- ===== Tiroir latéral mobile (premium, autonome) ===== -->
+      <div class="drawer-backdrop" id="drawerBackdrop"></div>
+      <div class="mobile-drawer" id="mobileDrawer" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="md-head">
+          <button class="md-close" type="button" data-drawer-close aria-label="Fermer le menu"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="md-body">
+          <div class="md-section">
+            <span class="md-label">Nos filières</span>
+            <div class="md-grid">
+              <a class="md-tile" href="volailles.html"><span class="md-tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11.5" cy="13.5" r="5"/><circle cx="14" cy="7.8" r="2.9"/><path d="M16.7 7.2l2.3-.6-2.1-1"/><path d="M9.5 18.3l-1 2M13.5 18.3l1 2"/></svg></span><span class="md-tl">Volailles</span></a>
+              <a class="md-tile" href="porcins_maridav_ci.html"><span class="md-tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 8.5 5 6.6l2.4.7M17.5 8.5 19 6.6l-2.4.7"/><ellipse cx="12" cy="13" rx="7" ry="5.5"/><ellipse cx="12" cy="13.6" rx="3" ry="2.3"/><circle cx="11" cy="13.6" r=".55" fill="currentColor" stroke="none"/><circle cx="13" cy="13.6" r=".55" fill="currentColor" stroke="none"/></svg></span><span class="md-tl">Porcs</span></a>
+              <a class="md-tile" href="pisciculture_maridav_ci.html"><span class="md-tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c2.5-3.6 6-5 9-5s5.6 1.5 6 5c-.4 3.5-3 5-6 5s-6.5-1.4-9-5z"/><path d="M18 12l3-2.2v4.4L18 12z"/><circle cx="8" cy="11" r=".7" fill="currentColor" stroke="none"/></svg></span><span class="md-tl">Poissons</span></a>
+              <a class="md-tile" href="biosecurite_maridav_ci.html"><span class="md-tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="md-tl">Biosécurité</span></a>
+            </div>
+          </div>
+          <nav class="md-nav" aria-label="Navigation mobile">
+            <a class="md-link" href="index.html"><span class="md-ic"><i class="bi bi-house-door" aria-hidden="true"></i></span><span>Accueil</span><i class="bi bi-chevron-right md-arrow" aria-hidden="true"></i></a>
+            <button class="md-link md-acc" type="button" aria-expanded="false"><span class="md-ic"><i class="bi bi-grid-1x2" aria-hidden="true"></i></span><span>Solutions</span><i class="bi bi-chevron-down md-arrow" aria-hidden="true"></i></button>
+            <div class="md-sub"><div>
+              <a href="volailles.html">Volailles</a>
+              <a href="porcins_maridav_ci.html">Porcs</a>
+              <a href="pisciculture_maridav_ci.html">Poissons</a>
+              <a href="biosecurite_maridav_ci.html">Biosécurité</a>
+            </div></div>
+            <button class="md-link md-acc" type="button" aria-expanded="false"><span class="md-ic"><i class="bi bi-journal-text" aria-hidden="true"></i></span><span>Ressources</span><i class="bi bi-chevron-down md-arrow" aria-hidden="true"></i></button>
+            <div class="md-sub"><div>
+              <a href="a-propos.html">À propos de nous</a>
+              <a href="blog_maridav_ci.html">Blog &amp; articles</a>
+              <a href="ressources/">Documentations techniques</a>
+              <a href="carriere-maridav.html">Carrière</a>
+            </div></div>
+            <a class="md-link" href="distributeurs_maridav.html"><span class="md-ic"><i class="bi bi-geo-alt" aria-hidden="true"></i></span><span>Points de vente</span><i class="bi bi-chevron-right md-arrow" aria-hidden="true"></i></a>
+          </nav>
+          <div class="md-section">
+            <span class="md-label">Contact direct</span>
+            <a class="md-contact" href="tel:002252721353242"><i class="bi bi-telephone-fill" aria-hidden="true"></i><div><b>Appeler</b><small>(+225) 27 21 35 32 42</small></div></a>
+            <a class="md-contact wa" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i><div><b>WhatsApp</b><small>05 74 64 88 88</small></div></a>
+          </div>
+        </div>
+        <div class="md-foot">
+          <a class="md-cta" href="contact.html">Demander un devis <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <div class="md-social">
+            <a href="https://www.facebook.com/MaridavCI/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://ci.linkedin.com/company/maridav-ci" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <a class="md-credit" href="https://tech-and-web.com" target="_blank" rel="noopener" title="Création de site web par Tech &amp; Web">Conçu par <strong>Tech &amp; Web</strong></a>
+        </div>
+      </div>
+  <script src="assets/js/maridav-header.js" defer></script>
+  </header>
 
 <h1>Not Found</h1>
 <p>The requested URL was not found on this server.</p>
