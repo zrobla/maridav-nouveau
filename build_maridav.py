@@ -162,15 +162,14 @@ HEAD_CSS = r"""  <style>
     .pdp-reveal{animation:pdpUp .7s both}
     .d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
 
-    /* footer */
-    .footer-premium .footer-top{padding:3rem 0;background:#020a1c;color:#fff}
-    .footer-premium .footer-bottom{background:#010512;color:#b2bed5;padding:1rem 0}
-    .footer-premium .brand{display:flex;align-items:center;gap:1rem}
-    .footer-premium .brand img{height:46px}
-    .footer-premium .small-link{color:#d0d7ea;text-decoration:none;font-size:.95rem}
-    .footer-premium .small-link:hover{color:var(--green-soft)}
-    .footer-contact li{display:flex;gap:.6rem;font-size:.95rem;margin-bottom:.85rem}
-    .footer-social a{color:#fff;margin-right:.65rem}
+    /* footer — corporate premium, fonds pleins (le détail du style vit dans main.min.css) */
+    .footer-premium .footer-top{padding:66px 0 46px;background:#020a1c}
+    .footer-premium .footer-bottom{background:#010512;color:#8aa0c4;padding:18px 0}
+    .footer-premium .brand{display:flex;align-items:center;gap:.8rem}
+    .footer-premium .brand img{height:48px}
+    .footer-premium .small-link{color:#aebbd4;text-decoration:none;font-size:.93rem}
+    .footer-premium .small-link:hover{color:#6ee7a8}
+    .footer-contact li{display:flex;gap:.6rem;font-size:.9rem;margin-bottom:.7rem}
 
     @media (max-width:991px){
       .pdp-facts{grid-template-columns:repeat(2,1fr)}
@@ -244,6 +243,7 @@ FOOTER = """  <footer class="footer-premium" role="contentinfo">
               <li><a class="small-link" href="porcins_maridav_ci.html">Porcs</a></li>
               <li><a class="small-link" href="pisciculture_maridav_ci.html">Poissons</a></li>
               <li><a class="small-link" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+              <li><a class="small-link" href="distributeurs_maridav.html">Points de vente</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-3">
@@ -252,8 +252,6 @@ FOOTER = """  <footer class="footer-premium" role="contentinfo">
               <li><a class="small-link" href="a-propos.html">À propos de nous</a></li>
               <li><a class="small-link" href="partenaires-maridav.html">Nos Partenaires</a></li>
               <li><a class="small-link" href="blog_maridav_ci.html">Guides &amp; articles</a></li>
-              <li><a class="small-link" href="distributeurs_maridav.html">Points de vente</a></li>
-              <li><a class="small-link" href="contact.html">Demander un devis</a></li>
               <li><a class="small-link" href="carriere-maridav.html">Carrière</a></li>
             </ul>
           </div>
@@ -261,7 +259,6 @@ FOOTER = """  <footer class="footer-premium" role="contentinfo">
             <h6>Contact</h6>
             <ul class="list-unstyled footer-contact">
               <li><i class="fas fa-map-marker-alt"></i><span>Marcory Zone 4C Biétry, 34 Rue Alex Flemming – Abidjan</span></li>
-              <li><i class="far fa-clock"></i><span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span></li>
             </ul>
             <div class="d-flex flex-column gap-2 mt-2">
               <a class="small-link" href="mailto:info@maridav.ci"><i class="fas fa-envelope"></i> info@maridav.ci</a>

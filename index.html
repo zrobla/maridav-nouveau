@@ -181,14 +181,16 @@
     @media (max-width:575px){ .contact-location .cl-pin{left:12px;right:12px;bottom:12px} }
 
     /* ===== HEADER — menu desktop Fraunces/bleu (hauteur navbar inchangée) + tiroir latéral mobile premium ===== */
-    .navbar-premium .nav-link.nav-link-compact{font-family:"Fraunces","Georgia",serif;font-size:1.24rem;line-height:1.15;letter-spacing:-.01em;text-transform:none;color:#000066;font-weight:600;padding:.45rem .6rem}
+    .navbar-premium .nav-link.nav-link-compact{font-family:"Fraunces","Georgia",serif;font-size:1.24rem;line-height:1.15;letter-spacing:.01em;text-transform:uppercase;color:#000066;font-weight:600;padding:.45rem .6rem}
     .navbar-premium .nav-link.nav-link-compact:hover,.navbar-premium .nav-link.nav-link-compact:focus,.navbar-premium .nav-item.show .nav-link.nav-link-compact{color:#1b8e3e;background:rgba(27,142,62,.08)}
     /* éléments du menu déroulant : même bleu que le parent */
     .navbar-premium .dropdown-menu{border:1px solid rgba(0,0,102,.10);box-shadow:0 25px 60px rgba(2,12,46,.16)}
     .navbar-premium .dropdown-menu .dropdown-item{font-family:"Fraunces","Georgia",serif;color:#000066;font-size:1.04rem;font-weight:600}
     .navbar-premium .dropdown-menu .dropdown-item:hover,.navbar-premium .dropdown-menu .dropdown-item:focus{color:#1b8e3e;background:rgba(27,142,62,.08)}
     /* pastilles tél/WhatsApp + bouton devis en bleu marque */
-    .navbar-premium .meta-pill{background:rgba(0,0,102,.05);border:1px solid rgba(0,0,102,.14);color:#000066}
+    /* pastilles contact : TOUJOURS sur une seule ligne (jamais l'une sous l'autre) */
+    .navbar-premium .nav-meta{flex-wrap:nowrap!important;gap:.4rem}
+    .navbar-premium .meta-pill{background:rgba(0,0,102,.05);border:1px solid rgba(0,0,102,.14);color:#000066;white-space:nowrap;flex:0 0 auto;padding:.34rem .6rem;font-size:.82rem}
     .navbar-premium .meta-pill i{color:#1b8e3e}
     .navbar-premium .meta-pill:hover{background:rgba(0,0,102,.10);border-color:rgba(0,0,102,.28)}
     .navbar-premium .nav-cta .btn-brand{background:#000066;border:0;color:#fff;box-shadow:0 14px 26px -12px rgba(0,0,102,.6);transition:background .2s,transform .2s}
@@ -1129,6 +1131,7 @@
                 <li><a class="small-link" href="porcins_maridav_ci.html">Porcs</a></li>
                 <li><a class="small-link" href="pisciculture_maridav_ci.html">Poissons</a></li>
                 <li><a class="small-link" href="biosecurite_maridav_ci.html">Biosécurité</a></li>
+                <li><a class="small-link" href="distributeurs_maridav.html">Points de vente</a></li>
               </ul>
             </div>
             <div class="col-6 col-lg-3">
@@ -1138,8 +1141,6 @@
                 <li><a class="small-link" href="partenaires-maridav.html">Nos Partenaires</a></li>
                 <li><a class="small-link" href="blog_maridav_ci.html">Guides &amp; articles</a></li>
                 <li><a class="small-link" href="ressources/">Fiches techniques &amp; PDF</a></li>
-                <li><a class="small-link" href="distributeurs_maridav.html">Points de vente</a></li>
-                <li><a class="small-link" href="contact.html">Demander un devis</a></li>
                             <li><a class="small-link" href="carriere-maridav.html">Carrière</a></li>
 </ul>
             </div>
@@ -1147,7 +1148,6 @@
               <h6>Contact</h6>
               <ul class="list-unstyled footer-contact">
                 <li><i class="fas fa-map-marker-alt"></i><span>Marcory Zone 4C Biétry, 34 Rue Alex Flemming – Abidjan</span></li>
-                <li><i class="far fa-clock"></i><span>Lundi – Vendredi : 08h – 18h<br>Samedi : 08h – 13h</span></li>
               </ul>
               <div class="d-flex flex-column gap-2 mt-3">
                 <a class="small-link" href="mailto:info@maridav.ci"><i class="fas fa-envelope"></i> info@maridav.ci</a>
