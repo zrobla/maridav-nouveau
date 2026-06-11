@@ -12,8 +12,8 @@
   --hero-offset-m:75px; /* mobile offset only for overlay elements */
 }
 
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{color:var(--text);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji';-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{color:var(--text);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji';-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip}
 .sticky-top{position:sticky;top:0;z-index:1200}
 
 /* Premium activation hides legacy header/footer */
@@ -676,7 +676,8 @@ body .footer-premium .brand img{height:58px;width:auto}
       .navbar-premium .nav-link.nav-link-compact{font-size:1.12rem;padding:.45rem .5rem}
     }
     /* ligne de progression de scroll (bleue) sous la barre */
-    .premium-header{position:sticky}
+    /* Barre de menu collée (sticky) sur toutes les pages, desktop comme mobile */
+    .premium-header{position:sticky;top:0;z-index:1030}
     .scroll-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(0,0,102,.07);overflow:hidden;z-index:6;pointer-events:none}
     .scroll-progress::after{content:"";position:absolute;inset:0;transform:scaleX(var(--sp,0));transform-origin:left;background:linear-gradient(90deg,#000066,#1b8e3e);transition:transform .08s linear}
     /* logo : placement mobile soigné + toggler premium */
@@ -754,5 +755,12 @@ body .footer-premium .brand img{height:58px;width:auto}
 .navbar-premium .dropdown-menu li:not(:last-child) .dropdown-item{border-bottom:1px solid rgba(0,0,102,.08)}
 .navbar-premium .dropdown-item:hover .dd-ic,.navbar-premium .dropdown-item:focus .dd-ic{color:#1b8e3e}
 /* ===== TITRES DE SECTION : Casse Titre (1re lettre de chaque mot en majuscule, reste en minuscule) + tenue mobile — override global ===== */
-.maridav-ci-title-one h2,.maridav-ci-title-one h3,.section-title,.section-title h2,.pdp-h2,.sc-title,.hs-title,.svc-title,.about-ctitle,.cc-title,.blog-title{text-transform:capitalize!important;letter-spacing:.01em!important}
-@media (max-width:575.98px){.maridav-ci-title-one h2,.maridav-ci-title-one h3,.section-title h2,.pdp-h2,.sc-title,.hs-title,.svc-title,.about-ctitle,.cc-title,.blog-title{font-size:clamp(1.12rem,5vw,1.6rem)!important;line-height:1.22!important;letter-spacing:0!important;overflow-wrap:break-word;word-break:break-word;hyphens:auto;max-width:100%}}
+.maridav-ci-title-one h2,.maridav-ci-title-one h3,.section-title,.section-title h2,.pdp-h2,.pdv-h2,.prt-h2,.sc-title,.hs-title,.svc-title,.about-ctitle,.cc-title,.blog-title{text-transform:capitalize!important;letter-spacing:.01em!important}
+@media (max-width:575.98px){.maridav-ci-title-one h2,.maridav-ci-title-one h3,.section-title h2,.pdp-h2,.pdv-h2,.prt-h2,.sc-title,.hs-title,.svc-title,.about-ctitle,.cc-title,.blog-title{font-size:clamp(1.12rem,5vw,1.6rem)!important;line-height:1.22!important;letter-spacing:0!important;overflow-wrap:break-word;word-break:break-word;hyphens:auto;max-width:100%}}
+
+/* ===== Bouton « revenir en haut » — premium, partagé sur toutes les pages (surcharge le style legacy 28px de css/style.css) ===== */
+.scroll-top{width:46px!important;height:46px!important;line-height:46px!important;position:fixed;right:22px;bottom:22px;z-index:1099;padding:0;border:0;border-radius:50%;background:#000066;color:#fff;text-align:center;font-size:20px;cursor:pointer;box-shadow:0 14px 30px -8px rgba(0,0,102,.5);transition:background .2s,transform .2s,box-shadow .2s}
+.scroll-top:hover{background:#1b8e3e;color:#fff;transform:translateY(-3px);box-shadow:0 18px 36px -10px rgba(27,142,62,.55)}
+.scroll-top:after{display:none!important}
+.scroll-top i{line-height:inherit}
+@media (max-width:575.98px){.scroll-top{right:16px;bottom:16px;width:42px!important;height:42px!important;line-height:42px!important;font-size:18px}}

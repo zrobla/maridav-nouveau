@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Partenaires MARIDAV Côte d'Ivoire — Nutrition & Santé Animales</title>
-  <meta name="description" content="Découvrez les partenaires et fabricants internationaux représentés par MARIDAV Côte d'Ivoire : BIOMIN, DSM, Trouw Nutrition, Skretting, CID LINES, Nutreco.">
+  <meta name="description" content="Découvrez les partenaires et fabricants internationaux représentés par MARIDAV Côte d'Ivoire : BIOMIN, DSM, Trouw Nutrition, Skretting et CID LINES.">
   <link rel="canonical" href="https://maridav.ci/partenaires-maridav.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Partenaires MARIDAV Côte d'Ivoire">
@@ -14,7 +14,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
   <link rel="manifest" href="favicon_io/site.webmanifest">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
@@ -24,6 +26,78 @@
   <link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   <link rel="stylesheet" href="assets/css/main.min.css">
+  <link rel="stylesheet" href="assets/css/premium-pages.css">
+  <style id="prt-premium">
+    /* ===== Partenaires — design premium pilote (navy + vert, Fraunces) ===== */
+    .prt-hero{position:relative;overflow:hidden;color:#fff;padding:5.5rem 0 4rem;
+      background:radial-gradient(120% 140% at 12% -10%,#0a1f63 0%,var(--navy) 46%,var(--navy-deep) 100%);}
+    .prt-hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+      background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.4px);background-size:22px 22px;}
+    .prt-hero::after{content:"";position:absolute;width:540px;height:540px;right:-130px;top:-170px;pointer-events:none;
+      background:radial-gradient(circle,rgba(110,231,168,.22),transparent 70%);}
+    .prt-hero .container{position:relative;z-index:2;}
+    .prt-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font:600 .78rem/1 'Inter',sans-serif;
+      letter-spacing:.16em;text-transform:uppercase;color:var(--green-soft);
+      background:rgba(110,231,168,.12);border:1px solid rgba(110,231,168,.26);padding:.5rem .9rem;border-radius:999px;}
+    .prt-hero h1{color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3.25rem);
+      line-height:1.06;margin:1.1rem 0 .9rem;max-width:18ch;}
+    .prt-lead{font-size:1.08rem;color:rgba(255,255,255,.84);max-width:38rem;}
+    .prt-hero-logos{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin-top:2rem;}
+    .prt-hero-logos span{display:grid;place-items:center;height:52px;padding:0 1rem;border-radius:13px;
+      background:#fff;box-shadow:0 14px 30px rgba(0,0,0,.22);}
+    .prt-hero-logos img{max-height:28px;max-width:110px;width:auto;}
+    /* Emblème de partenariat : « marques … & MARIDAV » */
+    .prt-emblem{display:flex;align-items:center;justify-content:center;gap:1.1rem;height:100%;}
+    .prt-amp{font-family:'Fraunces',serif;font-weight:600;line-height:1;color:var(--green-soft);
+      font-size:clamp(3.2rem,8vw,5.6rem);text-shadow:0 8px 30px rgba(110,231,168,.35);}
+    .prt-maridav{background:#fff;border-radius:24px;padding:1.7rem 2rem;
+      box-shadow:0 28px 60px rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.6);}
+    .prt-maridav img{display:block;width:clamp(150px,15vw,210px);height:auto;}
+    @media (max-width:991px){.prt-emblem{justify-content:flex-start;margin-top:2.2rem;}}
+
+    .prt-sec{padding:4.5rem 0;}
+    .prt-sec.paper{background:var(--paper);}
+    .prt-head{text-align:center;max-width:46rem;margin:0 auto;}
+    .prt-kicker{display:inline-block;font:700 .76rem/1 'Inter',sans-serif;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--green);margin-bottom:.7rem;}
+    .prt-h2{font-family:'Fraunces',serif;font-weight:600;color:var(--navy);line-height:1.12;
+      font-size:clamp(1.6rem,4vw,2.4rem);margin:0;}
+    .prt-head p{color:var(--muted);margin:.8rem auto 0;font-size:1.02rem;}
+
+    .prt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1.4rem;margin-top:2.6rem;}
+    .prt-card{position:relative;display:flex;flex-direction:column;background:#fff;overflow:hidden;
+      border:1px solid rgba(0,0,102,.08);border-radius:20px;padding:1.7rem;
+      box-shadow:0 18px 40px rgba(10,24,55,.06);transition:transform .15s,box-shadow .15s;}
+    .prt-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+      background:linear-gradient(var(--green),var(--green-soft));}
+    .prt-card:hover{transform:translateY(-5px);box-shadow:0 28px 54px rgba(10,24,55,.12);}
+    .prt-logo{display:flex;align-items:center;height:72px;margin-bottom:1.1rem;}
+    .prt-logo img{max-height:64px;max-width:210px;width:auto;}
+    .prt-logo .txt{font-family:'Fraunces',serif;font-weight:600;font-size:2rem;color:var(--navy);letter-spacing:.01em;}
+    .prt-card h2{font-family:'Fraunces',serif;font-size:1.28rem;color:var(--navy);margin:0 0 .5rem;}
+    .prt-card p{color:var(--muted);font-size:.95rem;margin:0 0 1.1rem;}
+    .prt-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.3rem;padding:0;list-style:none;}
+    .prt-tags li{font-size:.74rem;font-weight:600;color:var(--green);background:rgba(27,142,62,.1);
+      border-radius:999px;padding:.32rem .7rem;}
+    .prt-link{margin-top:auto;display:inline-flex;align-items:center;gap:.45rem;font-weight:600;
+      color:var(--navy);text-decoration:none;transition:gap .15s,color .15s;}
+    .prt-link:hover{gap:.7rem;color:var(--green);}
+
+    /* Bande CTA navy */
+    .prt-cta{color:#fff;border-radius:26px;padding:2.8rem;text-align:center;box-shadow:0 30px 60px rgba(5,25,55,.25);
+      background:radial-gradient(120% 160% at 0% 0%,#0a1f63 0%,var(--navy) 55%,var(--navy-deep) 100%);}
+    .prt-cta h2{font-family:'Fraunces',serif;font-size:clamp(1.5rem,3.4vw,2.1rem);color:#fff;margin:0 0 .7rem;}
+    .prt-cta p{color:rgba(255,255,255,.85);max-width:40rem;margin:0 auto 1.6rem;}
+    .prt-cta-row{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;}
+    .prt-btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;border-radius:14px;
+      padding:.85rem 1.5rem;text-decoration:none;transition:transform .15s,background .15s,box-shadow .15s;}
+    .prt-btn-green{background:linear-gradient(135deg,var(--green),#25d366);color:#fff;box-shadow:0 14px 30px rgba(27,142,62,.32);}
+    .prt-btn-green:hover{transform:translateY(-2px);color:#fff;box-shadow:0 18px 38px rgba(27,142,62,.42);}
+    .prt-btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.3);}
+    .prt-btn-ghost:hover{background:rgba(255,255,255,.16);color:#fff;transform:translateY(-2px);}
+
+    @media (max-width:575px){.prt-hero{padding:4rem 0 3rem;}.prt-sec{padding:3.5rem 0;}.prt-cta{padding:1.9rem;}}
+  </style>
 
   <script type="application/ld+json">
   {
@@ -46,7 +120,7 @@
   }
   </script>
 </head>
-<body class="premium-active">
+<body class="pdp">
 
   <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu</a>
     <header class="premium-header sticky-top" role="banner">
@@ -153,98 +227,26 @@
   </header>
 
 <main id="main" tabindex="-1">
-    <section class="py-5 bg-light border-bottom">
+    <section class="prt-hero">
       <div class="container">
-        <p class="text-uppercase text-brand fw-bold mb-2 small">Partenaires officiels</p>
-        <h1 class="mb-3">Des marques internationales pour des performances locales</h1>
-        <p class="lead mb-0">MARIDAV Côte d'Ivoire sélectionne des gammes reconnues en nutrition et santé animales afin d'accompagner les filières volailles, porcs et poissons sur tout le territoire.</p>
-      </div>
-    </section>
-
-    <section class="py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-premium h-100">
-              <div class="card-body">
-                <img class="mb-3" src="maridav_ci_image/logo/biomin-logo.png" alt="BIOMIN" style="max-height:40px">
-                <h2 class="h5">BIOMIN</h2>
-                <p class="small text-muted">Solutions mycotoxines, santé intestinale et additifs fonctionnels adaptés aux climats tropicaux.</p>
-                <ul class="small ps-3 mb-3">
-                  <li>Mycofix®, Digestarom®, PoultryStar®</li>
-                  <li>Programmes volailles & porcs</li>
-                </ul>
-                <a class="btn btn-outline-brand btn-sm" href="partenaires/biomin.html">Découvrir BIOMIN</a>
-              </div>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <span class="prt-eyebrow"><i class="bi bi-patch-check"></i> Partenaires officiels</span>
+            <h1>Des marques internationales, des performances locales</h1>
+            <p class="prt-lead">MARIDAV Côte d'Ivoire représente des gammes mondialement reconnues en nutrition et santé animales — sélectionnées, stockées et accompagnées localement pour les filières volailles, porcs et poissons.</p>
+            <div class="prt-hero-logos">
+              <span><img src="maridav_ci_image/logo/biomin-logo.png" alt="BIOMIN"></span>
+              <span><img src="maridav_ci_image/logo/dsm-logo.png" alt="DSM"></span>
+              <span><img src="maridav_ci_image/logo/logo-trouw-nutrition-partner-maridav-ci.png" alt="Trouw Nutrition"></span>
+              <span><img src="maridav_ci_image/logo/Skretting%20full%20colour%20logo.png" alt="Skretting"></span>
+              <span><img src="maridav_ci_image/logo/cid-logo.png" alt="CID LINES"></span>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-premium h-100">
-              <div class="card-body">
-                <img class="mb-3" src="maridav_ci_image/logo/dsm-logo.png" alt="DSM" style="max-height:40px">
-                <h2 class="h5">DSM</h2>
-                <p class="small text-muted">Vitamines, enzymes et solutions nutritionnelles pour sécuriser les fabrications locales.</p>
-                <ul class="small ps-3 mb-3">
-                  <li>Gamme Hy-D®, Ronozyme®, Balancius™</li>
-                  <li>Support formulation volailles et porcs</li>
-                </ul>
-                <a class="btn btn-outline-brand btn-sm" href="partenaires/dsm.html">Découvrir DSM</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-premium h-100">
-              <div class="card-body">
-                <img class="mb-3" src="maridav_ci_image/logo/trouw-logo.png" alt="Trouw Nutrition" style="max-height:40px">
-                <h2 class="h5">Trouw Nutrition</h2>
-                <p class="small text-muted">Programmes nutritionnels et additifs pour optimiser les performances en élevage.</p>
-                <ul class="small ps-3 mb-3">
-                  <li>Maxcare®, Selko®, Premix spécialisés</li>
-                  <li>Accompagnement formulation</li>
-                </ul>
-                <a class="btn btn-outline-brand btn-sm" href="partenaires/trouw-nutrition.html">Découvrir Trouw Nutrition</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-premium h-100">
-              <div class="card-body">
-                <img class="mb-3" src="maridav_ci_image/logo/skretting-logo.png" alt="Skretting" style="max-height:40px">
-                <h2 class="h5">Skretting</h2>
-                <p class="small text-muted">Aliments aquacoles premium pour tilapia avec support technique dédié.</p>
-                <ul class="small ps-3 mb-3">
-                  <li>Nutra, Tilapia Vitalis®, programmes eau douce</li>
-                  <li>Références flottantes et coulantes</li>
-                </ul>
-                <a class="btn btn-outline-brand btn-sm" href="partenaires/skretting.html">Découvrir Skretting</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-premium h-100">
-              <div class="card-body">
-                <img class="mb-3" src="maridav_ci_image/logo/cid-lines-logo.png" alt="CID LINES" style="max-height:40px">
-                <h2 class="h5">CID LINES</h2>
-                <p class="small text-muted">Biosécurité, hygiène et assainissement des bâtiments d'élevage.</p>
-                <ul class="small ps-3 mb-3">
-                  <li>Virocid®, Keno™san, Kenolox</li>
-                  <li>Protocoles nettoyage & désinfection</li>
-                </ul>
-                <a class="btn btn-outline-brand btn-sm" href="partenaires/cid-lines.html">Découvrir CID LINES</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-premium h-100">
-              <div class="card-body">
-                <img class="mb-3" src="maridav_ci_image/logo/nutreco-logo.png" alt="Nutreco" style="max-height:40px">
-                <h2 class="h5">Nutreco</h2>
-                <p class="small text-muted">Expertise globale en nutrition animale pour accompagner les intégrateurs ivoiriens.</p>
-                <ul class="small ps-3 mb-3">
-                  <li>Solutions multi-espèces</li>
-                  <li>Assistance technique régionale</li>
-                </ul>
-                <a class="btn btn-outline-brand btn-sm" href="partenaires/nutreco.html">Découvrir Nutreco</a>
+          <div class="col-lg-5">
+            <div class="prt-emblem">
+              <span class="prt-amp" aria-hidden="true">&amp;</span>
+              <div class="prt-maridav">
+                <img src="maridav_ci_image/logo/logo_maridav_ci.png" alt="MARIDAV Côte d'Ivoire">
               </div>
             </div>
           </div>
@@ -252,16 +254,61 @@
       </div>
     </section>
 
-    <section class="section-premium text-center py-5" aria-label="Prendre contact avec MARIDAV">
+    <section class="prt-sec paper">
       <div class="container">
-        <div class="card card-premium card-accent hover-lift">
-          <div class="card-body">
-            <h2 class="h4 mb-2">Besoin d’un programme ou d’un devis partenaire ?</h2>
-            <p class="mb-4">Notre équipe technique vous oriente vers la gamme adaptée (volailles, porcs, poissons) et organise les livraisons sur toute la Côte d’Ivoire.</p>
-            <div class="d-flex flex-wrap justify-content-center gap-3">
-              <a class="btn btn-brand" href="contact.html">Contacter MARIDAV CI</a>
-              <a class="btn btn-outline-brand" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?phone=+2250574648888">Parler à un technicien</a>
-            </div>
+        <div class="prt-head">
+          <span class="prt-kicker">Notre écosystème</span>
+          <h2 class="prt-h2">Les marques que nous représentons en Côte d'Ivoire</h2>
+          <p>De la formulation à la biosécurité, chaque partenaire couvre un maillon clé de la performance d'élevage — distribué et appuyé techniquement par MARIDAV.</p>
+        </div>
+        <div class="prt-grid">
+          <article class="prt-card">
+            <div class="prt-logo"><img src="maridav_ci_image/logo/biomin-logo.png" alt="Logo BIOMIN"></div>
+            <h2>BIOMIN</h2>
+            <p>Gestion des mycotoxines, santé intestinale et additifs fonctionnels adaptés aux climats tropicaux.</p>
+            <ul class="prt-tags"><li>Mycofix®</li><li>Digestarom®</li><li>PoultryStar®</li></ul>
+            <a class="prt-link" href="partenaires/biomin.html">Découvrir BIOMIN <i class="bi bi-arrow-right"></i></a>
+          </article>
+          <article class="prt-card">
+            <div class="prt-logo"><img src="maridav_ci_image/logo/dsm-logo.png" alt="Logo DSM"></div>
+            <h2>DSM</h2>
+            <p>Vitamines, enzymes et solutions nutritionnelles pour sécuriser et optimiser les fabrications locales.</p>
+            <ul class="prt-tags"><li>Hy-D®</li><li>Ronozyme®</li><li>Balancius™</li></ul>
+            <a class="prt-link" href="partenaires/dsm.html">Découvrir DSM <i class="bi bi-arrow-right"></i></a>
+          </article>
+          <article class="prt-card">
+            <div class="prt-logo"><img src="maridav_ci_image/logo/logo-trouw-nutrition-partner-maridav-ci.png" alt="Logo Trouw Nutrition"></div>
+            <h2>Trouw Nutrition</h2>
+            <p>Programmes nutritionnels et additifs de précision pour optimiser les performances en élevage.</p>
+            <ul class="prt-tags"><li>Maxcare®</li><li>Selko®</li><li>Premix spécialisés</li></ul>
+            <a class="prt-link" href="partenaires/trouw-nutrition.html">Découvrir Trouw Nutrition <i class="bi bi-arrow-right"></i></a>
+          </article>
+          <article class="prt-card">
+            <div class="prt-logo"><img src="maridav_ci_image/logo/Skretting%20full%20colour%20logo.png" alt="Logo Skretting"></div>
+            <h2>Skretting</h2>
+            <p>Aliments aquacoles premium pour le tilapia, avec support technique pisciculture dédié.</p>
+            <ul class="prt-tags"><li>Nutra</li><li>Tilapia Vitalis®</li><li>Eau douce</li></ul>
+            <a class="prt-link" href="partenaires/skretting.html">Découvrir Skretting <i class="bi bi-arrow-right"></i></a>
+          </article>
+          <article class="prt-card">
+            <div class="prt-logo"><img src="maridav_ci_image/logo/cid-logo.png" alt="Logo CID LINES"></div>
+            <h2>CID LINES</h2>
+            <p>Biosécurité, hygiène et assainissement des bâtiments d'élevage, du vide sanitaire à la désinfection.</p>
+            <ul class="prt-tags"><li>Virocid®</li><li>Keno™san</li><li>Kenolox</li></ul>
+            <a class="prt-link" href="partenaires/cid-lines.html">Découvrir CID LINES <i class="bi bi-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="prt-sec" aria-label="Prendre contact avec MARIDAV">
+      <div class="container">
+        <div class="prt-cta">
+          <h2>Besoin d'un programme ou d'un devis partenaire ?</h2>
+          <p>Notre équipe technique vous oriente vers la gamme adaptée — volailles, porcs ou poissons — et organise les livraisons sur toute la Côte d'Ivoire.</p>
+          <div class="prt-cta-row">
+            <a class="prt-btn prt-btn-green" href="contact.html"><i class="bi bi-headset"></i> Contacter MARIDAV CI</a>
+            <a class="prt-btn prt-btn-ghost" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?phone=+2250574648888"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
           </div>
         </div>
       </div>

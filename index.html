@@ -91,8 +91,8 @@
     .home-cities .hc-head i{color:var(--m-green-soft)}
     .home-cities .hc-head .soft{color:rgba(255,255,255,.6);font-weight:500}
     .home-cities .city-carousel{position:relative;z-index:1}
-    .home-cities .city-carousel .city-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#fff;padding:.45rem 1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:.82rem;text-align:center;white-space:nowrap}
-    .home-cities .city-carousel .city-pill:hover{background:rgba(255,255,255,.22)}
+    .home-cities .city-carousel .city-pill{display:block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#fff;padding:.45rem 1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:.82rem;text-align:center;white-space:nowrap;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+    .home-cities .city-carousel .city-pill:hover{background:rgba(255,255,255,.22);border-color:var(--m-green-soft);color:#fff;transform:translateY(-2px)}
     @media (max-width: 991px){
       .home-intro .hi-values{margin-top:1.8rem}
       /* responsive : chips filières AU-DESSUS des boutons + centrées (Biosécurité non isolée) */
@@ -431,19 +431,19 @@
     <div class="hc-panel">
       <div class="hc-head"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Présents partout en Côte d’Ivoire <span class="soft">— nos villes desservies</span></div>
       <div class="city-carousel owl-carousel">
-      <div class="city-pill">Abidjan</div>
-      <div class="city-pill">Bingerville</div>
-      <div class="city-pill">San Pedro</div>
-      <div class="city-pill">Bouaké</div>
-      <div class="city-pill">Yamoussoukro</div>
-      <div class="city-pill">Korhogo</div>
-      <div class="city-pill">Grand-Bassam</div>
-      <div class="city-pill">Songon-Bimbresso</div>
-      <div class="city-pill">Daloa</div>
-      <div class="city-pill">Aboisso</div>
-      <div class="city-pill">Agnibilékrou</div>
-      <div class="city-pill">Soubré</div>
-      <div class="city-pill">Man</div>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=abidjan" title="Voir le point de vente d'Abidjan">Abidjan</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=bingerville" title="Voir le point de vente de Bingerville">Bingerville</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=san-pedro" title="Voir le point de vente de San Pedro">San Pedro</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=bouake" title="Voir le point de vente de Bouaké">Bouaké</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=yamoussoukro" title="Voir le point de vente de Yamoussoukro">Yamoussoukro</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=korhogo" title="Voir le point de vente de Korhogo">Korhogo</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=grand-bassam" title="Voir le point de vente de Grand-Bassam">Grand-Bassam</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=songon-bimbresso" title="Voir le point de vente de Songon-Bimbresso">Songon-Bimbresso</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=daloa" title="Voir le point de vente de Daloa">Daloa</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=aboisso" title="Voir le point de vente d'Aboisso">Aboisso</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=agnibilekrou" title="Voir le point de vente d'Agnibilékrou">Agnibilékrou</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=soubre" title="Voir le point de vente de Soubré">Soubré</a>
+      <a class="city-pill" href="distributeurs_maridav.html?ville=man" title="Voir le point de vente de Man">Man</a>
       </div>
     </div>
   </div>

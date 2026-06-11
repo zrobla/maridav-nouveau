@@ -126,6 +126,27 @@
       }
     });
 
+    /* ---------- Bouton « revenir en haut » (partagé sur toutes les pages) ---------- */
+    // Créé s'il n'existe pas encore ; câblé dans tous les cas (double-câblage
+    // inoffensif sur les pages qui gèrent déjà leur propre bouton).
+    var st = document.querySelector('.scroll-top');
+    if (!st) {
+      st = document.createElement('button');
+      st.type = 'button';
+      st.className = 'scroll-top tran3s';
+      st.setAttribute('aria-label', 'Revenir en haut');
+      st.innerHTML = '<i class="fa fa-angle-up" aria-hidden="true"></i>';
+      document.body.appendChild(st);
+    }
+    var toggleSt = function () {
+      st.style.display = ((window.scrollY || document.documentElement.scrollTop) > 200) ? 'block' : 'none';
+    };
+    toggleSt();
+    window.addEventListener('scroll', toggleSt, { passive: true });
+    st.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
     /* ---------- Ligne de progression de scroll ---------- */
     var sp = document.querySelector('.scroll-progress');
     if (sp) {

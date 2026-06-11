@@ -65,11 +65,11 @@
     .pdp-figchip{position:absolute;bottom:-16px;left:24px;background:var(--navy);color:#fff;border-radius:14px;padding:.7rem 1.1rem;box-shadow:var(--shadow);font-weight:700}
     .pdp-figchip small{display:block;color:var(--green-soft);font-weight:600;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
     /* facts strip */
-    .pdp-facts{display:grid;grid-template-columns:.8fr .68fr 1.32fr .92fr;gap:0;margin-top:clamp(1.6rem,4vw,2.6rem);border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.04)}
+    .pdp-facts{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;margin-top:clamp(1.6rem,4vw,2.6rem);border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.04)}
     .pdp-fact{padding:.85rem .9rem;border-right:1px solid rgba(255,255,255,.12);min-width:0}
     .pdp-fact:last-child{border-right:0}
-    .pdp-fact b{display:block;font-family:"Fraunces",serif;font-size:1.05rem;color:#fff;line-height:1.1;white-space:nowrap}
-    .pdp-fact span{display:block;font-size:.72rem;color:rgba(255,255,255,.64);white-space:nowrap}
+    .pdp-fact b{display:block;font-family:"Fraunces",serif;font-size:1.05rem;color:#fff;line-height:1.1;white-space:normal;overflow-wrap:break-word}
+    .pdp-fact span{display:block;font-size:.72rem;color:rgba(255,255,255,.64);white-space:normal;overflow-wrap:break-word}
 
     /* SECTIONS */
     .pdp-sec{padding:clamp(2.8rem,5vw,4.4rem) 0}
@@ -150,7 +150,7 @@
     .footer-social a{color:#fff;margin-right:.65rem}
 
     @media (max-width:991px){
-      .pdp-facts{grid-template-columns:repeat(2,1fr)}
+      .pdp-facts{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(2,1fr)}
       .pdp-fact:nth-child(2){border-right:0}
       .pdp-transbadge{align-items:flex-start}
       .pdp-figure{transform:none;margin-top:1.4rem}
