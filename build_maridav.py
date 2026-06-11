@@ -1951,11 +1951,14 @@ def is_indexable(path):
 
 
 def indexable_pages():
-    """Liste triée des pages root indexables (noms de fichiers)."""
+    """Liste triée des pages indexables (root + pages partenaires dédiées)."""
     pages = []
     for p in sorted(ROOT.glob("*.html")):
         if is_indexable(p):
             pages.append(p.name)
+    for p in sorted((ROOT / "partenaires").glob("*.html")):
+        if is_indexable(p):
+            pages.append(f"partenaires/{p.name}")
     return pages
 
 
@@ -2011,6 +2014,7 @@ def seo_gate(pages):
     msgs = []
     ok = True
     on_disk = {p.name for p in ROOT.glob("*.html")}
+    on_disk |= {f"partenaires/{p.name}" for p in (ROOT / "partenaires").glob("*.html")}
 
     # 1) toute URL du sitemap existe sur disque
     sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
