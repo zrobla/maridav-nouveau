@@ -15,36 +15,6 @@
   <link rel="stylesheet" type="text/css" href="css/responsive.css">
   <link rel="stylesheet" href="assets/css/main.min.css">
   <link rel="stylesheet" href="assets/css/premium-pages.css">
-  <style>
-    .article-hero{background:linear-gradient(135deg,rgba(7,59,51,.82),rgba(12,115,82,.78)),url('{{HERO_IMAGE}}') center/cover no-repeat;color:#fff;padding:18px 0 10px;min-height:350px !important;}
-    .badge-soft{background:rgba(12,115,82,.1);color:#0c7352;border:1px solid rgba(12,115,82,.2);border-radius:8px;padding:4px 8px;font-size:.8rem;}
-    .article-hero .badge-soft{background:#e7f1ff;color:#0d6efd;border-color:rgba(13,110,253,.2);}
-    .article-hero .btn{padding:.45rem .85rem;font-size:.9rem;}
-    .article-hero + .section-premium{padding-top:22px;}
-    .article-hero h1{margin-bottom:.35rem;}
-    .article-hero .lead{margin-bottom:.6rem;}
-    .article-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:.9rem;color:#1b8e3e;}
-    .article-meta i{margin-right:6px;}
-    .callout{border-left:4px solid #0c7352;background:rgba(12,115,82,.08);border-radius:12px;padding:14px 16px;}
-    .article-toc{background:#f4f7f6;border-radius:12px;padding:12px 16px;}
-    .article-toc strong{color:#0d6efd;text-transform:uppercase;font-weight:700;}
-    .article-body h2,.article-body h3{color:var(--brand-accent);}
-    .article-block{border:1px solid rgba(0,0,0,.04);border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.06);margin-bottom:14px;}
-    .article-block .card-body{padding:16px 18px;}
-    .mini-article{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.9);color:#0c7352;border-radius:10px;padding:8px;text-decoration:none;margin-bottom:8px;}
-    .mini-article:hover{background:#e7f1ff;color:#0d6efd;}
-    .mini-article img{width:56px;height:56px;object-fit:cover;border-radius:8px;}
-    .mini-article strong{display:block;font-size:.92rem;}
-    .article-toc a{display:block;color:#0c7352;font-weight:600;text-decoration:none;margin:4px 0;}
-    .article-body h2{margin-top:1.5rem;}
-    .article-body h3{margin-top:1.1rem;}
-    .article-body ul{padding-left:18px;}
-    .aside-card{border:0;border-radius:12px;background:linear-gradient(135deg,var(--brand-accent),#2aa154);color:#fff;}
-    .aside-card .small-link{color:#fff;font-weight:700;}
-    .aside-card .small-link:hover{color:#e6ffe4;}
-    .share-btn{border:1px solid #0c7352;color:#0c7352;background:#fff;border-radius:10px;padding:8px 12px;}
-    .share-btn:hover{background:#0c7352;color:#fff;}
-  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -170,51 +140,40 @@
   </header>
 
   <main id="main">
-    <header class="hero-premium article-hero" role="banner">
+    <header class="art-hero" role="banner">
       <div class="container">
-        <div class="hero-content">
-          <div class="d-inline-flex gap-2 flex-wrap mb-2">
-            <!-- Exemple : <span class="badge-soft">Biosécurité</span> -->
-            {{BADGES}}
-          </div>
-          <h1>{{TITLE}}</h1>
-          <p class="lead mb-3">{{LEAD}}</p>
-          <div class="article-meta mb-3">
-            <span><i class="bi bi-calendar-event"></i>{{DATE_FR}}</span>
-            <span><i class="bi bi-clock"></i>{{READ_TIME}}</span>
-            <span><i class="bi bi-person-circle"></i>{{AUTHOR}}</span>
-          </div>
-          <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-brand" href="contact.html">Parler à un technicien</a>
-            <a class="btn btn-outline-light" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <button class="share-btn" type="button" data-copy-link>Copier le lien</button>
-          </div>
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a> <span class="mx-1 text-white-50">/</span>
+          <a href="blog_maridav_ci.html">Blog &amp; guides</a> <span class="mx-1 text-white-50">/</span>
+          <span class="text-white-50">{{SECTION}}</span>
+        </nav>
+        <span class="pdp-eyebrow pdp-reveal d1">{{EYEBROW}}</span>
+        <h1 class="pdp-reveal d1">{{TITLE}}</h1>
+        <p class="lead pdp-reveal d2">{{LEAD}}</p>
+        <div class="art-meta pdp-reveal d3">
+          <span class="m"><i class="bi bi-calendar-event"></i> {{DATE_FR}}</span>
+          <span class="m"><i class="bi bi-clock"></i> Lecture {{READ_TIME}}</span>
+          <span class="m"><i class="bi bi-person-circle"></i> {{AUTHOR}}</span>
         </div>
       </div>
     </header>
 
-    <section class="section-premium alt" aria-label="Contenu de l'article">
+    <section class="pdp-sec">
       <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-8 article-body">
-            <div class="callout mb-3">
-              <strong>En bref :</strong>
-              <ul class="mb-0">
+        <div class="art-wrap">
+          <article class="art-body">
+            <p class="art-lede">{{LEDE}}</p>
+
+            <div class="art-callout">
+              <span class="lab"><i class="bi bi-lightning-charge-fill"></i> En bref</span>
+              <ul>
                 <li>{{POINT_1}}</li>
                 <li>{{POINT_2}}</li>
                 <li>{{POINT_3}}</li>
               </ul>
             </div>
 
-            <div class="article-toc mb-3">
-              <strong>Plan de lecture</strong>
-              <!-- Remplacer par vos ancres -->
-              <a href="#section1">{{TOC_1}}</a>
-              <a href="#section2">{{TOC_2}}</a>
-              <a href="#section3">{{TOC_3}}</a>
-            </div>
-
-            <!-- Sections éditoriales : remplacer le texte par votre contenu -->
+            <!-- Sections éditoriales : dupliquer le motif h2 + p + ul autant que nécessaire -->
             <h2 id="section1">{{H2_1}}</h2>
             <p>{{PARAGRAPH_1}}</p>
             <ul><li>{{BULLET_1A}}</li><li>{{BULLET_1B}}</li></ul>
@@ -225,78 +184,33 @@
 
             <h2 id="section3">{{H2_3}}</h2>
             <p>{{PARAGRAPH_3}}</p>
-            <p class="small text-muted">Recommandations indicatives. Adapter à votre contexte et aux exigences réglementaires.</p>
 
-            <div class="card card-premium p-3 mt-4">
-              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-                <div>
-                  <h3 class="h6 text-brand mb-1">CTA personnalisable</h3>
-                  <p class="small mb-0">{{CTA_TEXT}}</p>
-                </div>
-                <div class="d-flex flex-wrap gap-2">
-                  <a class="btn btn-brand btn-sm" href="contact.html">Demander un devis</a>
-                  <a class="btn btn-outline-brand btn-sm" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener">WhatsApp</a>
-                </div>
-              </div>
-            </div>
-          </div>
+            <p class="small text-muted">Recommandations indicatives. Adapter à votre contexte et aux exigences réglementaires. Pas de conseil vétérinaire individualisé.</p>
+          </article>
 
-          <div class="col-lg-4">
-            <div class="card aside-card mb-3">
-              <div class="card-body">
-                <h3 class="h6 text-brand">Fiche rapide</h3>
-                <ul class="small mb-0">
-                  <li>Espèce : {{FICHE_ESPECE}}</li>
-                  <li>Thème : {{FICHE_THEME}}</li>
-                  <li>Objectif : {{FICHE_OBJECTIF}}</li>
-                </ul>
+          <aside class="art-aside">
+            <div class="art-toc">
+              <div class="lab">Plan de lecture</div>
+              <a href="#section1">{{TOC_1}}</a>
+              <a href="#section2">{{TOC_2}}</a>
+              <a href="#section3">{{TOC_3}}</a>
+            </div>
+            <div class="art-cta-side">
+              <h4>{{CTA_TITLE}}</h4>
+              <p>{{CTA_TEXT}}</p>
+              <a class="btn-pill btn-green" href="contact.html">Demander un devis</a>
+              <div class="art-share mt-3">
+                <a href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener" aria-label="Partager sur WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                <a href="#" data-copy-link aria-label="Copier le lien" title="Copier le lien"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
-            <div class="card aside-card mb-3">
-              <div class="card-body">
-                <h3 class="h6 text-brand">Articles liés</h3>
-                <ul class="small mb-0">
-                  <li><a class="small-link" href="article-biosecurite-poulet-chair.html"><i class="bi bi-chevron-right"></i> Biosécurité poulet chair</a></li>
-                  <li><a class="small-link" href="article-ponte-chaleur-maridav.html"><i class="bi bi-chevron-right"></i> Pondeuses : stabiliser la ponte</a></li>
-                  <li><a class="small-link" href="article-tilapia-eau-ration.html"><i class="bi bi-chevron-right"></i> Tilapia : eau & rationnement</a></li>
-                </ul>
-              </div>
+            <div class="art-rel">
+              <div class="lab">Articles liés</div>
+              <a href="article-biosecurite-poulet-chair.html"><i class="bi bi-arrow-right-short"></i><span>Biosécurité poulet chair</span></a>
+              <a href="article-ponte-chaleur-maridav.html"><i class="bi bi-arrow-right-short"></i><span>Pondeuses : stabiliser la ponte</span></a>
+              <a href="article-tilapia-eau-ration.html"><i class="bi bi-arrow-right-short"></i><span>Tilapia : eau &amp; rationnement</span></a>
             </div>
-            <div class="card aside-card">
-              <div class="card-body">
-                <h3 class="h6 text-brand">Ressources utiles</h3>
-                <ul class="small mb-3">
-                  <li>{{RESOURCE_1}}</li>
-                  <li>{{RESOURCE_2}}</li>
-                  <li>{{RESOURCE_3}}</li>
-                </ul>
-                <a class="btn btn-outline-brand btn-sm" href="ressources/">Voir les documents</a>
-              </div>
-            </div>
-            <div class="card aside-card mt-3">
-              <div class="card-body">
-                <h3 class="h6 text-brand">Autres articles</h3>
-                <div class="d-flex flex-column">
-                  <a class="mini-article" href="article-biosecurite-poulet-chair.html">
-                    <img src="blog_maridav_ci/biosecurity2.webp" alt="Biosécurité poulet chair">
-                    <div><strong>Biosécurité poulet chair</strong><small class="text-muted d-block">Check-list</small></div>
-                  </a>
-                  <a class="mini-article" href="article-ponte-chaleur-maridav.html">
-                    <img src="blog_maridav_ci/poulets_grands.jpg" alt="Pondeuses chaleur">
-                    <div><strong>Stabiliser la ponte</strong><small class="text-muted d-block">Pondeuses</small></div>
-                  </a>
-                  <a class="mini-article" href="article-porcs-fcr-chaleur.html">
-                    <img src="blog_maridav_ci/pig.jpg" alt="Porcs FCR chaleur">
-                    <div><strong>Porcs : FCR chaleur</strong><small class="text-muted d-block">Engraissement</small></div>
-                  </a>
-                  <a class="mini-article" href="article-tilapia-eau-ration.html">
-                    <img src="blog_maridav_ci/poissons.jpg" alt="Tilapia eau ration">
-                    <div><strong>Tilapia : eau & ration</strong><small class="text-muted d-block">Pisciculture</small></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -362,14 +276,14 @@
 
   <script>
     (function(){
-      var btn=document.querySelector('[data-copy-link]');
-      if(!btn) return;
-      btn.addEventListener('click', function(){
-        try{
-          navigator.clipboard.writeText(window.location.href);
-          btn.textContent='Lien copié';
-          setTimeout(function(){btn.textContent='Copier le lien';},1500);
-        }catch(e){btn.textContent='Impossible de copier';}
+      var els=document.querySelectorAll('[data-copy-link]');
+      els.forEach(function(el){
+        el.addEventListener('click',function(e){
+          e.preventDefault();
+          if(navigator.clipboard){navigator.clipboard.writeText(window.location.href);}
+          var ic=el.querySelector('i');
+          if(ic){var prev=ic.className;ic.className='bi bi-check-lg';setTimeout(function(){ic.className=prev;},1500);}
+        });
       });
     })();
   </script>

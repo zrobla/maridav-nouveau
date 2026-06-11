@@ -181,7 +181,7 @@
           <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
             <div>
               <span class="pdp-kicker">Trouver le bon guide</span>
-              <h2 class="pdp-h2" style="font-size:1.4rem">Filtrer par espèce, thème ou mot-clé</h2>
+              <h2 class="pdp-h2">Filtrer par espèce, thème ou mot-clé</h2>
             </div>
             <div class="small text-muted result-count" id="resultCount" aria-live="polite"></div>
           </div>
@@ -241,14 +241,13 @@
             </div>
             <h2>Biosécurité tropicale : 7 réflexes terrain pour poulets de chair</h2>
             <p>Check-lists pratiques pour limiter les introductions de pathogènes, sécuriser l'eau, la litière et les flux en bâtiments tropicaux. Des actions simples, applicables rapidement par vos équipes.</p>
-            <ul class="art-takeaways-list" style="list-style:none;padding:0;margin:0 0 1.2rem">
-              <li style="position:relative;padding-left:1.6rem;margin-bottom:.4rem;color:var(--muted)"><i class="bi bi-check-circle-fill" style="position:absolute;left:0;top:.15rem;color:var(--green)"></i>Entrées contrôlées (sas, pédiluves, tenues dédiées)</li>
-              <li style="position:relative;padding-left:1.6rem;margin-bottom:.4rem;color:var(--muted)"><i class="bi bi-check-circle-fill" style="position:absolute;left:0;top:.15rem;color:var(--green)"></i>Eau et désinfection : protocole adapté aux chaleurs</li>
-              <li style="position:relative;padding-left:1.6rem;color:var(--muted)"><i class="bi bi-check-circle-fill" style="position:absolute;left:0;top:.15rem;color:var(--green)"></i>Gestion des lots (densité, ventilation, litière sèche)</li>
+            <ul class="feat-list">
+              <li>Entrées contrôlées (sas, pédiluves, tenues dédiées)</li>
+              <li>Eau et désinfection : protocole adapté aux chaleurs</li>
+              <li>Gestion des lots (densité, ventilation, litière sèche)</li>
             </ul>
             <div class="d-flex gap-3 flex-wrap">
               <a href="article-biosecurite-poulet-chair.html" class="btn-pill btn-green">Lire l'article <i class="bi bi-arrow-right"></i></a>
-              <a href="blog_maridav_ci_page2.html" class="btn-line">Archives &amp; dossiers</a>
             </div>
           </div>
         </article>
@@ -263,7 +262,6 @@
             <span class="pdp-kicker">Articles récents</span>
             <h2 class="pdp-h2">Guides validés par nos spécialistes</h2>
           </div>
-          <a class="btn-line" href="blog_maridav_ci_page2.html"><i class="bi bi-archive"></i> Voir les archives</a>
         </div>
 
         <div class="blog-grid" id="articlesGrid">
@@ -334,15 +332,6 @@
           </article>
         </div>
         <div class="blog-empty" id="blogEmpty">Aucun article ne correspond à votre recherche. <button type="button" class="btn-line" id="clearFilters2">Réinitialiser les filtres</button></div>
-
-        <div class="d-flex justify-content-end mt-4">
-          <nav aria-label="Pagination du blog">
-            <ul class="pagination pagination-sm mb-0">
-              <li class="page-item active"><span class="page-link">1</span></li>
-              <li class="page-item"><a class="page-link" href="blog_maridav_ci_page2.html">2</a></li>
-            </ul>
-          </nav>
-        </div>
       </div>
     </section>
 
@@ -354,7 +343,7 @@
             <div class="pdp-card h-100 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
               <div>
                 <span class="pdp-kicker">Newsletter</span>
-                <h3 style="font-family:'Fraunces',serif;color:var(--navy);font-weight:600;font-size:1.2rem;margin:.3rem 0 .2rem">Recevoir les prochains guides</h3>
+                <h3 class="nl-title">Recevoir les prochains guides</h3>
                 <p class="text-muted small mb-0">Nouveaux articles, protocoles biosécurité, fiches pratiques volaille / porc / poisson (1 à 2 emails par mois).</p>
               </div>
               <form id="newsletter-form" class="d-flex gap-2 flex-wrap px-field">
@@ -365,7 +354,7 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="fl-tech h-100" style="flex-direction:column;align-items:flex-start">
+            <div class="fl-tech fl-tech--stack h-100">
               <div class="tx">
                 <h3>Un diagnostic rapide&nbsp;?</h3>
                 <p>Un technicien MARIDAV CI peut vous rappeler pour orienter les gammes adaptées (volaille, porcs, poissons).</p>

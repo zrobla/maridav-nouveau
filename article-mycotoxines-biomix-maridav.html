@@ -18,36 +18,6 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   <link rel="stylesheet" href="assets/css/main.min.css">
   <link rel="stylesheet" href="assets/css/premium-pages.css">
-  <style>
-    .article-hero{background:linear-gradient(135deg,rgba(8,55,47,.82),rgba(12,115,82,.78)),url('blog_maridav_ci/poussins2.jpg') center/cover no-repeat;color:#fff;padding:18px 0 10px;min-height:350px !important;}
-    .article-hero h1{margin-bottom:.35rem;}
-    .article-hero .lead{margin-bottom:.6rem;}
-    .badge-soft{background:rgba(12,115,82,.1);color:#0c7352;border:1px solid rgba(12,115,82,.2);border-radius:8px;padding:4px 8px;font-size:.8rem;}
-    .article-hero .badge-soft{background:#e7f1ff;color:#0d6efd;border-color:rgba(13,110,253,.2);}
-    .article-hero .btn{padding:.45rem .85rem;font-size:.9rem;}
-    .article-hero + .section-premium{padding-top:22px;}
-    .article-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:.9rem;color:#1b8e3e;}
-    .article-meta i{margin-right:6px;}
-    .callout{border-left:4px solid #0c7352;background:rgba(12,115,82,.08);border-radius:12px;padding:14px 16px;}
-    .article-toc{background:#f4f7f6;border-radius:12px;padding:12px 16px;}
-    .article-toc strong{color:#0d6efd;text-transform:uppercase;font-weight:700;}
-    .article-body h2,.article-body h3{color:var(--brand-accent);}
-    .article-block{border:1px solid rgba(0,0,0,.04);border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.06);margin-bottom:14px;}
-    .article-block .card-body{padding:16px 18px;}
-    .mini-article{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.9);color:#0c7352;border-radius:10px;padding:8px;text-decoration:none;margin-bottom:8px;}
-    .mini-article:hover{background:#e7f1ff;color:#0d6efd;}
-    .mini-article img{width:56px;height:56px;object-fit:cover;border-radius:8px;}
-    .mini-article strong{display:block;font-size:.92rem;}
-    .article-toc a{display:block;color:#0c7352;font-weight:600;text-decoration:none;margin:4px 0;}
-    .article-body h2{margin-top:1.5rem;}
-    .article-body h3{margin-top:1.1rem;}
-    .article-body ul{padding-left:18px;}
-    .aside-card{border:0;border-radius:12px;background:linear-gradient(135deg,var(--brand-accent),#2aa154);color:#fff;}
-    .aside-card .small-link{color:#fff;font-weight:700;}
-    .aside-card .small-link:hover{color:#e6ffe4;}
-    .share-btn{border:1px solid #0c7352;color:#0c7352;background:#fff;border-radius:10px;padding:8px 12px;}
-    .share-btn:hover{background:#0c7352;color:#fff;}
-  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -171,52 +141,40 @@
   </header>
 
   <main id="main">
-    <header class="hero-premium article-hero" role="banner">
+    <header class="art-hero" role="banner">
       <div class="container">
-        <div class="hero-content">
-          <div class="d-inline-flex gap-2 flex-wrap mb-2">
-            <span class="badge-soft">Additifs</span>
-            <span class="badge-soft">Qualité MP</span>
-            <span class="badge-soft">Multi-espèces</span>
-          </div>
-          <h1>Mycotoxines : sécuriser les matières premières</h1>
-          <p class="lead mb-3">Plan de surveillance et solutions additifs BIOMIN pour limiter l’impact des mycotoxines sur vos aliments et performances.</p>
-          <div class="article-meta mb-3">
-            <span><i class="bi bi-calendar-event"></i>28/04/2025</span>
-            <span><i class="bi bi-clock"></i>Lecture 5 min</span>
-            <span><i class="bi bi-person-circle"></i>Équipe nutrition MARIDAV CI</span>
-          </div>
-          <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-brand" href="contact.html">Demander un conseil</a>
-            <a class="btn btn-outline-light" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <button class="share-btn" type="button" data-copy-link>Copier le lien</button>
-          </div>
+        <nav class="pdp-crumb small mb-3 pdp-reveal" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a> <span class="mx-1 text-white-50">/</span>
+          <a href="blog_maridav_ci.html">Blog &amp; guides</a> <span class="mx-1 text-white-50">/</span>
+          <span class="text-white-50">Additifs</span>
+        </nav>
+        <span class="pdp-eyebrow pdp-reveal d1">Additifs &middot; Qualité matières premières</span>
+        <h1 class="pdp-reveal d1">Mycotoxines : sécuriser les matières premières</h1>
+        <p class="lead pdp-reveal d2">Plan de surveillance et solutions additifs BIOMIN pour limiter l’impact des mycotoxines sur vos aliments et performances.</p>
+        <div class="art-meta pdp-reveal d3">
+          <span class="m"><i class="bi bi-calendar-event"></i> 28/04/2025</span>
+          <span class="m"><i class="bi bi-clock"></i> Lecture 5 min</span>
+          <span class="m"><i class="bi bi-person-circle"></i> Équipe nutrition MARIDAV CI</span>
         </div>
       </div>
     </header>
 
-    <section class="section-premium alt" aria-label="Contenu de l'article">
+    <section class="pdp-sec">
       <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-8 article-body">
-            <div class="callout mb-3">
-              <strong>En bref :</strong>
-              <ul class="mb-0">
+        <div class="art-wrap">
+          <article class="art-body">
+            <p class="art-lede">Chaleur et humidité favorisent le développement des mycotoxines dans les matières premières. Surveillance, stockage maîtrisé et additifs adaptés limitent leur impact sur l’ingestion et les performances.</p>
+
+            <div class="art-callout">
+              <span class="lab"><i class="bi bi-lightning-charge-fill"></i> En bref</span>
+              <ul>
                 <li>Échantillonnage régulier des matières premières et contrôles visuels systématiques.</li>
                 <li>Plan de stockage : ventilation, rotation des stocks, propreté des silos.</li>
                 <li>Additifs BIOMIN pour adsorber/inactiver un large spectre de mycotoxines.</li>
               </ul>
             </div>
 
-            <div class="article-toc mb-3">
-              <strong>Plan de lecture</strong>
-              <a href="#risques">1. Risques mycotoxines en CI</a>
-              <a href="#surveillance">2. Plan de surveillance</a>
-              <a href="#additifs">3. Additifs & stratégie</a>
-              <a href="#stockage">4. Stockage & hygiène</a>
-            </div>
-
-            <h2 id="risques">1. Risques mycotoxines en CI</h2>
+            <h2 id="risques">1. Risques mycotoxines en Côte d’Ivoire</h2>
             <p>Chaleur et humidité favorisent les mycotoxines (aflatoxines, fumonisines, DON, T2/HT2, zéaralénone). Elles pénalisent l’ingestion, le système immunitaire et la reproduction.</p>
 
             <h2 id="surveillance">2. Plan de surveillance</h2>
@@ -226,7 +184,7 @@
               <li><strong>Traçabilité :</strong> enregistrer fournisseur, date, lot, résultat d’analyse.</li>
             </ul>
 
-            <h2 id="additifs">3. Additifs & stratégie</h2>
+            <h2 id="additifs">3. Additifs &amp; stratégie</h2>
             <ul>
               <li><strong>Adsorbants + biotransformation :</strong> couvrir les toxines polaires et non polaires.</li>
               <li><strong>Dosage :</strong> ajuster selon le niveau de risque (analyse, origine des MP).</li>
@@ -234,85 +192,40 @@
             </ul>
             <p>Les solutions BIOMIN sont conçues pour un large spectre. Adapter la dose en fonction des résultats d’analyse et du profil des matières premières.</p>
 
-            <h2 id="stockage">4. Stockage & hygiène</h2>
+            <h2 id="stockage">4. Stockage &amp; hygiène</h2>
             <ul>
               <li>Nettoyer les silos entre lots, vérifier l’étanchéité et la ventilation.</li>
               <li>Rotation des stocks : FIFO strict, durée de stockage limitée.</li>
               <li>Limiter la poussière et l’humidité ambiante dans les zones de stockage.</li>
             </ul>
+
             <p class="small text-muted">Recommandations indicatives. Respecter la réglementation locale et les fiches techniques. Pas de conseil vétérinaire individualisé.</p>
+          </article>
 
-            <div class="card card-premium p-3 mt-4">
-              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-                <div>
-                  <h3 class="h6 text-brand mb-1">Sécuriser vos matières premières</h3>
-                  <p class="small mb-0">Nous pouvons proposer un plan additif + stockage adapté à vos volumes.</p>
-                </div>
-                <div class="d-flex flex-wrap gap-2">
-                  <a class="btn btn-brand btn-sm" href="contact.html">Demander un devis</a>
-                  <a class="btn btn-outline-brand btn-sm" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener">WhatsApp</a>
-                </div>
+          <aside class="art-aside">
+            <div class="art-toc">
+              <div class="lab">Plan de lecture</div>
+              <a href="#risques">1. Risques mycotoxines en CI</a>
+              <a href="#surveillance">2. Plan de surveillance</a>
+              <a href="#additifs">3. Additifs &amp; stratégie</a>
+              <a href="#stockage">4. Stockage &amp; hygiène</a>
+            </div>
+            <div class="art-cta-side">
+              <h4>Sécuriser vos matières premières</h4>
+              <p>Nous pouvons proposer un plan additif + stockage adapté à vos volumes.</p>
+              <a class="btn-pill btn-green" href="contact.html">Demander un devis</a>
+              <div class="art-share mt-3">
+                <a href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener" aria-label="Partager sur WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                <a href="#" data-copy-link aria-label="Copier le lien" title="Copier le lien"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="card aside-card mb-3">
-              <div class="card-body">
-                <h3 class="h6 text-brand">Fiche rapide</h3>
-                <ul class="small mb-0">
-                  <li>Espèces : volailles, porcs, poissons</li>
-                  <li>Thème : additifs & qualité MP</li>
-                  <li>Objectif : limiter l’impact des mycotoxines</li>
-                  <li>Outils : analyses, additifs, stockage maîtrisé</li>
-                </ul>
-              </div>
+            <div class="art-rel">
+              <div class="lab">Articles liés</div>
+              <a href="article-biosecurite-poulet-chair.html"><i class="bi bi-arrow-right-short"></i><span>Biosécurité poulet chair</span></a>
+              <a href="article-porcs-fcr-chaleur.html"><i class="bi bi-arrow-right-short"></i><span>Porcs : FCR en période chaude</span></a>
+              <a href="article-tilapia-eau-ration.html"><i class="bi bi-arrow-right-short"></i><span>Tilapia : eau &amp; rationnement</span></a>
             </div>
-            <div class="card aside-card mb-3">
-              <div class="card-body">
-                <h3 class="h6 text-brand">Articles liés</h3>
-                <ul class="small mb-0">
-                  <li><a class="small-link" href="article-biosecurite-poulet-chair.html"><i class="bi bi-chevron-right"></i> Biosécurité poulet chair</a></li>
-                  <li><a class="small-link" href="article-porcs-fcr-chaleur.html"><i class="bi bi-chevron-right"></i> Porcs : FCR en période chaude</a></li>
-                  <li><a class="small-link" href="article-tilapia-eau-ration.html"><i class="bi bi-chevron-right"></i> Tilapia : eau & rationnement</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card aside-card">
-              <div class="card-body">
-                <h3 class="h6 text-brand">Ressources utiles</h3>
-                <ul class="small mb-3">
-                  <li>Guide surveillance mycotoxines (PDF)</li>
-                  <li>Fiches techniques BIOMIN</li>
-                  <li>Check-list nettoyage silos</li>
-                </ul>
-                <a class="btn btn-outline-brand btn-sm" href="ressources/">Voir les documents</a>
-              </div>
-            </div>
-            <div class="card aside-card mt-3">
-              <div class="card-body">
-                <h3 class="h6 text-brand">Autres articles</h3>
-                <div class="d-flex flex-column">
-                  <a class="mini-article" href="article-biosecurite-poulet-chair.html">
-                    <img src="blog_maridav_ci/biosecurity2.webp" alt="Biosécurité poulet chair">
-                    <div><strong>Biosécurité poulet chair</strong><small class="text-muted d-block">Check-list</small></div>
-                  </a>
-                  <a class="mini-article" href="article-ponte-chaleur-maridav.html">
-                    <img src="blog_maridav_ci/poulets_grands.jpg" alt="Pondeuses chaleur">
-                    <div><strong>Stabiliser la ponte</strong><small class="text-muted d-block">Pondeuses</small></div>
-                  </a>
-                  <a class="mini-article" href="article-porcs-fcr-chaleur.html">
-                    <img src="blog_maridav_ci/pig.jpg" alt="Porcs FCR">
-                    <div><strong>Porcs : FCR chaleur</strong><small class="text-muted d-block">Engraissement</small></div>
-                  </a>
-                  <a class="mini-article" href="article-tilapia-eau-ration.html">
-                    <img src="blog_maridav_ci/poissons.jpg" alt="Tilapia eau ration">
-                    <div><strong>Tilapia : eau & ration</strong><small class="text-muted d-block">Pisciculture</small></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -377,14 +290,14 @@
 
   <script>
     (function(){
-      var btn=document.querySelector('[data-copy-link]');
-      if(!btn) return;
-      btn.addEventListener('click', function(){
-        try{
-          navigator.clipboard.writeText(window.location.href);
-          btn.textContent='Lien copié';
-          setTimeout(function(){btn.textContent='Copier le lien';},1500);
-        }catch(e){btn.textContent='Impossible de copier';}
+      var els=document.querySelectorAll('[data-copy-link]');
+      els.forEach(function(el){
+        el.addEventListener('click',function(e){
+          e.preventDefault();
+          if(navigator.clipboard){navigator.clipboard.writeText(window.location.href);}
+          var ic=el.querySelector('i');
+          if(ic){var prev=ic.className;ic.className='bi bi-check-lg';setTimeout(function(){ic.className=prev;},1500);}
+        });
       });
     })();
   </script>

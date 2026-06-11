@@ -347,7 +347,7 @@ FOOTER = """  <footer class="footer-premium" role="contentinfo">
 # --------------------------------------------------------------------------- #
 OLD_CONTENT_PAGES = [
     "a-propos.html", "contact.html", "carriere-maridav.html",
-    "blog_maridav_ci.html", "blog_maridav_ci_page2.html",
+    "blog_maridav_ci.html",
     "distributeurs_maridav.html", "partenaires-maridav.html", "brochure.html",
     "article-biosecurite-poulet-chair.html", "article-demarrage-poussins.html",
     "article-mycotoxines-biomix-maridav.html", "article-ponte-chaleur-maridav.html",
@@ -743,7 +743,6 @@ SITEMAP_RULES = {
     "partenaires-maridav.html": ("0.7", "monthly"),
     "carriere-maridav.html": ("0.6", "monthly"),
     "blog_maridav_ci.html": ("0.8", "weekly"),
-    "blog_maridav_ci_page2.html": ("0.5", "monthly"),
 }
 
 # robots.txt — contenu statique (indexation ouverte moteurs + assistants IA).
