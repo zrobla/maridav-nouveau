@@ -609,7 +609,6 @@ body .footer-premium .brand img{height:58px;width:auto}
   body .hub-choices,
   body .hub-steps,
   body .fl-pillars,
-  body .fl-matrix,
   body .fl-proofgrid,
   body .fl-timeline,
   body .swipe-row{
@@ -623,7 +622,6 @@ body .footer-premium .brand img{height:58px;width:auto}
   body .hub-choices::-webkit-scrollbar,
   body .hub-steps::-webkit-scrollbar,
   body .fl-pillars::-webkit-scrollbar,
-  body .fl-matrix::-webkit-scrollbar,
   body .fl-proofgrid::-webkit-scrollbar,
   body .fl-timeline::-webkit-scrollbar,
   body .swipe-row::-webkit-scrollbar{display:none}
@@ -631,11 +629,14 @@ body .footer-premium .brand img{height:58px;width:auto}
   body .hub-choices>*,
   body .hub-steps>*,
   body .fl-pillars>*,
-  body .fl-matrix>*,
   body .fl-proofgrid>*,
   body .fl-timeline>*,
   body .swipe-row>*{scroll-snap-align:center;min-width:0}
   body .swipe-row>*{padding-left:0;padding-right:0}
+  /* hub volailles : 2 cartes filières — pas de dégradé "nuage" (les deux cartes
+     restent nettes) et 1re carte alignée à gauche, visible dès l'arrivée. */
+  body .hub-choices{-webkit-mask-image:none;mask-image:none;scroll-padding-left:0}
+  body .hub-choices>*{scroll-snap-align:start}
 }
 /* Indice de swipe "‹ ›" : masqué par défaut, visible et animé (étirement) seulement en mobile */
 .swipe-cue{display:none}
