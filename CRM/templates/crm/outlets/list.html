@@ -49,7 +49,7 @@
 <div class="card shadow-sm">
     <div class="card-body p-0">
         <table class="table table-hover mb-0 align-middle">
-            <thead><tr><th>Point de vente</th><th>Canal</th><th>Ville</th><th>Territoire</th><th>Distributeur</th><th></th></tr></thead>
+            <thead><tr><th>Point de vente</th><th>Canal</th><th>Ville</th><th>Région</th><th>Territoire</th><th>Distributeur</th><th></th></tr></thead>
             <tbody>
                 {% for outlet in outlets %}
                     <tr>
@@ -59,15 +59,33 @@
                         </td>
                         <td>{{ outlet.get_channel_display }}</td>
                         <td>{{ outlet.city|default:"-" }}</td>
+                        <td>{{ outlet.region|default:"-" }}</td>
                         <td>{{ outlet.territory.name|default:"-" }}</td>
                         <td>{{ outlet.distributor.name|default:"-" }}</td>
                         <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="{% url 'outlets-update' outlet.pk %}">Mettre à jour</a></td>
                     </tr>
                 {% empty %}
-                    <tr><td colspan="6" class="text-center text-muted py-3">Aucun point de vente.</td></tr>
+                    <tr><td colspan="7" class="text-center text-muted py-3">Aucun point de vente.</td></tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
+
+{% if is_paginated %}
+    <div class="d-flex justify-content-between align-items-center mt-3">
+        <span class="text-muted small">{{ paginator.count }} point{{ paginator.count|pluralize }} de vente · page {{ page_obj.number }}/{{ paginator.num_pages }}</span>
+        <nav>
+            <ul class="pagination mb-0">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.channel %}&channel={{ request.GET.channel }}{% endif %}{% if request.GET.status %}&status={{ request.GET.status }}{% endif %}{% if request.GET.territory %}&territory={{ request.GET.territory }}{% endif %}">Précédent</a></li>
+                {% endif %}
+                <li class="page-item active"><span class="page-link">{{ page_obj.number }}</span></li>
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.channel %}&channel={{ request.GET.channel }}{% endif %}{% if request.GET.status %}&status={{ request.GET.status }}{% endif %}{% if request.GET.territory %}&territory={{ request.GET.territory }}{% endif %}">Suivant</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
 {% endblock %}
