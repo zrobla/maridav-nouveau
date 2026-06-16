@@ -55,7 +55,7 @@
     /* vidéo bannière propre, ratio natif 16:9, sans crop ni superposition */
     .hero-premium.home-hero{min-height:0;height:auto;background:#fff;overflow:visible}
     .hero-premium.home-hero .active{position:relative;inset:auto;width:100%;height:auto}
-    .hero-premium.home-hero video{position:relative;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;clip-path:none;display:block}
+    .hero-premium.home-hero video{position:relative;width:100%;height:auto;min-height:0;aspect-ratio:16/9;object-fit:contain;clip-path:none;display:block}
     /* SECTION INTRO fusionnée : message + atouts (fond clair unifié) */
     .home-intro{background:#e8ecf4;padding:clamp(2.2rem,4.5vw,3.8rem) 0 clamp(1.4rem,2.6vw,2rem)}
     .home-intro .hi-eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--m-green);margin-bottom:.5rem}
