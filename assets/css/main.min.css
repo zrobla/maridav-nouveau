@@ -444,7 +444,9 @@ body .footer-premium .footer-bottom{color:#8aa0c4;padding:18px 0}
 /* logo footer mis en valeur : plus grand, mieux séparé du texte */
 body .footer-premium .brand{gap:.95rem;margin-bottom:.4rem}
 body .footer-premium .brand img{height:58px;width:auto}
-.footer-premium .brand span{font-size:1.2rem}
+/* marque footer : tient sur une seule ligne (desktop + mobile) */
+.footer-premium .brand span{font-size:clamp(.92rem,2.3vw,1.12rem);white-space:nowrap}
+.footer-premium .brand span small{white-space:nowrap}
 .tab-content-premium .card{border:1px solid rgba(0,0,0,.06);border-radius:14px;background:linear-gradient(180deg,#fff,rgba(0,0,0,.02));box-shadow:0 18px 45px rgba(2,6,23,.08);transition:transform .2s ease, box-shadow .2s ease}
 .tab-content-premium .card:hover{transform:translateY(-4px);box-shadow:0 30px 70px rgba(2,6,23,.15)}
 .tab-content-premium .card .badge{font-weight:700;letter-spacing:.05em}
