@@ -24,10 +24,11 @@ DATA = ROOT / "products.json"            # volailles (source historique)
 PORC_DATA    = ROOT / "products-porcs.json"     # porcs
 POISSON_DATA = ROOT / "products-poissons.json"  # pisciculture
 BIOSEC_DATA  = ROOT / "products-biosecurite.json"  # biosécurité (transversale)
+ADDITIF_DATA = ROOT / "products-additifs.json"     # additifs fonctionnels (transversaux volailles+porcs)
 
 # Registre des sources produits (même schéma). Les pages produits sont générées
 # pour chaque source ; render_page est espèce-agnostique.
-PRODUCT_SOURCES = [DATA, PORC_DATA, POISSON_DATA, BIOSEC_DATA]
+PRODUCT_SOURCES = [DATA, PORC_DATA, POISSON_DATA, BIOSEC_DATA, ADDITIF_DATA]
 
 # --------------------------------------------------------------------------- #
 #  Constantes de marque (source unique)                                        #

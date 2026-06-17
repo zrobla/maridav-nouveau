@@ -1,0 +1,651 @@
+{
+  "_meta": {
+    "description": "Catalogue + contenu des pages produits ADDITIFS FONCTIONNELS transversaux (volailles & porcs) MARIDAV CI. Source du générateur build_maridav.py — ne pas éditer les .html à la main.",
+    "marque": "MARIDAV Côte d'Ivoire",
+    "note": "Additifs transversaux : pages PDP autonomes (comme AquaCare), non listées dans les matrices de filière."
+  },
+  "additifs": [
+    {
+      "url": "biotronic_top_liquide_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": [
+        "volailles-chair",
+        "volailles-ponte",
+        "porcs-engraissement"
+      ],
+      "transversal": true,
+      "type": "additif",
+      "phase": "toutes phases",
+      "image": "maridav_ci_image/additifs _alimentaires/Biotronic Top Liquid Maridav.png",
+      "og_image": "https://maridav.ci/maridav_ci_image/additifs _alimentaires/Biotronic Top Liquid Maridav.png",
+      "title": "Biotronic® Top Liquid — Acidifiant eau de boisson | MARIDAV Côte d'Ivoire",
+      "description": "Acidifiant liquide pour l'eau de boisson des volailles et porcs : acides organiques (formique, propionique, lactique) pour maîtriser la charge bactérienne, stabiliser le pH et soutenir l'ingestion. Bidons 5 L et 25 L. Distribué et accompagné par MARIDAV Côte d'Ivoire.",
+      "og_title": "Biotronic® Top Liquid — Acidifiant eau de boisson",
+      "og_description": "Sécurisez l'eau de boisson de vos volailles et porcs : acides organiques pour maîtriser la charge bactérienne et soutenir l'ingestion. MARIDAV CI.",
+      "breadcrumb": [
+        {
+          "name": "Volailles",
+          "url": "volailles.html"
+        },
+        {
+          "name": "Additif eau de boisson"
+        },
+        {
+          "name": "Biotronic® Top Liquid"
+        }
+      ],
+      "breadcrumb_jsonld": [
+        {
+          "name": "Accueil",
+          "item": "https://maridav.ci/"
+        },
+        {
+          "name": "Volailles",
+          "item": "https://maridav.ci/volailles.html"
+        },
+        {
+          "name": "Biotronic® Top Liquid",
+          "item": "https://maridav.ci/biotronic_top_liquide_maridav_ci.html"
+        }
+      ],
+      "hero": {
+        "eyebrow": "Additif — Hygiène de l'eau de boisson",
+        "h1": "Biotronic<span class=\"accent\">® Top Liquid</span>",
+        "pill": {
+          "icon": "bi-droplet-half",
+          "text": "Acidifiant liquide · eau de boisson"
+        },
+        "lead": "Acidifiant <strong>liquide pour l'eau de boisson</strong> à base d'acides organiques : <em>charge bactérienne maîtrisée, pH stabilisé et eau plus appétente</em> pour des volailles et des porcs qui boivent — et mangent — mieux. Distribué et accompagné par MARIDAV Côte d'Ivoire.",
+        "facts": [
+          {
+            "b": "3 acides",
+            "span": "Formique · propionique · lactique"
+          },
+          {
+            "b": "pH 3,5–4,5",
+            "span": "Cible en sortie de ligne"
+          },
+          {
+            "b": "5 L · 25 L",
+            "span": "Bidons"
+          },
+          {
+            "b": "Volailles · porcs",
+            "span": "Eau de boisson"
+          }
+        ],
+        "image_alt": "Biotronic Top Liquid acidifiant eau de boisson volailles porcs MARIDAV Côte d'Ivoire",
+        "figchip": {
+          "small": "Acidifiant eau",
+          "label": "Hygiène eau"
+        }
+      },
+      "benefits": {
+        "kicker": "L'essentiel",
+        "h2": "Atouts Biotronic® Top Liquid",
+        "intro": "Un acidifiant liquide pour gérer activement la qualité de l'eau de boisson — en complément du nettoyage régulier des lignes et des bonnes pratiques de biosécurité.",
+        "cards": [
+          {
+            "icon": "bi-bug",
+            "title": "Charge bactérienne maîtrisée",
+            "text": "Les acides organiques freinent le développement des bactéries d'altération (E. coli, Salmonella) dans l'eau de boisson."
+          },
+          {
+            "icon": "bi-droplet",
+            "title": "pH stabilisé",
+            "text": "Abaisse et stabilise le pH de l'eau pour limiter la prolifération bactérienne tout au long de la ligne."
+          },
+          {
+            "icon": "bi-cup-straw",
+            "title": "Ingestion soutenue",
+            "text": "Une eau plus appétente favorise la consommation d'eau, donc la prise d'aliment — clé en climat chaud."
+          },
+          {
+            "icon": "bi-gear",
+            "title": "Compatible installations",
+            "text": "Surfactants pour une répartition homogène et stabilisants anti-corrosion : compatible lignes PVC, inox et pompes doseuses."
+          }
+        ]
+      },
+      "usage": {
+        "h2": "Mode d'emploi",
+        "steps": [
+          {
+            "title": "Pré-dilution",
+            "text": "Diluer Biotronic® Top Liquid dans l'eau propre du bac mère lorsqu'une pompe doseuse est utilisée."
+          },
+          {
+            "title": "Calibrage",
+            "text": "Régler la pompe doseuse pour viser un pH de 3,5 à 4,5 dans l'eau en sortie de ligne."
+          },
+          {
+            "title": "Adaptation",
+            "text": "Ajuster le dosage selon la qualité de votre eau et l'espèce. Nos techniciens calibrent vos pompes selon vos équipements."
+          }
+        ],
+        "note": "Biotronic® Top Liquid complète l'hygiène des lignes d'eau — il ne remplace pas leur nettoyage régulier."
+      },
+      "spec": {
+        "kicker": "Composition",
+        "h2": "Caractéristiques",
+        "rows": [
+          {
+            "k": "Acides organiques",
+            "v": "Formique, propionique, acide lactique"
+          },
+          {
+            "k": "Agents surfactants",
+            "v": "Répartition homogène dans l'eau"
+          },
+          {
+            "k": "Stabilisants",
+            "v": "Protection contre la corrosion"
+          },
+          {
+            "k": "Compatibilité",
+            "v": "Lignes PVC, inox, pompes doseuses"
+          },
+          {
+            "k": "pH cible (sortie de ligne)",
+            "v": "3,5 – 4,5"
+          },
+          {
+            "k": "Formats",
+            "v": "Bidons 5 L / 25 L"
+          }
+        ]
+      },
+      "crosssell": {
+        "title": "Complétez l'hygiène par la digestion",
+        "text": "Associez Biotronic® Top Liquid à <strong>Digestarom®</strong> pour conjuguer eau saine et meilleure valorisation de l'aliment.",
+        "link_text": "Découvrir Digestarom®",
+        "url": "digestarom_maridav_ci.html"
+      },
+      "faq_intro": "Questions fréquentes sur Biotronic® Top Liquid",
+      "faq": [
+        {
+          "q": "Quel pH viser dans l'eau de boisson ?",
+          "a": "On vise généralement une eau entre 3,5 et 4,5 en sortie de ligne. Vérifiez régulièrement le pH ; nos techniciens vous aident à calibrer la pompe doseuse."
+        },
+        {
+          "q": "Biotronic® Top Liquid est-il compatible avec mes équipements ?",
+          "a": "Oui : il est formulé avec des stabilisants anti-corrosion et compatible avec les lignes PVC, inox, chenaux, pipettes et pompes doseuses."
+        },
+        {
+          "q": "Comment doser le produit ?",
+          "a": "Le dosage s'adapte à la qualité de votre eau et à l'espèce. Diluez dans l'eau propre du bac mère si vous utilisez une pompe doseuse, puis ajustez selon le pH mesuré."
+        }
+      ],
+      "related": {
+        "kicker": "À découvrir aussi",
+        "cards": [
+          {
+            "tag": "Phytogénique",
+            "title": "Digestarom®",
+            "text": "Appétence et digestibilité : arômes végétaux pour mieux valoriser l'aliment.",
+            "img": "maridav_ci_image/additifs _alimentaires/Digestarom Maridav.png",
+            "alt": "Digestarom MARIDAV",
+            "url": "digestarom_maridav_ci.html"
+          },
+          {
+            "tag": "Anti-stress thermique",
+            "title": "Nutricool®",
+            "text": "Électrolytes et antioxydants pour passer les vagues de chaleur.",
+            "img": "maridav_ci_image/additifs _alimentaires/NUTRICOOL.png",
+            "alt": "Nutricool MARIDAV",
+            "url": "nutricool_maridav_ci.html"
+          },
+          {
+            "tag": "Hub volailles",
+            "title": "Gamme Volailles",
+            "text": "Aliments, concentrés et prémix : du démarrage à la ponte.",
+            "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+            "alt": "Gamme volailles MARIDAV",
+            "url": "volailles.html"
+          }
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "MARIDAV CI",
+        "h2": "Sécurisez votre eau de boisson",
+        "text": "Devis en FCFA sous 24 h — nos techniciens établissent un protocole d'acidification adapté à votre eau et à vos équipements."
+      },
+      "jsonld": {
+        "name": "Biotronic® Top Liquid",
+        "description": "Acidifiant liquide à base d'acides organiques (formique, propionique, lactique) pour l'eau de boisson des volailles et porcs.",
+        "brand": "MARIDAV",
+        "sku": "BIOTRONIC-TOP-LIQUID",
+        "category": "Additif — hygiène de l'eau",
+        "audience": "Éleveurs volailles & porcs — hygiène de l'eau de boisson"
+      }
+    },
+    {
+      "url": "digestarom_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": [
+        "volailles-chair",
+        "volailles-ponte",
+        "porcs-engraissement"
+      ],
+      "transversal": true,
+      "type": "additif",
+      "phase": "toutes phases",
+      "image": "maridav_ci_image/additifs _alimentaires/Digestarom Maridav.png",
+      "og_image": "https://maridav.ci/maridav_ci_image/additifs _alimentaires/Digestarom Maridav.png",
+      "title": "Digestarom® — Additif phytogénique appétence & digestion | MARIDAV Côte d'Ivoire",
+      "description": "Additif phytogénique Digestarom à base d'extraits végétaux (anis, fenouil, menthe) pour stimuler l'appétence, la sécrétion enzymatique et la digestibilité chez les volailles et les porcs. Poudre ou liquide, sac 20 kg ou seau 5 kg. MARIDAV Côte d'Ivoire.",
+      "og_title": "Digestarom® — Phytogénique appétence & digestion",
+      "og_description": "Stimulez l'ingestion et la digestibilité de vos volailles et porcs avec un mélange d'extraits végétaux. MARIDAV CI.",
+      "breadcrumb": [
+        {
+          "name": "Volailles",
+          "url": "volailles.html"
+        },
+        {
+          "name": "Additif phytogénique"
+        },
+        {
+          "name": "Digestarom®"
+        }
+      ],
+      "breadcrumb_jsonld": [
+        {
+          "name": "Accueil",
+          "item": "https://maridav.ci/"
+        },
+        {
+          "name": "Volailles",
+          "item": "https://maridav.ci/volailles.html"
+        },
+        {
+          "name": "Digestarom®",
+          "item": "https://maridav.ci/digestarom_maridav_ci.html"
+        }
+      ],
+      "hero": {
+        "eyebrow": "Additif — Phytogénique appétence & digestion",
+        "h1": "Digestarom<span class=\"accent\">®</span>",
+        "pill": {
+          "icon": "bi-flower1",
+          "text": "Phytogénique · appétence & digestion"
+        },
+        "lead": "Mélange d'<strong>extraits végétaux sélectionnés</strong> (anis, fenouil, menthe…) pour <em>stimuler l'appétit, soutenir la sécrétion enzymatique et améliorer la digestibilité</em> — au service du gain et de la conversion. Distribué et accompagné par MARIDAV Côte d'Ivoire.",
+        "facts": [
+          {
+            "b": "Anis · fenouil · menthe",
+            "span": "Huiles essentielles"
+          },
+          {
+            "b": "Enzymes",
+            "span": "Sécrétion soutenue"
+          },
+          {
+            "b": "Poudre / liquide",
+            "span": "Deux formes"
+          },
+          {
+            "b": "Sac 20 kg · seau 5 kg",
+            "span": "Conditionnement"
+          }
+        ],
+        "image_alt": "Digestarom additif phytogénique appétence digestion volailles porcs MARIDAV Côte d'Ivoire",
+        "figchip": {
+          "small": "Phytogénique",
+          "label": "Appétence"
+        }
+      },
+      "benefits": {
+        "kicker": "L'essentiel",
+        "h2": "Atouts Digestarom®",
+        "intro": "Un additif phytogénique pour valoriser l'aliment naturellement — en appui d'une formulation et d'une conduite d'élevage maîtrisées.",
+        "cards": [
+          {
+            "icon": "bi-flower2",
+            "title": "Appétence naturelle",
+            "text": "Des arômes végétaux qui stimulent la prise d'aliment, en particulier quand l'ingestion fléchit."
+          },
+          {
+            "icon": "bi-droplet-half",
+            "title": "Sécrétion enzymatique",
+            "text": "Favorise la sécrétion d'enzymes digestives pour mieux valoriser la ration."
+          },
+          {
+            "icon": "bi-graph-up-arrow",
+            "title": "Conversion améliorée",
+            "text": "Soutient le gain moyen quotidien et la conversion alimentaire — un meilleur retour sur investissement par kg produit."
+          },
+          {
+            "icon": "bi-sun",
+            "title": "Pensé tropical",
+            "text": "Effets observés sur volailles et porcs en conditions d'élevage tropicales, là où l'appétence est mise à l'épreuve."
+          }
+        ]
+      },
+      "usage": {
+        "h2": "Mode d'emploi",
+        "steps": [
+          {
+            "title": "Incorporation",
+            "text": "Incorporer Digestarom® à l'aliment au dosage recommandé pour votre espèce et vos objectifs."
+          },
+          {
+            "title": "Protocole",
+            "text": "Nos techniciens ajustent le dosage selon la phase, l'espèce et le contexte d'élevage."
+          },
+          {
+            "title": "Suivi",
+            "text": "Mesurez l'ingestion, le gain et la conversion pour objectiver le bénéfice sur vos bandes."
+          }
+        ],
+        "note": "Digestarom® valorise une ration bien formulée — il ne corrige pas un déséquilibre de formulation."
+      },
+      "spec": {
+        "kicker": "Composition",
+        "h2": "Caractéristiques",
+        "rows": [
+          {
+            "k": "Phytogéniques",
+            "v": "Anis, fenouil, menthe, poivre, autres huiles essentielles"
+          },
+          {
+            "k": "Support",
+            "v": "Minéral, pour une libération progressive"
+          },
+          {
+            "k": "Stabilisants",
+            "v": "Protègent les composés actifs lors du process"
+          },
+          {
+            "k": "Forme",
+            "v": "Poudre fine (version liquide disponible)"
+          },
+          {
+            "k": "Espèces",
+            "v": "Volailles, porcs (ruminants & aquaculture selon formulation)"
+          },
+          {
+            "k": "Conditionnement",
+            "v": "Sac 20 kg ou seau 5 kg"
+          }
+        ]
+      },
+      "crosssell": {
+        "title": "Couplez digestion et eau saine",
+        "text": "Associez Digestarom® à <strong>Biotronic® Top Liquid</strong> pour soutenir l'ingestion par une eau de boisson maîtrisée.",
+        "link_text": "Découvrir Biotronic® Top Liquid",
+        "url": "biotronic_top_liquide_maridav_ci.html"
+      },
+      "faq_intro": "Questions fréquentes sur Digestarom®",
+      "faq": [
+        {
+          "q": "Pour quelles espèces Digestarom® convient-il ?",
+          "a": "Volailles (chair, pondeuses, reproducteurs) et porcs (porcelets, croissance, truies). Pour ruminants, lapins ou aquaculture, contactez MARIDAV CI : la formulation s'adapte."
+        },
+        {
+          "q": "Sous quelle forme se présente le produit ?",
+          "a": "En poudre fine pour incorporation à l'aliment ; une version liquide est également disponible selon les usages."
+        },
+        {
+          "q": "Comment fixer le bon dosage ?",
+          "a": "Le dosage dépend de l'espèce et de vos objectifs. Nos techniciens établissent une recommandation d'incorporation adaptée à votre élevage."
+        }
+      ],
+      "related": {
+        "kicker": "À découvrir aussi",
+        "cards": [
+          {
+            "tag": "Hygiène de l'eau",
+            "title": "Biotronic® Top Liquid",
+            "text": "Acidifiant liquide pour une eau de boisson saine et appétente.",
+            "img": "maridav_ci_image/additifs _alimentaires/Biotronic Top Liquid Maridav.png",
+            "alt": "Biotronic Top Liquid MARIDAV",
+            "url": "biotronic_top_liquide_maridav_ci.html"
+          },
+          {
+            "tag": "Anti-stress thermique",
+            "title": "Nutricool®",
+            "text": "Électrolytes et antioxydants pour les périodes de forte chaleur.",
+            "img": "maridav_ci_image/additifs _alimentaires/NUTRICOOL.png",
+            "alt": "Nutricool MARIDAV",
+            "url": "nutricool_maridav_ci.html"
+          },
+          {
+            "tag": "Hub volailles",
+            "title": "Gamme Volailles",
+            "text": "Aliments, concentrés et prémix : du démarrage à la ponte.",
+            "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+            "alt": "Gamme volailles MARIDAV",
+            "url": "volailles.html"
+          }
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "MARIDAV CI",
+        "h2": "Boostez vos performances naturellement",
+        "text": "Devis en FCFA sous 24 h — nos techniciens adaptent le dosage de Digestarom® à votre espèce et à vos objectifs."
+      },
+      "jsonld": {
+        "name": "Digestarom®",
+        "description": "Additif phytogénique à base d'extraits végétaux (anis, fenouil, menthe) pour l'appétence et la digestibilité des volailles et porcs.",
+        "brand": "MARIDAV",
+        "sku": "DIGESTAROM",
+        "category": "Additif — phytogénique",
+        "audience": "Éleveurs volailles & porcs — appétence et conversion"
+      }
+    },
+    {
+      "url": "nutricool_maridav_ci.html",
+      "espece": "volailles",
+      "filieres": [
+        "volailles-chair",
+        "volailles-ponte",
+        "porcs-engraissement"
+      ],
+      "transversal": true,
+      "type": "additif",
+      "phase": "toutes phases",
+      "image": "maridav_ci_image/additifs _alimentaires/NUTRICOOL.png",
+      "og_image": "https://maridav.ci/maridav_ci_image/additifs _alimentaires/NUTRICOOL.png",
+      "title": "Nutricool® — Électrolytes anti-stress thermique | MARIDAV Côte d'Ivoire",
+      "description": "Complément Nutricool à base d'électrolytes (sodium, potassium, chlorure), de vitamines (C, E, B) et d'antioxydants pour soutenir les volailles et porcs en période de chaleur ou de transport. Sachets 1 kg, seau 5 kg. MARIDAV Côte d'Ivoire.",
+      "og_title": "Nutricool® — Électrolytes anti-stress thermique",
+      "og_description": "Aidez vos volailles et porcs à passer les vagues de chaleur : électrolytes, vitamines et antioxydants. MARIDAV CI.",
+      "breadcrumb": [
+        {
+          "name": "Volailles",
+          "url": "volailles.html"
+        },
+        {
+          "name": "Additif anti-stress thermique"
+        },
+        {
+          "name": "Nutricool®"
+        }
+      ],
+      "breadcrumb_jsonld": [
+        {
+          "name": "Accueil",
+          "item": "https://maridav.ci/"
+        },
+        {
+          "name": "Volailles",
+          "item": "https://maridav.ci/volailles.html"
+        },
+        {
+          "name": "Nutricool®",
+          "item": "https://maridav.ci/nutricool_maridav_ci.html"
+        }
+      ],
+      "hero": {
+        "eyebrow": "Additif — Anti-stress thermique",
+        "h1": "Nutricool<span class=\"accent\">®</span>",
+        "pill": {
+          "icon": "bi-thermometer-sun",
+          "text": "Électrolytes · saison chaude"
+        },
+        "lead": "Mélange d'<strong>électrolytes, vitamines et antioxydants</strong> pour soutenir vos animaux pendant les pics de chaleur et de transport : <em>équilibre hydrominéral restauré, immunité soutenue et ingestion maintenue</em>. Distribué et accompagné par MARIDAV Côte d'Ivoire.",
+        "facts": [
+          {
+            "b": "Na · K · Cl",
+            "span": "Électrolytes"
+          },
+          {
+            "b": "Vit. C + E",
+            "span": "Antioxydants"
+          },
+          {
+            "b": "Eau / top dressing",
+            "span": "Deux voies d'emploi"
+          },
+          {
+            "b": "1 kg · 5 kg",
+            "span": "Sachet · seau"
+          }
+        ],
+        "image_alt": "Nutricool électrolytes anti-stress thermique volailles porcs MARIDAV Côte d'Ivoire",
+        "figchip": {
+          "small": "Anti-chaleur",
+          "label": "Saison chaude"
+        }
+      },
+      "benefits": {
+        "kicker": "L'essentiel",
+        "h2": "Atouts Nutricool®",
+        "intro": "Un soutien ciblé pour les coups de chaleur et le transport — en complément de la ventilation et de la gestion d'ambiance des bâtiments.",
+        "cards": [
+          {
+            "icon": "bi-droplet-half",
+            "title": "Équilibre restauré",
+            "text": "Des électrolytes équilibrés (sodium, potassium, chlorure) pour compenser les pertes liées au halètement et à la chaleur."
+          },
+          {
+            "icon": "bi-shield-plus",
+            "title": "Immunité & antioxydants",
+            "text": "Vitamines C et E pour limiter le stress oxydatif des périodes chaudes et soutenir les défenses."
+          },
+          {
+            "icon": "bi-egg-fried",
+            "title": "Ingestion maintenue",
+            "text": "Aide à maintenir la consommation d'eau et d'aliment quand la température fait chuter l'appétit."
+          },
+          {
+            "icon": "bi-arrow-repeat",
+            "title": "Récupération",
+            "text": "Soutient la récupération après un transport ou une vague de chaleur — à anticiper sur les bandes sensibles."
+          }
+        ]
+      },
+      "usage": {
+        "h2": "Mode d'emploi",
+        "steps": [
+          {
+            "title": "Anticiper",
+            "text": "Démarrer Nutricool® environ 48 h avant un transport ou une vague de chaleur annoncée."
+          },
+          {
+            "title": "Distribuer",
+            "text": "Diluer dans l'eau de boisson propre, ou appliquer en top dressing sur l'aliment selon votre conduite."
+          },
+          {
+            "title": "Adapter",
+            "text": "Ajuster le dosage selon l'intensité du stress thermique. Nos techniciens vous établissent un plan."
+          }
+        ],
+        "note": "Nutricool® complète la maîtrise d'ambiance (ventilation, densité, abreuvement) — il ne la remplace pas."
+      },
+      "spec": {
+        "kicker": "Composition",
+        "h2": "Caractéristiques",
+        "rows": [
+          {
+            "k": "Électrolytes",
+            "v": "Sodium, potassium, chlorure, bicarbonate"
+          },
+          {
+            "k": "Vitamines",
+            "v": "Vitamine C, E, complexe B"
+          },
+          {
+            "k": "Additifs",
+            "v": "Acides aminés, antioxydants"
+          },
+          {
+            "k": "Voie d'emploi",
+            "v": "Eau de boisson ou top dressing"
+          },
+          {
+            "k": "Espèces",
+            "v": "Volailles, porcs (lapins, veaux, ruminants)"
+          },
+          {
+            "k": "Formats",
+            "v": "Sachets 1 kg / seau 5 kg"
+          }
+        ]
+      },
+      "crosssell": {
+        "title": "Chaleur : agissez aussi sur l'eau",
+        "text": "En saison chaude, couplez Nutricool® à <strong>Biotronic® Top Liquid</strong> pour une eau saine et appétente qui soutient l'abreuvement.",
+        "link_text": "Découvrir Biotronic® Top Liquid",
+        "url": "biotronic_top_liquide_maridav_ci.html"
+      },
+      "faq_intro": "Questions fréquentes sur Nutricool®",
+      "faq": [
+        {
+          "q": "Quand démarrer Nutricool® ?",
+          "a": "Idéalement environ 48 h avant un transport ou une vague de chaleur, puis pendant toute la période à risque. À anticiper sur les bandes les plus sensibles."
+        },
+        {
+          "q": "Par quelle voie l'administrer ?",
+          "a": "Dans l'eau de boisson (eau propre) ou en top dressing sur l'aliment, selon votre équipement et votre conduite d'élevage."
+        },
+        {
+          "q": "Pour quelles espèces ?",
+          "a": "Volailles (poulets, dindes, pondeuses) et porcs (porcelets, truies, engraissement). Lapins, veaux et ruminants : contactez MARIDAV CI."
+        }
+      ],
+      "related": {
+        "kicker": "À découvrir aussi",
+        "cards": [
+          {
+            "tag": "Hygiène de l'eau",
+            "title": "Biotronic® Top Liquid",
+            "text": "Acidifiant liquide pour une eau de boisson saine et appétente.",
+            "img": "maridav_ci_image/additifs _alimentaires/Biotronic Top Liquid Maridav.png",
+            "alt": "Biotronic Top Liquid MARIDAV",
+            "url": "biotronic_top_liquide_maridav_ci.html"
+          },
+          {
+            "tag": "Phytogénique",
+            "title": "Digestarom®",
+            "text": "Appétence et digestibilité par les extraits végétaux.",
+            "img": "maridav_ci_image/additifs _alimentaires/Digestarom Maridav.png",
+            "alt": "Digestarom MARIDAV",
+            "url": "digestarom_maridav_ci.html"
+          },
+          {
+            "tag": "Hub volailles",
+            "title": "Gamme Volailles",
+            "text": "Aliments, concentrés et prémix : du démarrage à la ponte.",
+            "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+            "alt": "Gamme volailles MARIDAV",
+            "url": "volailles.html"
+          }
+        ]
+      },
+      "ctaband": {
+        "eyebrow": "MARIDAV CI",
+        "h2": "Affrontez les vagues de chaleur",
+        "text": "Devis en FCFA sous 24 h — nos techniciens établissent un plan anti-stress thermique adapté à vos bâtiments et à vos bandes."
+      },
+      "jsonld": {
+        "name": "Nutricool®",
+        "description": "Complément d'électrolytes, vitamines et antioxydants pour soutenir volailles et porcs en cas de stress thermique ou de transport.",
+        "brand": "MARIDAV",
+        "sku": "NUTRICOOL",
+        "category": "Additif — anti-stress thermique",
+        "audience": "Éleveurs volailles & porcs — gestion du stress thermique"
+      }
+    }
+  ]
+}
