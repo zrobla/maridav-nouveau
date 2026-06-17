@@ -135,7 +135,7 @@
       st.type = 'button';
       st.className = 'scroll-top tran3s';
       st.setAttribute('aria-label', 'Revenir en haut');
-      st.innerHTML = '<i class="fa fa-angle-up" aria-hidden="true"></i>';
+      st.innerHTML = '<i class="fas fa-angle-up" aria-hidden="true"></i>';
       document.body.appendChild(st);
     }
     var toggleSt = function () {
