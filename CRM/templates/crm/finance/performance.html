@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Pilotage commercial & financier{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Pilotage commercial & financier</h1>
+        <p class="text-muted small mb-0">Chiffre d'affaires, objectifs des commerciaux et créances — {{ month_label }} {{ year }}.</p>
+    </div>
+    <a class="btn btn-outline-secondary" href="{% url 'targets-list' %}">Objectifs</a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-3"><label class="form-label">Année</label>
+        <select name="year" class="form-select">
+            {% for y in year_options %}<option value="{{ y }}" {% if y == year %}selected{% endif %}>{{ y }}</option>{% endfor %}
+        </select></div>
+    <div class="col-md-3"><label class="form-label">Mois</label>
+        <select name="month" class="form-select">
+            {% for value, label in months %}<option value="{{ value }}" {% if value == month %}selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select></div>
+    <div class="col-md-2"><button class="btn btn-outline-success w-100" type="submit">Afficher</button></div>
+</form>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-3"><div class="card shadow-sm h-100"><div class="card-body">
+        <div class="text-muted small">CA du mois</div>
+        <div class="h4 mb-0">{{ month_ca|floatformat:0 }} <span class="fs-6 text-muted">FCFA</span></div>
+    </div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm h-100"><div class="card-body">
+        <div class="text-muted small">CA cumulé {{ year }}</div>
+        <div class="h4 mb-0">{{ year_ca|floatformat:0 }} <span class="fs-6 text-muted">FCFA</span></div>
+    </div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm h-100"><div class="card-body">
+        <div class="text-muted small">Encours total</div>
+        <div class="h4 mb-0">{{ outstanding_total|floatformat:0 }} <span class="fs-6 text-muted">FCFA</span></div>
+    </div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm h-100 {% if overdue_total %}border-danger{% endif %}"><div class="card-body">
+        <div class="text-muted small">Créances en retard</div>
+        <div class="h4 mb-0 {% if overdue_total %}text-danger{% endif %}">{{ overdue_total|floatformat:0 }} <span class="fs-6 text-muted">FCFA</span></div>
+    </div></div></div>
+</div>
+
+<div class="card shadow-sm mb-4"><div class="card-body">
+    <h2 class="h6 mb-3">Évolution du CA mensuel {{ year }}</h2>
+    <canvas id="caMonthly" height="90"></canvas>
+</div></div>
+
+<div class="card shadow-sm mb-4"><div class="card-header bg-white"><strong>Objectifs des commerciaux — {{ month_label }} {{ year }}</strong></div>
+    <div class="card-body p-0"><table class="table mb-0 align-middle">
+        <thead><tr><th>Commercial</th><th class="text-end">Objectif</th><th class="text-end">Réalisé</th><th style="width:180px">Atteinte</th><th class="text-end">Écart</th><th class="text-end">Commission</th></tr></thead>
+        <tbody>
+            {% for row in target_rows %}
+                <tr>
+                    <td>{{ row.target.owner.get_full_name|default:row.target.owner.username }}{% if row.target.segment %} <span class="text-muted small">· {{ row.target.get_segment_display }}</span>{% endif %}</td>
+                    <td class="text-end">{{ row.summary.target|floatformat:0 }}</td>
+                    <td class="text-end fw-semibold">{{ row.summary.realized|floatformat:0 }}</td>
+                    <td>{% if row.summary.achievement_pct is not None %}{% with pct=row.summary.achievement_pct %}
+                        <div class="progress" style="height:18px;"><div class="progress-bar {% if pct >= 100 %}bg-success{% elif pct >= 60 %}bg-info{% else %}bg-warning{% endif %}" style="width: {% if pct > 100 %}100{% else %}{{ pct }}{% endif %}%;">{{ pct }}%</div></div>
+                        {% endwith %}{% else %}<span class="text-muted small">—</span>{% endif %}</td>
+                    <td class="text-end {% if row.summary.gap < 0 %}text-danger{% else %}text-success{% endif %}">{{ row.summary.gap|floatformat:0 }}</td>
+                    <td class="text-end">{{ row.summary.commission|floatformat:0 }}</td>
+                </tr>
+            {% empty %}<tr><td colspan="6" class="text-center text-muted py-3">Aucun objectif défini pour cette période.</td></tr>{% endfor %}
+        </tbody>
+    </table></div>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-4"><div class="card shadow-sm h-100"><div class="card-header bg-white"><strong>CA par commercial</strong></div>
+        <div class="card-body p-0"><table class="table table-sm mb-0">
+            <tbody>{% for c in ca_by_commercial %}<tr><td>{{ c.name }}</td><td class="text-end">{{ c.ca|floatformat:0 }}</td></tr>
+            {% empty %}<tr><td class="text-center text-muted py-3">Aucune vente.</td></tr>{% endfor %}</tbody>
+        </table></div></div></div>
+    <div class="col-lg-4"><div class="card shadow-sm h-100"><div class="card-header bg-white"><strong>CA par espèce</strong></div>
+        <div class="card-body p-0"><table class="table table-sm mb-0">
+            <tbody>{% for s in ca_by_species %}<tr><td>{{ s.segment }}</td><td class="text-end">{{ s.ca|floatformat:0 }}</td></tr>
+            {% empty %}<tr><td class="text-center text-muted py-3">Aucune vente.</td></tr>{% endfor %}</tbody>
+        </table></div></div></div>
+    <div class="col-lg-4"><div class="card shadow-sm h-100"><div class="card-header bg-white"><strong>Top produits</strong></div>
+        <div class="card-body p-0"><table class="table table-sm mb-0">
+            <thead><tr><th>Produit</th><th class="text-end">Qté</th><th class="text-end">CA</th></tr></thead>
+            <tbody>{% for p in top_products %}<tr><td>{{ p.name }}</td><td class="text-end">{{ p.qty }}</td><td class="text-end">{{ p.ca|floatformat:0 }}</td></tr>
+            {% empty %}<tr><td colspan="3" class="text-center text-muted py-3">Aucune vente.</td></tr>{% endfor %}</tbody>
+        </table></div></div></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const caCtx = document.getElementById("caMonthly");
+    if (caCtx) {
+        new Chart(caCtx, {
+            type: "bar",
+            data: {
+                labels: ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"],
+                datasets: [{ label: "CA (FCFA)", data: {{ monthly_series|safe }}, backgroundColor: "#198754" }]
+            },
+            options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+        });
+    }
+</script>
+{% endblock %}

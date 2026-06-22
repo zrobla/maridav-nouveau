@@ -26,17 +26,22 @@ from .models import (
     InvoicePayment,
     Product,
     ProductCategory,
+    ProductPrice,
     Promotion,
     RoleAssignment,
     RoleAssignmentTypeChoices,
     RoleScopeChoices,
     RoutingRule,
+    SalesTarget,
     SlaEscalation,
+    StockLot,
+    StockMovement,
     SupportCase,
     Task,
     Territory,
     UserSecurityProfile,
     VisitReport,
+    Warehouse,
 )
 
 User = get_user_model()
@@ -110,6 +115,9 @@ class CustomerForm(StyledModelForm):
             "tax_rccm",
             "tax_regime",
             "status",
+            "credit_limit",
+            "payment_terms_days",
+            "credit_hold",
             "notes",
         ]
 
@@ -165,7 +173,49 @@ class ProductCategoryForm(StyledModelForm):
 class ProductForm(StyledModelForm):
     class Meta:
         model = Product
-        fields = ["category", "name", "sku", "packaging", "unit_price", "status", "usage_notes"]
+        fields = [
+            "category",
+            "name",
+            "sku",
+            "packaging",
+            "unit_price",
+            "cost_price",
+            "min_stock_alert",
+            "status",
+            "usage_notes",
+        ]
+
+
+class ProductPriceForm(StyledModelForm):
+    class Meta:
+        model = ProductPrice
+        fields = ["customer_type", "unit_price"]
+
+
+ProductPriceFormSet = inlineformset_factory(
+    Product,
+    ProductPrice,
+    form=ProductPriceForm,
+    extra=1,
+    can_delete=True,
+)
+
+
+class SalesTargetForm(StyledModelForm):
+    class Meta:
+        model = SalesTarget
+        fields = [
+            "owner",
+            "territory",
+            "segment",
+            "period_year",
+            "period_month",
+            "target_amount",
+            "target_quantity",
+            "commission_rate_pct",
+            "status",
+            "notes",
+        ]
 
 
 class OpportunityForm(StyledModelForm):
@@ -545,3 +595,87 @@ class RoutingRuleForm(StyledModelForm):
             "active",
             "notes",
         ]
+
+
+# --- Phase 1 : Stock, lots & péremption ---------------------------------------
+
+
+class WarehouseForm(StyledModelForm):
+    class Meta:
+        model = Warehouse
+        fields = [
+            "name",
+            "code",
+            "warehouse_type",
+            "territory",
+            "city",
+            "region",
+            "address",
+            "manager",
+            "is_active",
+            "notes",
+        ]
+
+
+class StockLotForm(StyledModelForm):
+    """Création/édition d'un lot. La quantité 'reçue' alimente le solde initial ;
+    par la suite, le solde n'évolue que via les mouvements de stock."""
+
+    class Meta:
+        model = StockLot
+        fields = [
+            "product",
+            "warehouse",
+            "lot_code",
+            "unit",
+            "quantity_initial",
+            "unit_cost",
+            "production_date",
+            "expiry_date",
+            "status",
+            "supplier_reference",
+            "notes",
+        ]
+        widgets = {
+            "production_date": DateInput(),
+            "expiry_date": DateInput(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["quantity_initial"].label = "Quantité reçue"
+        if self.instance and self.instance.pk:
+            # En édition, la quantité initiale est figée (le solde suit les mouvements).
+            self.fields["quantity_initial"].disabled = True
+            self.fields["quantity_initial"].help_text = (
+                "Quantité d'origine du lot. Le stock courant évolue via les mouvements."
+            )
+
+
+class StockMovementForm(StyledModelForm):
+    class Meta:
+        model = StockMovement
+        fields = [
+            "lot",
+            "movement_type",
+            "quantity",
+            "reason",
+            "order",
+            "invoice",
+            "counterpart_warehouse",
+            "occurred_at",
+            "notes",
+        ]
+        widgets = {"occurred_at": DateTimeInput()}
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["lot"].queryset = StockLot.objects.select_related(
+            "product", "warehouse"
+        ).order_by("product__name", "lot_code")
+        self.fields["order"].required = False
+        self.fields["invoice"].required = False
+        self.fields["counterpart_warehouse"].required = False
+        self.fields["quantity"].help_text = (
+            "Pour un ajustement, saisir la quantité réellement comptée (le solde sera fixé à cette valeur)."
+        )

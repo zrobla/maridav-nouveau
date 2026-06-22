@@ -8,6 +8,7 @@
     </div>
     <div class="d-flex gap-2">
         <a class="btn btn-outline-secondary" href="{% url 'products-categories' %}">Catégories</a>
+        <a class="btn btn-outline-success" href="{% url 'products-margins' %}"><i class="bi bi-graph-up"></i> Marges</a>
         <a class="btn btn-success" href="{% url 'products-create' %}"><i class="bi bi-plus"></i> Nouveau produit</a>
     </div>
 </div>
@@ -34,7 +35,7 @@
 <div class="card shadow-sm">
     <div class="card-body p-0">
         <table class="table mb-0 align-middle">
-            <thead><tr><th>Nom</th><th>Catégorie</th><th>SKU</th><th>Cond.</th><th>Prix</th><th></th></tr></thead>
+            <thead><tr><th>Nom</th><th>Catégorie</th><th>SKU</th><th>Cond.</th><th class="text-end">Prix</th><th class="text-end">Coût</th><th class="text-end">Marge</th><th class="text-end">Stock</th><th></th></tr></thead>
             <tbody>
                 {% for product in products %}
                     <tr>
@@ -42,11 +43,14 @@
                         <td>{{ product.category.name }}</td>
                         <td>{{ product.sku }}</td>
                         <td>{{ product.packaging }}</td>
-                        <td>{{ product.unit_price }} FCFA</td>
+                        <td class="text-end">{{ product.unit_price }} FCFA</td>
+                        <td class="text-end">{% if product.cost_price %}{{ product.cost_price }}{% else %}<span class="text-muted">—</span>{% endif %}</td>
+                        <td class="text-end">{% if product.cost_price and product.margin_pct is not None %}<span class="{% if product.margin_amount < 0 %}text-danger{% else %}text-success{% endif %}">{{ product.margin_pct }}%</span>{% else %}<span class="text-muted">—</span>{% endif %}</td>
+                        <td class="text-end {% if product.is_stock_low %}text-warning fw-semibold{% endif %}">{{ product.stock_on_hand|floatformat:0 }}</td>
                         <td class="text-end"><a class="btn btn-sm btn-outline-secondary" href="{% url 'products-update' product.pk %}">Mettre à jour</a></td>
                     </tr>
                 {% empty %}
-                    <tr><td colspan="6" class="text-center text-muted py-3">Aucun produit saisi.</td></tr>
+                    <tr><td colspan="9" class="text-center text-muted py-3">Aucun produit saisi.</td></tr>
                 {% endfor %}
             </tbody>
         </table>

@@ -33,15 +33,20 @@ from .forms import (
     InvoicePaymentForm,
     ProductForm,
     ProductCategoryForm,
+    ProductPriceFormSet,
     PromotionForm,
     RoleAssignmentForm,
     RoutingRuleForm,
+    SalesTargetForm,
+    StockLotForm,
+    StockMovementForm,
     SupportCaseForm,
     TaskForm,
     TerritoryForm,
     UserRoleForm,
     UserSecurityProfileForm,
     VisitReportForm,
+    WarehouseForm,
 )
 from .models import (
     ApprovalRequest,
@@ -71,19 +76,29 @@ from .models import (
     Promotion,
     RoleAssignment,
     RoutingRule,
+    SalesTarget,
     SlaEscalation,
     EscalationStatusChoices,
+    StockLot,
+    StockLotStatusChoices,
+    StockMovement,
+    StockMovementTypeChoices,
     SupportCase,
     Task,
     Territory,
     VisitReport,
     InboundStatusChoices,
     LeadStatusChoices,
+    MONTH_CHOICES,
     OrderStatusChoices,
     SupportStatusChoices,
     TaskStatusChoices,
     UserSecurityProfile,
+    Warehouse,
 )
+from .services.stock import apply_stock_movement
+from .services.credit import customer_aging, receivables_overview
+from .services import sales_performance
 from .services.access_scope import (
     has_global_scope,
     resolve_scope,
@@ -555,6 +570,7 @@ class CustomerDetailView(ScopedPermissionRequiredMixin, LoginRequiredMixin, gene
                 "visits": customer.visits.all()[:5],
                 "tasks": customer.tasks.exclude(status=TaskStatusChoices.TERMINE)[:5],
                 "opportunities": customer.opportunities.all()[:5],
+                "credit_aging": customer_aging(customer),
             }
         )
         return context
@@ -725,6 +741,24 @@ class ProductCreateView(PermissionRequiredMixin, LoginRequiredMixin, generic.Cre
     success_url = reverse_lazy("products-list")
     permission_required = "crm.add_product"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.POST:
+            context["prices_formset"] = ProductPriceFormSet(self.request.POST)
+        else:
+            context["prices_formset"] = ProductPriceFormSet()
+        return context
+
+    def form_valid(self, form):
+        context = self.get_context_data()
+        prices_formset = context["prices_formset"]
+        if prices_formset.is_valid():
+            response = super().form_valid(form)
+            prices_formset.instance = self.object
+            prices_formset.save()
+            return response
+        return self.form_invalid(form)
+
 
 class ProductUpdateView(PermissionRequiredMixin, LoginRequiredMixin, generic.UpdateView):
     model = Product
@@ -732,6 +766,51 @@ class ProductUpdateView(PermissionRequiredMixin, LoginRequiredMixin, generic.Upd
     template_name = "crm/products/form.html"
     success_url = reverse_lazy("products-list")
     permission_required = "crm.change_product"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.POST:
+            context["prices_formset"] = ProductPriceFormSet(self.request.POST, instance=self.object)
+        else:
+            context["prices_formset"] = ProductPriceFormSet(instance=self.object)
+        return context
+
+    def form_valid(self, form):
+        context = self.get_context_data()
+        prices_formset = context["prices_formset"]
+        if prices_formset.is_valid():
+            response = super().form_valid(form)
+            prices_formset.instance = self.object
+            prices_formset.save()
+            return response
+        return self.form_invalid(form)
+
+
+class MarginReportView(PermissionRequiredMixin, LoginRequiredMixin, SearchableListMixin, generic.ListView):
+    model = Product
+    template_name = "crm/products/margin_report.html"
+    context_object_name = "products"
+    paginate_by = 40
+    search_fields = ("name", "sku")
+    permission_required = "crm.view_product"
+
+    def get_queryset(self):
+        qs = super().get_queryset().filter(status="actif").select_related("category").prefetch_related("segment_prices")
+        category = self.request.GET.get("category")
+        if category:
+            qs = qs.filter(category_id=category)
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = ProductCategory.objects.all()
+        all_products = Product.objects.filter(status="actif")
+        priced = [p for p in all_products if p.unit_price]
+        context["products_priced"] = len(priced)
+        context["products_no_cost"] = sum(1 for p in priced if not p.cost_price)
+        margins = [p.margin_pct for p in priced if p.cost_price and p.margin_pct is not None]
+        context["avg_margin_pct"] = round(sum(margins) / len(margins), 1) if margins else None
+        return context
 
 
 class OrderListView(PermissionRequiredMixin, LoginRequiredMixin, generic.ListView):
@@ -2593,3 +2672,324 @@ class SOPStudioSaveView(PermissionRequiredMixin, LoginRequiredMixin, View):
                 "saved_to": "markdown/sop_studio_choices.json",
             }
         )
+
+
+# ---------------------------------------------------------------------------
+# Phase 1 — Stock, lots & péremption
+# ---------------------------------------------------------------------------
+
+
+class WarehouseListView(PermissionRequiredMixin, LoginRequiredMixin, SearchableListMixin, generic.ListView):
+    model = Warehouse
+    template_name = "crm/stock/warehouses_list.html"
+    context_object_name = "warehouses"
+    paginate_by = 25
+    search_fields = ("name", "code", "city", "region")
+    permission_required = "crm.view_warehouse"
+
+    def get_queryset(self):
+        return super().get_queryset().select_related("territory", "manager")
+
+
+class WarehouseCreateView(PermissionRequiredMixin, LoginRequiredMixin, generic.CreateView):
+    model = Warehouse
+    form_class = WarehouseForm
+    template_name = "crm/stock/warehouse_form.html"
+    success_url = reverse_lazy("warehouses-list")
+    permission_required = "crm.add_warehouse"
+
+
+class WarehouseUpdateView(PermissionRequiredMixin, LoginRequiredMixin, generic.UpdateView):
+    model = Warehouse
+    form_class = WarehouseForm
+    template_name = "crm/stock/warehouse_form.html"
+    success_url = reverse_lazy("warehouses-list")
+    permission_required = "crm.change_warehouse"
+
+
+class StockLotListView(PermissionRequiredMixin, LoginRequiredMixin, SearchableListMixin, generic.ListView):
+    model = StockLot
+    template_name = "crm/stock/lots_list.html"
+    context_object_name = "lots"
+    paginate_by = 30
+    search_fields = ("lot_code", "product__name", "product__sku", "supplier_reference")
+    permission_required = "crm.view_stocklot"
+
+    def get_queryset(self):
+        qs = super().get_queryset().select_related("product", "warehouse")
+        warehouse = self.request.GET.get("warehouse")
+        status = self.request.GET.get("status")
+        alert = self.request.GET.get("alert")
+        if warehouse:
+            qs = qs.filter(warehouse_id=warehouse)
+        if status:
+            qs = qs.filter(status=status)
+        today = timezone.localdate()
+        if alert == "expired":
+            qs = qs.filter(expiry_date__lt=today)
+        elif alert == "near":
+            qs = qs.filter(expiry_date__gte=today, expiry_date__lte=today + timezone.timedelta(days=30))
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["warehouses"] = Warehouse.objects.filter(is_active=True)
+        context["status_choices"] = StockLotStatusChoices.choices
+        return context
+
+
+class StockLotCreateView(PermissionRequiredMixin, LoginRequiredMixin, generic.CreateView):
+    model = StockLot
+    form_class = StockLotForm
+    template_name = "crm/stock/lot_form.html"
+    success_url = reverse_lazy("stock-lots-list")
+    permission_required = "crm.add_stocklot"
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.quantity_on_hand = 0
+        self.object.save()
+        initial = self.object.quantity_initial or 0
+        if initial and initial > 0:
+            movement = StockMovement(
+                lot=self.object,
+                movement_type=StockMovementTypeChoices.ENTREE,
+                quantity=initial,
+                reason="Réception initiale du lot",
+                occurred_at=timezone.now(),
+                recorded_by=self.request.user,
+            )
+            apply_stock_movement(movement)
+        messages.success(self.request, "Lot créé et entrée en stock enregistrée.")
+        return redirect(self.success_url)
+
+
+class StockLotUpdateView(PermissionRequiredMixin, LoginRequiredMixin, generic.UpdateView):
+    model = StockLot
+    form_class = StockLotForm
+    template_name = "crm/stock/lot_form.html"
+    success_url = reverse_lazy("stock-lots-list")
+    permission_required = "crm.change_stocklot"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["movements"] = self.object.movements.select_related("order", "invoice")[:30]
+        return context
+
+
+class StockMovementListView(PermissionRequiredMixin, LoginRequiredMixin, SearchableListMixin, generic.ListView):
+    model = StockMovement
+    template_name = "crm/stock/movements_list.html"
+    context_object_name = "movements"
+    paginate_by = 40
+    search_fields = ("lot__lot_code", "lot__product__name", "reason")
+    permission_required = "crm.view_stockmovement"
+
+    def get_queryset(self):
+        qs = super().get_queryset().select_related("lot", "lot__product", "lot__warehouse", "recorded_by")
+        mtype = self.request.GET.get("type")
+        if mtype:
+            qs = qs.filter(movement_type=mtype)
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["type_choices"] = StockMovementTypeChoices.choices
+        return context
+
+
+class StockMovementCreateView(PermissionRequiredMixin, LoginRequiredMixin, generic.CreateView):
+    model = StockMovement
+    form_class = StockMovementForm
+    template_name = "crm/stock/movement_form.html"
+    success_url = reverse_lazy("stock-movements-list")
+    permission_required = "crm.add_stockmovement"
+
+    def get_initial(self):
+        initial = super().get_initial()
+        lot_id = self.request.GET.get("lot")
+        if lot_id:
+            initial["lot"] = lot_id
+        return initial
+
+    def form_valid(self, form):
+        from django.core.exceptions import ValidationError
+
+        movement = form.save(commit=False)
+        movement.recorded_by = self.request.user
+        try:
+            apply_stock_movement(movement)
+        except ValidationError as exc:
+            for message in getattr(exc, "messages", [str(exc)]):
+                form.add_error(None, message)
+            return self.form_invalid(form)
+        messages.success(self.request, "Mouvement de stock enregistré.")
+        return redirect(self.success_url)
+
+
+class StockDashboardView(PermissionRequiredMixin, LoginRequiredMixin, generic.TemplateView):
+    template_name = "crm/stock/dashboard.html"
+    permission_required = "crm.view_stocklot"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        today = timezone.localdate()
+        active_lots = StockLot.objects.filter(
+            status__in=[StockLotStatusChoices.DISPONIBLE, StockLotStatusChoices.RESERVE]
+        ).select_related("product", "warehouse")
+
+        context["lots_total"] = StockLot.objects.count()
+        context["stock_value"] = sum(
+            int(lot.quantity_on_hand or 0) * int(lot.unit_cost or 0) for lot in active_lots
+        )
+        expired = StockLot.objects.filter(
+            expiry_date__lt=today
+        ).exclude(status=StockLotStatusChoices.EPUISE).select_related("product", "warehouse")
+        near = StockLot.objects.filter(
+            expiry_date__gte=today,
+            expiry_date__lte=today + timezone.timedelta(days=30),
+        ).exclude(status=StockLotStatusChoices.EPUISE).select_related("product", "warehouse")
+        context["expired_lots"] = expired[:20]
+        context["expired_count"] = expired.count()
+        context["near_expiry_lots"] = near.order_by("expiry_date")[:20]
+        context["near_expiry_count"] = near.count()
+
+        low_products = [p for p in Product.objects.filter(status="actif") if p.is_stock_low]
+        context["low_stock_products"] = low_products[:20]
+        context["low_stock_count"] = len(low_products)
+
+        context["recent_movements"] = (
+            StockMovement.objects.select_related("lot", "lot__product", "recorded_by")
+            .order_by("-occurred_at")[:10]
+        )
+        return context
+
+
+# ---------------------------------------------------------------------------
+# Phase 2 — Encours crédit & créances âgées
+# ---------------------------------------------------------------------------
+
+
+class ReceivablesView(PermissionRequiredMixin, LoginRequiredMixin, generic.TemplateView):
+    template_name = "crm/finance/receivables.html"
+    permission_required = "crm.view_invoice"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        customers_qs = scoped_customers_queryset(self.request.user)
+        overview = receivables_overview(customers_qs)
+        rows = overview["rows"]
+
+        only = self.request.GET.get("filter")
+        if only == "overdue":
+            rows = [r for r in rows if r["aging"]["overdue"] > 0]
+        elif only == "over_limit":
+            rows = [r for r in rows if r["over_limit"] or r["credit_hold"]]
+
+        context["rows"] = rows
+        context["totals"] = overview["totals"]
+        context["filter"] = only or ""
+        context["customers_with_balance"] = len(overview["rows"])
+        return context
+
+
+# ---------------------------------------------------------------------------
+# Phase 4 — Objectifs commerciaux & tableau de bord financier
+# ---------------------------------------------------------------------------
+
+
+class SalesTargetListView(PermissionRequiredMixin, LoginRequiredMixin, generic.ListView):
+    model = SalesTarget
+    template_name = "crm/targets/list.html"
+    context_object_name = "targets"
+    paginate_by = 30
+    permission_required = "crm.view_salestarget"
+
+    def get_queryset(self):
+        qs = super().get_queryset().select_related("owner", "territory")
+        year = self.request.GET.get("year")
+        month = self.request.GET.get("month")
+        if year:
+            qs = qs.filter(period_year=year)
+        if month:
+            qs = qs.filter(period_month=month)
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        rows = []
+        for target in context["targets"]:
+            rows.append({"target": target, "summary": sales_performance.target_summary(target)})
+        context["rows"] = rows
+        context["months"] = MONTH_CHOICES
+        context["current_year"] = timezone.localdate().year
+        return context
+
+
+class SalesTargetCreateView(PermissionRequiredMixin, LoginRequiredMixin, generic.CreateView):
+    model = SalesTarget
+    form_class = SalesTargetForm
+    template_name = "crm/targets/form.html"
+    success_url = reverse_lazy("targets-list")
+    permission_required = "crm.add_salestarget"
+
+    def get_initial(self):
+        initial = super().get_initial()
+        today = timezone.localdate()
+        initial.setdefault("period_year", today.year)
+        initial.setdefault("period_month", today.month)
+        return initial
+
+
+class SalesTargetUpdateView(PermissionRequiredMixin, LoginRequiredMixin, generic.UpdateView):
+    model = SalesTarget
+    form_class = SalesTargetForm
+    template_name = "crm/targets/form.html"
+    success_url = reverse_lazy("targets-list")
+    permission_required = "crm.change_salestarget"
+
+
+class SalesPerformanceView(PermissionRequiredMixin, LoginRequiredMixin, generic.TemplateView):
+    template_name = "crm/finance/performance.html"
+    permission_required = "crm.view_dashboard"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        today = timezone.localdate()
+        try:
+            year = int(self.request.GET.get("year", today.year))
+            month = int(self.request.GET.get("month", today.month))
+        except (TypeError, ValueError):
+            year, month = today.year, today.month
+
+        overview = sales_performance.finance_overview(year, month)
+        receivables = receivables_overview(scoped_customers_queryset(self.request.user))
+
+        targets = SalesTarget.objects.filter(
+            period_year=year, period_month=month
+        ).select_related("owner", "territory")
+        target_rows = [
+            {"target": t, "summary": sales_performance.target_summary(t)} for t in targets
+        ]
+        target_rows.sort(key=lambda r: r["summary"]["achievement_pct"] or 0, reverse=True)
+
+        context.update(
+            {
+                "year": year,
+                "month": month,
+                "months": MONTH_CHOICES,
+                "month_label": dict(MONTH_CHOICES).get(month, ""),
+                "month_ca": overview["month_ca"],
+                "year_ca": overview["year_ca"],
+                "invoices_count": overview["invoices_count"],
+                "outstanding_total": receivables["totals"]["total"],
+                "overdue_total": receivables["totals"]["overdue"],
+                "target_rows": target_rows,
+                "ca_by_commercial": sales_performance.ca_by_commercial(year, month),
+                "ca_by_species": sales_performance.ca_by_species(year, month),
+                "top_products": sales_performance.top_products(year, month),
+                "monthly_series": sales_performance.monthly_ca_series(year),
+                "year_options": list(range(today.year - 3, today.year + 1)),
+            }
+        )
+        return context

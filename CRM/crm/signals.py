@@ -28,15 +28,20 @@ from crm.models import (
     Outlet,
     Product,
     ProductCategory,
+    ProductPrice,
     Promotion,
     RoleAssignment,
     RoutingRule,
+    SalesTarget,
     SlaEscalation,
+    StockLot,
+    StockMovement,
     SupportCase,
     Task,
     Territory,
     UserSecurityProfile,
     VisitReport,
+    Warehouse,
 )
 from crm.services.automation import ensure_inbound_defaults, ensure_lead_score, should_mark_first_response, should_mark_resolved
 from crm.services.governance import (
@@ -94,6 +99,11 @@ AUDIT_TRACKED_MODELS = (
     DataQualityIssue,
     SlaEscalation,
     RoleAssignment,
+    Warehouse,
+    StockLot,
+    StockMovement,
+    ProductPrice,
+    SalesTarget,
 )
 
 

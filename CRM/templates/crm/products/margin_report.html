@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Analyse de marge{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Analyse de marge</h1>
+        <p class="text-muted small mb-0">Marge par produit et tarifs par segment de client.</p>
+    </div>
+    <a class="btn btn-outline-secondary" href="{% url 'products-list' %}">← Produits</a>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4"><div class="card shadow-sm h-100"><div class="card-body">
+        <div class="text-muted small">Marge moyenne (produits avec coût)</div>
+        <div class="h3 mb-0">{% if avg_margin_pct is not None %}{{ avg_margin_pct }}%{% else %}—{% endif %}</div>
+    </div></div></div>
+    <div class="col-md-4"><div class="card shadow-sm h-100"><div class="card-body">
+        <div class="text-muted small">Produits tarifés</div>
+        <div class="h3 mb-0">{{ products_priced }}</div>
+    </div></div></div>
+    <div class="col-md-4"><div class="card shadow-sm h-100 {% if products_no_cost %}border-warning{% endif %}"><div class="card-body">
+        <div class="text-muted small">Produits sans coût de revient</div>
+        <div class="h3 mb-0 {% if products_no_cost %}text-warning{% endif %}">{{ products_no_cost }}</div>
+    </div></div></div>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-5"><label class="form-label">Recherche</label>
+        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Nom ou SKU"></div>
+    <div class="col-md-5"><label class="form-label">Catégorie</label>
+        <select name="category" class="form-select"><option value="">Toutes</option>
+            {% for category in categories %}<option value="{{ category.id }}" {% if request.GET.category == category.id|stringformat:'s' %}selected{% endif %}>{{ category.name }}</option>{% endfor %}
+        </select></div>
+    <div class="col-md-2"><button class="btn btn-outline-success w-100" type="submit">Filtrer</button></div>
+</form>
+
+<div class="card shadow-sm"><div class="card-body p-0">
+    <table class="table mb-0 align-middle">
+        <thead><tr><th>Produit</th><th class="text-end">Coût</th><th class="text-end">Prix réf.</th><th class="text-end">Marge</th><th>Tarifs par segment</th></tr></thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.name }}<div class="text-muted small">{{ product.sku }}</div></td>
+                    <td class="text-end">{% if product.cost_price %}{{ product.cost_price }}{% else %}<span class="text-muted">—</span>{% endif %}</td>
+                    <td class="text-end">{{ product.unit_price }}</td>
+                    <td class="text-end">
+                        {% if product.cost_price and product.margin_pct is not None %}
+                            <span class="{% if product.margin_amount < 0 %}text-danger{% else %}text-success{% endif %}">{{ product.margin_amount }} ({{ product.margin_pct }}%)</span>
+                        {% else %}<span class="text-muted">à renseigner</span>{% endif %}
+                    </td>
+                    <td>
+                        {% for tier in product.segment_prices.all %}
+                            <span class="badge bg-light text-dark border me-1">{{ tier.get_customer_type_display }} : {{ tier.unit_price }}</span>
+                        {% empty %}<span class="text-muted small">Prix de référence uniquement</span>{% endfor %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="5" class="text-center text-muted py-3">Aucun produit.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div></div>
+{% include "crm/_pagination.html" %}
+{% endblock %}

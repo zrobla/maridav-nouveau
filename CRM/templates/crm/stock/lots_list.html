@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Lots de stock{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Lots de stock</h1>
+        <p class="text-muted small mb-0">Traçabilité par lot : quantité, péremption (DLUO) et statut.</p>
+    </div>
+    {% if perms.crm.add_stocklot %}<a class="btn btn-success" href="{% url 'stock-lots-create' %}"><i class="bi bi-plus"></i> Nouveau lot</a>{% endif %}
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-4">
+        <label class="form-label">Recherche</label>
+        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Produit, n° de lot, référence">
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Entrepôt</label>
+        <select name="warehouse" class="form-select">
+            <option value="">Tous</option>
+            {% for w in warehouses %}<option value="{{ w.id }}" {% if request.GET.warehouse == w.id|stringformat:"s" %}selected{% endif %}>{{ w.name }}</option>{% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Statut</label>
+        <select name="status" class="form-select">
+            <option value="">Tous</option>
+            {% for value, label in status_choices %}<option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Alerte</label>
+        <select name="alert" class="form-select">
+            <option value="">—</option>
+            <option value="near" {% if request.GET.alert == "near" %}selected{% endif %}>Péremption &lt; 30j</option>
+            <option value="expired" {% if request.GET.alert == "expired" %}selected{% endif %}>Périmés</option>
+        </select>
+    </div>
+    <div class="col-md-1"><button class="btn btn-outline-success w-100" type="submit">Ok</button></div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0 align-middle">
+            <thead><tr><th>Produit</th><th>N° lot</th><th>Entrepôt</th><th>Stock</th><th>Péremption</th><th>Statut</th><th></th></tr></thead>
+            <tbody>
+                {% for lot in lots %}
+                    <tr>
+                        <td>{{ lot.product.name }}<div class="text-muted small">{{ lot.product.sku }}</div></td>
+                        <td>{{ lot.lot_code }}</td>
+                        <td>{{ lot.warehouse.name }}</td>
+                        <td>{{ lot.quantity_on_hand|floatformat:0 }} {{ lot.get_unit_display }}</td>
+                        <td>
+                            {% if lot.expiry_date %}
+                                {% if lot.is_expired %}<span class="badge bg-danger">{{ lot.expiry_date|date:"d/m/Y" }}</span>
+                                {% elif lot.is_near_expiry %}<span class="badge bg-warning text-dark">{{ lot.expiry_date|date:"d/m/Y" }} (J-{{ lot.days_to_expiry }})</span>
+                                {% else %}{{ lot.expiry_date|date:"d/m/Y" }}{% endif %}
+                            {% else %}<span class="text-muted">—</span>{% endif %}
+                        </td>
+                        <td><span class="badge bg-light text-dark border">{{ lot.get_status_display }}</span></td>
+                        <td class="text-end">
+                            {% if perms.crm.add_stockmovement %}<a class="btn btn-sm btn-outline-success" href="{% url 'stock-movements-create' %}?lot={{ lot.pk }}">Mouvement</a>{% endif %}
+                            {% if perms.crm.change_stocklot %}<a class="btn btn-sm btn-outline-secondary" href="{% url 'stock-lots-update' lot.pk %}">Éditer</a>{% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="7" class="text-center text-muted py-3">Aucun lot.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% include "crm/_pagination.html" %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Lot de stock{% endblock %}
+{% block content %}
+<div class="row justify-content-center"><div class="col-xl-10">
+    <div class="card shadow-sm"><div class="card-body">
+        <h1 class="h5 mb-3">{{ form.instance.pk|yesno:"Mettre à jour,Créer" }} un lot</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="row g-3">
+                <div class="col-md-5">{{ form.product.label_tag }}{{ form.product }}</div>
+                <div class="col-md-4">{{ form.warehouse.label_tag }}{{ form.warehouse }}</div>
+                <div class="col-md-3">{{ form.lot_code.label_tag }}{{ form.lot_code }}</div>
+                <div class="col-md-3">{{ form.quantity_initial.label_tag }}{{ form.quantity_initial }}
+                    {% if form.quantity_initial.help_text %}<div class="form-text">{{ form.quantity_initial.help_text }}</div>{% endif %}</div>
+                <div class="col-md-3">{{ form.unit.label_tag }}{{ form.unit }}</div>
+                <div class="col-md-3">{{ form.unit_cost.label_tag }}{{ form.unit_cost }}</div>
+                <div class="col-md-3">{{ form.status.label_tag }}{{ form.status }}</div>
+                <div class="col-md-3">{{ form.production_date.label_tag }}{{ form.production_date }}</div>
+                <div class="col-md-3">{{ form.expiry_date.label_tag }}{{ form.expiry_date }}</div>
+                <div class="col-md-6">{{ form.supplier_reference.label_tag }}{{ form.supplier_reference }}</div>
+                <div class="col-12">{{ form.notes.label_tag }}{{ form.notes }}</div>
+            </div>
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <a class="btn btn-outline-secondary" href="{% url 'stock-lots-list' %}">Annuler</a>
+                <button class="btn btn-success" type="submit">Enregistrer</button>
+            </div>
+        </form>
+    </div></div>
+
+    {% if movements %}
+    <div class="card shadow-sm mt-3"><div class="card-header bg-white"><strong>Historique des mouvements</strong></div>
+        <div class="card-body p-0"><table class="table table-sm mb-0 align-middle">
+            <thead><tr><th>Date</th><th>Type</th><th>Qté</th><th>Solde après</th><th>Motif</th></tr></thead>
+            <tbody>
+            {% for m in movements %}
+                <tr><td>{{ m.occurred_at|date:"d/m/Y H:i" }}</td><td>{{ m.get_movement_type_display }}</td>
+                    <td>{% if m.is_inbound %}<span class="text-success">+{{ m.quantity|floatformat:0 }}</span>{% else %}<span class="text-danger">-{{ m.quantity|floatformat:0 }}</span>{% endif %}</td>
+                    <td>{{ m.balance_after|floatformat:0 }}</td><td>{{ m.reason }}</td></tr>
+            {% endfor %}
+            </tbody></table></div>
+    </div>
+    {% endif %}
+</div></div>
+{% endblock %}

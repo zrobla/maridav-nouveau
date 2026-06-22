@@ -117,4 +117,27 @@ urlpatterns = [
     path("sop/diagnostic/", views.SOPDiagnosticView.as_view(), name="sop-diagnostic"),
     path("sop/studio/save/", views.SOPStudioSaveView.as_view(), name="sop-studio-save"),
     path("search/", views.GlobalSearchView.as_view(), name="global-search"),
+
+    # Phase 1 — Stock, lots & péremption
+    path("stock/", views.StockDashboardView.as_view(), name="stock-dashboard"),
+    path("stock/warehouses/", views.WarehouseListView.as_view(), name="warehouses-list"),
+    path("stock/warehouses/create/", views.WarehouseCreateView.as_view(), name="warehouses-create"),
+    path("stock/warehouses/<int:pk>/edit/", views.WarehouseUpdateView.as_view(), name="warehouses-update"),
+    path("stock/lots/", views.StockLotListView.as_view(), name="stock-lots-list"),
+    path("stock/lots/create/", views.StockLotCreateView.as_view(), name="stock-lots-create"),
+    path("stock/lots/<int:pk>/edit/", views.StockLotUpdateView.as_view(), name="stock-lots-update"),
+    path("stock/movements/", views.StockMovementListView.as_view(), name="stock-movements-list"),
+    path("stock/movements/create/", views.StockMovementCreateView.as_view(), name="stock-movements-create"),
+
+    # Phase 2 — Encours crédit & créances âgées
+    path("finance/receivables/", views.ReceivablesView.as_view(), name="receivables"),
+
+    # Phase 3 — Marge & grille tarifaire
+    path("products/margins/", views.MarginReportView.as_view(), name="products-margins"),
+
+    # Phase 4 — Objectifs commerciaux & pilotage financier
+    path("performance/", views.SalesPerformanceView.as_view(), name="sales-performance"),
+    path("targets/", views.SalesTargetListView.as_view(), name="targets-list"),
+    path("targets/create/", views.SalesTargetCreateView.as_view(), name="targets-create"),
+    path("targets/<int:pk>/edit/", views.SalesTargetUpdateView.as_view(), name="targets-update"),
 ]

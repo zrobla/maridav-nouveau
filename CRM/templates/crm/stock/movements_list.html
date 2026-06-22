@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Mouvements de stock{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Mouvements de stock</h1>
+        <p class="text-muted small mb-0">Entrées, sorties, ajustements et pertes — journal complet.</p>
+    </div>
+    {% if perms.crm.add_stockmovement %}<a class="btn btn-success" href="{% url 'stock-movements-create' %}"><i class="bi bi-plus"></i> Nouveau mouvement</a>{% endif %}
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+    <div class="col-md-9"><label class="form-label">Recherche</label>
+        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Produit, n° de lot, motif"></div>
+    <div class="col-md-2"><label class="form-label">Type</label>
+        <select name="type" class="form-select"><option value="">Tous</option>
+            {% for value, label in type_choices %}<option value="{{ value }}" {% if request.GET.type == value %}selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select></div>
+    <div class="col-md-1"><button class="btn btn-outline-success w-100" type="submit">Ok</button></div>
+</form>
+
+<div class="card shadow-sm"><div class="card-body p-0">
+    <table class="table table-hover mb-0 align-middle">
+        <thead><tr><th>Date</th><th>Type</th><th>Produit / lot</th><th>Entrepôt</th><th>Qté</th><th>Solde</th><th>Motif</th><th>Par</th></tr></thead>
+        <tbody>
+            {% for m in movements %}
+                <tr>
+                    <td>{{ m.occurred_at|date:"d/m/Y H:i" }}</td>
+                    <td>{{ m.get_movement_type_display }}</td>
+                    <td>{{ m.lot.product.name }}<div class="text-muted small">{{ m.lot.lot_code }}</div></td>
+                    <td>{{ m.lot.warehouse.name }}</td>
+                    <td>{% if m.is_inbound %}<span class="text-success">+{{ m.quantity|floatformat:0 }}</span>{% else %}<span class="text-danger">-{{ m.quantity|floatformat:0 }}</span>{% endif %}</td>
+                    <td>{{ m.balance_after|floatformat:0 }}</td>
+                    <td>{{ m.reason|default:"-" }}</td>
+                    <td>{{ m.recorded_by.get_full_name|default:m.recorded_by.username|default:"-" }}</td>
+                </tr>
+            {% empty %}<tr><td colspan="8" class="text-center text-muted py-3">Aucun mouvement.</td></tr>{% endfor %}
+        </tbody>
+    </table>
+</div></div>
+{% include "crm/_pagination.html" %}
+{% endblock %}

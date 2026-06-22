@@ -387,6 +387,21 @@ class Customer(TimeStampedModel):
         ],
         default="prospect",
     )
+    credit_limit = models.PositiveIntegerField(
+        "Plafond de crédit (FCFA)",
+        default=0,
+        help_text="Montant maximum d'encours autorisé pour ce client. 0 = pas de crédit accordé.",
+    )
+    payment_terms_days = models.PositiveIntegerField(
+        "Délai de paiement (jours)",
+        default=0,
+        help_text="Délai accordé pour régler une facture (ex. 30 jours). 0 = paiement comptant.",
+    )
+    credit_hold = models.BooleanField(
+        "Compte bloqué (crédit)",
+        default=False,
+        help_text="Si coché, le client est signalé en blocage : ne plus livrer à crédit.",
+    )
     notes = models.TextField(blank=True)
 
     class Meta:
@@ -402,6 +417,33 @@ class Customer(TimeStampedModel):
 
     def get_absolute_url(self):
         return reverse("customers-detail", args=[self.pk])
+
+    @property
+    def outstanding_balance(self) -> int:
+        """Encours = somme des soldes dus sur les factures émises non soldées."""
+        agg = self.invoices.filter(
+            status__in=[
+                InvoiceStatusChoices.EMISE,
+                InvoiceStatusChoices.PARTIELLEMENT_PAYEE,
+            ]
+        ).aggregate(
+            total=models.Sum("total_amount"),
+            paid=models.Sum("paid_amount"),
+        )
+        total = agg["total"] or 0
+        paid = agg["paid"] or 0
+        return max(0, int(total) - int(paid))
+
+    @property
+    def available_credit(self) -> int:
+        """Crédit encore disponible avant d'atteindre le plafond (peut être négatif)."""
+        return int(self.credit_limit or 0) - self.outstanding_balance
+
+    @property
+    def is_over_credit_limit(self) -> bool:
+        if not self.credit_limit:
+            return self.outstanding_balance > 0 if self.credit_hold else False
+        return self.outstanding_balance > self.credit_limit
 
 
 class Territory(TimeStampedModel):
@@ -751,7 +793,17 @@ class Product(TimeStampedModel):
     name = models.CharField("Nom", max_length=255)
     sku = models.CharField("Référence", max_length=64, unique=True)
     packaging = models.CharField("Conditionnement", max_length=120, blank=True)
-    unit_price = models.PositiveIntegerField("Prix unitaire (FCFA)", default=0)
+    unit_price = models.PositiveIntegerField("Prix de vente de référence (FCFA)", default=0)
+    cost_price = models.PositiveIntegerField(
+        "Coût de revient (FCFA)",
+        default=0,
+        help_text="Coût d'achat/production unitaire. Sert au calcul de la marge.",
+    )
+    min_stock_alert = models.PositiveIntegerField(
+        "Seuil d'alerte stock",
+        default=0,
+        help_text="En dessous de ce stock disponible, le produit est signalé en rupture/alerte. 0 = pas d'alerte.",
+    )
     status = models.CharField(
         "Statut",
         max_length=24,
@@ -765,6 +817,40 @@ class Product(TimeStampedModel):
 
     def __str__(self) -> str:  # pragma: no cover
         return f"{self.name} ({self.sku})"
+
+    @property
+    def stock_on_hand(self) -> Decimal:
+        """Stock physique disponible, agrégé sur tous les lots disponibles/réservés."""
+        agg = self.lots.filter(
+            status__in=[StockLotStatusChoices.DISPONIBLE, StockLotStatusChoices.RESERVE]
+        ).aggregate(total=models.Sum("quantity_on_hand"))
+        return agg["total"] or Decimal("0")
+
+    @property
+    def is_stock_low(self) -> bool:
+        if not self.min_stock_alert:
+            return False
+        return self.stock_on_hand < self.min_stock_alert
+
+    @property
+    def margin_amount(self) -> int:
+        """Marge unitaire = prix de référence − coût de revient."""
+        return int(self.unit_price or 0) - int(self.cost_price or 0)
+
+    @property
+    def margin_pct(self):
+        """Taux de marge sur le prix de vente (%). None si prix nul."""
+        if not self.unit_price:
+            return None
+        return round(self.margin_amount / int(self.unit_price) * 100, 1)
+
+    def price_for(self, customer_type: str | None) -> int:
+        """Prix applicable à un type de client : tarif dédié s'il existe, sinon référence."""
+        if customer_type:
+            tier = self.segment_prices.filter(customer_type=customer_type).first()
+            if tier:
+                return int(tier.unit_price)
+        return int(self.unit_price or 0)
 
 
 class Opportunity(TimeStampedModel):
@@ -1755,3 +1841,365 @@ class EnterpriseDeadLetterEvent(TimeStampedModel):
 
     def __str__(self) -> str:  # pragma: no cover
         return f"{self.direction}:{self.event_type}"
+
+
+# ---------------------------------------------------------------------------
+# Phase 1 — Gestion des stocks, lots & péremption (aliments & additifs)
+# ---------------------------------------------------------------------------
+
+
+class WarehouseTypeChoices(models.TextChoices):
+    USINE = "usine", "Usine / Production"
+    DEPOT = "depot", "Dépôt central"
+    MAGASIN = "magasin", "Magasin / Point de vente"
+    AUTRE = "autre", "Autre"
+
+
+class StockUnitChoices(models.TextChoices):
+    SAC = "sac", "Sac"
+    KG = "kg", "Kilogramme"
+    TONNE = "tonne", "Tonne"
+    LITRE = "litre", "Litre"
+    CARTON = "carton", "Carton"
+    UNITE = "unite", "Unité"
+
+
+class StockLotStatusChoices(models.TextChoices):
+    DISPONIBLE = "disponible", "Disponible"
+    RESERVE = "reserve", "Réservé"
+    QUARANTAINE = "quarantaine", "Quarantaine"
+    BLOQUE = "bloque", "Bloqué"
+    EPUISE = "epuise", "Épuisé"
+
+
+class StockMovementTypeChoices(models.TextChoices):
+    ENTREE = "entree", "Entrée (production / achat)"
+    SORTIE = "sortie", "Sortie (vente / livraison)"
+    AJUSTEMENT = "ajustement", "Ajustement d'inventaire"
+    PERTE = "perte", "Perte / casse / péremption"
+    TRANSFERT_OUT = "transfert_out", "Transfert sortant"
+    TRANSFERT_IN = "transfert_in", "Transfert entrant"
+
+
+# Types qui augmentent le stock du lot, vs. ceux qui le diminuent.
+STOCK_MOVEMENT_INBOUND = {
+    StockMovementTypeChoices.ENTREE,
+    StockMovementTypeChoices.TRANSFERT_IN,
+}
+STOCK_MOVEMENT_OUTBOUND = {
+    StockMovementTypeChoices.SORTIE,
+    StockMovementTypeChoices.PERTE,
+    StockMovementTypeChoices.TRANSFERT_OUT,
+}
+
+
+class Warehouse(TimeStampedModel):
+    name = models.CharField("Nom", max_length=255)
+    code = models.CharField("Code", max_length=32, unique=True)
+    warehouse_type = models.CharField(
+        "Type",
+        max_length=16,
+        choices=WarehouseTypeChoices.choices,
+        default=WarehouseTypeChoices.DEPOT,
+    )
+    territory = models.ForeignKey(
+        Territory,
+        verbose_name="Territoire",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="warehouses",
+    )
+    city = models.CharField("Ville", max_length=120, blank=True)
+    region = models.CharField("Région", max_length=120, blank=True, choices=REGION_CHOICES)
+    address = models.CharField("Adresse", max_length=255, blank=True)
+    manager = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name="Responsable",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="managed_warehouses",
+    )
+    is_active = models.BooleanField("Actif", default=True)
+    notes = models.TextField("Notes", blank=True)
+
+    class Meta:
+        verbose_name = "Entrepôt"
+        verbose_name_plural = "Entrepôts"
+        ordering = ["name"]
+
+    def __str__(self) -> str:  # pragma: no cover
+        return f"{self.name} ({self.code})"
+
+
+class StockLot(TimeStampedModel):
+    product = models.ForeignKey(
+        Product,
+        verbose_name="Produit",
+        on_delete=models.PROTECT,
+        related_name="lots",
+    )
+    warehouse = models.ForeignKey(
+        Warehouse,
+        verbose_name="Entrepôt",
+        on_delete=models.PROTECT,
+        related_name="lots",
+    )
+    lot_code = models.CharField("N° de lot", max_length=64)
+    unit = models.CharField(
+        "Unité",
+        max_length=12,
+        choices=StockUnitChoices.choices,
+        default=StockUnitChoices.SAC,
+    )
+    quantity_initial = models.DecimalField(
+        "Quantité initiale", max_digits=12, decimal_places=2, default=0
+    )
+    quantity_on_hand = models.DecimalField(
+        "Quantité en stock", max_digits=12, decimal_places=2, default=0
+    )
+    unit_cost = models.PositiveIntegerField("Coût unitaire (FCFA)", default=0)
+    production_date = models.DateField("Date de fabrication", null=True, blank=True)
+    expiry_date = models.DateField("Date de péremption (DLUO)", null=True, blank=True)
+    status = models.CharField(
+        "Statut",
+        max_length=16,
+        choices=StockLotStatusChoices.choices,
+        default=StockLotStatusChoices.DISPONIBLE,
+    )
+    supplier_reference = models.CharField("Référence fournisseur/OF", max_length=120, blank=True)
+    notes = models.TextField("Notes", blank=True)
+
+    class Meta:
+        verbose_name = "Lot de stock"
+        verbose_name_plural = "Lots de stock"
+        ordering = ["expiry_date", "product__name"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["product", "warehouse", "lot_code"],
+                name="unique_lot_per_product_warehouse",
+            )
+        ]
+        indexes = [
+            models.Index(fields=["status", "expiry_date"]),
+            models.Index(fields=["product", "warehouse"]),
+        ]
+
+    def __str__(self) -> str:  # pragma: no cover
+        return f"{self.product.name} · lot {self.lot_code}"
+
+    @property
+    def is_expired(self) -> bool:
+        if not self.expiry_date:
+            return False
+        return self.expiry_date < timezone.localdate()
+
+    @property
+    def days_to_expiry(self):
+        if not self.expiry_date:
+            return None
+        return (self.expiry_date - timezone.localdate()).days
+
+    @property
+    def is_near_expiry(self) -> bool:
+        d = self.days_to_expiry
+        return d is not None and 0 <= d <= 30
+
+
+class StockMovement(TimeStampedModel):
+    lot = models.ForeignKey(
+        StockLot,
+        verbose_name="Lot",
+        on_delete=models.CASCADE,
+        related_name="movements",
+    )
+    movement_type = models.CharField(
+        "Type de mouvement",
+        max_length=16,
+        choices=StockMovementTypeChoices.choices,
+    )
+    quantity = models.DecimalField("Quantité", max_digits=12, decimal_places=2)
+    balance_after = models.DecimalField(
+        "Solde après mouvement", max_digits=12, decimal_places=2, default=0
+    )
+    reason = models.CharField("Motif", max_length=255, blank=True)
+    order = models.ForeignKey(
+        Order,
+        verbose_name="Commande liée",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="stock_movements",
+    )
+    invoice = models.ForeignKey(
+        Invoice,
+        verbose_name="Facture liée",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="stock_movements",
+    )
+    counterpart_warehouse = models.ForeignKey(
+        Warehouse,
+        verbose_name="Entrepôt de contrepartie",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="incoming_transfers",
+        help_text="Pour les transferts : entrepôt d'origine ou de destination.",
+    )
+    occurred_at = models.DateTimeField("Date du mouvement", default=timezone.now)
+    recorded_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name="Enregistré par",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="recorded_stock_movements",
+    )
+    notes = models.TextField("Notes", blank=True)
+
+    class Meta:
+        verbose_name = "Mouvement de stock"
+        verbose_name_plural = "Mouvements de stock"
+        ordering = ["-occurred_at", "-created_at"]
+        indexes = [
+            models.Index(fields=["lot", "occurred_at"]),
+            models.Index(fields=["movement_type", "occurred_at"]),
+        ]
+
+    def __str__(self) -> str:  # pragma: no cover
+        return f"{self.get_movement_type_display()} · {self.quantity} ({self.lot})"
+
+    @property
+    def is_inbound(self) -> bool:
+        return self.movement_type in STOCK_MOVEMENT_INBOUND
+
+    @property
+    def signed_quantity(self) -> Decimal:
+        if self.movement_type in STOCK_MOVEMENT_INBOUND:
+            return Decimal(self.quantity or 0)
+        return -Decimal(self.quantity or 0)
+
+
+# ---------------------------------------------------------------------------
+# Phase 3 — Grille tarifaire par segment de client
+# ---------------------------------------------------------------------------
+
+
+class ProductPrice(TimeStampedModel):
+    """Prix dédié d'un produit pour un type de client (distributeur, éleveur, etc.).
+
+    En l'absence de tarif dédié, c'est le prix de référence du produit qui s'applique.
+    """
+
+    product = models.ForeignKey(
+        Product,
+        verbose_name="Produit",
+        on_delete=models.CASCADE,
+        related_name="segment_prices",
+    )
+    customer_type = models.CharField(
+        "Type de client",
+        max_length=24,
+        choices=CustomerTypeChoices.choices,
+    )
+    unit_price = models.PositiveIntegerField("Prix unitaire (FCFA)", default=0)
+
+    class Meta:
+        verbose_name = "Tarif par segment"
+        verbose_name_plural = "Tarifs par segment"
+        ordering = ["product__name", "customer_type"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["product", "customer_type"],
+                name="unique_price_per_product_customer_type",
+            )
+        ]
+
+    def __str__(self) -> str:  # pragma: no cover
+        return f"{self.product.name} · {self.get_customer_type_display()} : {self.unit_price}"
+
+    @property
+    def margin_amount(self) -> int:
+        return int(self.unit_price or 0) - int(self.product.cost_price or 0)
+
+    @property
+    def margin_pct(self):
+        if not self.unit_price:
+            return None
+        return round(self.margin_amount / int(self.unit_price) * 100, 1)
+
+
+# ---------------------------------------------------------------------------
+# Phase 4 — Objectifs commerciaux (quotas, réalisé, commissions)
+# ---------------------------------------------------------------------------
+
+
+class SalesTargetStatusChoices(models.TextChoices):
+    ACTIF = "actif", "Actif"
+    CLOS = "clos", "Clôturé"
+
+
+MONTH_CHOICES = [
+    (1, "Janvier"), (2, "Février"), (3, "Mars"), (4, "Avril"),
+    (5, "Mai"), (6, "Juin"), (7, "Juillet"), (8, "Août"),
+    (9, "Septembre"), (10, "Octobre"), (11, "Novembre"), (12, "Décembre"),
+]
+
+
+class SalesTarget(TimeStampedModel):
+    """Objectif commercial mensuel d'un commercial (chiffre d'affaires à réaliser)."""
+
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name="Commercial",
+        on_delete=models.CASCADE,
+        related_name="sales_targets",
+    )
+    territory = models.ForeignKey(
+        Territory,
+        verbose_name="Territoire",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="sales_targets",
+    )
+    segment = models.CharField(
+        "Espèce (optionnel)",
+        max_length=24,
+        choices=SpeciesChoices.choices,
+        blank=True,
+    )
+    period_year = models.PositiveIntegerField("Année")
+    period_month = models.PositiveSmallIntegerField("Mois", choices=MONTH_CHOICES)
+    target_amount = models.PositiveIntegerField("Objectif CA (FCFA)", default=0)
+    target_quantity = models.DecimalField(
+        "Objectif volume", max_digits=12, decimal_places=2, default=0
+    )
+    commission_rate_pct = models.DecimalField(
+        "Taux de commission (%)", max_digits=5, decimal_places=2, default=0
+    )
+    status = models.CharField(
+        "Statut",
+        max_length=12,
+        choices=SalesTargetStatusChoices.choices,
+        default=SalesTargetStatusChoices.ACTIF,
+    )
+    notes = models.TextField("Notes", blank=True)
+
+    class Meta:
+        verbose_name = "Objectif commercial"
+        verbose_name_plural = "Objectifs commerciaux"
+        ordering = ["-period_year", "-period_month", "owner__username"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["owner", "period_year", "period_month", "segment"],
+                name="unique_target_per_owner_period_segment",
+            )
+        ]
+        indexes = [models.Index(fields=["period_year", "period_month"])]
+
+    def __str__(self) -> str:  # pragma: no cover
+        return f"{self.owner} · {self.period_month}/{self.period_year}"

@@ -58,6 +58,49 @@
     </div>
 </div>
 
+<div class="card shadow-sm mt-3 {% if customer.credit_hold or customer.is_over_credit_limit %}border-danger{% endif %}">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h6 mb-0"><i class="bi bi-cash-coin"></i> Crédit & encours</h2>
+            {% if customer.credit_hold %}<span class="badge bg-dark">Compte bloqué (crédit)</span>
+            {% elif customer.is_over_credit_limit %}<span class="badge bg-danger">Plafond dépassé</span>
+            {% endif %}
+        </div>
+        <div class="row text-center g-3">
+            <div class="col-6 col-md-3">
+                <div class="text-muted small">Plafond de crédit</div>
+                <div class="h5 mb-0">{% if customer.credit_limit %}{{ customer.credit_limit|floatformat:0 }}{% else %}—{% endif %}</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="text-muted small">Encours actuel</div>
+                <div class="h5 mb-0">{{ credit_aging.total|floatformat:0 }}</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="text-muted small">Crédit disponible</div>
+                <div class="h5 mb-0 {% if customer.available_credit < 0 %}text-danger{% else %}text-success{% endif %}">
+                    {% if customer.credit_limit %}{{ customer.available_credit|floatformat:0 }}{% else %}—{% endif %}</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="text-muted small">Délai de paiement</div>
+                <div class="h5 mb-0">{% if customer.payment_terms_days %}{{ customer.payment_terms_days }} j{% else %}Comptant{% endif %}</div>
+            </div>
+        </div>
+        <div class="table-responsive mt-3">
+            <table class="table table-sm text-center mb-0">
+                <thead><tr><th>Courant</th><th>1-30 j</th><th>31-60 j</th><th>61-90 j</th><th>&gt; 90 j</th><th>En retard</th></tr></thead>
+                <tbody><tr>
+                    <td>{{ credit_aging.current|floatformat:0 }}</td>
+                    <td>{{ credit_aging.d1_30|floatformat:0 }}</td>
+                    <td class="{% if credit_aging.d31_60 %}text-warning{% endif %}">{{ credit_aging.d31_60|floatformat:0 }}</td>
+                    <td class="{% if credit_aging.d61_90 %}text-warning{% endif %}">{{ credit_aging.d61_90|floatformat:0 }}</td>
+                    <td class="{% if credit_aging.d90_plus %}text-danger fw-semibold{% endif %}">{{ credit_aging.d90_plus|floatformat:0 }}</td>
+                    <td class="fw-semibold {% if credit_aging.overdue %}text-danger{% endif %}">{{ credit_aging.overdue|floatformat:0 }}</td>
+                </tr></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <div class="row g-3 mt-1">
     <div class="col-lg-6">
         <div class="card shadow-sm h-100">

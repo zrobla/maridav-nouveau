@@ -41,6 +41,7 @@
                 {% endif %}
                 {% if perms.crm.view_invoice %}
                     <a class="nav-link {% if '/sales/' in request.path %}active{% endif %}" href="{% url 'sales-list' %}"><i class="bi bi-receipt"></i> Ventes Express</a>
+                    <a class="nav-link {% if '/finance/receivables/' in request.path %}active{% endif %}" href="{% url 'receivables' %}"><i class="bi bi-cash-stack"></i> Créances</a>
                 {% endif %}
                 {% if perms.crm.view_supportcase %}
                     <a class="nav-link {% if '/support/' in request.path %}active{% endif %}" href="{% url 'support-list' %}"><i class="bi bi-life-preserver"></i> Support</a>
@@ -54,6 +55,14 @@
                 {% if perms.crm.view_product %}
                     <a class="nav-link {% if '/products/' in request.path %}active{% endif %}" href="{% url 'products-list' %}"><i class="bi bi-box-seam"></i> Produits</a>
                 {% endif %}
+                {% if perms.crm.view_stocklot %}
+                    <a class="nav-link {% if request.path == '/stock/' %}active{% endif %}" href="{% url 'stock-dashboard' %}"><i class="bi bi-clipboard-data"></i> Stock (vue d'ensemble)</a>
+                    <a class="nav-link {% if '/stock/lots/' in request.path %}active{% endif %}" href="{% url 'stock-lots-list' %}"><i class="bi bi-boxes"></i> Lots de stock</a>
+                    <a class="nav-link {% if '/stock/movements/' in request.path %}active{% endif %}" href="{% url 'stock-movements-list' %}"><i class="bi bi-arrow-left-right"></i> Mouvements stock</a>
+                {% endif %}
+                {% if perms.crm.view_warehouse %}
+                    <a class="nav-link {% if '/stock/warehouses/' in request.path %}active{% endif %}" href="{% url 'warehouses-list' %}"><i class="bi bi-buildings"></i> Entrepôts</a>
+                {% endif %}
                 {% if perms.crm.view_territory %}
                     <a class="nav-link {% if '/territories/' in request.path %}active{% endif %}" href="{% url 'territories-list' %}"><i class="bi bi-map"></i> Territoires</a>
                 {% endif %}
@@ -65,6 +74,12 @@
                 {% endif %}
                 {% if perms.crm.view_forecast %}
                     <a class="nav-link {% if '/forecasts/' in request.path %}active{% endif %}" href="{% url 'forecasts-list' %}"><i class="bi bi-graph-up-arrow"></i> Forecasts</a>
+                {% endif %}
+                {% if perms.crm.view_dashboard %}
+                    <a class="nav-link {% if '/performance/' in request.path %}active{% endif %}" href="{% url 'sales-performance' %}"><i class="bi bi-bar-chart-line"></i> Pilotage commercial</a>
+                {% endif %}
+                {% if perms.crm.view_salestarget %}
+                    <a class="nav-link {% if '/targets/' in request.path %}active{% endif %}" href="{% url 'targets-list' %}"><i class="bi bi-bullseye"></i> Objectifs commerciaux</a>
                 {% endif %}
                 {% if perms.crm.view_routingrule %}
                     <a class="nav-link {% if '/routing-rules/' in request.path %}active{% endif %}" href="{% url 'routing-rules-list' %}"><i class="bi bi-sign-turn-right"></i> Routage</a>
@@ -181,14 +196,21 @@
                 {% if perms.crm.view_opportunity %}<a class="list-group-item list-group-item-action" href="{% url 'opportunities-list' %}">Opportunités</a>{% endif %}
                 {% if perms.crm.view_order %}<a class="list-group-item list-group-item-action" href="{% url 'orders-list' %}">Commandes</a>{% endif %}
                 {% if perms.crm.view_invoice %}<a class="list-group-item list-group-item-action" href="{% url 'sales-list' %}">Ventes Express</a>{% endif %}
+                {% if perms.crm.view_invoice %}<a class="list-group-item list-group-item-action" href="{% url 'receivables' %}">Créances</a>{% endif %}
                 {% if perms.crm.view_supportcase %}<a class="list-group-item list-group-item-action" href="{% url 'support-list' %}">Support</a>{% endif %}
                 {% if perms.crm.view_visitreport %}<a class="list-group-item list-group-item-action" href="{% url 'visits-list' %}">Visites</a>{% endif %}
                 {% if perms.crm.view_task %}<a class="list-group-item list-group-item-action" href="{% url 'tasks-list' %}">Tâches</a>{% endif %}
                 {% if perms.crm.view_product %}<a class="list-group-item list-group-item-action" href="{% url 'products-list' %}">Produits</a>{% endif %}
+                {% if perms.crm.view_stocklot %}<a class="list-group-item list-group-item-action" href="{% url 'stock-dashboard' %}">Stock (vue d'ensemble)</a>{% endif %}
+                {% if perms.crm.view_stocklot %}<a class="list-group-item list-group-item-action" href="{% url 'stock-lots-list' %}">Lots de stock</a>{% endif %}
+                {% if perms.crm.view_stockmovement %}<a class="list-group-item list-group-item-action" href="{% url 'stock-movements-list' %}">Mouvements stock</a>{% endif %}
+                {% if perms.crm.view_warehouse %}<a class="list-group-item list-group-item-action" href="{% url 'warehouses-list' %}">Entrepôts</a>{% endif %}
                 {% if perms.crm.view_territory %}<a class="list-group-item list-group-item-action" href="{% url 'territories-list' %}">Territoires</a>{% endif %}
                 {% if perms.crm.view_outlet %}<a class="list-group-item list-group-item-action" href="{% url 'outlets-list' %}">Points de vente</a>{% endif %}
                 {% if perms.crm.view_promotion %}<a class="list-group-item list-group-item-action" href="{% url 'promotions-list' %}">Promotions</a>{% endif %}
                 {% if perms.crm.view_forecast %}<a class="list-group-item list-group-item-action" href="{% url 'forecasts-list' %}">Forecasts</a>{% endif %}
+                {% if perms.crm.view_dashboard %}<a class="list-group-item list-group-item-action" href="{% url 'sales-performance' %}">Pilotage commercial</a>{% endif %}
+                {% if perms.crm.view_salestarget %}<a class="list-group-item list-group-item-action" href="{% url 'targets-list' %}">Objectifs commerciaux</a>{% endif %}
                 {% if perms.crm.view_routingrule %}<a class="list-group-item list-group-item-action" href="{% url 'routing-rules-list' %}">Routage</a>{% endif %}
                 {% if perms.crm.view_dataqualityissue %}<a class="list-group-item list-group-item-action" href="{% url 'governance-data-quality-list' %}">Data Quality</a>{% endif %}
                 {% if perms.crm.view_slaescalation %}<a class="list-group-item list-group-item-action" href="{% url 'governance-escalations-list' %}">Escalades SLA</a>{% endif %}

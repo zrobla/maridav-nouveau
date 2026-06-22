@@ -72,11 +72,24 @@ class ProductCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
 
+class ProductPriceInline(admin.TabularInline):
+    model = models.ProductPrice
+    extra = 1
+
+
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "sku", "category", "unit_price", "status")
+    list_display = ("name", "sku", "category", "unit_price", "cost_price", "margin_amount", "status")
     search_fields = ("name", "sku")
     list_filter = ("category", "status")
+    inlines = [ProductPriceInline]
+
+
+@admin.register(models.ProductPrice)
+class ProductPriceAdmin(admin.ModelAdmin):
+    list_display = ("product", "customer_type", "unit_price", "margin_amount")
+    list_filter = ("customer_type",)
+    search_fields = ("product__name", "product__sku")
 
 
 @admin.register(models.Opportunity)
@@ -259,3 +272,40 @@ class EnterpriseDeadLetterEventAdmin(admin.ModelAdmin):
     list_filter = ("direction", "connector", "event_type")
     search_fields = ("event_type", "reason")
     readonly_fields = ("created_at", "updated_at")
+
+
+@admin.register(models.SalesTarget)
+class SalesTargetAdmin(admin.ModelAdmin):
+    list_display = ("owner", "period_month", "period_year", "segment", "target_amount", "commission_rate_pct", "status")
+    list_filter = ("period_year", "period_month", "status", "segment")
+    search_fields = ("owner__username", "owner__first_name", "owner__last_name")
+
+
+@admin.register(models.Warehouse)
+class WarehouseAdmin(admin.ModelAdmin):
+    list_display = ("name", "code", "warehouse_type", "city", "region", "is_active")
+    list_filter = ("warehouse_type", "region", "is_active")
+    search_fields = ("name", "code", "city")
+
+
+class StockMovementInline(admin.TabularInline):
+    model = models.StockMovement
+    extra = 0
+    fields = ("movement_type", "quantity", "balance_after", "reason", "occurred_at", "recorded_by")
+    readonly_fields = ("balance_after",)
+
+
+@admin.register(models.StockLot)
+class StockLotAdmin(admin.ModelAdmin):
+    list_display = ("lot_code", "product", "warehouse", "quantity_on_hand", "unit", "expiry_date", "status")
+    list_filter = ("status", "warehouse", "unit")
+    search_fields = ("lot_code", "product__name", "product__sku", "supplier_reference")
+    inlines = [StockMovementInline]
+
+
+@admin.register(models.StockMovement)
+class StockMovementAdmin(admin.ModelAdmin):
+    list_display = ("occurred_at", "movement_type", "lot", "quantity", "balance_after", "recorded_by")
+    list_filter = ("movement_type", "occurred_at")
+    search_fields = ("lot__lot_code", "lot__product__name", "reason")
+    readonly_fields = ("balance_after",)

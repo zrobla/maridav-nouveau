@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Stock — vue d'ensemble{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h4 mb-1">Stock — vue d'ensemble</h1>
+        <p class="text-muted small mb-0">Niveaux de stock, alertes de rupture et lots proches de la péremption.</p>
+    </div>
+    <div class="d-flex gap-2">
+        {% if perms.crm.add_stocklot %}<a class="btn btn-success" href="{% url 'stock-lots-create' %}"><i class="bi bi-plus"></i> Nouveau lot</a>{% endif %}
+        {% if perms.crm.add_stockmovement %}<a class="btn btn-outline-success" href="{% url 'stock-movements-create' %}"><i class="bi bi-arrow-left-right"></i> Mouvement</a>{% endif %}
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-3"><div class="card shadow-sm h-100"><div class="card-body">
+        <div class="text-muted small">Lots enregistrés</div>
+        <div class="h3 mb-0">{{ lots_total }}</div>
+    </div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm h-100"><div class="card-body">
+        <div class="text-muted small">Valeur du stock (coût)</div>
+        <div class="h3 mb-0">{{ stock_value|floatformat:0 }} <span class="fs-6 text-muted">FCFA</span></div>
+    </div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm h-100 {% if low_stock_count %}border-warning{% endif %}"><div class="card-body">
+        <div class="text-muted small">Produits en alerte rupture</div>
+        <div class="h3 mb-0 {% if low_stock_count %}text-warning{% endif %}">{{ low_stock_count }}</div>
+    </div></div></div>
+    <div class="col-md-3"><div class="card shadow-sm h-100 {% if expired_count %}border-danger{% endif %}"><div class="card-body">
+        <div class="text-muted small">Lots périmés</div>
+        <div class="h3 mb-0 {% if expired_count %}text-danger{% endif %}">{{ expired_count }}</div>
+    </div></div></div>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white"><strong class="text-danger"><i class="bi bi-exclamation-octagon"></i> Lots périmés</strong></div>
+            <div class="card-body p-0"><table class="table table-sm mb-0 align-middle">
+                <thead><tr><th>Produit</th><th>Lot</th><th>Entrepôt</th><th>Péremption</th><th>Stock</th></tr></thead>
+                <tbody>
+                {% for lot in expired_lots %}
+                    <tr><td>{{ lot.product.name }}</td><td>{{ lot.lot_code }}</td><td>{{ lot.warehouse.name }}</td>
+                        <td class="text-danger">{{ lot.expiry_date|date:"d/m/Y" }}</td><td>{{ lot.quantity_on_hand|floatformat:0 }} {{ lot.get_unit_display }}</td></tr>
+                {% empty %}<tr><td colspan="5" class="text-center text-muted py-3">Aucun lot périmé. 👍</td></tr>{% endfor %}
+                </tbody></table></div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white"><strong class="text-warning"><i class="bi bi-hourglass-split"></i> Péremption sous 30 jours</strong></div>
+            <div class="card-body p-0"><table class="table table-sm mb-0 align-middle">
+                <thead><tr><th>Produit</th><th>Lot</th><th>Péremption</th><th>J-</th><th>Stock</th></tr></thead>
+                <tbody>
+                {% for lot in near_expiry_lots %}
+                    <tr><td>{{ lot.product.name }}</td><td>{{ lot.lot_code }}</td>
+                        <td>{{ lot.expiry_date|date:"d/m/Y" }}</td><td>{{ lot.days_to_expiry }} j</td>
+                        <td>{{ lot.quantity_on_hand|floatformat:0 }} {{ lot.get_unit_display }}</td></tr>
+                {% empty %}<tr><td colspan="5" class="text-center text-muted py-3">Rien à signaler.</td></tr>{% endfor %}
+                </tbody></table></div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white"><strong class="text-warning"><i class="bi bi-box-arrow-down"></i> Produits sous le seuil d'alerte</strong></div>
+            <div class="card-body p-0"><table class="table table-sm mb-0 align-middle">
+                <thead><tr><th>Produit</th><th>Réf.</th><th>Stock dispo.</th><th>Seuil</th></tr></thead>
+                <tbody>
+                {% for p in low_stock_products %}
+                    <tr><td>{{ p.name }}</td><td>{{ p.sku }}</td>
+                        <td class="text-warning fw-semibold">{{ p.stock_on_hand|floatformat:0 }}</td><td>{{ p.min_stock_alert }}</td></tr>
+                {% empty %}<tr><td colspan="4" class="text-center text-muted py-3">Tous les produits sont au-dessus du seuil.</td></tr>{% endfor %}
+                </tbody></table></div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white"><strong><i class="bi bi-clock-history"></i> Derniers mouvements</strong></div>
+            <div class="card-body p-0"><table class="table table-sm mb-0 align-middle">
+                <thead><tr><th>Date</th><th>Type</th><th>Produit / lot</th><th>Qté</th></tr></thead>
+                <tbody>
+                {% for m in recent_movements %}
+                    <tr><td>{{ m.occurred_at|date:"d/m/Y H:i" }}</td><td>{{ m.get_movement_type_display }}</td>
+                        <td>{{ m.lot.product.name }} · {{ m.lot.lot_code }}</td>
+                        <td>{% if m.is_inbound %}<span class="text-success">+{{ m.quantity|floatformat:0 }}</span>{% else %}<span class="text-danger">-{{ m.quantity|floatformat:0 }}</span>{% endif %}</td></tr>
+                {% empty %}<tr><td colspan="4" class="text-center text-muted py-3">Aucun mouvement.</td></tr>{% endfor %}
+                </tbody></table></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
