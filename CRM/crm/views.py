@@ -2876,6 +2876,11 @@ class ReceivablesView(PermissionRequiredMixin, LoginRequiredMixin, generic.Templ
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # Portée : les profils de direction/reporting voient l'encours global ;
+        # les commerciaux / technico-commerciaux ne voient QUE leur portefeuille
+        # (clients qui leur sont liés). Le cloisonnement est appliqué par
+        # scoped_customers_queryset ; on l'expose pour l'afficher clairement.
+        is_global_scope = has_global_scope(self.request.user)
         customers_qs = scoped_customers_queryset(self.request.user)
         overview = receivables_overview(customers_qs)
         rows = overview["rows"]
@@ -2890,6 +2895,7 @@ class ReceivablesView(PermissionRequiredMixin, LoginRequiredMixin, generic.Templ
         context["totals"] = overview["totals"]
         context["filter"] = only or ""
         context["customers_with_balance"] = len(overview["rows"])
+        context["is_global_scope"] = is_global_scope
         return context
 
 
@@ -2951,7 +2957,9 @@ class SalesTargetUpdateView(PermissionRequiredMixin, LoginRequiredMixin, generic
 
 class SalesPerformanceView(PermissionRequiredMixin, LoginRequiredMixin, generic.TemplateView):
     template_name = "crm/finance/performance.html"
-    permission_required = "crm.view_dashboard"
+    # Pilotage financier consolidé (CA global, commissions) : réservé aux profils
+    # de direction / reporting via view_reports, et non à tout compte connecté.
+    permission_required = "crm.view_reports"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

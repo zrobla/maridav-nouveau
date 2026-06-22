@@ -6,6 +6,11 @@
         <h1 class="h4 mb-1">Créances clients (encours & balance âgée)</h1>
         <p class="text-muted small mb-0">Suivi des montants dus, des retards et des dépassements de plafond de crédit.</p>
     </div>
+    {% if is_global_scope %}
+        <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle align-self-start"><i class="bi bi-globe2"></i> Encours global (toute l'entreprise)</span>
+    {% else %}
+        <span class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle align-self-start"><i class="bi bi-person-badge"></i> Votre portefeuille uniquement</span>
+    {% endif %}
 </div>
 
 <div class="row g-3 mb-4">

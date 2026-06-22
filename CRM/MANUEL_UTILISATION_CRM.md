@@ -17,6 +17,8 @@ partager ses identifiants. En cas d'oubli, contacter l'administrateur.
 | 2026-06-22 | v1.1 | Module **Encours crédit & créances âgées** (Phase 2). |
 | 2026-06-22 | v1.2 | Module **Prix par segment & marge** (Phase 3). |
 | 2026-06-22 | v1.3 | Module **Objectifs commerciaux & tableau de bord financier** (Phase 4). |
+| 2026-06-22 | v1.4 | Ajout de la **matrice des rôles & accès** (document compagnon) ; **Pilotage commercial & financier** réservé aux profils direction/reporting. |
+| 2026-06-22 | v1.5 | Page **Créances** : badge de portée ; les Commerciaux/Technico ne voient que **leur portefeuille** (encours global réservé direction/finance). |
 
 ---
 
@@ -43,6 +45,15 @@ et faire. Principaux rôles : Direction, Administrateur Système, Directeur Comm
 Commerciaux, Technico-Commerciaux, Experts Métier, Caissière, Comptable, Support
 Technique, Gouvernance & Conformité. Si une rubrique n'apparaît pas dans votre menu,
 c'est qu'elle n'est pas dans votre périmètre.
+
+> 📋 **Détail complet des droits par rôle** : voir le document compagnon
+> **`MATRICE_ROLES_ACCES_CRM.md`** — il liste, profil par profil, les pages et fonctions
+> auxquelles chaque rôle doit avoir accès pour le bon fonctionnement du système (matrice
+> de synthèse, carte des pages, procédure d'attribution des rôles).
+>
+> À noter : le **Pilotage commercial & financier** (`/crm/performance/`), qui présente le
+> chiffre d'affaires consolidé et les commissions, est **réservé** aux profils de direction
+> et de reporting (Direction, Directeur Commercial, Experts Métier, Comptable, Gouvernance).
 
 ---
 
@@ -169,7 +180,13 @@ La fiche client affiche un panneau **Crédit & encours** :
 - Tableau par client avec la balance âgée, l'encours, le plafond, et les badges
   **Bloqué / Plafond dépassé**.
 - Filtres rapides : **Tous**, **En retard**, **Plafond dépassé / bloqués**.
-- La ligne **Total** en bas donne la balance âgée globale de l'entreprise.
+- La ligne **Total** en bas donne la balance âgée **du périmètre affiché**.
+- **Périmètre selon votre rôle** (badge en haut de page) :
+  - **« Encours global »** — Direction, Directeur Commercial, Comptable, Caissière,
+    Gouvernance, Support IT, Experts Métier : vous voyez l'encours de **toute l'entreprise**.
+  - **« Votre portefeuille uniquement »** — Commerciaux et Technico-Commerciaux : vous ne
+    voyez que les créances de **vos** clients (ceux rattachés à vos commandes, opportunités,
+    tâches ou visites). Les cartes et le total sont calculés sur ce seul périmètre.
 
 ### 3.5 Bonnes pratiques de recouvrement
 - Revoir la page **Créances** chaque semaine ; **traiter en priorité la colonne > 90 j**.

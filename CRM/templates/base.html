@@ -75,7 +75,7 @@
                 {% if perms.crm.view_forecast %}
                     <a class="nav-link {% if '/forecasts/' in request.path %}active{% endif %}" href="{% url 'forecasts-list' %}"><i class="bi bi-graph-up-arrow"></i> Forecasts</a>
                 {% endif %}
-                {% if perms.crm.view_dashboard %}
+                {% if perms.crm.view_reports %}
                     <a class="nav-link {% if '/performance/' in request.path %}active{% endif %}" href="{% url 'sales-performance' %}"><i class="bi bi-bar-chart-line"></i> Pilotage commercial</a>
                 {% endif %}
                 {% if perms.crm.view_salestarget %}
@@ -209,7 +209,7 @@
                 {% if perms.crm.view_outlet %}<a class="list-group-item list-group-item-action" href="{% url 'outlets-list' %}">Points de vente</a>{% endif %}
                 {% if perms.crm.view_promotion %}<a class="list-group-item list-group-item-action" href="{% url 'promotions-list' %}">Promotions</a>{% endif %}
                 {% if perms.crm.view_forecast %}<a class="list-group-item list-group-item-action" href="{% url 'forecasts-list' %}">Forecasts</a>{% endif %}
-                {% if perms.crm.view_dashboard %}<a class="list-group-item list-group-item-action" href="{% url 'sales-performance' %}">Pilotage commercial</a>{% endif %}
+                {% if perms.crm.view_reports %}<a class="list-group-item list-group-item-action" href="{% url 'sales-performance' %}">Pilotage commercial</a>{% endif %}
                 {% if perms.crm.view_salestarget %}<a class="list-group-item list-group-item-action" href="{% url 'targets-list' %}">Objectifs commerciaux</a>{% endif %}
                 {% if perms.crm.view_routingrule %}<a class="list-group-item list-group-item-action" href="{% url 'routing-rules-list' %}">Routage</a>{% endif %}
                 {% if perms.crm.view_dataqualityissue %}<a class="list-group-item list-group-item-action" href="{% url 'governance-data-quality-list' %}">Data Quality</a>{% endif %}
