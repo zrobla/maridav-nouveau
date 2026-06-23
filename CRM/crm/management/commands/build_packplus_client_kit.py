@@ -61,6 +61,74 @@ def _safe_copy(src: Path, dst: Path):
     shutil.copy2(src, dst)
 
 
+def _render_fallback_doc(name: str, payload: dict[str, object]) -> str:
+    """Contenu Markdown minimal quand le document source est absent du dépôt.
+
+    Garantit qu'un kit client ne soit jamais livré sans sa documentation de base,
+    même si les fichiers racine (README, current_context, …) n'ont pas été fournis.
+    """
+    client_name = payload["client_name"]
+    titles = {
+        "README.md": f"Kit client PackPlus — {client_name}",
+        "current_context.md": f"Contexte courant — {client_name}",
+        "Waas_PackPlus.md": "WaasPlus PackPlus",
+        "phases_industrialisation.md": "Phases d'industrialisation",
+    }
+    title = titles.get(name, name.removesuffix(".md").replace("_", " ").title())
+    return (
+        f"# {title}\n\n"
+        f"> Document de référence généré automatiquement (source `{name}` non fournie "
+        f"dans le dépôt au moment de l'assemblage).\n\n"
+        f"- Client : **{client_name}**\n"
+        f"- Tenant : `{payload['tenant_slug']}`\n"
+        f"- Domaine principal : `{payload['primary_domain']}`\n"
+        f"- Domaine CRM : `{payload['crm_domain']}`\n"
+        f"- Secteur : `{payload['sector_pack']}`\n"
+        f"- Généré le : {payload['generated_at']}\n\n"
+        f"Remplacez ce fichier par la version de référence dès qu'elle est disponible.\n"
+    )
+
+
+def _render_template_catalog_readme(website_template: str) -> str:
+    return (
+        "# Catalogue de templates web PackPlus\n\n"
+        "> Catalogue de référence absent du dépôt : index minimal généré automatiquement.\n\n"
+        f"- Template sélectionné pour ce kit : `{website_template}`\n\n"
+        "Déposez les templates de référence dans `templates_catalog/` pour enrichir ce catalogue.\n"
+    )
+
+
+def _render_template_skeleton(payload: dict[str, object], website_template: str) -> dict[str, str]:
+    """Squelette de site minimal quand le template demandé est absent du catalogue.
+
+    Évite de livrer un kit sans aucune base web ; à remplacer par le template de
+    référence dès qu'il est disponible dans `templates_catalog/`.
+    """
+    client_name = payload["client_name"]
+    primary_domain = payload["primary_domain"]
+    index_html = (
+        "<!DOCTYPE html>\n"
+        '<html lang="fr">\n<head>\n'
+        '  <meta charset="utf-8">\n'
+        '  <meta name="viewport" content="width=device-width, initial-scale=1">\n'
+        f"  <title>{client_name}</title>\n"
+        "</head>\n<body>\n"
+        f"  <h1>{client_name}</h1>\n"
+        f"  <p>Site en préparation — {primary_domain}.</p>\n"
+        "</body>\n</html>\n"
+    )
+    readme = (
+        f"# Template `{website_template}` (squelette généré)\n\n"
+        f"> Le template `{website_template}` est absent de `templates_catalog/` : "
+        "squelette minimal généré automatiquement.\n\n"
+        f"- Client : **{client_name}**\n"
+        f"- Domaine : `{primary_domain}`\n"
+        f"- Généré le : {payload['generated_at']}\n\n"
+        "Remplacez ce dossier par le template de référence dès qu'il est disponible.\n"
+    )
+    return {"index.html": index_html, "README.md": readme}
+
+
 def _render_onboarding_yaml(payload: dict[str, object]) -> str:
     return (
         f'client_name: "{payload["client_name"]}"\n'
@@ -354,14 +422,26 @@ class Command(BaseCommand):
         )
         generated_files.append(str(tenant_profile_file.relative_to(kit_path)))
 
-        # Copy key root docs.
+        # Copy key root docs (génère un fallback minimal si la source est absente).
         copied_files: list[str] = []
+        generated_doc_fallbacks: list[str] = []
         for name in ["README.md", "Waas_PackPlus.md", "phases_industrialisation.md", "current_context.md"]:
             src = repo_root / name
+            dst = kit_path / "docs" / name
             if src.exists():
-                dst = kit_path / "docs" / name
                 _safe_copy(src, dst)
-                copied_files.append(str(dst.relative_to(kit_path)))
+            else:
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                dst.write_text(_render_fallback_doc(name, payload), encoding="utf-8")
+                generated_doc_fallbacks.append(name)
+            copied_files.append(str(dst.relative_to(kit_path)))
+        if generated_doc_fallbacks:
+            self.stdout.write(
+                self.style.WARNING(
+                    "Docs racine absentes, fallback généré pour : "
+                    + ", ".join(generated_doc_fallbacks)
+                )
+            )
 
         # Copy markdown manuals/runbooks.
         if markdown_root.exists():
@@ -370,21 +450,35 @@ class Command(BaseCommand):
                 _safe_copy(src, dst)
                 copied_files.append(str(dst.relative_to(kit_path)))
 
-        # Copy template catalog readme and selected template.
+        # Copy template catalog readme (fallback minimal si le catalogue est absent).
         catalog_readme = templates_root / "README.md"
+        catalog_readme_dst = kit_path / "templates" / "README.md"
         if catalog_readme.exists():
-            dst = kit_path / "templates" / "README.md"
-            _safe_copy(catalog_readme, dst)
-            copied_files.append(str(dst.relative_to(kit_path)))
-
-        selected_template = templates_root / website_template
-        if selected_template.exists() and selected_template.is_dir():
-            shutil.copytree(selected_template, kit_path / "templates" / website_template)
-            for copied in sorted((kit_path / "templates" / website_template).rglob("*")):
-                if copied.is_file():
-                    copied_files.append(str(copied.relative_to(kit_path)))
+            _safe_copy(catalog_readme, catalog_readme_dst)
         else:
-            self.stdout.write(self.style.WARNING(f"Template non trouvé dans templates_catalog: {website_template}"))
+            catalog_readme_dst.parent.mkdir(parents=True, exist_ok=True)
+            catalog_readme_dst.write_text(
+                _render_template_catalog_readme(website_template), encoding="utf-8"
+            )
+        copied_files.append(str(catalog_readme_dst.relative_to(kit_path)))
+
+        # Copy selected template (squelette minimal si absent du catalogue).
+        selected_template = templates_root / website_template
+        template_dst_root = kit_path / "templates" / website_template
+        if selected_template.exists() and selected_template.is_dir():
+            shutil.copytree(selected_template, template_dst_root)
+        else:
+            template_dst_root.mkdir(parents=True, exist_ok=True)
+            for rel_name, content in _render_template_skeleton(payload, website_template).items():
+                (template_dst_root / rel_name).write_text(content, encoding="utf-8")
+            self.stdout.write(
+                self.style.WARNING(
+                    f"Template absent de templates_catalog: {website_template} — squelette généré."
+                )
+            )
+        for copied in sorted(template_dst_root.rglob("*")):
+            if copied.is_file():
+                copied_files.append(str(copied.relative_to(kit_path)))
 
         manifest = {
             "kit_id": kit_id,
