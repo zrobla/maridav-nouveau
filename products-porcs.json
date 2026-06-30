@@ -45,8 +45,8 @@
    "transversal": false,
    "type": "aliment-complet",
    "phase": "pré-démarrage",
-   "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
-   "og_image": "https://maridav.ci/maridav_ci_image/body/maridav_ci_graphique_3.webp",
+   "image": "maridav_ci_image/concentres/milkiwean.webp",
+   "og_image": "https://maridav.ci/maridav_ci_image/concentres/milkiwean.webp",
    "title": "Milkiwean Eco — pré-démarrage porcelet | MARIDAV Côte d'Ivoire",
    "description": "Aliment lacté pré-démarreur pour porcelets post-sevrés, distribué par MARIDAV Côte d'Ivoire : formulation haute digestibilité (22 % PB, 18 % MG, 20 % lactose) pour sécuriser la transition sevrage. Seau 10 kg.",
    "og_title": "Milkiwean Eco — pré-démarrage porcelet",
@@ -442,7 +442,7 @@
       "tag": "Avant le démarrage",
       "title": "Milkiwean Eco",
       "text": "Post-sevrage immédiat : sécuriser le porcelet avec l'aliment lacté.",
-      "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "img": "maridav_ci_image/concentres/milkiwean.webp",
       "alt": "Milkiwean Eco MARIDAV",
       "url": "milkeawean.html"
      },
@@ -1113,7 +1113,7 @@
       "tag": "Post-sevrage porcelet",
       "title": "Milkiwean Eco",
       "text": "Pré-démarrage lacté pour sécuriser les porcelets au sevrage.",
-      "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "img": "maridav_ci_image/concentres/milkiwean.webp",
       "alt": "Milkiwean Eco",
       "url": "milkeawean.html"
      },
@@ -1329,7 +1329,7 @@
       "tag": "Porcelets",
       "title": "Milkiwean Eco",
       "text": "Pré-démarrage : sécuriser le porcelet au sevrage.",
-      "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "img": "maridav_ci_image/concentres/milkiwean.webp",
       "alt": "Milkiwean Eco",
       "url": "milkeawean.html"
      },
