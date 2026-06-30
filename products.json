@@ -24,8 +24,8 @@
       "transversal": false,
       "type": "aliment-complet",
       "phase": "demarrage",
-      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
-      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "title": "Aliment Chair Démarrage — poussins 0–14 jours | MARIDAV",
       "description": "Aliment complet démarrage (0–14 j) distribué par MARIDAV Côte d’Ivoire : démarrage homogène des poussins de chair, santé intestinale et poids moyen sécurisé. Présentation miette, sac 50 kg, appui technique terrain.",
       "og_title": "Aliment Chair Démarrage — poussins 0–14 jours",
@@ -104,8 +104,8 @@
       "related": {
         "kicker": "Gamme volailles",
         "cards": [
-          {"tag": "Phase suivante", "title": "Aliment Chair Croissance", "text": "15–28 jours : soutenir la croissance et le FCR.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Croissance", "url": "aliments_chair_croissance_maridav_ci.html"},
-          {"tag": "Finition", "title": "Aliment Chair Finition", "text": "29–42 jours : rendement carcasse et uniformité.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Finition", "url": "aliments_chair_finition_maridav_ci.html"},
+          {"tag": "Phase suivante", "title": "Aliment Chair Croissance", "text": "15–28 jours : soutenir la croissance et le FCR.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Croissance", "url": "aliments_chair_croissance_maridav_ci.html"},
+          {"tag": "Finition", "title": "Aliment Chair Finition", "text": "29–42 jours : rendement carcasse et uniformité.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Finition", "url": "aliments_chair_finition_maridav_ci.html"},
           {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
@@ -130,8 +130,8 @@
       "transversal": false,
       "type": "aliment-complet",
       "phase": "croissance",
-      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
-      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "title": "Aliment Chair Croissance — poulet de chair 15–28 jours | MARIDAV",
       "description": "Aliment complet croissance (15–28 j) distribué par MARIDAV Côte d’Ivoire : vitesse de croissance, FCR maîtrisée et solidité du lot avant la finition. Sac 50 kg, appui technique terrain.",
       "og_title": "Aliment Chair Croissance — poulet de chair 15–28 jours",
@@ -210,8 +210,8 @@
       "related": {
         "kicker": "Gamme volailles",
         "cards": [
-          {"tag": "Phase précédente", "title": "Aliment Chair Démarrage", "text": "0–14 jours : sécuriser le poids moyen au départ.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage", "url": "aliment_chair_demarrage_maridav_ci.html"},
-          {"tag": "Phase suivante", "title": "Aliment Chair Finition", "text": "29–42 jours : rendement carcasse et uniformité.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Finition", "url": "aliments_chair_finition_maridav_ci.html"},
+          {"tag": "Phase précédente", "title": "Aliment Chair Démarrage", "text": "0–14 jours : sécuriser le poids moyen au départ.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Démarrage", "url": "aliment_chair_demarrage_maridav_ci.html"},
+          {"tag": "Phase suivante", "title": "Aliment Chair Finition", "text": "29–42 jours : rendement carcasse et uniformité.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Finition", "url": "aliments_chair_finition_maridav_ci.html"},
           {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
@@ -236,8 +236,8 @@
       "transversal": false,
       "type": "aliment-complet",
       "phase": "finition",
-      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
-      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "title": "Aliment Chair Finition — poulet de chair 29–42 jours | MARIDAV",
       "description": "Aliment complet finisher (29–42 j) distribué par MARIDAV Côte d’Ivoire : rendement carcasse, uniformité du lot et FCR maîtrisée pour vos poulets de chair. Sac 50 kg, appui technique terrain.",
       "og_title": "Aliment Chair Finition — poulet de chair 29–42 jours",
@@ -316,8 +316,8 @@
       "related": {
         "kicker": "Gamme volailles",
         "cards": [
-          {"tag": "Phase précédente", "title": "Aliment Chair Croissance", "text": "15–28 jours : optimisation du FCR avant la finition.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Croissance", "url": "aliments_chair_croissance_maridav_ci.html"},
-          {"tag": "Démarrage", "title": "Aliment Chair Démarrage", "text": "0–14 jours : sécuriser le poids moyen au départ.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage", "url": "aliment_chair_demarrage_maridav_ci.html"},
+          {"tag": "Phase précédente", "title": "Aliment Chair Croissance", "text": "15–28 jours : optimisation du FCR avant la finition.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Croissance", "url": "aliments_chair_croissance_maridav_ci.html"},
+          {"tag": "Démarrage", "title": "Aliment Chair Démarrage", "text": "0–14 jours : sécuriser le poids moyen au départ.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Démarrage", "url": "aliment_chair_demarrage_maridav_ci.html"},
           {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
@@ -421,8 +421,8 @@
       "related": {
         "kicker": "Cycle pondeuses",
         "cards": [
-          {"tag": "Phase suivante", "title": "Aliment Démarrage Pondeuses", "text": "0–6 semaines : construire la poulette.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage Pondeuses", "url": "aliment_demarrage_ponte.html"},
-          {"tag": "Poulette", "title": "Aliment Poulette", "text": "7–18 semaines : uniformité avant l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
+          {"tag": "Phase suivante", "title": "Aliment Démarrage Pondeuses", "text": "0–6 semaines : construire la poulette.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Démarrage Pondeuses", "url": "aliment_demarrage_ponte.html"},
+          {"tag": "Poulette", "title": "Aliment Poulette", "text": "7–18 semaines : uniformité avant l’entrée en ponte.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
           {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
@@ -447,8 +447,8 @@
       "transversal": false,
       "type": "aliment-complet",
       "phase": "demarrage",
-      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
-      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "title": "Aliment Démarrage Pondeuses — 0 à 6 semaines | MARIDAV",
       "description": "Aliment complet démarrage pondeuses (0–6 semaines) distribué par MARIDAV Côte d’Ivoire : construire une poulette saine et uniforme, base d’une bonne carrière de ponte. Sac 50 kg, appui technique terrain.",
       "og_title": "Aliment Démarrage Pondeuses — 0 à 6 semaines",
@@ -526,7 +526,7 @@
         "kicker": "Cycle pondeuses",
         "cards": [
           {"tag": "Phase précédente", "title": "ChickCare Pré-démarrage", "text": "0–5 jours : un départ idéal pour la poussinette.", "img": "maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png", "alt": "ChickCare", "url": "chickcare.html"},
-          {"tag": "Phase suivante", "title": "Aliment Poulette", "text": "7–18 semaines : uniformité avant l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
+          {"tag": "Phase suivante", "title": "Aliment Poulette", "text": "7–18 semaines : uniformité avant l’entrée en ponte.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
           {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
@@ -551,8 +551,8 @@
       "transversal": false,
       "type": "aliment-complet",
       "phase": "poulette",
-      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
-      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "title": "Aliment Poulette — pondeuse 7 à 18 semaines | MARIDAV",
       "description": "Aliment complet poulette (7–18 semaines) distribué par MARIDAV Côte d’Ivoire : développer le squelette et l’uniformité, préparer l’entrée en ponte. Sac 50 kg, appui technique terrain.",
       "og_title": "Aliment Poulette — pondeuse 7 à 18 semaines",
@@ -629,8 +629,8 @@
       "related": {
         "kicker": "Cycle pondeuses",
         "cards": [
-          {"tag": "Phase précédente", "title": "Aliment Démarrage Pondeuses", "text": "0–6 semaines : construire la poulette.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage Pondeuses", "url": "aliment_demarrage_ponte.html"},
-          {"tag": "Phase suivante", "title": "Aliment Ponte Phase 1", "text": "Entrée en ponte → pic : soutenir le démarrage de ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 1", "url": "aliment_ponte_1_maridav_ci.html"},
+          {"tag": "Phase précédente", "title": "Aliment Démarrage Pondeuses", "text": "0–6 semaines : construire la poulette.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Démarrage Pondeuses", "url": "aliment_demarrage_ponte.html"},
+          {"tag": "Phase suivante", "title": "Aliment Ponte Phase 1", "text": "Entrée en ponte → pic : soutenir le démarrage de ponte.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Ponte Phase 1", "url": "aliment_ponte_1_maridav_ci.html"},
           {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
@@ -655,8 +655,8 @@
       "transversal": false,
       "type": "aliment-complet",
       "phase": "ponte-1",
-      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
-      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "title": "Aliment Ponte Phase 1 — entrée en ponte & pic | MARIDAV",
       "description": "Aliment complet ponte phase 1 (entrée en ponte → pic) distribué par MARIDAV Côte d’Ivoire : soutenir le pic de ponte et la qualité de coquille. Sac 50 kg, appui technique terrain.",
       "og_title": "Aliment Ponte Phase 1 — entrée en ponte & pic",
@@ -733,8 +733,8 @@
       "related": {
         "kicker": "Cycle pondeuses",
         "cards": [
-          {"tag": "Phase précédente", "title": "Aliment Poulette", "text": "7–18 semaines : préparer l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
-          {"tag": "Phase suivante", "title": "Aliment Ponte Phase 2", "text": "Persistance de ponte en fin de cycle.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 2", "url": "aliment_ponte_2_maridav_ci.html"},
+          {"tag": "Phase précédente", "title": "Aliment Poulette", "text": "7–18 semaines : préparer l’entrée en ponte.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
+          {"tag": "Phase suivante", "title": "Aliment Ponte Phase 2", "text": "Persistance de ponte en fin de cycle.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Ponte Phase 2", "url": "aliment_ponte_2_maridav_ci.html"},
           {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
@@ -759,8 +759,8 @@
       "transversal": false,
       "type": "aliment-complet",
       "phase": "ponte-2",
-      "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
-      "og_image": "https://maridav.ci/maridav_ci_image/aliments_complets/aliments_complets.jpg",
+      "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
+      "og_image": "https://maridav.ci/maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "title": "Aliment Ponte Phase 2 — persistance de ponte | MARIDAV",
       "description": "Aliment complet ponte phase 2 (persistance de ponte) distribué par MARIDAV Côte d’Ivoire : tenir la production et la solidité de coquille en fin de cycle. Sac 50 kg, appui technique terrain.",
       "og_title": "Aliment Ponte Phase 2 — persistance de ponte",
@@ -838,7 +838,7 @@
       "related": {
         "kicker": "Cycle pondeuses",
         "cards": [
-          {"tag": "Phase précédente", "title": "Aliment Ponte Phase 1", "text": "Entrée en ponte → pic.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 1", "url": "aliment_ponte_1_maridav_ci.html"},
+          {"tag": "Phase précédente", "title": "Aliment Ponte Phase 1", "text": "Entrée en ponte → pic.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Ponte Phase 1", "url": "aliment_ponte_1_maridav_ci.html"},
           {"tag": "Début de cycle", "title": "ChickCare Pré-démarrage", "text": "0–5 jours : repartir sur une nouvelle bande.", "img": "maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png", "alt": "ChickCare", "url": "chickcare.html"},
           {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
@@ -948,7 +948,7 @@
         "cards": [
           {"tag": "Macro-prémix", "title": "Macro-Prémix 1,7 %", "text": "Complément vitamines &amp; minéraux à plus faible taux d’incorporation.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Macro-Prémix", "url": "macropremix_chair_1_7.html"},
           {"tag": "Prémix", "title": "Prémix 0,25 %", "text": "Prémix vitamino-minéral pour formulations avancées.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Prémix", "url": "premix_chair_0_25_maridav_ci.html"},
-          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
+          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
         ]
       },
       "ctaband": {
@@ -1051,7 +1051,7 @@
         "cards": [
           {"tag": "Concentré", "title": "Concentré 35 %", "text": "Taux d’incorporation plus élevé, moins de céréales à ajouter.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
           {"tag": "Concentré", "title": "Concentré 5 %", "text": "Taux minimal pour les fabricants les plus autonomes.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 5 %", "url": "chair_05.html"},
-          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
+          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
         ]
       },
       "ctaband": {
@@ -1259,7 +1259,7 @@
         "cards": [
           {"tag": "Concentré", "title": "Concentré 35 %", "text": "Concentré transversal chair & ponte, taux élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
           {"tag": "Macro-prémix", "title": "Macro-Prémix Pondeuses 1,7 %", "text": "Complément vitamines & minéraux pour la ponte.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix Pondeuses", "url": "macropremix_pondeuses_1_7.html"},
-          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
+          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
         ]
       },
       "ctaband": {
@@ -1573,7 +1573,7 @@
         "cards": [
           {"tag": "Macro-prémix", "title": "Macro-Prémix Pondeuses 2 %", "text": "Variante à 2 % d’incorporation.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix Pondeuses 2 %", "url": "macropremix_pondeuse_2pct.html"},
           {"tag": "Concentré", "title": "Maxi Ponte 5 %", "text": "Concentré 5 % spécifique pondeuses.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Maxi Ponte 5 %", "url": "maxiponte_5.html"},
-          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
+          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
         ]
       },
       "ctaband": {
@@ -1784,7 +1784,7 @@
         "cards": [
           {"tag": "Macro-prémix", "title": "Macro-Prémix 1,7 %", "text": "Complément à plus fort taux d’incorporation.", "img": "maridav_ci_image/macro_premix/broiler-premix.webp", "alt": "Macro-Prémix 1,7 %", "url": "macropremix_chair_1_7.html"},
           {"tag": "Concentré", "title": "Concentré 35 %", "text": "Apporte aussi la protéine, taux élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
-          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
+          {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
         ]
       },
       "ctaband": {
@@ -1889,7 +1889,7 @@
         "cards": [
           {"tag": "Macro-prémix", "title": "Macro-Prémix Pondeuses 1,7 %", "text": "Complément ponte à plus fort taux.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix Pondeuses 1,7 %", "url": "macropremix_pondeuses_1_7.html"},
           {"tag": "Concentré", "title": "Maxi Ponte 5 %", "text": "Concentré 5 % spécifique pondeuses.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Maxi Ponte 5 %", "url": "maxiponte_5.html"},
-          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
+          {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
         ]
       },
       "ctaband": {

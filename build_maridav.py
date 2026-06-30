@@ -472,7 +472,7 @@ FILIERES = {
         "h1": 'Poulets de chair : le bon aliment à <span class="accent">chaque phase</span>',
         "lead": "Du démarrage à la finition, un programme nutritionnel complet pensé pour le climat ivoirien — <strong>prêt à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong>, avec l'appui de nos techniciens sur le terrain.",
         "lead_faf": "Du démarrage à la finition, un programme nutritionnel complet pensé pour le climat ivoirien — nos <strong>concentrés et prémix</strong> pour <strong>fabriquer votre aliment (FAF)</strong> et maîtriser votre coût de ration, avec l'appui de nos techniciens sur le terrain.",
-        "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+        "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
         "image_alt": "Gamme aliments poulets de chair MARIDAV Côte d'Ivoire",
         "facts": [
             {"b": "3 phases", "span": "Démarrage → finition"},
@@ -505,7 +505,7 @@ FILIERES = {
         "eyebrow": "Filière volailles — Pondeuses",
         "h1": 'Pondeuses : sécuriser le pic et la <span class="accent">persistance de ponte</span>',
         "lead": "De la poussinière à la fin de ponte, un programme nutritionnel complet adapté au climat ivoirien — <strong>prêt à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong>, avec l'appui de nos techniciens sur le terrain.",
-        "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
+        "image": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
         "image_alt": "Gamme aliments pondeuses MARIDAV Côte d'Ivoire",
         "facts": [
             {"b": "5 phases", "span": "Pré-démarrage → ponte"},
@@ -570,7 +570,7 @@ HUB = {
         {
             "title": "Poulets de chair",
             "sub": "Croissance homogène, FCR maîtrisé, carcasses conformes.",
-            "image": "maridav_ci_image/especes_maridav_ci/poulets_de_chair_maridav_ci.webp",
+            "image": "images/pondeuses-maridav.png",
             "bullets": [
                 "Programme démarrage → croissance → finition",
                 "Concentrés & prémix pour fabriquer votre aliment",
@@ -581,7 +581,8 @@ HUB = {
         {
             "title": "Pondeuses",
             "sub": "Entrée en ponte sécurisée, pic et persistance soutenus.",
-            "image": "images/pondeuses-maridav.png",
+            "image": "images/oeufs-et-pondeuses-paysage.jpg",
+            "vis_style": ";background-size:cover",
             "bullets": [
                 "Programme poussinière → poulette → ponte",
                 "Concentrés & prémix pour fabriquer votre aliment",
@@ -920,7 +921,7 @@ FILIERE_CSS = r"""  <style>
     .hub-choices{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
     .hub-choice{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
     .hub-choice:hover{transform:translateY(-6px);box-shadow:0 36px 64px -30px rgba(2,12,46,.5)}
-    .hub-choice .vis{height:210px;background-size:cover;background-position:center}
+    .hub-choice .vis{height:210px;background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#eef2f8}
     .hub-choice .bd{padding:1.5rem;display:flex;flex-direction:column;flex:1}
     .hub-choice h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.4rem;color:var(--navy);margin:0 0 .35rem}
     .hub-choice .sub{color:var(--muted);font-size:.92rem;margin:0 0 .9rem}
@@ -1904,7 +1905,7 @@ def render_hub_choices(h):
             f'<li><i class="bi bi-check-circle-fill"></i><span>{b}</span></li>' for b in c["bullets"]
         )
         cards.append(f"""<article class="hub-choice">
-            <div class="vis" style="background-image:url('{c["image"]}')" role="img" aria-label="{c["title"]}"></div>
+            <div class="vis" style="background-image:url('{c["image"]}'){c.get("vis_style", "")}" role="img" aria-label="{c["title"]}"></div>
             <div class="bd">
               <h3>{c["title"]}</h3>
               <p class="sub">{c["sub"]}</p>
