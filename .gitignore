@@ -50,3 +50,10 @@ __cap_tmp.html
 # Backups locaux refonte (originaux conserves dans l_historique git)
 _archive/
 _gate/
+
+# Sauvegardes ponctuelles avant edition (*.bak-YYYYMMDD-HHMMSS / *.bak-..._...)
+*.bak-*
+
+# Runtime du checkout VPS en mode git-pull (home de l_utilisateur maridav)
+.ssh/
+.cache/
