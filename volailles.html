@@ -139,15 +139,14 @@
     .pdp-reveal{animation:pdpUp .7s both}
     .d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
 
-    /* footer */
-    .footer-premium .footer-top{padding:3rem 0;background:#020a1c;color:#fff}
-    .footer-premium .footer-bottom{background:#010512;color:#b2bed5;padding:1rem 0}
-    .footer-premium .brand{display:flex;align-items:center;gap:1rem}
-    .footer-premium .brand img{height:46px}
-    .footer-premium .small-link{color:#d0d7ea;text-decoration:none;font-size:.95rem}
-    .footer-premium .small-link:hover{color:var(--green-soft)}
-    .footer-contact li{display:flex;gap:.6rem;font-size:.95rem;margin-bottom:.85rem}
-    .footer-social a{color:#fff;margin-right:.65rem}
+    /* footer — corporate premium, fonds pleins (le détail du style vit dans main.min.css) */
+    .footer-premium .footer-top{padding:66px 0 46px;background:#020a1c}
+    .footer-premium .footer-bottom{background:#010512;color:#8aa0c4;padding:18px 0}
+    .footer-premium .brand{display:flex;align-items:center;gap:.8rem}
+    .footer-premium .brand img{height:48px}
+    .footer-premium .small-link{color:#aebbd4;text-decoration:none;font-size:.93rem}
+    .footer-premium .small-link:hover{color:#6ee7a8}
+    .footer-contact li{display:flex;gap:.6rem;font-size:.9rem;margin-bottom:.7rem}
 
     @media (max-width:991px){
       .pdp-facts{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(2,1fr)}
@@ -217,7 +216,7 @@
     .hub-choices{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
     .hub-choice{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
     .hub-choice:hover{transform:translateY(-6px);box-shadow:0 36px 64px -30px rgba(2,12,46,.5)}
-    .hub-choice .vis{height:210px;background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#eef2f8}
+    .hub-choice .vis{height:210px;background-size:cover;background-position:center}
     .hub-choice .bd{padding:1.5rem;display:flex;flex-direction:column;flex:1}
     .hub-choice h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.4rem;color:var(--navy);margin:0 0 .35rem}
     .hub-choice .sub{color:var(--muted);font-size:.92rem;margin:0 0 .9rem}
@@ -306,7 +305,7 @@
 </head>
 <body class="pdp">
   <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
-  <header class="premium-header sticky-top" role="banner">
+<header class="premium-header sticky-top" role="banner">
       <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navigation principale">
         <div class="container">
           <a class="navbar-brand" href="index.html" aria-label="MARIDAV CI">
@@ -451,7 +450,7 @@
         </div>
         <div class="hub-choices">
           <article class="hub-choice">
-            <div class="vis" style="background-image:url('images/pondeuses-maridav.png')" role="img" aria-label="Poulets de chair"></div>
+            <div class="vis" style="background-image:url('maridav_ci_image/especes_maridav_ci/poulets_de_chair_maridav_ci.webp')" role="img" aria-label="Poulets de chair"></div>
             <div class="bd">
               <h3>Poulets de chair</h3>
               <p class="sub">Croissance homogène, FCR maîtrisé, carcasses conformes.</p>
@@ -467,7 +466,7 @@
             </div>
           </article>
           <article class="hub-choice">
-            <div class="vis" style="background-image:url('images/oeufs-et-pondeuses-paysage.jpg');background-size:cover" role="img" aria-label="Pondeuses"></div>
+            <div class="vis" style="background-image:url('images/pondeuses-maridav.png')" role="img" aria-label="Pondeuses"></div>
             <div class="bd">
               <h3>Pondeuses</h3>
               <p class="sub">Entrée en ponte sécurisée, pic et persistance soutenus.</p>

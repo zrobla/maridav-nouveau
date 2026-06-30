@@ -139,15 +139,14 @@
     .pdp-reveal{animation:pdpUp .7s both}
     .d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
 
-    /* footer */
-    .footer-premium .footer-top{padding:3rem 0;background:#020a1c;color:#fff}
-    .footer-premium .footer-bottom{background:#010512;color:#b2bed5;padding:1rem 0}
-    .footer-premium .brand{display:flex;align-items:center;gap:1rem}
-    .footer-premium .brand img{height:46px}
-    .footer-premium .small-link{color:#d0d7ea;text-decoration:none;font-size:.95rem}
-    .footer-premium .small-link:hover{color:var(--green-soft)}
-    .footer-contact li{display:flex;gap:.6rem;font-size:.95rem;margin-bottom:.85rem}
-    .footer-social a{color:#fff;margin-right:.65rem}
+    /* footer — corporate premium, fonds pleins (le détail du style vit dans main.min.css) */
+    .footer-premium .footer-top{padding:66px 0 46px;background:#020a1c}
+    .footer-premium .footer-bottom{background:#010512;color:#8aa0c4;padding:18px 0}
+    .footer-premium .brand{display:flex;align-items:center;gap:.8rem}
+    .footer-premium .brand img{height:48px}
+    .footer-premium .small-link{color:#aebbd4;text-decoration:none;font-size:.93rem}
+    .footer-premium .small-link:hover{color:#6ee7a8}
+    .footer-contact li{display:flex;gap:.6rem;font-size:.9rem;margin-bottom:.7rem}
 
     @media (max-width:991px){
       .pdp-facts{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(2,1fr)}
@@ -306,7 +305,7 @@
 </head>
 <body class="pdp">
   <a class="skip-link visually-hidden-focusable" href="#main">Aller au contenu principal</a>
-  <header class="premium-header sticky-top" role="banner">
+<header class="premium-header sticky-top" role="banner">
       <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navigation principale">
         <div class="container">
           <a class="navbar-brand" href="index.html" aria-label="MARIDAV CI">
@@ -422,14 +421,14 @@
           <div class="col-lg-7">
             <span class="pdp-eyebrow pdp-reveal d1">Filière volailles — Poulets de chair</span>
             <h1 class="pdp-reveal d1">Poulets de chair : le bon aliment à <span class="accent">chaque phase</span></h1>
-            <p class="pdp-lead pdp-reveal d2">Du démarrage à la finition, un programme nutritionnel complet pensé pour le climat ivoirien — <strong>prêt à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong>, avec l'appui de nos techniciens sur le terrain.</p>
+            <p class="pdp-lead pdp-reveal d2">Du démarrage à la finition, un programme nutritionnel complet pensé pour le climat ivoirien — nos <strong>concentrés et prémix</strong> pour <strong>fabriquer votre aliment (FAF)</strong> et maîtriser votre coût de ration, avec l'appui de nos techniciens sur le terrain.</p>
             <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
               <a class="btn-pill btn-green" href="#gamme">Voir la gamme <i class="bi bi-arrow-down"></i></a>
               <a class="btn-pill btn-ghost" href="https://api.whatsapp.com/send?phone=+2250574648888" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
             </div>
             <div class="pdp-facts pdp-reveal d4">
               <div class="pdp-fact"><b>3 phases</b><span>Démarrage → finition</span></div>
-              <div class="pdp-fact"><b>Prêt ou FAF</b><span>Deux modes de production</span></div>
+              <div class="pdp-fact"><b>FAF</b><span>Fabriquez votre aliment</span></div>
               <div class="pdp-fact"><b>24 h</b><span>Devis en FCFA</span></div>
               <div class="pdp-fact"><b>Côte d'Ivoire</b><span>Réseau de points de vente</span></div>
             </div>
@@ -468,9 +467,9 @@
           <p class="text-muted mt-3 mb-0" style="max-width:46rem">Repère naturel de l'éleveur : à chaque phase du cycle, l'aliment qui sécurise la performance suivante.</p>
         </div>
         <div class="fl-timeline">
-          <div class="fl-tstep"><span class="num">1</span><span class="age">0 – 14 jours</span><h3>Démarrage</h3><p>Starter haute appétence : démarrage rapide du poussin et poids moyen sécurisé.</p><a class="btn-line" href="aliment_chair_demarrage_maridav_ci.html">Aliment Démarrage <i class="bi bi-arrow-right"></i></a></div>
-          <div class="fl-tstep"><span class="num">2</span><span class="age">15 – 28 jours</span><h3>Croissance</h3><p>Optimisation du FCR et homogénéité de la bande.</p><a class="btn-line" href="aliments_chair_croissance_maridav_ci.html">Aliment Croissance <i class="bi bi-arrow-right"></i></a></div>
-          <div class="fl-tstep"><span class="num">3</span><span class="age">29 – 42 jours</span><h3>Finition</h3><p>Rendement carcasse et maîtrise du coût des derniers kilos.</p><a class="btn-line" href="aliments_chair_finition_maridav_ci.html">Aliment Finition <i class="bi bi-arrow-right"></i></a></div>
+          <div class="fl-tstep"><span class="num">1</span><span class="age">0 – 14 jours</span><h3>Démarrage</h3><p>Starter haute appétence : démarrage rapide du poussin et poids moyen sécurisé.</p></div>
+          <div class="fl-tstep"><span class="num">2</span><span class="age">15 – 28 jours</span><h3>Croissance</h3><p>Optimisation du FCR et homogénéité de la bande.</p></div>
+          <div class="fl-tstep"><span class="num">3</span><span class="age">29 – 42 jours</span><h3>Finition</h3><p>Rendement carcasse et maîtrise du coût des derniers kilos.</p></div>
         </div>
       </div>
     </section>
@@ -480,18 +479,14 @@
       <div class="container">
         <div class="mb-4">
           <span class="pdp-kicker">Notre gamme de produits</span>
-          <h2 class="pdp-h2">Acheter prêt à l'emploi, ou fabriquer votre aliment</h2>
+          <h2 class="pdp-h2">Fabriquez votre aliment, phase par phase</h2>
           <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
             <button class="fl-mode is-active" data-filter="all"><i class="bi bi-grid"></i> Tout voir</button>
-            <button class="fl-mode" data-filter="pret"><i class="bi bi-bag-check"></i> Prêt à l'emploi</button>
             <button class="fl-mode" data-filter="faf"><i class="bi bi-sliders"></i> Je fabrique (FAF)</button>
           </div>
-          <p class="fl-modehint" id="fl-modehint" data-hint-all="Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.">Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.</p>
+          <p class="fl-modehint" id="fl-modehint" data-hint-all="Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.">Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration.</p>
         </div>
         <div class="fl-matrix" id="fl-matrix">
-            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Aliment Chair Démarrage</h3><p class="badge-phase">Phase démarrage — 0 à 14 jours</p><p>Aliment complet starter</p><a class="btn-line" href="aliment_chair_demarrage_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Aliment Chair Croissance</h3><p class="badge-phase">Phase croissance — 15 à 28 jours</p><p>Aliment complet grower</p><a class="btn-line" href="aliments_chair_croissance_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-            <article class="fl-mcard" data-mode="pret"><span class="cat"><i class="bi bi-bag-check"></i> Aliment complet</span><h3>Aliment Chair Finition</h3><p class="badge-phase">Phase finition — 29 à 42 jours</p><p>Aliment complet finisher</p><a class="btn-line" href="aliments_chair_finition_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
             <article class="fl-mcard" data-mode="faf"><span class="cat"><i class="bi bi-sliders"></i> Concentré</span><h3>Concentré protéique Hendrix 31 %</h3><p class="badge-phase">Transversal — poulets de chair &amp; pondeuses</p><p>Concentré protéique</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="concentre_chair_31.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
             <article class="fl-mcard" data-mode="faf"><span class="cat"><i class="bi bi-sliders"></i> Concentré</span><h3>Concentré protéique 12,5 %</h3><p class="badge-phase">Transversal — poulets de chair &amp; pondeuses</p><p>Concentré protéique</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="chair_12_5.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
             <article class="fl-mcard" data-mode="faf"><span class="cat"><i class="bi bi-sliders"></i> Concentré</span><h3>Concentré protéique 5 %</h3><p class="badge-phase">Transversal — poulets de chair &amp; pondeuses</p><p>Concentré protéique</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="chair_05.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
@@ -524,7 +519,7 @@
         <div class="fl-proof">
           <div class="fl-proofgrid">
             <div class="fl-pitem"><b>Tout le cycle</b><span>Un aliment pour chaque phase</span></div>
-            <div class="fl-pitem"><b>Prêt ou FAF</b><span>Acheter prêt à l'emploi ou fabriquer</span></div>
+            <div class="fl-pitem"><b>FAF maîtrisé</b><span>Fabriquez votre aliment, votre coût</span></div>
             <div class="fl-pitem"><b>Devis 24 h</b><span>Réponse chiffrée en FCFA</span></div>
             <div class="fl-pitem"><b>Appui terrain</b><span>Techniciens MARIDAV en Côte d'Ivoire</span></div>
           </div>
@@ -628,7 +623,7 @@
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://maridav.ci/"},{"@type":"ListItem","position":2,"name":"Volailles","item":"https://maridav.ci/volailles.html"},{"@type":"ListItem","position":3,"name":"Poulets de chair","item":"https://maridav.ci/poulets_chair_maridav_ci.html"}]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","name":"Poulets de chair — programme complet & FAF | MARIDAV Côte d'Ivoire","itemListElement":[{"@type":"ListItem","position":1,"name":"Aliment Chair Démarrage","url":"https://maridav.ci/aliment_chair_demarrage_maridav_ci.html"},{"@type":"ListItem","position":2,"name":"Aliment Chair Croissance","url":"https://maridav.ci/aliments_chair_croissance_maridav_ci.html"},{"@type":"ListItem","position":3,"name":"Aliment Chair Finition","url":"https://maridav.ci/aliments_chair_finition_maridav_ci.html"},{"@type":"ListItem","position":4,"name":"Concentré protéique Hendrix 31 %","url":"https://maridav.ci/concentre_chair_31.html"},{"@type":"ListItem","position":5,"name":"Concentré protéique 12,5 %","url":"https://maridav.ci/chair_12_5.html"},{"@type":"ListItem","position":6,"name":"Concentré protéique 5 %","url":"https://maridav.ci/chair_05.html"},{"@type":"ListItem","position":7,"name":"Macro-Prémix 1,7 %","url":"https://maridav.ci/macropremix_chair_1_7.html"},{"@type":"ListItem","position":8,"name":"Macro-Prémix 2 %","url":"https://maridav.ci/macropremix_chair_2pct.html"},{"@type":"ListItem","position":9,"name":"Prémix 0,25 %","url":"https://maridav.ci/premix_chair_0_25_maridav_ci.html"}]}
+  {"@context":"https://schema.org","@type":"ItemList","name":"Poulets de chair — programme complet & FAF | MARIDAV Côte d'Ivoire","itemListElement":[{"@type":"ListItem","position":1,"name":"Concentré protéique Hendrix 31 %","url":"https://maridav.ci/concentre_chair_31.html"},{"@type":"ListItem","position":2,"name":"Concentré protéique 12,5 %","url":"https://maridav.ci/chair_12_5.html"},{"@type":"ListItem","position":3,"name":"Concentré protéique 5 %","url":"https://maridav.ci/chair_05.html"},{"@type":"ListItem","position":4,"name":"Macro-Prémix 1,7 %","url":"https://maridav.ci/macropremix_chair_1_7.html"},{"@type":"ListItem","position":5,"name":"Macro-Prémix 2 %","url":"https://maridav.ci/macropremix_chair_2pct.html"},{"@type":"ListItem","position":6,"name":"Prémix 0,25 %","url":"https://maridav.ci/premix_chair_0_25_maridav_ci.html"}]}
   </script>
   <script>
   (function(){

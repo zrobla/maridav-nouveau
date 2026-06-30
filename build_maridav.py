@@ -31,6 +31,44 @@ ADDITIF_DATA = ROOT / "products-additifs.json"     # additifs fonctionnels (tran
 PRODUCT_SOURCES = [DATA, PORC_DATA, POISSON_DATA, BIOSEC_DATA, ADDITIF_DATA]
 
 # --------------------------------------------------------------------------- #
+#  Suspension des aliments complets fabriqués PAR MARIDAV (volailles + porcs)   #
+#  --------------------------------------------------------------------------- #
+#  Maridav a suspendu sa propre fabrication d'aliments complets sur les         #
+#  filières volailles et porcs. Tant que `HIDE_MARIDAV_ALIMENTS_COMPLETS` est   #
+#  True, ces produits maison sont masqués partout (PDP non générées et          #
+#  supprimées du disque, retirés des matrices, des frises, des cross-sell, du   #
+#  sitemap et du llms.txt). Les données JSON restent INTACTES : repasser le     #
+#  drapeau à False puis relancer le build réactive l'ensemble (« sous le coude »).
+#                                                                               #
+#  NE SONT PAS concernés (produits de partenaires, conservés) :                 #
+#   • Poissons (Skretting : Nutra, Optiline, Vitalis) — toute la gamme,         #
+#   • ChickCare (pré-démarrage pondeuses), Milkiwean Eco (post-sevrage porcs).  #
+HIDE_MARIDAV_ALIMENTS_COMPLETS = True
+
+_HIDDEN_AC_URLS = {
+    # Volailles — chair (les 3 phases : plus aucun aliment complet maison)
+    "aliment_chair_demarrage_maridav_ci.html",
+    "aliments_chair_croissance_maridav_ci.html",
+    "aliments_chair_finition_maridav_ci.html",
+    # Volailles — pondeuses (hors ChickCare, qui reste)
+    "aliment_demarrage_ponte.html",
+    "aliment_poulette.html",
+    "aliment_ponte_1_maridav_ci.html",
+    "aliment_ponte_2_maridav_ci.html",
+    # Porcs — engraissement (hors Milkiwean, qui reste)
+    "aliment_porc_demarrage_maridav_ci.html",
+    "aliment_porc_croissance_maridav_ci.html",
+    "aliment_porc_finition_maridav_ci.html",
+    # Porcs — reproduction
+    "aliment_truie_gestante.html",
+    "aliment_truie_allaitante_maridav_ci.html",
+}
+
+def is_hidden(url):
+    """True si l'URL produit est un aliment complet maison suspendu (cf. drapeau)."""
+    return HIDE_MARIDAV_ALIMENTS_COMPLETS and url in _HIDDEN_AC_URLS
+
+# --------------------------------------------------------------------------- #
 #  Constantes de marque (source unique)                                        #
 # --------------------------------------------------------------------------- #
 SITE = {
@@ -433,6 +471,7 @@ FILIERES = {
         "eyebrow": "Filière volailles — Poulets de chair",
         "h1": 'Poulets de chair : le bon aliment à <span class="accent">chaque phase</span>',
         "lead": "Du démarrage à la finition, un programme nutritionnel complet pensé pour le climat ivoirien — <strong>prêt à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong>, avec l'appui de nos techniciens sur le terrain.",
+        "lead_faf": "Du démarrage à la finition, un programme nutritionnel complet pensé pour le climat ivoirien — nos <strong>concentrés et prémix</strong> pour <strong>fabriquer votre aliment (FAF)</strong> et maîtriser votre coût de ration, avec l'appui de nos techniciens sur le terrain.",
         "image": "maridav_ci_image/aliments_complets/aliments_complets.jpg",
         "image_alt": "Gamme aliments poulets de chair MARIDAV Côte d'Ivoire",
         "facts": [
@@ -565,7 +604,9 @@ HUB = {
 PORC_HUB = {
     "url": "porcins_maridav_ci.html",
     "title": "Porcs — aliments & concentrés | MARIDAV Côte d'Ivoire",
-    "description": "Nutrition porcine en Côte d'Ivoire : aliments complets et concentrés 5 % pour l'engraissement (7–70 kg et finition) et la reproduction (gestation, lactation, Milkiwean). Appui technicien, devis en FCFA sous 24 h.",
+    "description": ("Nutrition porcine en Côte d'Ivoire : concentrés 5 % pour fabriquer votre aliment sur l'engraissement (7–70 kg et finition) et la reproduction (gestation, lactation), plus Milkiwean au post-sevrage. Appui technicien, devis en FCFA sous 24 h."
+                    if HIDE_MARIDAV_ALIMENTS_COMPLETS else
+                    "Nutrition porcine en Côte d'Ivoire : aliments complets et concentrés 5 % pour l'engraissement (7–70 kg et finition) et la reproduction (gestation, lactation, Milkiwean). Appui technicien, devis en FCFA sous 24 h."),
     "eyebrow": "Filière porcs",
     "h1": 'Nutrition porcine : <span class="accent">engraissement & reproduction</span>',
     "lead": "Des formulations tropicalisées pour chaque phase du cycle — <strong>prêts à l'emploi</strong> ou en <strong>fabrication assistée (FAF)</strong> avec vos matières locales — accompagnées par nos techniciens sur le terrain.",
@@ -583,7 +624,7 @@ PORC_HUB = {
         "intro": "Deux pistes distinctes : engraissement (du porcelet à l'abattage, repère = le poids) et reproduction (cheptel truies). Choisissez votre piste.",
         "eng": [
             {"phase": "Pré-démarrage", "age": "Post-sevrage", "text": "Milkiwean Eco : aliment lacté pour sécuriser le porcelet dès les premières heures.", "url": "milkeawean.html", "cta": "Milkiwean Eco"},
-            {"phase": "Démarrage", "age": "7 – 25 kg", "text": "Aliment complet ou concentré 5 % pour démarrer le lot sur de bonnes bases.", "url": "aliment_porc_demarrage_maridav_ci.html", "cta": "Aliment Démarrage"},
+            {"phase": "Démarrage", "age": "7 – 25 kg", "text": ("Concentré 5 % pour démarrer le lot sur de bonnes bases (FAF)." if HIDE_MARIDAV_ALIMENTS_COMPLETS else "Aliment complet ou concentré 5 % pour démarrer le lot sur de bonnes bases."), "url": "aliment_porc_demarrage_maridav_ci.html", "cta": "Aliment Démarrage"},
             {"phase": "Croissance", "age": "25 – 70 kg", "text": "Ration tropicalisée pour soutenir le gain de poids et maîtriser l'indice de consommation.", "url": "aliment_porc_croissance_maridav_ci.html", "cta": "Aliment Croissance"},
             {"phase": "Finition", "age": "> 70 kg", "text": "Équilibre énergie/protéines pour préparer les carcasses à l'objectif de vente.", "url": "aliment_porc_finition_maridav_ci.html", "cta": "Aliment Finition"},
         ],
@@ -1204,6 +1245,10 @@ def render_crosssell(p):
     c = p.get("crosssell")
     if not c:
         return ""
+    # Cible suspendue (aliment complet maison) : on retire le bloc plutôt que de
+    # pointer vers une page qui n'existe plus.
+    if is_hidden(c.get("url", "")):
+        return ""
     return f"""    <!-- CROSS-SELL mode de production -->
     <section class="pdp-sec pt-0">
       <div class="container">
@@ -1250,6 +1295,8 @@ def render_related(p):
         return ""
     cards = []
     for c in r["cards"]:
+        if is_hidden(c.get("url", "")):
+            continue
         cards.append(
             f'<div class="col-md-4"><div class="pdp-rel">'
             f'<img src="{c["img"]}" alt="{c["alt"]}">'
@@ -1258,6 +1305,8 @@ def render_related(p):
             f'<a class="btn-line" href="{c["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
             f'</div></div></div>'
         )
+    if not cards:
+        return ""
     cards_html = "\n          ".join(cards)
     return f"""    <!-- PRODUITS LIÉS -->
     <section class="pdp-sec pt-0">
@@ -1402,7 +1451,7 @@ def iter_products(data):
             continue
         if isinstance(items, list):
             for it in items:
-                if it.get("_render", True) and "hero" in it:
+                if it.get("_render", True) and "hero" in it and not is_hidden(it.get("url", "")):
                     yield it
 
 
@@ -1419,6 +1468,8 @@ def products_for_filiere(data, slug):
         meta = CATEGORY_META[cat]
         for it in data.get(cat, []):
             if not it.get("_render", True) or "hero" not in it:
+                continue
+            if is_hidden(it.get("url", "")):
                 continue
             if slug not in it.get("filieres", []):
                 continue
@@ -1446,6 +1497,8 @@ def products_all(data):
         meta = CATEGORY_META[cat]
         for it in data.get(cat, []):
             if not it.get("_render", True) or "hero" not in it:
+                continue
+            if is_hidden(it.get("url", "")):
                 continue
             hero = it["hero"]
             cards.append({
@@ -1501,6 +1554,14 @@ def render_filiere_hero(fl):
         ' <span class="mx-1 text-white-50">/</span>\n          '
         f'<span class="text-white-50">{fl["eyebrow"].split("—")[-1].strip()}</span>'
     )
+    # Filière sans aliment complet maison : on bascule le discours en FAF
+    # (lead dédié + remplacement du fait « Prêt ou FAF »).
+    has_pret = fl.get("_has_pret", True)
+    lead = fl["lead"] if has_pret else fl.get("lead_faf", fl["lead"])
+    facts = fl["facts"] if has_pret else [
+        {"b": "FAF", "span": "Fabriquez votre aliment"} if f.get("b") == "Prêt ou FAF" else f
+        for f in fl["facts"]
+    ]
     return f"""    <!-- HERO FILIÈRE -->
     <section class="pdp-hero">
       <div class="container">
@@ -1511,13 +1572,13 @@ def render_filiere_hero(fl):
           <div class="col-lg-7">
             <span class="pdp-eyebrow pdp-reveal d1">{fl["eyebrow"]}</span>
             <h1 class="pdp-reveal d1">{fl["h1"]}</h1>
-            <p class="pdp-lead pdp-reveal d2">{fl["lead"]}</p>
+            <p class="pdp-lead pdp-reveal d2">{lead}</p>
             <div class="d-flex flex-wrap gap-3 mt-4 pdp-reveal d3">
               <a class="btn-pill btn-green" href="#gamme">Voir la gamme <i class="bi bi-arrow-down"></i></a>
               <a class="btn-pill btn-ghost" href="{SITE["wa"]}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Parler à un technicien</a>
             </div>
             <div class="pdp-facts pdp-reveal d4">
-              {render_facts(fl["facts"])}
+              {render_facts(facts)}
             </div>
           </div>
           <div class="col-lg-5">
@@ -1555,11 +1616,16 @@ def render_pillars(piliers):
 def render_timeline(fl):
     steps = []
     for i, t in enumerate(fl["timeline"], 1):
+        # Aliment complet maison suspendu : on conserve la phase (repère du cycle)
+        # mais on retire le CTA vers une PDP qui n'existe plus.
+        cta = "" if is_hidden(t["url"]) else (
+            f'<a class="btn-line" href="{t["url"]}">{t["cta"]} <i class="bi bi-arrow-right"></i></a>'
+        )
         steps.append(
             f'<div class="fl-tstep"><span class="num">{i}</span>'
             f'<span class="age">{t["age"]}</span><h3>{t["phase"]}</h3>'
             f'<p>{t["text"]}</p>'
-            f'<a class="btn-line" href="{t["url"]}">{t["cta"]} <i class="bi bi-arrow-right"></i></a>'
+            f'{cta}'
             f'</div>'
         )
     steps_html = "\n          ".join(steps)
@@ -1606,13 +1672,21 @@ def render_matrix(fl, cards):
             f'</article>'
         )
     items_html = "\n            ".join(items)
-    hint_all = fl.get("matrix_hint_all", "Toute la gamme volailles, prête à l'emploi comme en fabrication assistée.")
+    # Sans aucun produit prêt à l'emploi (filière dont l'aliment complet maison est
+    # suspendu), le discours bascule en « fabrication assistée » uniquement.
+    if has_pret:
+        gamme_h2 = "Acheter prêt à l'emploi, ou fabriquer votre aliment"
+        hint_default = "Toute la gamme volailles, prête à l'emploi comme en fabrication assistée."
+    else:
+        gamme_h2 = "Fabriquez votre aliment, phase par phase"
+        hint_default = "Concentrés et prémix pour fabriquer votre aliment et maîtriser votre coût de ration."
+    hint_all = fl.get("matrix_hint_all", hint_default) if has_pret else hint_default
     return f"""    <!-- MODE-SWITCH + PRODUCT-MATRIX -->
     <section class="pdp-sec pt-0" id="gamme">
       <div class="container">
         <div class="mb-4">
           <span class="pdp-kicker">Notre gamme de produits</span>
-          <h2 class="pdp-h2">Acheter prêt à l'emploi, ou fabriquer votre aliment</h2>
+          <h2 class="pdp-h2">{gamme_h2}</h2>
           <div class="fl-modes mt-3" role="group" aria-label="Mode de production">
             {modes_html}
           </div>
@@ -1743,13 +1817,21 @@ def render_filiere_jsonld(fl, cards):
 def render_filiere_page(fl, data):
     piliers = data["_meta"]["piliers"]
     cards = products_for_filiere(data, fl["_slug"])
+    # La filière a-t-elle encore un produit prêt à l'emploi ? (sinon : discours FAF)
+    fl = {**fl, "_has_pret": any(c["mode"] == "pret" for c in cards)}
+    # Sans produit prêt, le point de preuve « Prêt ou FAF » devient faux : on le
+    # remplace par un argument FAF.
+    proof = PROOF_POINTS if fl["_has_pret"] else [
+        {"b": "FAF maîtrisé", "span": "Fabriquez votre aliment, votre coût"} if p.get("b") == "Prêt ou FAF" else p
+        for p in PROOF_POINTS
+    ]
     sections = [
         render_filiere_hero(fl),
         render_pillars(piliers),
         render_timeline(fl),
         render_matrix(fl, cards),
         render_additives(fl),
-        render_proofbar(),
+        render_proofbar(proof),
         render_techcta(),
         render_filiere_crosssell(fl),
     ]
@@ -2099,13 +2181,17 @@ def render_porc_hub_hero(h):
 
 def render_porc_timeline_2tracks(tl):
     def step_html(s, idx):
+        # Aliment complet maison suspendu : phase conservée, CTA retiré.
+        cta = "" if is_hidden(s["url"]) else (
+            f'<a class="btn-line" href="{s["url"]}">{s["cta"]} <i class="bi bi-arrow-right"></i></a>'
+        )
         return (
             f'<div class="fl-tstep">'
             f'<span class="num">{idx + 1}</span>'
             f'<span class="age">{s["age"]}</span>'
             f'<h3>{s["phase"]}</h3>'
             f'<p>{s["text"]}</p>'
-            f'<a class="btn-line" href="{s["url"]}">{s["cta"]} <i class="bi bi-arrow-right"></i></a>'
+            f'{cta}'
             f'</div>'
         )
 
@@ -2856,6 +2942,19 @@ def generate_seo():
 def main():
     check = "--check" in sys.argv
     data = json.loads(DATA.read_text(encoding="utf-8"))
+
+    # 0) Aliments complets maison suspendus : supprimer les PDP déjà sur disque pour
+    #    qu'elles ne soient ni servies ni ré-indexées (le glob du sitemap balaie *.html).
+    #    Réversible : drapeau à False + rebuild régénère ces pages.
+    if HIDE_MARIDAV_ALIMENTS_COMPLETS and not check:
+        removed = 0
+        for u in sorted(_HIDDEN_AC_URLS):
+            f = ROOT / u
+            if f.exists():
+                f.unlink()
+                removed += 1
+                print(f"  retiré  {u} (aliment complet maison suspendu)")
+        print(f"{removed} page(s) aliment complet maison retirée(s) du disque.\n")
 
     # 1) Pages produits (toutes espèces)
     written = 0
