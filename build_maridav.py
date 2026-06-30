@@ -891,9 +891,12 @@ FILIERE_CSS = r"""  <style>
 
     /* ---- product-matrix ---- */
     .fl-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .fl-mcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+    .fl-mcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
     .fl-mcard:hover{transform:translateY(-5px);box-shadow:0 30px 56px -30px rgba(2,12,46,.45)}
     .fl-mcard.is-hidden{display:none}
+    .fl-mthumb{position:absolute;top:1.05rem;right:1.05rem;width:84px;height:84px;object-fit:cover;border-radius:16px;background:#eef2f8;border:3px solid #fff;outline:1px solid var(--line);box-shadow:0 14px 26px -12px rgba(2,12,46,.55);transition:transform .3s ease,box-shadow .3s ease}
+    .fl-mcard:hover .fl-mthumb{transform:translateY(-2px) scale(1.05) rotate(-1.5deg);box-shadow:0 20px 34px -14px rgba(2,12,46,.6)}
+    .fl-mtop{padding-right:100px;min-height:84px}
     .fl-mcard .cat{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(27,142,62,.1);border-radius:999px;padding:.28rem .65rem;align-self:flex-start;margin-bottom:.6rem}
     .fl-mcard h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.08rem;color:var(--navy);margin:0 0 .25rem}
     .fl-mcard .badge-phase{font-size:.78rem;color:var(--muted);margin:0 0 .5rem}
@@ -1005,6 +1008,8 @@ FILIERE_CSS = r"""  <style>
     }
     @media (max-width:575px){
       .fl-pillars,.fl-matrix,.fl-proofgrid,.fl-timeline--wrap{grid-template-columns:1fr}
+      .fl-mthumb{width:74px;height:74px}
+      .fl-mtop{padding-right:88px;min-height:74px}
     }
   </style>"""
 
@@ -1484,6 +1489,7 @@ def products_for_filiere(data, slug):
                 "badge": hero["pill"]["text"],
                 "tagline": hero.get("figchip", {}).get("label", ""),
                 "transversal": it.get("transversal", False),
+                "image": it.get("image", ""),
             })
     return cards
 
@@ -1511,6 +1517,7 @@ def products_all(data):
                 "badge": hero["pill"]["text"],
                 "tagline": hero.get("figchip", {}).get("label", ""),
                 "transversal": it.get("transversal", False),
+                "image": it.get("image", ""),
             })
     return cards
 
@@ -1648,6 +1655,15 @@ def render_timeline(fl):
     </section>"""
 
 
+def render_mthumb(image, alt=""):
+    """Vignette produit, posée en coin haut-droit de la carte matrice (fl-mcard).
+    Le texte de la carte réserve l'espace via .fl-mtop (pas de chevauchement)."""
+    if not image:
+        return ""
+    safe = (alt or "").replace('"', "&quot;")
+    return f'<img class="fl-mthumb" src="{image}" alt="{safe}" loading="lazy" decoding="async">'
+
+
 def render_matrix(fl, cards):
     has_faf = any(c["mode"] == "faf" for c in cards)
     has_pret = any(c["mode"] == "pret" for c in cards)
@@ -1664,9 +1680,12 @@ def render_matrix(fl, cards):
             tags = '<div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div>'
         items.append(
             f'<article class="fl-mcard" data-mode="{c["mode"]}">'
+            f'{render_mthumb(c.get("image", ""), c["name"])}'
+            f'<div class="fl-mtop">'
             f'<span class="cat"><i class="bi {c["cat_icon"]}"></i> {c["cat_label"]}</span>'
             f'<h3>{c["name"]}</h3>'
             f'<p class="badge-phase">{c["badge"]}</p>'
+            f'</div>'
             f'<p>{c["tagline"]}</p>'
             f'{tags}'
             f'<a class="btn-line" href="{c["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
@@ -2488,9 +2507,12 @@ def render_biosec_matrix(h, products):
                 if p.get("transversal") else "")
         cards.append(
             f'<article class="fl-mcard" data-mode="{f}">'
+            f'{render_mthumb(p.get("image", ""), p["jsonld"]["name"])}'
+            f'<div class="fl-mtop">'
             f'<span class="cat"><i class="bi {meta["icon"]}"></i> {meta["label"]}</span>'
             f'<h3>{p["jsonld"]["name"]}</h3>'
             f'<p class="badge-phase">{figchip.get("small", "")}</p>'
+            f'</div>'
             f'<p>{figchip.get("label", "")}</p>'
             f'{tags}'
             f'<a class="btn-line" href="{p["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'

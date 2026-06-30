@@ -186,9 +186,12 @@
 
     /* ---- product-matrix ---- */
     .fl-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .fl-mcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+    .fl-mcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
     .fl-mcard:hover{transform:translateY(-5px);box-shadow:0 30px 56px -30px rgba(2,12,46,.45)}
     .fl-mcard.is-hidden{display:none}
+    .fl-mthumb{position:absolute;top:1.05rem;right:1.05rem;width:84px;height:84px;object-fit:cover;border-radius:16px;background:#eef2f8;border:3px solid #fff;outline:1px solid var(--line);box-shadow:0 14px 26px -12px rgba(2,12,46,.55);transition:transform .3s ease,box-shadow .3s ease}
+    .fl-mcard:hover .fl-mthumb{transform:translateY(-2px) scale(1.05) rotate(-1.5deg);box-shadow:0 20px 34px -14px rgba(2,12,46,.6)}
+    .fl-mtop{padding-right:100px;min-height:84px}
     .fl-mcard .cat{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(27,142,62,.1);border-radius:999px;padding:.28rem .65rem;align-self:flex-start;margin-bottom:.6rem}
     .fl-mcard h3{font-family:"Fraunces",serif;font-weight:600;font-size:1.08rem;color:var(--navy);margin:0 0 .25rem}
     .fl-mcard .badge-phase{font-size:.78rem;color:var(--muted);margin:0 0 .5rem}
@@ -300,6 +303,8 @@
     }
     @media (max-width:575px){
       .fl-pillars,.fl-matrix,.fl-proofgrid,.fl-timeline--wrap{grid-template-columns:1fr}
+      .fl-mthumb{width:74px;height:74px}
+      .fl-mtop{padding-right:88px;min-height:74px}
     }
   </style>
 </head>
@@ -512,11 +517,11 @@
           <p class="fl-modehint" id="fl-modehint" data-hint-all="Toute la gamme biosécurité : nettoyer, désinfecter et assainir l'eau, sur toutes les filières." data-hint-nettoyage="Détergents alcalin et acide pour retirer graisses, matières organiques et dépôts minéraux avant désinfection." data-hint-desinfection="Désinfectant large spectre pour détruire virus, bactéries, levures et spores après nettoyage." data-hint-eau="Nettoyage et désinfection des circuits d'eau : biofilms, calcaire et bactéries des lignes d'abreuvement.">Toute la gamme biosécurité : nettoyer, désinfecter et assainir l'eau, sur toutes les filières.</p>
         </div>
         <div class="fl-matrix" id="fl-matrix">
-            <article class="fl-mcard" data-mode="nettoyage"><span class="cat"><i class="bi bi-bucket"></i> Nettoyage</span><h3>Kenosan</h3><p class="badge-phase">Détergent moussant</p><p>Nettoyage bâtiments</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="kenosan_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-            <article class="fl-mcard" data-mode="nettoyage"><span class="cat"><i class="bi bi-bucket"></i> Nettoyage</span><h3>DM CID S24</h3><p class="badge-phase">Détergent acide</p><p>Dépôts minéraux & biofilms</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="dm_cid_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-            <article class="fl-mcard" data-mode="desinfection"><span class="cat"><i class="bi bi-shield-shaded"></i> Désinfection</span><h3>Virocid</h3><p class="badge-phase">Désinfectant concentré</p><p>Désinfection totale</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="virocid_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-            <article class="fl-mcard" data-mode="desinfection"><span class="cat"><i class="bi bi-shield-shaded"></i> Désinfection</span><h3>Kenolox</h3><p class="badge-phase">Désinfectant prêt à l'emploi</p><p>Désinfection & nébulisation</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="kenolox_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
-            <article class="fl-mcard" data-mode="eau"><span class="cat"><i class="bi bi-droplet"></i> Qualité d'eau</span><h3>CID 2000</h3><p class="badge-phase">Nettoyant circuits d'eau</p><p>Hygiène des lignes d'abreuvement</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="cid_2000_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="nettoyage"><img class="fl-mthumb" src="maridav_ci_image/hygiene_biosecurite/Kenosan Maridav.png" alt="Kenosan" loading="lazy" decoding="async"><div class="fl-mtop"><span class="cat"><i class="bi bi-bucket"></i> Nettoyage</span><h3>Kenosan</h3><p class="badge-phase">Détergent moussant</p></div><p>Nettoyage bâtiments</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="kenosan_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="nettoyage"><img class="fl-mthumb" src="maridav_ci_image/hygiene_biosecurite/DM Cid S24 Maridav.png" alt="DM CID S24" loading="lazy" decoding="async"><div class="fl-mtop"><span class="cat"><i class="bi bi-bucket"></i> Nettoyage</span><h3>DM CID S24</h3><p class="badge-phase">Détergent acide</p></div><p>Dépôts minéraux & biofilms</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="dm_cid_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="desinfection"><img class="fl-mthumb" src="maridav_ci_image/hygiene_biosecurite/virocid.webp" alt="Virocid" loading="lazy" decoding="async"><div class="fl-mtop"><span class="cat"><i class="bi bi-shield-shaded"></i> Désinfection</span><h3>Virocid</h3><p class="badge-phase">Désinfectant concentré</p></div><p>Désinfection totale</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="virocid_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="desinfection"><img class="fl-mthumb" src="maridav_ci_image/hygiene_biosecurite/Kenolox.jpg" alt="Kenolox" loading="lazy" decoding="async"><div class="fl-mtop"><span class="cat"><i class="bi bi-shield-shaded"></i> Désinfection</span><h3>Kenolox</h3><p class="badge-phase">Désinfectant prêt à l'emploi</p></div><p>Désinfection & nébulisation</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="kenolox_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
+            <article class="fl-mcard" data-mode="eau"><img class="fl-mthumb" src="maridav_ci_image/hygiene_biosecurite/cid_2000_maridav.ci.jpg" alt="CID 2000" loading="lazy" decoding="async"><div class="fl-mtop"><span class="cat"><i class="bi bi-droplet"></i> Qualité d'eau</span><h3>CID 2000</h3><p class="badge-phase">Nettoyant circuits d'eau</p></div><p>Hygiène des lignes d'abreuvement</p><div class="tags"><span class="tg"><i class="bi bi-arrow-left-right"></i> Transversal</span></div><a class="btn-line" href="cid_2000_maridav_ci.html">Découvrir <i class="bi bi-arrow-right"></i></a></article>
         </div>
         <p class="fl-empty" id="fl-empty">Aucun produit pour ce filtre.</p>
       </div>
