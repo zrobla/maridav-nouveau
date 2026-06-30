@@ -89,7 +89,7 @@
       },
       "crosssell": {
         "title": "Vous fabriquez votre aliment ?",
-        "text": "Optez pour le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
+        "text": "Optez pour le <strong>concentré protéique 35 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
         "link_text": "Voir le concentré",
         "url": "concentre_chair_31.html"
       },
@@ -106,7 +106,7 @@
         "cards": [
           {"tag": "Phase suivante", "title": "Aliment Chair Croissance", "text": "15–28 jours : soutenir la croissance et le FCR.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Croissance", "url": "aliments_chair_croissance_maridav_ci.html"},
           {"tag": "Finition", "title": "Aliment Chair Finition", "text": "29–42 jours : rendement carcasse et uniformité.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Finition", "url": "aliments_chair_finition_maridav_ci.html"},
-          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+          {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
       "ctaband": {
@@ -195,7 +195,7 @@
       },
       "crosssell": {
         "title": "Vous fabriquez votre aliment ?",
-        "text": "Optez pour le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
+        "text": "Optez pour le <strong>concentré protéique 35 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
         "link_text": "Voir le concentré",
         "url": "concentre_chair_31.html"
       },
@@ -212,7 +212,7 @@
         "cards": [
           {"tag": "Phase précédente", "title": "Aliment Chair Démarrage", "text": "0–14 jours : sécuriser le poids moyen au départ.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage", "url": "aliment_chair_demarrage_maridav_ci.html"},
           {"tag": "Phase suivante", "title": "Aliment Chair Finition", "text": "29–42 jours : rendement carcasse et uniformité.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Finition", "url": "aliments_chair_finition_maridav_ci.html"},
-          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+          {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
       "ctaband": {
@@ -301,7 +301,7 @@
       },
       "crosssell": {
         "title": "Vous fabriquez votre aliment ?",
-        "text": "Optez pour le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
+        "text": "Optez pour le <strong>concentré protéique 35 %</strong> à mélanger avec vos céréales, plutôt que l’aliment complet prêt à l’emploi.",
         "link_text": "Voir le concentré",
         "url": "concentre_chair_31.html"
       },
@@ -318,7 +318,7 @@
         "cards": [
           {"tag": "Phase précédente", "title": "Aliment Chair Croissance", "text": "15–28 jours : optimisation du FCR avant la finition.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Croissance", "url": "aliments_chair_croissance_maridav_ci.html"},
           {"tag": "Démarrage", "title": "Aliment Chair Démarrage", "text": "0–14 jours : sécuriser le poids moyen au départ.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage", "url": "aliment_chair_demarrage_maridav_ci.html"},
-          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+          {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
       "ctaband": {
@@ -407,7 +407,7 @@
       },
       "crosssell": {
         "title": "Vous fabriquez votre aliment ?",
-        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment pondeuse.",
+        "text": "Découvrez le <strong>concentré protéique 35 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment pondeuse.",
         "link_text": "Voir le concentré",
         "url": "concentre_chair_31.html"
       },
@@ -423,7 +423,7 @@
         "cards": [
           {"tag": "Phase suivante", "title": "Aliment Démarrage Pondeuses", "text": "0–6 semaines : construire la poulette.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage Pondeuses", "url": "aliment_demarrage_ponte.html"},
           {"tag": "Poulette", "title": "Aliment Poulette", "text": "7–18 semaines : uniformité avant l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
-          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+          {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
       "ctaband": {
@@ -511,7 +511,7 @@
       },
       "crosssell": {
         "title": "Vous fabriquez votre aliment ?",
-        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment poulette.",
+        "text": "Découvrez le <strong>concentré protéique 35 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment poulette.",
         "link_text": "Voir le concentré",
         "url": "concentre_chair_31.html"
       },
@@ -527,7 +527,7 @@
         "cards": [
           {"tag": "Phase précédente", "title": "ChickCare Pré-démarrage", "text": "0–5 jours : un départ idéal pour la poussinette.", "img": "maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png", "alt": "ChickCare", "url": "chickcare.html"},
           {"tag": "Phase suivante", "title": "Aliment Poulette", "text": "7–18 semaines : uniformité avant l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
-          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+          {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
       "ctaband": {
@@ -615,7 +615,7 @@
       },
       "crosssell": {
         "title": "Vous fabriquez votre aliment ?",
-        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment poulette.",
+        "text": "Découvrez le <strong>concentré protéique 35 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment poulette.",
         "link_text": "Voir le concentré",
         "url": "concentre_chair_31.html"
       },
@@ -631,7 +631,7 @@
         "cards": [
           {"tag": "Phase précédente", "title": "Aliment Démarrage Pondeuses", "text": "0–6 semaines : construire la poulette.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Démarrage Pondeuses", "url": "aliment_demarrage_ponte.html"},
           {"tag": "Phase suivante", "title": "Aliment Ponte Phase 1", "text": "Entrée en ponte → pic : soutenir le démarrage de ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 1", "url": "aliment_ponte_1_maridav_ci.html"},
-          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+          {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
       "ctaband": {
@@ -719,7 +719,7 @@
       },
       "crosssell": {
         "title": "Vous fabriquez votre aliment ?",
-        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment ponte.",
+        "text": "Découvrez le <strong>concentré protéique 35 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment ponte.",
         "link_text": "Voir le concentré",
         "url": "concentre_chair_31.html"
       },
@@ -735,7 +735,7 @@
         "cards": [
           {"tag": "Phase précédente", "title": "Aliment Poulette", "text": "7–18 semaines : préparer l’entrée en ponte.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Poulette", "url": "aliment_poulette.html"},
           {"tag": "Phase suivante", "title": "Aliment Ponte Phase 2", "text": "Persistance de ponte en fin de cycle.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 2", "url": "aliment_ponte_2_maridav_ci.html"},
-          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+          {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
       "ctaband": {
@@ -824,7 +824,7 @@
       },
       "crosssell": {
         "title": "Vous fabriquez votre aliment ?",
-        "text": "Découvrez le <strong>concentré protéique 31 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment ponte.",
+        "text": "Découvrez le <strong>concentré protéique 35 %</strong> à mélanger avec vos céréales pour fabriquer votre aliment ponte.",
         "link_text": "Voir le concentré",
         "url": "concentre_chair_31.html"
       },
@@ -840,7 +840,7 @@
         "cards": [
           {"tag": "Phase précédente", "title": "Aliment Ponte Phase 1", "text": "Entrée en ponte → pic.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte Phase 1", "url": "aliment_ponte_1_maridav_ci.html"},
           {"tag": "Début de cycle", "title": "ChickCare Pré-démarrage", "text": "0–5 jours : repartir sur une nouvelle bande.", "img": "maridav_ci_image/predemarrage/Chick%20care%202%20sacs.png", "alt": "ChickCare", "url": "chickcare.html"},
-          {"tag": "Je fabrique", "title": "Concentré 31 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
+          {"tag": "Je fabrique", "title": "Concentré 35 %", "text": "Pour fabriquer votre aliment avec vos céréales.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré", "url": "concentre_chair_31.html"}
         ]
       },
       "ctaband": {
@@ -866,34 +866,34 @@
       "filieres": ["volailles-chair", "volailles-ponte"],
       "transversal": true,
       "type": "concentre",
-      "taux_inclusion": "31 %",
+      "taux_inclusion": "35 %",
       "image": "maridav_ci_image/concentres/hendrix.webp",
       "og_image": "https://maridav.ci/maridav_ci_image/concentres/hendrix.webp",
-      "title": "Concentré protéique Hendrix 31 % — chair & pondeuses | MARIDAV",
-      "description": "Concentré protéique Hendrix 31 % distribué par MARIDAV Côte d’Ivoire : base de fabrication d’aliment pour poulets de chair et pondeuses. Transversal chair & ponte, sac 50 kg, appui technique terrain.",
-      "og_title": "Concentré protéique Hendrix 31 % — chair & pondeuses",
+      "title": "Concentré protéique Hendrix 35 % — chair & pondeuses | MARIDAV",
+      "description": "Concentré protéique Hendrix 35 % distribué par MARIDAV Côte d’Ivoire : base de fabrication d’aliment pour poulets de chair et pondeuses. Transversal chair & ponte, sac 50 kg, appui technique terrain.",
+      "og_title": "Concentré protéique Hendrix 35 % — chair & pondeuses",
       "og_description": "Concentré protéique premium pour fabriquer vos aliments poulets de chair et pondeuses, distribué par MARIDAV CI.",
       "breadcrumb": [
         {"name": "Volailles", "url": "volailles.html"},
-        {"name": "Concentré 31 %"}
+        {"name": "Concentré 35 %"}
       ],
       "breadcrumb_jsonld": [
         {"name": "Accueil", "item": "https://maridav.ci/"},
         {"name": "Volailles", "item": "https://maridav.ci/volailles.html"},
-        {"name": "Concentré 31 %", "item": "https://maridav.ci/concentre_chair_31.html"}
+        {"name": "Concentré 35 %", "item": "https://maridav.ci/concentre_chair_31.html"}
       ],
       "hero": {
         "eyebrow": "Volailles — Concentré protéique",
-        "h1": "Concentré protéique <span class=\"accent\">Hendrix 31 %</span>",
+        "h1": "Concentré protéique <span class=\"accent\">Hendrix 35 %</span>",
         "pill": {"icon": "bi-arrow-left-right", "text": "Transversal — poulets de chair &amp; pondeuses"},
         "lead": "La base premium pour <strong>fabriquer votre aliment</strong>. Formulé au plus strict des normes Hendrix, à incorporer avec vos céréales — vous maîtrisez la qualité protéique <em>et</em> le coût de la ration. Distribué et accompagné par MARIDAV Côte d’Ivoire.",
         "facts": [
-          {"b": "31 %", "span": "Concentré Hendrix"},
+          {"b": "35 %", "span": "Concentré Hendrix"},
           {"b": "50 kg", "span": "Sac standard"},
           {"b": "Chair &amp; Ponte", "span": "Deux filières"},
           {"b": "FAF", "span": "Fabrication ferme"}
         ],
-        "image_alt": "Concentré protéique Hendrix 31 % MARIDAV — sacs",
+        "image_alt": "Concentré protéique Hendrix 35 % MARIDAV — sacs",
         "figchip": {"small": "Gamme « Je fabrique »", "label": "Concentré protéique"}
       },
       "benefits": {
@@ -911,7 +911,7 @@
         "h2": "Comment l’utiliser",
         "steps": [
           {"title": "Définir la formule cible", "text": "Choisissez la filière (chair ou pondeuse) et la phase visée. Nos techniciens vous aident à cadrer la formule."},
-          {"title": "Incorporer le concentré", "text": "Mélangez le concentré 31 % avec vos céréales et sources d’énergie, au taux d’incorporation du programme MARIDAV."},
+          {"title": "Incorporer le concentré", "text": "Mélangez le concentré 35 % avec vos céréales et sources d’énergie, au taux d’incorporation du programme MARIDAV."},
           {"title": "Contrôler &amp; ajuster", "text": "Vérifiez l’homogénéité du mélange, suivez les performances et ajustez avec votre technicien."}
         ],
         "note": "Stocker au sec, ventilé, à l’abri des nuisibles (règle FIFO). Produit non médicamenteux."
@@ -957,7 +957,7 @@
         "text": "Nos techniciens cadrent votre formule chair ou pondeuse et le bon taux d’incorporation. Devis en FCFA sous 24 h."
       },
       "jsonld": {
-        "name": "Concentré protéique Hendrix 31 %",
+        "name": "Concentré protéique Hendrix 35 %",
         "description": "Concentré protéique (gamme Hendrix) distribué par MARIDAV Côte d’Ivoire pour la fabrication d’aliments destinés aux poulets de chair et aux pondeuses (en élevage).",
         "brand": "Hendrix Genetics x MARIDAV",
         "sku": "MARIDAV-CONCENTRE-31-50KG",
@@ -1041,7 +1041,7 @@
       },
       "faq_intro": "Une question sur le taux d’incorporation ? ",
       "faq": [
-        {"q": "Quelle différence avec le concentré 31 % ?", "a": "Le 12,5 % s’incorpore à plus faible taux : vous mettez plus de vos propres céréales, donc plus d’autonomie sur le coût, mais une formulation plus exigeante. Nos techniciens vous guident.", "a_short": "Le 12,5 % s’incorpore à plus faible taux : plus de céréales propres, formulation plus exigeante."},
+        {"q": "Quelle différence avec le concentré 35 % ?", "a": "Le 12,5 % s’incorpore à plus faible taux : vous mettez plus de vos propres céréales, donc plus d’autonomie sur le coût, mais une formulation plus exigeante. Nos techniciens vous guident.", "a_short": "Le 12,5 % s’incorpore à plus faible taux : plus de céréales propres, formulation plus exigeante."},
         {"q": "Pour quelles filières ?", "a": "Il est <strong>transversal</strong> : utilisable pour les poulets de chair et pour les pondeuses, selon le programme de formulation.", "a_short": "Transversal : poulets de chair et pondeuses."},
         {"q": "À quel taux l’incorporer ?", "a": "Autour de 12,5 % selon la filière, la phase et vos matières premières ; un plan de formulation est fourni par nos techniciens.", "a_short": "Autour de 12,5 % selon filière, phase et matières premières."},
         {"q": "Conditionnement &amp; stockage ?", "a": "Sac de 50 kg, à stocker sur palettes dans un local sec et ventilé, à l’abri des nuisibles, en suivant la règle FIFO.", "a_short": "Sac de 50 kg, à stocker au sec et ventilé en suivant la règle FIFO."}
@@ -1049,7 +1049,7 @@
       "related": {
         "kicker": "Gamme « je fabrique »",
         "cards": [
-          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Taux d’incorporation plus élevé, moins de céréales à ajouter.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Concentré", "title": "Concentré 35 %", "text": "Taux d’incorporation plus élevé, moins de céréales à ajouter.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
           {"tag": "Concentré", "title": "Concentré 5 %", "text": "Taux minimal pour les fabricants les plus autonomes.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 5 %", "url": "chair_05.html"},
           {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
         ]
@@ -1153,7 +1153,7 @@
         "kicker": "Gamme « je fabrique »",
         "cards": [
           {"tag": "Concentré", "title": "Concentré 12,5 %", "text": "Taux intermédiaire, formulation plus accessible.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 12,5 %", "url": "chair_12_5.html"},
-          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Taux élevé, moins de céréales à ajouter.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Concentré", "title": "Concentré 35 %", "text": "Taux élevé, moins de céréales à ajouter.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
           {"tag": "Prémix", "title": "Prémix 0,25 %", "text": "Prémix vitamino-minéral pour formulations avancées.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Prémix", "url": "premix_chair_0_25_maridav_ci.html"}
         ]
       },
@@ -1257,7 +1257,7 @@
       "related": {
         "kicker": "Gamme « je fabrique »",
         "cards": [
-          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Concentré transversal chair & ponte, taux élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Concentré", "title": "Concentré 35 %", "text": "Concentré transversal chair & ponte, taux élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
           {"tag": "Macro-prémix", "title": "Macro-Prémix Pondeuses 1,7 %", "text": "Complément vitamines & minéraux pour la ponte.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix Pondeuses", "url": "macropremix_pondeuses_1_7.html"},
           {"tag": "Prêt à l’emploi", "title": "Aliment Ponte Phase 1", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment Ponte", "url": "aliment_ponte_1_maridav_ci.html"}
         ]
@@ -1364,7 +1364,7 @@
         "kicker": "Gamme « je fabrique »",
         "cards": [
           {"tag": "Macro-prémix", "title": "Macro-Prémix 2 %", "text": "Variante à 2 % d’incorporation.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Macro-Prémix 2 %", "url": "macropremix_chair_2pct.html"},
-          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Apporte aussi la protéine, taux plus élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Concentré", "title": "Concentré 35 %", "text": "Apporte aussi la protéine, taux plus élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
           {"tag": "Prémix", "title": "Prémix 0,25 %", "text": "Prémix vitamino-minéral, taux très bas.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Prémix", "url": "premix_chair_0_25_maridav_ci.html"}
         ]
       },
@@ -1467,7 +1467,7 @@
         "kicker": "Gamme « je fabrique »",
         "cards": [
           {"tag": "Macro-prémix", "title": "Macro-Prémix 1,7 %", "text": "Variante à 1,7 % d’incorporation.", "img": "maridav_ci_image/macro_premix/broiler-premix.webp", "alt": "Macro-Prémix 1,7 %", "url": "macropremix_chair_1_7.html"},
-          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Apporte aussi la protéine, taux plus élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Concentré", "title": "Concentré 35 %", "text": "Apporte aussi la protéine, taux plus élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
           {"tag": "Prémix", "title": "Prémix 0,25 %", "text": "Prémix vitamino-minéral, taux très bas.", "img": "maridav_ci_image/macro_premix/macro-premix.webp", "alt": "Prémix", "url": "premix_chair_0_25_maridav_ci.html"}
         ]
       },
@@ -1783,7 +1783,7 @@
         "kicker": "Gamme « je fabrique »",
         "cards": [
           {"tag": "Macro-prémix", "title": "Macro-Prémix 1,7 %", "text": "Complément à plus fort taux d’incorporation.", "img": "maridav_ci_image/macro_premix/broiler-premix.webp", "alt": "Macro-Prémix 1,7 %", "url": "macropremix_chair_1_7.html"},
-          {"tag": "Concentré", "title": "Concentré 31 %", "text": "Apporte aussi la protéine, taux élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 31 %", "url": "concentre_chair_31.html"},
+          {"tag": "Concentré", "title": "Concentré 35 %", "text": "Apporte aussi la protéine, taux élevé.", "img": "maridav_ci_image/concentres/hendrix.webp", "alt": "Concentré 35 %", "url": "concentre_chair_31.html"},
           {"tag": "Prêt à l’emploi", "title": "Aliment Chair Démarrage", "text": "L’alternative prête à l’emploi, sans fabrication.", "img": "maridav_ci_image/aliments_complets/aliments_complets.jpg", "alt": "Aliment complet", "url": "aliment_chair_demarrage_maridav_ci.html"}
         ]
       },
