@@ -1295,22 +1295,43 @@ def render_faq(p):
     </section>"""
 
 
-def render_related(p):
+def _related_card_html(c):
+    return (
+        f'<div class="col-md-4"><div class="pdp-rel">'
+        f'<img src="{c["img"]}" alt="{c["alt"]}" loading="lazy" decoding="async">'
+        f'<div class="bd"><span class="pdp-tag">{c["tag"]}</span>'
+        f'<h5>{c["title"]}</h5><p>{c["text"]}</p>'
+        f'<a class="btn-line" href="{c["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
+        f'</div></div></div>'
+    )
+
+
+def render_related(p, pool=None):
     r = p.get("related")
     if not r:
         return ""
     cards = []
+    used = {p.get("url", "")}
     for c in r["cards"]:
         if is_hidden(c.get("url", "")):
             continue
-        cards.append(
-            f'<div class="col-md-4"><div class="pdp-rel">'
-            f'<img src="{c["img"]}" alt="{c["alt"]}">'
-            f'<div class="bd"><span class="pdp-tag">{c["tag"]}</span>'
-            f'<h5>{c["title"]}</h5><p>{c["text"]}</p>'
-            f'<a class="btn-line" href="{c["url"]}">Découvrir <i class="bi bi-arrow-right"></i></a>'
-            f'</div></div></div>'
+        cards.append(_related_card_html(c))
+        used.add(c.get("url", ""))
+    # Backfill : si des cartes pointaient vers un aliment complet suspendu, on
+    # regarnit la rangée (cible 3 cartes) avec de vrais produits — filière du
+    # produit courant d'abord, puis le reste de l'espèce — pour éviter le grand
+    # vide sur desktop.
+    if pool and len(cards) < 3:
+        my_filieres = set(p.get("filieres", []))
+        ranked = sorted(
+            (c for c in pool if c["url"] not in used and c["url"]),
+            key=lambda c: 0 if my_filieres & set(c.get("filieres", [])) else 1,
         )
+        for c in ranked:
+            if len(cards) >= 3:
+                break
+            cards.append(_related_card_html(c))
+            used.add(c["url"])
     if not cards:
         return ""
     cards_html = "\n          ".join(cards)
@@ -1416,7 +1437,7 @@ def strip_tags(s):
 # --------------------------------------------------------------------------- #
 #  Page complète                                                               #
 # --------------------------------------------------------------------------- #
-def render_page(p):
+def render_page(p, pool=None):
     sections = [
         render_hero(p),
         render_benefits(p),
@@ -1424,7 +1445,7 @@ def render_page(p):
         render_usage_spec(p),
         render_crosssell(p),
         render_faq(p),
-        render_related(p),
+        render_related(p, pool),
         render_ctaband(p),
     ]
     main = "\n\n".join(s for s in sections if s)
@@ -1489,7 +1510,7 @@ def products_for_filiere(data, slug):
                 "badge": hero["pill"]["text"],
                 "tagline": hero.get("figchip", {}).get("label", ""),
                 "transversal": it.get("transversal", False),
-                "image": it.get("image", ""),
+                "image": it.get("card_image") or it.get("image", ""),
             })
     return cards
 
@@ -1517,9 +1538,40 @@ def products_all(data):
                 "badge": hero["pill"]["text"],
                 "tagline": hero.get("figchip", {}).get("label", ""),
                 "transversal": it.get("transversal", False),
-                "image": it.get("image", ""),
+                "image": it.get("card_image") or it.get("image", ""),
             })
     return cards
+
+
+def related_candidates(data):
+    """Vivier de cartes « produit associé » dérivé des produits RÉELS (non masqués).
+
+    Sert à regarnir la rubrique « Produits associés » des fiches dont une ou plusieurs
+    cartes éditoriales pointaient vers un aliment complet maison suspendu : sans ce
+    backfill, la rangée se retrouve avec 1 seule carte et un grand vide sur desktop."""
+    pool = []
+    for cat in ("aliments_complets", "concentres", "macro_premix", "premix", "additifs"):
+        meta = CATEGORY_META.get(cat)
+        if not meta:
+            continue
+        for it in data.get(cat, []):
+            if not it.get("_render", True) or "hero" not in it:
+                continue
+            if is_hidden(it.get("url", "")):
+                continue
+            hero = it["hero"]
+            name = it["jsonld"]["name"]
+            text = hero.get("figchip", {}).get("label", "") or it["jsonld"].get("category", "")
+            pool.append({
+                "url": it["url"],
+                "img": it.get("card_image") or it.get("image", ""),
+                "alt": hero.get("image_alt", name),
+                "tag": meta["label"],
+                "title": name,
+                "text": text,
+                "filieres": it.get("filieres", []),
+            })
+    return pool
 
 
 def render_filiere_head(fl):
@@ -2985,8 +3037,9 @@ def main():
         if not src.exists():
             continue
         sdata = json.loads(src.read_text(encoding="utf-8"))
+        pool = related_candidates(sdata)
         for p in iter_products(sdata):
-            html_out = render_page(p)
+            html_out = render_page(p, pool)
             target = ROOT / p["url"]
             if check:
                 print(f"  [check] {p['url']:48s} {len(html_out):6d} o")

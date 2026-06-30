@@ -45,8 +45,9 @@
    "transversal": false,
    "type": "aliment-complet",
    "phase": "pré-démarrage",
-   "image": "maridav_ci_image/concentres/milkiwean.webp",
-   "og_image": "https://maridav.ci/maridav_ci_image/concentres/milkiwean.webp",
+   "image": "maridav_ci_image/concentres/milkiwean-eco.jpeg",
+   "card_image": "maridav_ci_image/concentres/milkiwean.webp",
+   "og_image": "https://maridav.ci/maridav_ci_image/concentres/milkiwean-eco.jpeg",
    "title": "Milkiwean Eco — pré-démarrage porcelet | MARIDAV Côte d'Ivoire",
    "description": "Aliment lacté pré-démarreur pour porcelets post-sevrés, distribué par MARIDAV Côte d'Ivoire : formulation haute digestibilité (22 % PB, 18 % MG, 20 % lactose) pour sécuriser la transition sevrage. Seau 10 kg.",
    "og_title": "Milkiwean Eco — pré-démarrage porcelet",
@@ -236,7 +237,7 @@
      {
       "tag": "Gamme porcs",
       "title": "Voir toute la gamme",
-      "text": "Aliments complets par phase et concentrés 5 % pour éleveurs et fabricants.",
+      "text": "Concentrés et prémix porc par phase pour fabriquer votre aliment (FAF).",
       "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "alt": "Gamme porcs MARIDAV",
       "url": "porcins_maridav_ci.html"
@@ -1555,7 +1556,7 @@
      {
       "tag": "Gamme porcs",
       "title": "Voir toute la gamme",
-      "text": "Aliments complets par phase et concentrés reproduction.",
+      "text": "Concentrés et prémix porc, engraissement et reproduction, pour la FAF.",
       "img": "maridav_ci_image/body/maridav_ci_graphique_3.webp",
       "alt": "Gamme porcs MARIDAV",
       "url": "porcins_maridav_ci.html"
