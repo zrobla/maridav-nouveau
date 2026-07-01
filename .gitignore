@@ -29,6 +29,7 @@ node_modules/
 .env.local
 .env.*.local
 *credentials*
+*CREDENTIALS*
 acces-credentials.txt
 *.pem
 *.key
