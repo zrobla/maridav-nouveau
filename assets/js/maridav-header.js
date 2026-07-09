@@ -168,3 +168,72 @@
     init();
   }
 })();
+
+/* ===== MARIDAV — OVERLAY FIN DE VERSION DE TEST (vitrine uniquement) =====
+   Recouvre la vitrine avec un message invitant Maridav à activer son
+   hébergement et à publier le site sur www.maridav.ci.
+   Le CRM (/crm/) ne charge pas ce script : il n'est pas affecté.
+   POUR DÉSACTIVER : supprimer ce bloc (de ce commentaire jusqu'au marqueur
+   de fin) puis redéployer. Réversible sans autre modification.
+   ======================================================================== */
+(function () {
+  'use strict';
+
+  function build() {
+    if (document.getElementById('mdv-test-overlay')) return;
+
+    var style = document.createElement('style');
+    style.id = 'mdv-test-overlay-style';
+    style.textContent =
+      '#mdv-test-overlay{position:fixed;inset:0;z-index:2147483000;display:flex;' +
+      'align-items:center;justify-content:center;padding:6vw 5vw;' +
+      'background:radial-gradient(120% 120% at 50% 0%,#12385c 0%,#0a1f36 55%,#06121f 100%);' +
+      'color:#fff;text-align:center;overflow:auto;' +
+      "font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;}" +
+      '#mdv-test-overlay .mdv-card{max-width:640px;width:100%;}' +
+      '#mdv-test-overlay .mdv-badge{display:inline-flex;align-items:center;gap:.55rem;' +
+      'padding:.5rem 1.15rem;border:1px solid rgba(255,255,255,.28);border-radius:999px;' +
+      'font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;' +
+      'color:rgba(255,255,255,.82);margin-bottom:1.8rem;}' +
+      '#mdv-test-overlay .mdv-badge .dot{width:.7rem;height:.7rem;border-radius:50%;' +
+      'background:#3ddc97;box-shadow:0 0 0 4px rgba(61,220,151,.2);}' +
+      '#mdv-test-overlay h1{font-family:Fraunces,Georgia,"Times New Roman",serif;' +
+      'font-weight:600;line-height:1.12;margin:0 0 1.15rem;' +
+      'font-size:clamp(2rem,5vw,3.1rem);}' +
+      '#mdv-test-overlay p{font-size:clamp(1.12rem,2.2vw,1.3rem);line-height:1.6;' +
+      'color:rgba(255,255,255,.86);margin:0 auto 1.9rem;max-width:34rem;}' +
+      '#mdv-test-overlay .mdv-domain{display:inline-block;font-weight:700;' +
+      'font-size:clamp(1.3rem,3vw,1.8rem);letter-spacing:.01em;color:#ffd479;' +
+      'padding:.6rem 1.4rem;border:1px solid rgba(255,212,121,.4);border-radius:14px;' +
+      'background:rgba(255,212,121,.08);}' +
+      '#mdv-test-overlay .mdv-foot{margin-top:2.2rem;font-size:.92rem;' +
+      'color:rgba(255,255,255,.55);letter-spacing:.02em;}' +
+      'html.mdv-lock,body.mdv-lock{overflow:hidden !important;}';
+    document.head.appendChild(style);
+
+    var ov = document.createElement('div');
+    ov.id = 'mdv-test-overlay';
+    ov.setAttribute('role', 'dialog');
+    ov.setAttribute('aria-modal', 'true');
+    ov.setAttribute('aria-label', 'Version de test terminée');
+    ov.innerHTML =
+      '<div class="mdv-card">' +
+        '<span class="mdv-badge"><span class="dot"></span>Version de test terminée</span>' +
+        '<h1>Le site est prêt à être mis en ligne.</h1>' +
+        '<p>Veuillez activer votre hébergement et publier votre site web sur&nbsp;:</p>' +
+        '<span class="mdv-domain">www.maridav.ci</span>' +
+        '<div class="mdv-foot">Maridav&nbsp;CI</div>' +
+      '</div>';
+
+    (document.body || document.documentElement).appendChild(ov);
+    document.documentElement.classList.add('mdv-lock');
+    if (document.body) document.body.classList.add('mdv-lock');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', build);
+  } else {
+    build();
+  }
+})();
+/* ===== FIN OVERLAY FIN DE VERSION DE TEST ===== */
